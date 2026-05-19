@@ -1,35 +1,42 @@
-# BRIEF — onchain AI brain (last update: cycle 20260519_1702)
+# BRIEF — onchain AI brain (last update: cycle 20260519_1800)
 
 ## Current state (live)
-- closed=4957 (4652 Sol + 305 BSC), open=198, span 2026-05-11 → 2026-05-19. **State FROZEN** at same last entry_time since cycle 1639 (file mtime updates but no new closures — sniper may be paused/buffered, 10+h gap from last entry).
-- Baseline (Sol): avgPnL=-38.5%, WR=17.7%, rug=42.8%, big=2%, huge=0.4%.
-- Reference DBs found on VPS (`/srv/bots/onchain/data/`): rugger_blacklist (3728 wallets), wallet_history_db (3720), tokens_unified (32K, 18MB — unused yet).
+- closed=4999 rows, **but only 683 unique tokens** (avg 7.32 rows/token from stream tag duplication). open=1.
+- Per-token Solana baseline: avgPnL=-41.5%, WR=17.8%, rug=51.1%, big=1.7%.
+- Span: 2026-05-11 → 2026-05-19T17:51. State unfrozen this cycle (+42 new rows / 18 new unique tokens since cycle_1702).
+- **Last-12h regime is catastrophic**: baseline -73%, last 6h -94%. NO known signal helps. Possibly macro or sniper-side.
 
-## Paper streams in flight (proposed by AI brain)
-**NONE.** Backlog hypotheses pending fresh data or gate-criterion revision.
+## Methodology fix this cycle (critical)
+**Per-token, not per-row, is the correct unit for filter analysis.** Wallet-whitelist constructions that required n≥k per wallet were inflated 7-10× by stream-tag duplication. Going forward: dedupe by `token` (first entry kept), then split walk-forward, then evaluate filters.
+
+## Paper streams in flight
+**NONE.** No hypothesis meets strict +150% avg gate. Several candidates clear risk-adjusted thresholds (rug halved, big% lifted) — pending user decision on alternative gate (carrying since 1639).
 
 ## Last validated hypothesis & key cycle findings
-- **cycle_20260519_1702**: H_RUG_PC (pool_creator ∈ rugger_blacklist) **REJECTED — hindsight leakage** in classifier construction. Decontamination test: CLEAN rugger subset = baseline (-68%), DIRTY (token-overlap) = all the apparent edge (+17%). Procedural lesson documented. See [cycle_20260519_1702.md](insights/cycle_20260519_1702.md).
-- **NEW H_CR_HIST_NEG** — exclude trades where `entry_signal.cr_hist.pumped_alive≥1` (creators with prior pumped tokens = serial scammers, TEST n=86, WR=0%, avg=-71%). Coverage 6%, composable veto.
-- Reconfirmed: **H_LP_WHITELIST** (cycle_20260519_1639) — real persistent edge (TEST big=14.3% vs 1.5%, rug=25.7% vs 43) but fails strict +150% avg gate.
+- **cycle_20260519_1800**: H_LP_WHITELIST **REJECTED — counting inflation** (TRAIN whitelist=1 wallet, TEST hits=0 after per-token dedup). Surviving per-token signals: **H_LP_HIST** (lp_hist.pumped_alive≥1; TEST n=22, avg=-41 vs base -62, rug=32 vs 58, big=4.5 vs 0.8), **H_DISTRIB** (top1<27; TEST rug=22 vs 58), **H_LOCKED** (lp_unlocked=false; TEST rug=33 vs 58). Best composition: LP_HIST+QUIET (n=13, big=7.7%, rug=23%). See [cycle_20260519_1800.md](insights/cycle_20260519_1800.md).
+- **cycle_20260519_1702**: H_RUG_PC REJECTED — hindsight leakage. cr_hist.pumped_alive≥1 confirmed NEG-veto.
+- **cycle_20260519_1639**: original LP-whitelist claim (now retracted).
 
 ## Planned for next cycle
-1. **First action: check if state.json moved.** If still frozen 10+h, flag user — sniper may need restart.
-2. Walk-forward `tokens_unified.json` features (32K classified tokens) with strict `updated_at < entry_time` filter to avoid same leakage trap that killed H_RUG_PC.
-3. Compose H_LP_WHITELIST + H_CR_HIST_NEG veto when fresh data arrives.
-4. Investigate SNIPER_G (n=123, rug=19.5%, avg=-14.6% — best risk-adjusted control). What filter makes it good?
-5. **Always** apply decontamination split (CLEAN/DIRTY by test-overlap) before claiming edge on any external classifier feature.
+1. **tokens_unified.json deep-dive** (34K classified Solana tokens with `added_at`/`updated_at`). Cross-ref against our 683 unique tokens with strict `updated_at < entry_time` filter (avoid H_RUG_PC trap). Rich metrics: `db_rugBotCount, db_serialRugCount, db_smartMoneyBuyVol, db_highRiskWalletCount, db_positiveWalletCount, db_bundleDetected, ohlcv_athGain, serial_pump_count, sniper_count`.
+2. Re-run surviving per-token signals with fresh data window.
+3. Regime-guard hypothesis: is there a feature that predicts current hour's baseline? If avg-last-N-baseline < -60%, pause new entries.
+4. ULTRA_TRIPLE and H2 new streams — analyze when more rows.
 
 ## OPEN QUESTIONS to user
-1. **BSC_FILTERED is broken** (n=28, avg=-90.5%, rug=89%). Kill or rewrite? (pending since 1639)
-2. **SNIPER_SMART_CLUSTER broken** (n=39, avg=-75.7%, rug=77%). Same. (pending since 1639)
-3. **Strict gate** (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) blocks hypotheses with strong WR/rug/big% where exit logic suppresses avgPnL. Can we add Sharpe/expectancy alternative gate? (pending since 1639)
-4. **`bonding_curve_buyers`** field is empty `[]` in samples — populated downstream or always empty? (pending since 1639)
-5. **NEW: State.json frozen since 07:09 entry-time (10+ hours)** — is sniper paused? Should I pause analysis cycles until it resumes, or continue?
-6. **NEW: rugger_blacklist.json refresh policy** — when/how is it rebuilt? If we add `wallet_added_at` per entry, we could properly time-aware filter it instead of treating as leaky.
+1. **NEW: SMART_COPY duplication** — SMART_COPY/SMART_COPY_TOP and SMART_COPY_AGE5/SMART_TOP_AGE5 produce numerically-identical metrics on the same tokens. Intentional A/B or duplicated specs?
+2. **NEW: Last-12h carnage** (baseline -73%, last-6h -94%). External cause (BTC dump, Solana congestion, RPC issue) or sniper-side bug? Pause paper-stream proposals until normal?
+3. **NEW: ULTRA_TRIPLE & H2 stream filter logic** — can you share the spec? Helps interpret performance.
+4. **Carrying (1639): Strict gate** (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) blocks risk-adjusted edges where rug is halved + big% is lifted but avg stays sub-150 due to exit logic. Alternative Sharpe/expectancy gate?
+5. **Carrying (1639): BSC_FILTERED / SMART_CLUSTER** — both produced NO rows in last 10.5h. Killed already, or dormant?
+6. **Carrying (1639): bonding_curve_buyers** field empty in samples — populated downstream or never?
+7. **Carrying (1702): rugger_blacklist refresh policy** — for time-aware use, can entries carry `wallet_added_at`?
 
-## Rejected this cycle (1702)
-- **H_RUG_PC** (pool_creator ∈ rugger_blacklist) — hindsight leakage. CLEAN subset = baseline; only DIRTY (token-overlap) subset carries signal. Not prospective.
-- **H_RUG_LP** (same family, same leakage).
-- **H_CR_HIST_POSITIVE** (cr_hist.pumped_alive≥1 as positive filter) — reverse signal; saved as NEG veto instead.
-- **wallet_history_db.lp role as filter** — matches 4493/4652 trades; not selective enough.
+## Rejected this cycle (1800)
+- **H_LP_WHITELIST** — counting inflation via stream duplication (row-basis 24 wallets → per-token 1 wallet; TEST hits=0). Was claimed edge of cycle_1639; retracted.
+
+## Known catalogue of leakage forms (apply to every hypothesis)
+1. **Hindsight classifier** (cycle_1702 H_RUG_PC): external DB built with post-test info. Test: decontamination split (CLEAN vs DIRTY by overlap with our trade tokens).
+2. **Counting inflation** (cycle_1800 H_LP_WHITELIST): row-stats over stream-duplicated data. Test: per-token dedup.
+3. **Time-localization artifact** (cycle_1639 1AR wallet): aggregate alpha from a single day. Test: per-day breakdown.
+4. **Post-entry feature** (cycle_1639 ride_mode): flag set after entry. Test: check field is populated pre-trade.

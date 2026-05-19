@@ -4,13 +4,11 @@
 
 ## NEW (proposed cycle 20260519_1639)
 
-### H_LP_WHITELIST — primary
+### H_LP_WHITELIST — primary  **[REJECTED in cycle_1800 — see below]**
 **Idea**: Maintain rolling whitelist of `lp_provider` wallets with prior trailing-window n≥3, avgPnL≥+30%, rug≤33%. Enter only if `entry_signal.lp_provider ∈ whitelist`.
-**Evidence**: walk-forward TRAIN→TEST: n=35, avg=-7.5%, WR=40%, **rug=25.7%, big=14.3%, huge=0%** vs baseline (n=1861) avg=-46.9%, rug=43%, big=1.5%. Δavg=+39pt, Δrug=-17pt, Δbig=+12.8pt.
-**Why it works**: LP providers are repeated actors; "incubators" with successful prior pumps tend to repeat. Per-token pool_creator does NOT persist; LP provider does.
-**Why not deployed**: avgPnL on TEST (-7.5%) fails the +150% gate. Fat-tail upside (14% big winners) is real but suppressed by current exit/trail logic. Needs adaptive TP+ride for the LP-whitelisted cohort.
-**Next**: Re-run after +12-24h of data; whitelist size will stabilize. Also write paper-stream spec with custom exit logic for this cohort.
-**Status**: NEW, awaiting more data.
+**Original evidence (cycle_1639, row-basis)**: walk-forward TRAIN→TEST: n=35, avg=-7.5%, WR=40%, rug=25.7%, big=14.3%. Δavg=+39pt vs baseline.
+**REJECTED cycle_1800**: when reconstructed on per-token basis (dedupe stream-tag duplication, avg 7.32 rows/token), TRAIN whitelist size collapses 24→1 wallet, and **TEST hits = 0**. The original n≥3 qualification was clearing because a single token's snipe-detection generated 7+ rows under different stream tags. This is **counting inflation** — a new leakage form, distinct from hindsight-classifier (H_RUG_PC).
+**Status**: REJECTED (kept for memory).
 
 ### H_QUIET_EMERGENCE
 **Idea**: Catch early-stage emerging tokens before the herd arrives. Filter: `liquidity_at_entry < 17K` AND `buys_m5 < 150` AND `volume_h24 < 60K` AND `top1_pct < 20`.
@@ -39,6 +37,50 @@
 **Why it's safe vs. H_RUG_PC**: cr_hist is a snapshot frozen at entry_time — it cannot encode future outcomes. Decontamination test not needed (per-trade time-correctness is structural).
 **Next**: compose with H_LP_WHITELIST in next cycle; re-test when data is fresh.
 **Status**: NEW.
+
+## NEW (proposed cycle 20260519_1800) — per-token surviving signals
+
+### H_LP_HIST — per-token positive filter (REVISED from H_LP_WHITELIST)
+**Idea**: Enter only when `entry_signal.lp_hist.pumped_alive >= 1`. This is a frozen-at-entry snapshot of the LP provider's history (cannot leak from duplication; cannot leak from hindsight classifier — it's a per-trade structural field).
+**Evidence (per-token walk-forward, 60/20/20 by entry_time, 597 unique Sol tokens)**:
+- TRAIN n=62, avg=-3.1%, WR=30.6%, rug=38.7%, big=4.8%, huge=1.6%
+- VAL   n=30, avg=-34%, WR=43.3%, rug=33.3%, big=0%, huge=0%
+- TEST  n=22, avg=-41.2%, WR=9.1%, rug=31.8%, big=4.5%, huge=0%
+- vs TEST baseline n=120, avg=-62.4%, WR=14.2%, rug=58.3%, big=0.8%
+- **Δavg=+21pt, Δrug=-26pt, Δbig=+3.7pt**. Coverage 18% on TEST. Persistent across all splits.
+**Why deploy candidate**: rug rate halved; big-winner% ~5× baseline; replicates across TRAIN/VAL/TEST. Fails strict +150% gate but clears risk-adjusted thresholds.
+**Why not deployed yet**: strict gate; current 12h regime nullifies even this signal (last-12h LP_HIST=-77%/WR=0).
+**Next**: re-test in normal regime; investigate composition with H_DISTRIB.
+**Status**: NEW (replaces rejected H_LP_WHITELIST).
+
+### H_DISTRIB — distributed holders (per-token)
+**Idea**: Enter only when `entry_signal.top1_pct < 27` (top holder owns less than 27% of supply).
+**Evidence (per-token TEST)**: n=18, avg=-38.8%, WR=22.2%, rug=22.2%, big=0%. Δavg=+24pt, Δrug=-36pt vs baseline. Coverage 15%.
+**Why interesting**: rug rate cut by 36pt — strongest rug-reduction filter found. No fat tail.
+**Mechanism**: distributed holders = no single sniper-bundle position dominating; less rug pressure.
+**Status**: NEW (risk-veto candidate, not yield).
+
+### H_LOCKED — LP locked (per-token)
+**Idea**: Enter only when `entry_signal.lp_unlocked === false`.
+**Evidence (per-token TEST)**: n=21, avg=-41.6%, WR=23.8%, rug=33.3%, big=0%. Δavg=+21pt, Δrug=-25pt vs baseline. Coverage 17%.
+**Status**: NEW.
+
+### H_LP_HIST_AND_QUIET — composition (per-token)
+**Idea**: H_LP_HIST AND `buys_m5 < 113` (low pre-entry buyer count).
+**Evidence (per-token walk-forward)**:
+- TRAIN n=30, avg=+75.8%, WR=53.3%, rug=6.7%, big=10%, huge=3.3%
+- VAL   n=12, avg=-19.8%, WR=50%, rug=16.7%, big=0%
+- TEST  n=13, avg=-30.4%, WR=7.7%, rug=23.1%, big=7.7%, huge=0%
+- vs TEST baseline avg=-62.4%, big=0.8%. **Δbig=+6.9pt, Δrug=-35pt**.
+**Why not deployed**: n=13 on TEST too small. Coverage 11%. TRAIN looks excellent but doesn't reproduce in VAL/TEST without much higher n.
+**Next**: re-test when data 3x bigger.
+**Status**: NEW.
+
+## REJECTED (cycle 20260519_1800)
+
+### H_REJECT_LP_WHITELIST_ROWBASIS — counting inflation
+**Reason**: As noted above, original cycle_1639 evidence was on row-basis with avg 7.32 row-duplicates per token. On per-token dedup the whitelist collapses from 24 wallets to 1 (the only LP wallet with ≥3 *distinct* tokens that performed). TEST hits = 0 — there's no edge. This is a SECOND distinct leakage form to add to the catalogue (alongside hindsight-classifier from cycle_1702).
+**Lesson**: For any per-wallet (or per-creator, per-router) leaderboard construction, **dedupe by token first**, then count distinct tokens per wallet for qualification, then evaluate. Never use stream-tagged row counts for wallet n-thresholds.
 
 ## REJECTED (cycle 20260519_1702) — keep for memory
 
