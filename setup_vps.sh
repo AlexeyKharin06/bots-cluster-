@@ -8,22 +8,22 @@ set -e
 log() { echo "[$(date '+%H:%M:%S')] $*"; }
 log "=== Bots-cluster VPS deploy started ==="
 
-# === 1. Установка базовых пакетов ===
-if ! command -v docker &>/dev/null; then
-  log "Installing system packages (Python, Node, Docker, ffmpeg)..."
-  export DEBIAN_FRONTEND=noninteractive
-  apt-get update -qq
-  apt-get -qq install -y curl wget git build-essential ca-certificates \
-    software-properties-common gnupg lsb-release htop tmux nano ufw fail2ban \
-    rsync cron jq sqlite3 libsqlite3-dev ffmpeg python3 python3-pip python3-venv
+# === 1. Установка базовых пакетов (идемпотентно — apt не переустанавливает) ===
+log "Installing/verifying system packages..."
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -qq
+apt-get -qq install -y curl wget git build-essential ca-certificates \
+  software-properties-common gnupg lsb-release htop tmux nano ufw fail2ban \
+  rsync cron jq sqlite3 libsqlite3-dev ffmpeg python3 python3-pip python3-venv
+if ! command -v node &>/dev/null || [[ $(node -v 2>/dev/null) != v20* ]]; then
   curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
   apt-get -qq install -y nodejs
-  curl -fsSL https://get.docker.com | sh
-  systemctl enable --now docker
-  log "Base packages installed"
-else
-  log "Base packages already installed — skip"
 fi
+if ! command -v docker &>/dev/null; then
+  curl -fsSL https://get.docker.com | sh
+fi
+systemctl enable --now docker 2>/dev/null || true
+log "Base packages OK"
 
 # === 2. User 'bots' ===
 if ! id bots &>/dev/null; then
@@ -53,8 +53,8 @@ ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22/tcp
 ufw --force enable
-systemctl enable --now fail2ban
-log "Firewall + fail2ban enabled"
+systemctl enable --now fail2ban 2>/dev/null || log "fail2ban skip (not critical)"
+log "Firewall enabled"
 
 # === 5. Claude Code CLI (для AI brain) ===
 sudo -u bots bash <<'EOF'
