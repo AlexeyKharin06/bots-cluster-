@@ -1,35 +1,35 @@
-# BRIEF — onchain AI brain (last update: cycle 20260519_1639)
+# BRIEF — onchain AI brain (last update: cycle 20260519_1702)
 
 ## Current state (live)
-- closed=4957 (4652 Sol + 305 BSC), open=198, span 2026-05-11 → 2026-05-19 (~7.9 days)
-- Baseline: avgPnL=-40%, WR=17.5%, rug=47.1%, big%(≥+100%)=2%, huge%(≥+500%)=0.5%
-- Control streams: GOLD3/4/5, WHALE, LATE, LOWCAP (Sol); BSC_FILTERED; A/B/D/D2/E/F/G/H/H2/SMART_COPY/...
+- closed=4957 (4652 Sol + 305 BSC), open=198, span 2026-05-11 → 2026-05-19. **State FROZEN** at same last entry_time since cycle 1639 (file mtime updates but no new closures — sniper may be paused/buffered, 10+h gap from last entry).
+- Baseline (Sol): avgPnL=-38.5%, WR=17.7%, rug=42.8%, big=2%, huge=0.4%.
+- Reference DBs found on VPS (`/srv/bots/onchain/data/`): rugger_blacklist (3728 wallets), wallet_history_db (3720), tokens_unified (32K, 18MB — unused yet).
 
 ## Paper streams in flight (proposed by AI brain)
-**NONE this cycle.** Best hypothesis (LP-WHITELIST) shows real edge (TEST big%=14.3 vs baseline 1.5, rug=25.7 vs 43) but TEST avgPnL=-7.5% — fails the +150% gate. Need more data to stabilize whitelist or revised gate criteria.
+**NONE.** Backlog hypotheses pending fresh data or gate-criterion revision.
 
-## Last validated hypothesis
-**H_LP_WHITELIST** (rolling LP-provider whitelist, TRAIN-derived, walk-forward to TEST):
-- TEST n=35, avg=-7.5%, WR=40%, rug=25.7%, **big=14.3%**, huge=0%
-- vs baseline (n=1861): avg=-46.9%, rug=43%, big=1.5%
-- Δ: +39pt avg, -17pt rug, +12.8pt big winners
-- Status: real persistent edge, doesn't meet deployment gate. See [cycle_20260519_1639.md](insights/cycle_20260519_1639.md).
-
-## Rejected this cycle (with reasons in cycle file)
-- `ride_mode=true` cohort (+135% avg) → post-entry flag, not usable.
-- `top1_owner` `1AR1WDTonbum...` (n=167, +92%) → single-day artifact, not wallet alpha.
-- LP blacklist filter → only 1.7% TEST coverage, noise-level impact.
+## Last validated hypothesis & key cycle findings
+- **cycle_20260519_1702**: H_RUG_PC (pool_creator ∈ rugger_blacklist) **REJECTED — hindsight leakage** in classifier construction. Decontamination test: CLEAN rugger subset = baseline (-68%), DIRTY (token-overlap) = all the apparent edge (+17%). Procedural lesson documented. See [cycle_20260519_1702.md](insights/cycle_20260519_1702.md).
+- **NEW H_CR_HIST_NEG** — exclude trades where `entry_signal.cr_hist.pumped_alive≥1` (creators with prior pumped tokens = serial scammers, TEST n=86, WR=0%, avg=-71%). Coverage 6%, composable veto.
+- Reconfirmed: **H_LP_WHITELIST** (cycle_20260519_1639) — real persistent edge (TEST big=14.3% vs 1.5%, rug=25.7% vs 43) but fails strict +150% avg gate.
 
 ## Planned for next cycle
-1. Re-test H_LP_WHITELIST after another 12-24h of data (more LP entries → whitelist denser).
-2. Backtest H_QUIET_EMERGENCE (`liq<17K & buys<150 & vol<60K`) standalone with more TEST data.
-3. Check if `bonding_curve_buyers` field is populated enough to enable insider-wallet hypothesis.
-4. Investigate **SNIPER_G** stream (n=123, rug 19.5%, avg -14.6%) — best risk-adjusted control stream; what does it filter that others don't?
-5. Compute paper-stream spec for LP whitelist with **adaptive TP/ride** (capture the 14% big winners) — needed because fat-tail upside is the real value.
+1. **First action: check if state.json moved.** If still frozen 10+h, flag user — sniper may need restart.
+2. Walk-forward `tokens_unified.json` features (32K classified tokens) with strict `updated_at < entry_time` filter to avoid same leakage trap that killed H_RUG_PC.
+3. Compose H_LP_WHITELIST + H_CR_HIST_NEG veto when fresh data arrives.
+4. Investigate SNIPER_G (n=123, rug=19.5%, avg=-14.6% — best risk-adjusted control). What filter makes it good?
+5. **Always** apply decontamination split (CLEAN/DIRTY by test-overlap) before claiming edge on any external classifier feature.
 
 ## OPEN QUESTIONS to user
-1. **BSC_FILTERED is broken** (n=28, avg=-90.5%, rug=89%). Confirm if you want me to propose its rewrite or kill — it's on the "do-not-touch" list but the data is unambiguous.
-2. **SNIPER_SMART_CLUSTER also broken** (n=39, avg=-75.7%, rug=77%). Same question.
-3. The strict paper-stream gate (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) is incompatible with the actual alpha shape we observe — current sniper exit logic doesn't capture the fat-tail. **Can we add a Sharpe/expectancy-based alternative gate** for hypotheses where big% is high but avgPnL is suppressed by suboptimal exits?
-4. `bonding_curve_buyers` field is empty `[]` in samples — is this populated downstream or always empty? If populated, it would enable an insider-bundle detection hypothesis.
-5. Is `tokens_unified.json` (32K classified tokens) deployable to VPS for cross-reference? Currently only 1AR1WDTonbum-style heuristics, no known-good/known-bad wallet labels.
+1. **BSC_FILTERED is broken** (n=28, avg=-90.5%, rug=89%). Kill or rewrite? (pending since 1639)
+2. **SNIPER_SMART_CLUSTER broken** (n=39, avg=-75.7%, rug=77%). Same. (pending since 1639)
+3. **Strict gate** (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) blocks hypotheses with strong WR/rug/big% where exit logic suppresses avgPnL. Can we add Sharpe/expectancy alternative gate? (pending since 1639)
+4. **`bonding_curve_buyers`** field is empty `[]` in samples — populated downstream or always empty? (pending since 1639)
+5. **NEW: State.json frozen since 07:09 entry-time (10+ hours)** — is sniper paused? Should I pause analysis cycles until it resumes, or continue?
+6. **NEW: rugger_blacklist.json refresh policy** — when/how is it rebuilt? If we add `wallet_added_at` per entry, we could properly time-aware filter it instead of treating as leaky.
+
+## Rejected this cycle (1702)
+- **H_RUG_PC** (pool_creator ∈ rugger_blacklist) — hindsight leakage. CLEAN subset = baseline; only DIRTY (token-overlap) subset carries signal. Not prospective.
+- **H_RUG_LP** (same family, same leakage).
+- **H_CR_HIST_POSITIVE** (cr_hist.pumped_alive≥1 as positive filter) — reverse signal; saved as NEG veto instead.
+- **wallet_history_db.lp role as filter** — matches 4493/4652 trades; not selective enough.
