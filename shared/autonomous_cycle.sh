@@ -223,8 +223,15 @@ else
 fi
 
 # === 8. Telegram alert ======================================================
-TG_TOKEN="${TG_TOKEN:-8237255734:AAHiS308o1j-j_plw8g-euYNXyuJTLynXg4}"
-TG_CHAT="${TG_CHAT:-411831496}"
+# Загружаем секреты из /srv/bots/.shared/.env (НЕ в git, создаётся при setup)
+[ -f /srv/bots/.shared/.env ] && set -a && . /srv/bots/.shared/.env && set +a
+TG_TOKEN="${TG_TOKEN:-}"
+TG_CHAT="${TG_CHAT:-}"
+if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then
+  echo "  TG skipped: TG_TOKEN/TG_CHAT not set in /srv/bots/.shared/.env"
+  echo "=== cycle $CYCLE_ID done $(date -u) ==="
+  exit 0
+fi
 BRIEF_HEAD=$(head -15 "$PROJ_MEMORY/BRIEF.md" 2>/dev/null | sed 's/[<>&]//g')
 MSG="🤖 [$PROJECT] cycle ${CYCLE_ID}
 https://github.com/AlexeyKharin06/bots-cluster-/commits

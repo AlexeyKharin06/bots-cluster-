@@ -35,8 +35,18 @@ fi
 # === 3. Структура /srv/bots/ ===
 mkdir -p /srv/bots/{onchain,trade,listing-arb,cex-onchain,pl,funding-rate}
 mkdir -p /srv/bots/.shared/{logs,memory,backups}
+# .env template (заполнить вручную после первого запуска)
+if [ ! -f /srv/bots/.shared/.env ]; then
+  cat > /srv/bots/.shared/.env <<'ENVEOF'
+# Telegram bot для alert'ов AI brain cycle
+# Создать бота: https://t.me/BotFather → /newbot → токен
+TG_TOKEN=
+TG_CHAT=
+ENVEOF
+  chmod 600 /srv/bots/.shared/.env
+fi
 chown -R bots:bots /srv/bots
-log "Project dirs ready"
+log "Project dirs ready (заполни /srv/bots/.shared/.env: TG_TOKEN + TG_CHAT)"
 
 # === 4. Firewall ===
 ufw default deny incoming
