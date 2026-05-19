@@ -141,11 +141,13 @@ BRAIN_PROMPT=$(cat <<'PROMPT'
 Прочитай этот файл первым. Если нужны старые циклы — HISTORY.md показывает какие.
 Если нужны конкретные closed_trades — /srv/bots/PROJECT_HERE/data/sniper_state.json.
 
-## ЗАДАЧИ ЦИКЛА (выбери 1-2, НЕ всё)
-A. Анализ свежих closed_trades vs предыдущего цикла — что изменилось
-B. Новые гипотезы (1-3) которых ещё нет в backlog.md, на основе wallet-патернов
-C. Walk-forward backtest гипотезы на REAL closed_trades (train/val/test по времени, БЕЗ leakage)
-D. Если прошла валидацию (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) — добавить как paper-stream
+## ЗАДАЧИ ЦИКЛА (выбери ОДНУ — чтобы успеть в 80 turns)
+A. Анализ свежих closed_trades vs предыдущего цикла — что изменилось (READ + WRITE insights)
+B. Новые гипотезы (1-3) на основе wallet-патернов, append в backlog.md
+C. Walk-forward backtest одной гипотезы из backlog.md на real closed_trades
+D. Если прошла (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) — добавить paper-stream
+
+Если данных нет (state.json пуст) — focus на B (формирование гипотез из общих принципов).
 
 ## ОБЯЗАТЕЛЬНЫЕ ВЫХОДЫ (каждый цикл)
 
@@ -195,11 +197,11 @@ if [ -x "$HOME/.npm-global/bin/claude" ] || command -v claude &>/dev/null; then
   # Permission mode задаёт пользователь через CLAUDE_EXTRA_FLAGS env var.
   cd "$REPO"
   timeout 2700 claude -p "$BRAIN_PROMPT" \
-    --max-turns 40 \
+    --max-turns 80 \
     --add-dir /srv/bots/onchain \
     --add-dir /tmp \
     ${CLAUDE_EXTRA_FLAGS:-} \
-    2>&1 | tee /tmp/claude_out.txt | tail -80 \
+    2>&1 | tee /tmp/claude_out.txt | tail -120 \
     || echo "  claude timeout/err"
 else
   echo "  claude CLI not found — first run: sudo -u bots bash -c 'PATH=~/.npm-global/bin:\$PATH claude /login'"
