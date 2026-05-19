@@ -1,0 +1,26 @@
+services:
+  onchain-sniper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: onchain-sniper
+    restart: unless-stopped
+    env_file:
+      - /srv/bots/onchain/.env
+    volumes:
+      - /srv/bots/onchain/data:/app/data
+      - /srv/bots/onchain/logs:/app/scripts/wallet_v2/logs
+      - /srv/bots/onchain/tg_session:/app/tg/session
+      - /srv/bots/.shared/memory:/app/.shared/memory:ro
+    mem_limit: 6g
+    cpus: 2.0
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f serial_sniper.js || exit 1"]
+      interval: 60s
+      timeout: 10s
+      retries: 3

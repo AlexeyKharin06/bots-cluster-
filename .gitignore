@@ -1,0 +1,47 @@
+# Secrets — NEVER commit
+.env
+.env.*
+*.session
+*.session-journal
+.tg_credentials
+ssh/vps_key
+ssh/id_*
+*.pem
+*.key
+*_token*
+
+# Runtime data (lives on VPS, not in repo)
+data/
+logs/
+*.log
+tmp/
+
+# Large data — these live on VPS only
+pump_collection.json
+tokens_unified.json
+tokens.json
+wallet_history_db.json
+token_charts_cache.json
+*.jsonl
+state.json
+sniper_state.json
+lp_bot_state.json
+holders_cache.json
+
+# Build artefacts
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
