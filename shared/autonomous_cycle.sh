@@ -190,8 +190,16 @@ BRAIN_PROMPT="${BRAIN_PROMPT//PROJECT_HERE/$PROJECT}"
 
 if [ -x "$HOME/.npm-global/bin/claude" ] || command -v claude &>/dev/null; then
   export PATH="$HOME/.npm-global/bin:$PATH"
-  timeout 2700 claude -p "$BRAIN_PROMPT" --max-turns 40 2>&1 | tail -80 > /tmp/claude_out.txt || echo "  claude timeout/err"
-  cat /tmp/claude_out.txt
+  # Запускаем из /srv/bots/cluster (project-level .claude/settings.json).
+  # --add-dir: дополнительные пути вне проекта (live data + tmp).
+  # Permission mode задаёт пользователь через .claude/settings.json или CLI flag.
+  cd "$REPO"
+  timeout 2700 claude -p "$BRAIN_PROMPT" \
+    --max-turns 40 \
+    --add-dir /srv/bots/onchain /tmp \
+    ${CLAUDE_EXTRA_FLAGS:-} \
+    2>&1 | tee /tmp/claude_out.txt | tail -80 \
+    || echo "  claude timeout/err"
 else
   echo "  claude CLI not found — first run: sudo -u bots bash -c 'PATH=~/.npm-global/bin:\$PATH claude /login'"
 fi
