@@ -172,14 +172,75 @@ def save_stats():
 def normalize_chat_id(cid):
     """Telegram channels приходят как -1001234567890 в event.chat_id,
     но в include_peers хранятся как 1234567890.
-    Возвращает 'normalized' positive id для сравнения."""
+    Возвращает 'normalized' positive id для сравнения.
+    Проверенная логика из старого tg_listener: abs - 10^12 для длинных id с префиксом."""
     cid = int(cid)
+    if cid is None:
+        return None
     if cid < 0:
-        s = str(abs(cid))
-        if s.startswith('100') and len(s) > 4:
-            return int(s[3:])
-        return abs(cid)
+        a = abs(cid)
+        if a > 1_000_000_000_000:  # -100XXXXXXXXXXX format
+            return a - 1_000_000_000_000
+        return a
     return cid
+
+
+# ★ TIER S/A channels — image-based signals (из paper_streams_integration_20260509.md)
+# Эти каналы публикуют CA в виде картинок (chart screenshots, branded posts).
+# Без OCR мы пропускаем ~91% их сигналов.
+OCR_TIER_CHANNELS = {
+    'Gre4cha_crypto', 'MEMEcrypted', 'memecrypted_chat', 'on_chain_radar',
+    'crypto_chu', 'artypost', 'awaiting_lifechange', 'crypto_azam',
+    'zodchiii', 'cryptokitta', 'easyfart', 'icodrops_sergey', 'web3memoriess',
+    'PowsGemCalls', 'l3xdaily',
+}
+
+_ocr_reader_box = [None]  # lazy holder
+
+
+def get_ocr():
+    """Lazy-load easyocr (300MB models). Только при первом изображении."""
+    if _ocr_reader_box[0] is None:
+        log("loading easyocr models (first time, ~300MB)...")
+        import easyocr
+        _ocr_reader_box[0] = easyocr.Reader(['en'], gpu=False, verbose=False)
+        log("easyocr ready")
+    return _ocr_reader_box[0]
+
+
+MEDIA_TMP_DIR = SHARED / 'media_tmp'
+MEDIA_TMP_DIR.mkdir(exist_ok=True)
+
+
+async def ocr_extract_addrs(client, message, ch_name):
+    """Если канал в TIER S/A и в сообщении есть фото — скачивает, OCR, возвращает найденные адреса."""
+    if ch_name not in OCR_TIER_CHANNELS:
+        return [], []
+    try:
+        from telethon.tl.types import MessageMediaPhoto
+        if not isinstance(getattr(message, 'media', None), MessageMediaPhoto):
+            return [], []
+        tmp_path = MEDIA_TMP_DIR / f'{ch_name}_{message.id}.jpg'
+        await client.download_media(message, file=str(tmp_path))
+        if not tmp_path.exists():
+            return [], []
+        try:
+            reader = get_ocr()
+            results = reader.readtext(str(tmp_path), detail=0, paragraph=False)
+            text = ' '.join(results)
+        finally:
+            try:
+                tmp_path.unlink()
+            except Exception:
+                pass
+        sol_addrs = [a for a in SOL_ADDR.findall(text) if a not in IGNORED_ADDRS]
+        bsc_addrs = [a.lower() for a in BSC_ADDR.findall(text)]
+        if sol_addrs or bsc_addrs:
+            log(f"[OCR_HIT] {ch_name} msg={message.id}: sol={len(sol_addrs)} bsc={len(bsc_addrs)}")
+        return sol_addrs, bsc_addrs
+    except Exception as e:
+        log(f"[OCR_ERR] {ch_name} msg={message.id}: {type(e).__name__}: {str(e)[:120]}")
+        return [], []
 
 
 async def main():
@@ -227,6 +288,20 @@ async def main():
             channel_name = getattr(chat, 'username', None) or getattr(chat, 'title', 'unknown')
 
             record = extract_payload(event.message.message or '', channel_name, event.chat_id, folder=None)
+
+            # ★ Image OCR — для TIER S/A каналов (publish CA через картинки)
+            if channel_name in OCR_TIER_CHANNELS:
+                ocr_sol, ocr_bsc = await ocr_extract_addrs(client, event.message, channel_name)
+                if ocr_sol or ocr_bsc:
+                    # Merge OCR-найденные адреса в record
+                    record['sol_addrs'] = list(set(record['sol_addrs'] + ocr_sol))
+                    record['bsc_addrs'] = list(set(record['bsc_addrs'] + ocr_bsc))
+                    record['ocr_used'] = True
+                    if 'onchain' not in record['routes']:
+                        record['routes'].append('onchain')
+                    stats.setdefault('ocr_hits', 0)
+                    stats['ocr_hits'] += 1
+
             if record['sol_addrs'] or record['bsc_addrs'] or record['routes']:
                 write_signal(record)
                 stats['msgs_total'] += 1
