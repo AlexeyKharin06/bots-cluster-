@@ -11,3 +11,11 @@
 - **TG auth done** earlier with code 31681 → @alexey_khar1n
 - **AI brain cron**: 0 3,9,15,21 UTC (next fire 09:00 UTC)
 - **Next**: cycles run autonomously; future code edits in D:\CEX-Onchain → git push → VPS auto-sync
+
+## Unified TG Hub integration (2026-05-20 13:28 UTC)
+- Per-project tg_listener DISABLED (touch .tg_listener_disabled)
+- Source switched to unified hub: /srv/bots/.shared/tg/feed_cex.jsonl (CEX-arb routed signals) + signals_master.jsonl (raw, fallback)
+- bot/tg_external_reader.py updated (commit f9e4531) — VPS pulled via git in 2s
+- One Telethon process (PID 95970) listens 65 channels for ALL 4 projects (no more AuthKey conflicts)
+- Tmux `cex-brain` running AI brain cycle 20260520_1328 — user attaches via `ssh root@VPS; sudo -u bots tmux a -t cex-brain`
+- Cron `0 3,9,15,21 UTC` continues background cycles
