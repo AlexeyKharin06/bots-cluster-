@@ -272,7 +272,9 @@ async def main():
     stats['events_in_target'] = 0
     stats['events_with_signal'] = 0
 
-    @client.on(events.NewMessage())
+    # ВАЖНО: events.NewMessage БЕЗ скобок — это builder pattern Telethon
+    # с () — explicit filter object, может не ловить broadcast channels в некоторых версиях
+    @client.on(events.NewMessage)
     async def handler(event):
         try:
             stats['events_received'] += 1
