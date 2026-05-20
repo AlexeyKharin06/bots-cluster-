@@ -60,6 +60,15 @@ if [ -x "$REPO/shared/rate_limit_guard.sh" ]; then
   }
 fi
 
+# === 0.5. HEALTHCHECK — диагностика инфраструктуры перед циклом ============
+echo "[0.5] healthcheck..."
+if [ -x "$REPO/shared/healthcheck.sh" ]; then
+  PROJECT="$PROJECT" bash "$REPO/shared/healthcheck.sh" 2>&1 | tail -30
+  HEALTHCHECK_REPORT=/tmp/healthcheck_${PROJECT}.md
+else
+  HEALTHCHECK_REPORT=""
+fi
+
 # === 1. Pull repo ===========================================================
 echo "[1] git pull..."
 cd "$REPO"
@@ -103,6 +112,20 @@ CTX=/tmp/brain_context_$CYCLE_ID.md
 {
   echo "# Cycle $CYCLE_ID context (project=$PROJECT)"
   echo
+  echo "## 🔴 HEALTHCHECK (если есть проблемы — сначала чинишь, потом анализ)"
+  [ -f "$HEALTHCHECK_REPORT" ] && cat "$HEALTHCHECK_REPORT" || echo "(healthcheck не запустился — проверь shared/healthcheck.sh)"
+  echo
+  echo "## 🟡 CRITICAL FINDINGS (общие уроки от всех сессий — читай каждый цикл!)"
+  if [ -f "$MEMORY/CRITICAL_FINDINGS.md" ]; then
+    head -100 "$MEMORY/CRITICAL_FINDINGS.md"
+    echo "... (полный файл в memory/CRITICAL_FINDINGS.md)"
+  else
+    echo "(нет файла)"
+  fi
+  echo
+  echo "## AI BRAIN MISSION (общие полномочия и цели)"
+  [ -f "$MEMORY/AI_BRAIN_MISSION.md" ] && head -50 "$MEMORY/AI_BRAIN_MISSION.md" || echo "(нет)"
+  echo
   echo "## CURRENT STATE (live data, this cycle)"
   cat "$STATE_SNAPSHOT"
   echo
@@ -121,6 +144,15 @@ CTX=/tmp/brain_context_$CYCLE_ID.md
   echo
   echo "## BACKLOG (open hypotheses)"
   [ -f "$PROJ_MEMORY/backlog.md" ] && cat "$PROJ_MEMORY/backlog.md" || echo "(none)"
+  echo
+  echo "## UNIFIED TG SIGNALS (per-project feed)"
+  TG_FEED=/srv/bots/.shared/tg/feed_${PROJECT}.jsonl
+  if [ -f "$TG_FEED" ]; then
+    echo "Last 20 signals от unified TG listener:"
+    tail -20 "$TG_FEED"
+  else
+    echo "(нет $TG_FEED — listener может не работать или нет сигналов для этого проекта)"
+  fi
 } > "$CTX"
 CTX_SIZE=$(wc -c < "$CTX")
 echo "[4] context: ${CTX_SIZE}B (full last 3 cycles + history index + brief + backlog)"
