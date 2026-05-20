@@ -304,3 +304,59 @@ SNIPER_G / SNIPER_GOLD5 / SNIPER_WHALE looked like clean Track A candidates in a
 - **Both active**: guard remains on. Multiple recovery attempts may be expected before stable exit from this regime.
 
 **Status**: STILL ACTIVE (gating via either condition).
+
+## NEW (proposed cycle 20260520_1800)
+
+### H_BIG_WINNER_SHAPE_V3 — relaxed shape, 4/4 best-fire bigs, borderline-fail gate (highest-priority monitor)
+**Filter**: `entry_signal.known ≥ 11 AND entry_signal.smart ≥ 2 AND liquidity_at_entry ≥ 17000 AND entry_signal.lp_unlocked === true AND entry_signal.top1_pct ≥ 85`.
+
+**Evidence (best-fire dedup, 561 unique Sol tokens, 60/20/20 walk-forward by entry_time)**:
+- TRAIN n=44 avg=+44.9 WR=25 rug=50 big=4.55 huge=2.27 Er=+0.449 Kelly=0.03 geom=+0.49%/trade — PASSES gate criteria on TRAIN.
+- VAL n=20 avg=-78.6 WR=5 rug=75 big=0 — collapse-period contamination (same as every prior cycle).
+- TEST n=26 avg=-3.1 WR=50 rug=31 big=7.69 huge=0 Er=-0.031 Kelly=0 geom=0 — **BORDERLINE FAIL** by ~3pp Er (need >0).
+- Full universe n=90 avg=+3.6 WR=28 rug=50 big=4.44 huge=1.11 Er=+0.036 Kelly=0.
+
+**Bigs captured (best-fire pnl)**: 4/4 — MTFR (256, MC_LIQ), PIGEON (3699, SNIPER_A), Together (153, SMART_COPY), RONALDO (436, MC_LIQ).
+**Bigs captured (first-fire/production-realistic pnl)**: 3/4 — Together drops out at 75% on SNIPER_A.
+
+**Mechanism (hypothesis)**: shape targets freshly-launched memecoins with whale-concentrated supply (top1≥85%), $17K+ liquidity, smart+known wallet engagement, and unlocked LP. This is the structural shape of insider-launched + smart-money-entered tokens that produce the fat-tail outcome distribution. Rug rate stays elevated (~50% TRAIN, 31% TEST) because the same shape also describes failed rug attempts.
+
+**Why not deployable yet**:
+1. TEST Er=-0.031 fails strict gate by 3pp. One more huge in TEST would flip Kelly>0.
+2. n=26 on TEST is at floor of n≥20 requirement; noise floor.
+3. Best-fire is a *measurement* of theoretical upside; production sniper enters on first-fire (SNIPER_A) where the result is 3/4 bigs and a different pnl distribution. Next cycle re-runs walk-forward on first-fire pnl.
+
+**Re-test triggers**:
+- 3rd big in TEST window — would likely flip Er positive.
+- First-fire pnl walk-forward beats baseline by enough.
+- Tighter feature shape that improves rug rate without dropping bigs (open exploration).
+
+**Composition note**: H_SMART_CLUSTER_VETO does NOT compose usefully — only 2/90 H_V3 tokens have SMART_CLUSTER in their multi-stream set (LVHC -100, NASA +3.7). Composition is net-neutral.
+
+**Status**: NEW. Strongest descriptive candidate yet; primary monitoring target. Paper-promote NOT approved.
+
+### H_MC_LIQ_RIDE — SNIPER_MC_LIQ trail logic captures more fat-tail upside (observation, awaiting code review)
+**Observation**: 2 of 4 best-fire bigs win on SNIPER_MC_LIQ:
+- MTFR: SNIPER_A 250 → MC_LIQ 256 (marginal +2%)
+- RONALDO: SNIPER_A 184 → **MC_LIQ 436** (+137%, dramatic — largest first→best gap observed)
+
+**Implication**: MC_LIQ's exit/trail logic may capture fat-tail upside better than SNIPER_A's. If the parameter delta is small (different trail multiplier, longer hold, looser mcap floor, etc.), it could be back-ported to SNIPER_A OR used as a routing target for H_V3-shaped tokens.
+
+**MC_LIQ aggregate stats** (cycle_1328, full universe): n=122 avg=-35.4 WR=25 rug=38 big=0.82%. Best risk-adjusted of high-volume streams. Worth deeper look.
+
+**Cost**: read sniper code for MC_LIQ vs SNIPER_A param differential (~5-15min if accessible).
+
+**Status**: NEW (observation, not yet hypothesis). Pending sniper code review.
+
+### H_DEDUP_BEST_STREAM_BIG_ATTR — COMPLETED this cycle
+Confirmed: best-fire dedup adds 1 big (Together at 153% in SMART_COPY family, vs 75% in SNIPER_A). Recommendation: use best-fire dedup for *fat-tail capture* evaluation; use first-fire dedup for *rug-avoidance* evaluation (because production enters on first-fire and rugs hit all streams). Two distinct research questions, two distinct universes.
+
+**Status**: COMPLETED. Folded into H_BIG_WINNER_SHAPE_V3 backtest.
+
+### UPDATE: H_REGIME_GUARD (cycle_1800) — BOTH conditions clear simultaneously (first time since 05-18 collapse)
+- **Condition A** (rolling-50 avg < -55%): **CLEAR** (-43.8). Was -56.2 in cycle_1328.
+- **Condition B** (big%=0 for ≥24h): **CLEAR** (big%=2.00 via RONALDO +184% @ 05-20T15:41Z). Was 0 for 2.65d streak.
+- Both clear simultaneously — first time since the 05-18 collapse. The trigger cycle_1200 declared for H_BIG_WINNER_SHAPE re-test has fired.
+- **Caveat**: cycle_1200→1328 saw a partial clear that head-faked. Current double-clear could be a true regime transition OR a second head-fake. Re-trigger in next 1-2 cycles = head-fake confirmed.
+
+**Status**: OFF by formal criteria. Treat opportunistic, monitor for re-trigger.
