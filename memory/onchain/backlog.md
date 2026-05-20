@@ -196,3 +196,52 @@
 3. Filtering to time-correct entries leaves n=1 — useless.
 4. Would require per-feature timestamps (not per-token) to be salvageable; current schema doesn't support this.
 **Lesson — new leakage form (5th in catalogue)**: "stale classifier DB with reactive updates". Looks like a rich live DB but is structurally: (a) static snapshot dated to a single past minute (90% of entries) plus (b) post-hoc updates on the test set (10% of entries). Both halves are useless prospectively. Always check (i) coverage on prospective test tokens, (ii) `updated_at < entry_time` per overlap, (iii) distribution of `updated_at` for the DB as a whole — if it clusters at one timestamp, you're looking at a static snapshot, not a live feed.
+
+## NEW (proposed cycle 20260520_1200)
+
+### H_BIG_WINNER_SHAPE — fat-tail cluster descriptor (status: DESCRIPTIVE / pending fat-tail return)
+**Filter**: `entry_signal.known ≥ 17 AND entry_signal.smart ≥ 7 AND liquidity_at_entry ≥ 20000 AND entry_signal.lp_unlocked === true AND entry_signal.top1_pct ≥ 50`.
+
+**Evidence (cycle_1200, 581 unique Solana tokens)**:
+- Catches **3/3** big winners (>=150% pnl) in current dataset: PIGEON +3699, MTFR +251, 1billion +228.
+- Walk-forward 60/20/20 (TRAIN=348, VAL=116, TEST=117):
+  - TRAIN: n=80 avg=-12.7% WR=20% rug=67.5% big=3.75% — looks plausible but TRAIN-only.
+  - VAL: n=19 avg=-84.9% — collapse-period contamination.
+  - TEST: n=25 avg=-55.5% **big=0** Er=-0.555 Kelly=0 — **DOES NOT VALIDATE.**
+- Pre-collapse subset (before 2026-05-18T20:00Z, n=251): n=57 Er=+0.093 Kelly=0 WR=22.8% rug=66.7% big=5.26% huge=1.75%. **Positive expectancy** but **Kelly=0** because high rug rate (~67%) makes log-utility prefer no sizing.
+- Pre-collapse 70/30 walk-forward: TRAIN n=38 Er=+0.452 Kelly=0.02 big=7.89%; TEST n=19 Er=-0.627 — doesn't replicate even in normal regime.
+
+**Mechanism (hypothesis)**: smart+known wallets bundling into a whale-held, freshly-launched pool with decent liquidity and unlocked LP correlates with the asymmetric fat-tail distribution. Rug rate stays elevated (~67%) but rare 10×+ payoffs compensate. PIGEON +3699% is the dominant signal in pre-collapse Kelly.
+
+**Why not deployable yet**:
+1. TEST big=0 (no fat tails in TEST window — regime condition B still gating).
+2. Even pre-collapse Kelly=0 standalone (rug rate too high).
+3. n=3 fat tails total in dataset → can't statistically isolate the predictive features.
+
+**Re-test trigger**: when ANY big winner (pnl≥150%) appears in current 50-window — immediately re-run walk-forward + Kelly on H_BIG_WINNER_SHAPE + compositions.
+
+**Open composition idea**: H_BIG_WINNER_SHAPE ∩ H_LP_HIST_QUIET (intersection would have catch MTFR only; PIGEON has buys=355 — too noisy for QUIET). n likely too small for meaningful test.
+
+**Status**: NEW (descriptive, monitoring).
+
+### STRATEGIC NEGATIVE LESSON (cycle_1200) — ANTI-FAT-TAIL FILTERS
+The following filters that previously appeared as "surviving rug-reduction signals" are **structurally ANTI-correlated** with the 3 known big winners in current data:
+- **H_DISTRIB** (top1_pct < 27): would skip all 3 bigs (their top1 ∈ {78.9, 86.1, 96.9}).
+- **H_LOCKED** (lp_unlocked = false): would skip all 3 bigs (all have lp_unlocked=true).
+- **H_QUIET_EMERGENCE** (liq<17K AND buys<150): would skip all 3 bigs (PIGEON liq=69K buys=355, 1billion liq=59K buys=273).
+- **H_FAT_HUNTER** (lp_hist≥1 AND ser_supply<25 AND top5<30 AND cr_hist=0): would skip all 3 bigs (top5 ∈ {85.9, 90.2, 99.5}).
+- **H_LP_HIST** (lp_hist≥1): would skip 2 of 3 bigs (only MTFR has lp_hist.pumped_alive=1).
+
+**Reframing**: these filters are useful for high-WR / low-rug scalping ("Track A" stream) but **wrong for +1M% goal** in isolation. They trade away the fat tail for safety. The brain should not propose any of them as standalone candidates for the stated goal again.
+
+**Implication for evaluation**: any new hypothesis should be tested for fat-tail capture rate (% of known bigs the filter would have allowed) BEFORE being tested for Kelly/expectancy. A filter that catches 0/3 bigs cannot be on the +1M% path even if its expectancy is positive on a no-fat-tail TEST.
+
+### UPDATE: H_REGIME_GUARD (cycle_1200) — 2-condition gate diagnostics
+- Condition A (rolling-50 avg < -55%): **CLEARED this cycle**. last50 avg=-45.9%, recovered from -97.8%.
+- Condition B (big%=0 for ≥24h): **STILL ACTIVE**. Big%=0 in last 300 unique tokens (~2 days streak).
+- Two conditions correspond to two distinct failure modes:
+  - A = market-wide carnage (avg/WR/rug all bad)
+  - B = fat-tail death (basic stats fine but no big winners)
+- They can dissolve at different times — confirmed by this cycle's partial recovery (A dissolved, B did not).
+- Operational implication: when re-promoting, distinguish "this filter has high WR" from "this filter catches fat tails" — the regime can support one but not the other.
+**Status**: STILL ACTIVE (gating via condition B).
