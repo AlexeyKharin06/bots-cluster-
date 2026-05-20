@@ -22,7 +22,7 @@ H9 forensic on ride_exit_X% exits (200-1158% pnl) | pending 2026-05-20 | identif
 H10 liq_mcap_ratio < 30 + age >= 15 filter w/ regime gate | pending 2026-05-20 | strongest combined rug avoidance (rug 19% in-sample n=101)
 H11 asymmetric Kelly for lottery archetype | REJECTED 2026-05-20_1700 | smart>=7+known>=15+both>=4: train n=393 rug 79%! pct_3x only 1%; even tiny Kelly can't fix this — see cycle_20260520_1700.md / R11
 
-H12 `both` count signal (both>=5) | pending 2026-05-20_1700 | COMPUTE outlier (+288%) had smart=0 known=1 BOTH=10 — wallets that are BOTH smart AND known piling in. Distinct from cluster-rug pattern. Need to bucket by `both` and walk-fwd. n on a `both>=5` filter unknown.
+H12 `both` count signal (both>=5) | REJECTED 2026-05-20_2300 | bucket-test: both=5_6 n=309 avg -72% rug 82%; both=10+ n=148 avg -50% rug 79% (lottery, 6.8% 3x). Walk-fwd: train n=401 rug 80%, test n=177 rug 69% even with regime gate (rug 90% gated!). The undifferentiated cluster is a rug signal. See R12 + insights/cycle_20260520_2300.md
 
 H13 SMART_COPY_GATED paper stream | pending 2026-05-20_1700 | SMART_COPY family flipped +18-23% in clean regime, -48% in hostile. Pair with regime gate ≤0.35 — joint walk-fwd. Requires permission to add new paper stream.
 
@@ -47,3 +47,11 @@ R9 RECLASSIFIED 2026-05-20_1700 | SMART_COPY inversion claim was REGIME-SPECIFIC
 
 H7 regime gate ≤0.35 | TESTING 2026-05-20_1700 | walk-fwd train -41% / test +7.3% (n=112) — +48pp persistent lift, strongest validated edge. Trade only when trail100 rug ≤0.35. Need permission to patch into bot OR new gated paper stream.
 H8 UPDATED 2026-05-20_1700 | test n=46 raw / n=7 dedup avg +18.9% rug 0% pct_3x 14% — first profitable hypothesis but sample tiny. Track until n_dedup ≥50.
+
+R12 H12 `both>=5` standalone | rejected 2026-05-20_2300 | both=5_6 rug 82%, both=10+ rug 79%; regime gate makes it WORSE (test rug 90% gated vs 69% ungated — clean-regime windows produce more cluster-rugs). Undifferentiated overlap is a rug signal in aggregate.
+
+H17 PURE_BOTH archetype | promising_high_priority 2026-05-20_2300 | smart=0 ∧ known<=1 ∧ both>=5 ∧ top1=0 ∧ liq_mc>=50 ∧ mcap<=25k ∧ age<=15min. Test (13h, last 30% split): 6 unique tokens (BEAN, MC, COMPUTE, https, CATCOIN, WORLDCUP), 0% rug, 17% 3x rate. Top winners MC +1268%, WORLDCUP +971%, CATCOIN +542%, COMPUTE +856% (all SNIPER_B). PORTUGAL +906% in train. n too small (train=1 unique, test=6 unique). NEED 30+ unique to confirm. NOT a subset of REJECTED H12 — the key constraint is smart=0 AND known<=1 (i.e. ALL wallet activity is in `both` overlap, not distributed). Different classifier-quirk pattern. See cycle_20260520_2300.md.
+
+H18 EXIT-LOGIC alpha `early_exit_ratio_99` | high_priority 2026-05-20_2300 | SNIPER_B uses early_exit_ratio_99 exit which dominates SNIPER_A on same entries by +344pp avg (16 cases). Mechanism: (a) rug-avoidance — exits +10-30% on tokens A holds to rug_no_data -100%, (b) big-winner capture — catches multi-1000% peaks A's sl/ride_exit can't. Likely THE alpha. Need source visibility for the exit logic. Cross-stream attribution next: does D/E/G/F have similar exit, or is it B-unique?
+
+H19 cross-stream B-exit replication | pending 2026-05-20_2300 | if early_exit_ratio_99 is B-unique, all other streams have inferior exit. Audit each stream's exit_reason distribution on the H17 archetype subset. Promote streams with similar exit-side alpha for paired testing.
