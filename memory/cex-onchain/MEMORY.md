@@ -1,0 +1,6 @@
+- [VPS PROJECT CONTEXT](PROJECT_CONTEXT.md) — главный файл со всей стратегией, путями, KPI — ПРОЧИТАТЬ ПЕРВЫМ
+- [Loop cycle log](loop_cycle_log.md) — chronological autonomous research cycles
+- [Project context legacy](project_context.md) — оригинальный референс на CLAUDE.md (Windows path)
+- [Session log pointer](session_log_pointer.md) — где искать SESSION_LOG в коде
+- [User preferences](feedback_workflow.md) — backtest перед изменениями, auto-mode default
+- [Bot lifecycle](project_bot.md) — legacy (Windows): bot/start.bat. VPS: cron-based
