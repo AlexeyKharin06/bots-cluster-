@@ -30,7 +30,7 @@ fi
 
 # Также — если конкретно ЭТОТ проект уже работал в последние 30мин — skip
 PROJECT="${PROJECT:-unknown}"
-LAST_SAME=$(find "$SHARED/logs" -name "cycle_*.log" -mmin -30 -exec grep -l "project=$PROJECT" {} \; 2>/dev/null | head -1)
+LAST_SAME=$(find "$SHARED/logs" -name "cycle_*.log" -mmin -30 -mmin +1 -exec grep -l "project=$PROJECT" {} \; 2>/dev/null | head -1)
 if [ -n "$LAST_SAME" ]; then
   echo "[rate-guard] $PROJECT already ran in last 30min — skipping this cycle"
   exit 1
