@@ -1,47 +1,50 @@
-# BRIEF — onchain AI brain (last update: cycle 20260519_1826)
+# BRIEF — onchain AI brain (last update: cycle 20260520_0000)
 
 ## Current state (live)
-- closed=4624 Solana rows / **584 unique tokens** (per-token dedup, avg ~7.9 rows/token). open=many (sniper running live).
-- Per-token baseline (last ~17h TEST window): n=117 avg=-68.9% WR=11.1% rug=65% **big%=0 huge%=0**.
-- Span: 2026-05-11 15:33 → 2026-05-19 19:17. State growing live (sniper on VPS).
-- **Regime carnage persists**: TEST window 0 big-winners, 0 huge-winners. Cycle_1800 flagged 12h baseline -73%; today's 17h window confirms — possibly macro, sniper-side, or both. No filter on top of zero base rate can pass the +1M%-aligned fat-tail gate.
+- closed=4915 Solana rows / **592 unique tokens** (per-token dedup). Span 2026-05-11T15:33Z → 2026-05-19T23:59Z (8d).
+- Per-token last-50: **avg=-99.6% WR=0% rug=100% big=0%**. Worst single-day print yet.
+- +36 new unique tokens since cycle_1826's 19:17Z snapshot — 100% rug, avg=-99.5%.
 
-## Goal (user-updated cycle_1826)
-**+1,000,000% (×10K)** via 6-8 reinvested compounding wins. Implication: big%/huge% > avgPnL; strict +150% promotion gate should be replaced by expectancy/Kelly-based gate. Carrying open question since 1639.
+## Goal (carrying from cycle_1826)
+**+1,000,000% (×10K)** via 6-8 reinvested compounding wins. Implies fat-tail edge required, not high-WR scalping. **Expectancy/Kelly gate formalized this cycle** (see below) — replaces strict +150%.
 
 ## Paper streams in flight
-**NONE.** Two candidate families exist but neither cleared this cycle:
-- Per-token validated edges (H_LP_HIST, H_DISTRIB, H_LOCKED) — risk-adjusted, halve rug, lift big% 4-6×, **regime blocks fat-tail signature** in current TEST window.
-- TG channel paper-streams — **none possible** (cycle_1826 NULL_TG_LEAD; see below).
+**NONE.** Neither gate (strict +150% or new expectancy/Kelly) approves any candidate on current TEST. Both correctly reject LP_HIST+QUIET (TRAIN Kelly=0.33, TEST E[r]=-50%).
 
-## Last validated hypothesis & key cycle findings
-- **cycle_20260519_1826**: TG channel walk-forward → **NULL_TG_LEAD REJECTED**. 3 of 584 trade tokens overlap TG signal corpus; 0 with pre-entry mention. Sniper is upstream of TG corpus. `channel_pump_predictiveness.json` also degenerate (33/35 channels pump_rate=0). New: **H_TG_AS_EXIT** parked (mention-during-hold as exit signal — needs instrumentation). See [cycle_20260519_1826.md](insights/cycle_20260519_1826.md).
-- **cycle_20260519_1800**: H_LP_WHITELIST REJECTED — counting inflation. Surviving per-token signals: H_LP_HIST, H_DISTRIB, H_LOCKED. Best comp: LP_HIST+QUIET (n=13, big=7.7%, rug=23%).
-- **cycle_20260519_1702**: H_RUG_PC REJECTED — hindsight leakage in rugger_blacklist. cr_hist.pumped_alive≥1 confirmed NEG-veto (H_CR_HIST_NEG).
-- **cycle_20260519_1639**: original LP-whitelist claim (retracted in 1800).
+## Regime status (NEW this cycle — quantified)
+- Sliding-50 transition #1 at ~2026-05-18T10:51Z: big% drops to 0, stays 0 for 5 days.
+- Sliding-50 transition #2 at ~2026-05-19T18:43Z: WR collapses 20%→0%, rug 56%→100%.
+- **Confirmed external (macro), NOT sniper-side**: stream mix unchanged pre/post 2026-05-18T20:00Z; all streams uniformly worse. SNIPER_G (best risk-adjusted) -3.6% → -43.3%.
+- **Posture**: defer all edge-promotion until rolling-50 avg > -55% AND big% > 0 within 50 trades.
+
+## Last validated work
+- **cycle_20260520_0000**: GATE_EXPECTANCY_KELLY formalized (E[r]>0 ∧ Kelly≥0.05 ∧ geom≥1%/trade ∧ n≥20). H_TOKENS_UNIFIED REJECTED. H_REGIME_GUARD formalized. See [cycle_20260520_0000.md](insights/cycle_20260520_0000.md).
+- **cycle_20260519_1826**: NULL_TG_LEAD — TG corpus reactive. H_TG_AS_EXIT parked.
+- **cycle_20260519_1800**: per-token dedup overturned H_LP_WHITELIST. Survivors: H_LP_HIST, H_DISTRIB, H_LOCKED — none clear gate.
+- **cycle_20260519_1702**: H_RUG_PC REJECTED (hindsight). H_CR_HIST_NEG validated.
 
 ## Planned for next cycle
-1. **Formalize expectancy/Kelly gate** to replace strict +150%. Apply retroactively to H_LP_HIST + H_DISTRIB + H_LOCKED + H_CR_HIST_NEG to see if any qualifies under new gate. No new data needed — code-only.
-2. **Symmetric null-check on pumpfun_monitor.js + dexscreener_signals.json**: same walk-forward template as TG. Likely also null (sniper is faster than these feeds) but worth confirming so we stop suggesting it.
-3. **tokens_unified.json deep-dive (carrying from 1800)**: 32K classified tokens with `updated_at`. Strict `updated_at < entry_time` cross-ref against our 584 trade-tokens. Rich features: `db_rugBotCount, db_serialRugCount, db_smartMoneyBuyVol, db_highRiskWalletCount, db_positiveWalletCount, db_bundleDetected, ohlcv_athGain, serial_pump_count, sniper_count`. **MUST run decontamination split** (avoid H_RUG_PC trap).
-4. **Regime-guard**: if avg-last-N-baseline < -60%, freeze paper-stream proposals until normal. Quick code-only fix; prevents premature gate evaluation.
-5. **H_TG_AS_EXIT instrumentation spec**: write the patch for `serial_sniper.js` to populate `first_tg_mention_ts` per open position from `realtime_signals.jsonl` tail. User applies.
+1. **Regime recovery check**: if rolling-50 avg > -55% OR big% > 0 in fresh data → re-test all surviving edges under expectancy gate immediately.
+2. **If still carnage**: address H_TG_AS_EXIT spec or symmetric null-check on pumpfun_monitor.js + dexscreener_signals.
+3. **Sniper patch spec** for H_REGIME_GUARD (~30 lines): rolling baseline computed from own closed_trades, gate new entries when avg < threshold. User would apply manually.
+4. **Optional**: characterize the only positive window (2026-05-18T07:16-09:17) — what was different about those 50 tokens? Could inform "normal regime" signature.
 
 ## OPEN QUESTIONS to user
-1. **CARRYING (1800): SMART_COPY duplication** — SMART_COPY/SMART_COPY_TOP and SMART_COPY_AGE5/SMART_TOP_AGE5 produce numerically-identical metrics. Intentional A/B or duplicated specs?
-2. **CARRYING (1800): Last-12h+ regime carnage** (now confirmed in 17h window — TEST big%=0). External (BTC, Solana congestion, RPC) or sniper-side? Should new entries be paused (regime guard) until normal?
-3. **CARRYING (1800): ULTRA_TRIPLE & H2 stream filter logic** — share spec to interpret performance.
-4. **CARRYING (1639/1800): Strict gate vs expectancy/Kelly** — given +1M% goal pivot, can I formalize alternative gate next cycle?
-5. **CARRYING (1639/1800): BSC_FILTERED / SMART_CLUSTER dormant** — killed or just sleeping?
-6. **CARRYING (1639): bonding_curve_buyers field empty** — populated downstream or never?
-7. **CARRYING (1702): rugger_blacklist refresh policy** — can entries get `wallet_added_at` for time-aware use?
-8. **NEW (1826): H_TG_AS_EXIT instrumentation** — OK to write a spec patch that tails `realtime_signals.jsonl` and writes `first_tg_mention_ts` onto open_positions? User applies manually.
+1. **NEW (0000): Regime-guard PATCH** — OK to write small read-only patch for serial_sniper.js (rolling-50 baseline gates new entries when avg<threshold; feature-flag, default off)? User applies manually.
+2. **NEW (0000): Macro context** — known event around 2026-05-18T10:51Z (BTC, SOL, RPC)?
+3. CARRYING (1826): H_TG_AS_EXIT instrumentation spec OK?
+4. CARRYING (1800): SMART_COPY/SMART_COPY_TOP and SMART_COPY_AGE5/SMART_TOP_AGE5 identical metrics — A/B or dup spec?
+5. CARRYING (1800): ULTRA_TRIPLE & H2 filter logic?
+6. CARRYING (1639): BSC_FILTERED / SMART_CLUSTER dormant — killed?
+7. CARRYING (1639): `bonding_curve_buyers` populated downstream?
+8. CARRYING (1702): rugger_blacklist `wallet_added_at` for time-aware use?
 
-## Rejected this cycle (1826)
-- **H_TG_LEAD** — TG corpus is reactive, not predictive. 0/584 pre-entry overlap. Confirms a structural property of the corpus, not a methodology bug.
+## Rejected this cycle (0000)
+- **H_TOKENS_UNIFIED** — leakage by construction. Same shape as H_RUG_PC but different access pattern (stale snapshot + post-hoc updates on test set). Added as 5th leakage form.
 
-## Known catalogue of leakage forms — unchanged this cycle
-1. Hindsight classifier (cycle_1702 H_RUG_PC)
-2. Counting inflation (cycle_1800 H_LP_WHITELIST)
-3. Time-localization artifact (cycle_1639 1AR wallet)
-4. Post-entry feature (cycle_1639 ride_mode)
+## Leakage catalogue (this cycle: +1)
+1. Hindsight classifier (cycle_1702 H_RUG_PC — rugger_blacklist)
+2. Counting inflation (cycle_1800 H_LP_WHITELIST — multi-stream row dup)
+3. Time-localization artifact (cycle_1639 1AR wallet — single-day inflation)
+4. Post-entry feature (cycle_1639 ride_mode — set mid-flight)
+5. **NEW: Stale classifier DB with reactive updates** (cycle_0000 tokens_unified — 90% Apr-15 batch + recent updates on test set)

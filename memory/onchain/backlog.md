@@ -147,3 +147,52 @@
 - **rugcheck_score q5 (≥27K) = safer**: counter-intuitive (high score should = more dangerous). Possibly mislabeled axis or special token class. Investigate.
 - **`bonding_curve_buyers` field**: empty in our sample. If populated downstream, would enable insider-bundle detection — pre-bonding-curve buyers who consistently win = clear smart-money signal.
 - **Meteora vs Pumpswap dex divergence**: Meteora avg=-35.6%, Pumpswap avg=-43.3%. Worth a per-dex hypothesis split.
+
+## NEW (proposed cycle 20260520_0000)
+
+### H_REGIME_GUARD — pause promotion/entries during regime carnage
+**Idea**: Sniper (or brain promotion logic) computes rolling-50 per-token baseline from its own closed_trades. Gate new entries / paper-promotions when EITHER:
+- rolling-50 avg_pnl_pct < -55%, OR
+- rolling-50 big% (pnl≥150%) = 0 for ≥24 hours (fat-tail signature absent — +1M% goal unreachable in this regime).
+**Evidence (cycle_0000 sliding-50 analysis)**:
+- Pre-collapse "normal" windows (May 11-18 morning): avg ∈ [-60%, +24%]; big% positive in ~6 of 14 windows.
+- Transition 1 (2026-05-18T10:51Z): big% drops to 0, stays 0 for 5 days.
+- Transition 2 (2026-05-19T18:43Z): WR drops 20→0%, rug 56→100%.
+- Last 50 unique tokens: avg=-99.6%, WR=0%, rug=100%, big=0%.
+**Confirmed external (not sniper-side)**: stream mix unchanged pre/post 2026-05-18T20:00Z; all streams uniformly worse (SNIPER_A -36→-68%, SNIPER_G -4→-43%, SNIPER_H -41→-65%).
+**Falsifiability**: replay closed_trades with gate active; should skip last ~250 trades (sliding windows post 18:43) with 100% precision and 0% miss on positive windows.
+**Patch shape (proposed)**: ~30 LOC read-only addition to serial_sniper.js — read sniper_state.json on each new-entry decision, compute last-50 per-token avg, skip if below threshold. Feature-flag-gated (default off).
+**Status**: NEW. Spec available on user request.
+
+### GATE_EXPECTANCY_KELLY — promotion gate replacing strict +150%
+**Idea**: Replace strict {n≥50, avg≥+150%, WR≥60%, rug≤25%} gate with {TEST n≥20, E[r]>0, Kelly f*≥0.05, geometric per-trade return ≥1%}.
+**Definitions**:
+- E[r] = mean of per-trade fractional returns r_i = pnl_pct/100.
+- Kelly f* = argmax_{f∈[0,1]} (1/n) Σ ln(1+f·r_i). Numerical search at f-grid 0.01.
+- geom return = exp(max-utility) - 1.
+**Why**: +1M% goal requires fat-tail compounding. Strict gate's WR=60% requirement is structurally incompatible with memecoin fat-tail (typical big-winner pattern: rare 10×+ with 20-40% WR). Kelly natively handles asymmetric distributions.
+**Validation (cycle_0000)**: Applied to all surviving hypotheses with 60/20/20 walk-forward.
+- LP_HIST+QUIET: TRAIN Kelly=0.33 geom=+5.5%/trade (would have approved on TRAIN-only). TEST E[r]=-50% Kelly=0 → REJECT. Matches strict gate's reject. Confirms gate is calibrated.
+- All other candidates: both gates reject.
+**Operational rules**:
+- Gate runs on TEST split only (not TRAIN/VAL). Never promote based on TRAIN+VAL alone.
+- Gate runs on per-token deduped data (lesson from cycle_1800 counting-inflation rejection).
+- Gate runs with regime-guard pre-check (see H_REGIME_GUARD) — if carnage regime active, skip gate eval entirely.
+**Status**: NEW. Adopted as the brain's promotion gate going forward.
+
+## REJECTED (cycle 20260520_0000)
+
+### H_REJECT_TOKENS_UNIFIED — server-side classifier DB with hindsight + stale batch
+**Apparent value**: 34,099 classified Solana tokens with rich metrics (db_rugBotCount, db_serialRugCount, db_smartMoneyBuyVol, db_highRiskWalletCount, db_positiveWalletCount, db_bundleDetected, ohlcv_athGain, smart_money_count, sniper_count, top1_wallet_pct, ...). Each entry has `added_at` and `updated_at` timestamps.
+**Setup**: overlap our 592 trade tokens against the 34K DB. Time-correctness check: for each overlap, compare `updated_at` against `entry_time`.
+**Findings**:
+- Coverage: **43 of 592 trade tokens (7.3%)** appear in DB.
+- Time-correctness on overlap: **42 of 43 have updated_at AFTER entry_time** (hindsight leak); 1 is clean.
+- DB-wide updated_at distribution: 90% of entries dated to **2026-04-15T19:54:40** (single batch import, sub-second window); only ~10% are post-batch updates, and those post-batch updates are concentrated on tokens we recently traded.
+**Mechanism**: same shape as H_REJECT_RUG_PC (cycle_1702) — server-side classifier observes our trades, post-hoc updates token metadata, then "predicts" the outcomes we already produced. The unique addition here is the batch-import structure: 90% of the DB is a static Apr-15 snapshot with no relevance to tokens that didn't exist at that time; the remaining 10% is reactive updates on the test set.
+**Why rejected**:
+1. Coverage too low for standalone filter (7.3%).
+2. 98% of overlap is hindsight-tagged.
+3. Filtering to time-correct entries leaves n=1 — useless.
+4. Would require per-feature timestamps (not per-token) to be salvageable; current schema doesn't support this.
+**Lesson — new leakage form (5th in catalogue)**: "stale classifier DB with reactive updates". Looks like a rich live DB but is structurally: (a) static snapshot dated to a single past minute (90% of entries) plus (b) post-hoc updates on the test set (10% of entries). Both halves are useless prospectively. Always check (i) coverage on prospective test tokens, (ii) `updated_at < entry_time` per overlap, (iii) distribution of `updated_at` for the DB as a whole — if it clusters at one timestamp, you're looking at a static snapshot, not a live feed.
