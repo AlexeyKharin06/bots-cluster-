@@ -263,6 +263,19 @@ async def main():
     me = await client.get_me()
     log(f"connected as {me.first_name} (@{me.username or '?'})")
 
+    # ★ КРИТИЧНО: force-fetch dialogs ДО регистрации event handler.
+    # Свежая сессия (только что QR-auth'ed) может не иметь dialog cache → Telethon
+    # не подписан на updates от broadcast channels. get_dialogs() триггерит sync.
+    log("syncing dialogs...")
+    dialogs = await client.get_dialogs(limit=200)
+    log(f"synced {len(dialogs)} dialogs")
+    # Запомним username -> chat_id для всех dialogs (used for OCR channel resolution)
+    dialog_map = {}
+    for d in dialogs:
+        username = getattr(d.entity, 'username', None)
+        if username:
+            dialog_map[username] = d.id
+
     target_ids = await get_target_channel_ids(client)
     if target_ids:
         log(f"target channels: {len(target_ids)}")
@@ -318,6 +331,17 @@ async def main():
 
     log("listening for new messages... (Ctrl+C to stop)")
     save_stats()
+
+    # Heartbeat — каждые 60s показываем что мы alive + статус events
+    async def heartbeat():
+        import asyncio as _a
+        while True:
+            await _a.sleep(60)
+            log(f"heartbeat: events_received={stats['events_received']} signals={stats['msgs_total']} ocr_hits={stats.get('ocr_hits',0)}")
+            save_stats()
+
+    asyncio.create_task(heartbeat())
+
     try:
         await client.run_until_disconnected()
     finally:
