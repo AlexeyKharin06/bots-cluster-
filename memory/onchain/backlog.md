@@ -245,3 +245,62 @@ The following filters that previously appeared as "surviving rug-reduction signa
 - They can dissolve at different times — confirmed by this cycle's partial recovery (A dissolved, B did not).
 - Operational implication: when re-promoting, distinguish "this filter has high WR" from "this filter catches fat tails" — the regime can support one but not the other.
 **Status**: STILL ACTIVE (gating via condition B).
+
+## NEW (proposed cycle 20260520_1328)
+
+### H_SMART_CLUSTER_VETO — production-deployable NEG signal (highest-priority this cycle)
+**Filter (veto)**: when `SNIPER_SMART_CLUSTER` appears in a token's multi-stream-fire set, abandon the trade.
+
+**Evidence (per-stream walk-forward, 60/20/20 on SMART_CLUSTER's own 41-token universe)**:
+- TRAIN: n=24, avg=-90.2%, WR=4%, rug=92%, big=0
+- VAL  : n=8,  avg=-100%,  WR=0%, rug=100%, big=0
+- TEST : n=9,  avg=-100%,  WR=0%, rug=100%, big=0
+
+**Coverage**: 41 of 572 unique Sol tokens = 7.2% on full universe; 30/400 = 7.5% in last 48h. Stable across regime.
+
+**Mechanism (hypothesis)**: SMART_CLUSTER fires when a "cluster" of smart-money wallets buy a fresh token. If the cluster is detectable enough to trigger SMART_CLUSTER, it's likely an insider bundle (correlated wallets sniping launch), not independent smart money. Insider bundles correlate with rug.
+
+**Why this is the first walk-forward-stable signal**:
+- Survives TRAIN→VAL→TEST without degradation (gets WORSE, not better — perfect for a NEG signal).
+- Stable across regime collapse (last 48h: 100% rug on 30 tokens).
+- No leakage form applicable (stream-tag is set at entry; pnl is at close; no hindsight).
+
+**Deployment caveat — needs architectural feasibility check**:
+- Under current production dedup, SNIPER_A enters first and SMART_CLUSTER rows are emitted later. So SMART_CLUSTER detection may post-date the live entry.
+- Two possible deployment shapes:
+  (a) **Entry-side veto** — requires SNIPER_A to wait briefly for SMART_CLUSTER concurrency check (if SMART_CLUSTER fires in detection window, skip entry).
+  (b) **Exit-side hard-exit** — if SMART_CLUSTER detection fires after entry, immediately exit position (or tighten trail aggressively).
+- The brain doesn't know which is feasible without reading the sniper architecture. **Question raised to user.**
+
+**Status**: NEW. Spec on user request. Highest-priority deployment candidate from this brain so far.
+
+### H_DEDUP_BEST_STREAM_BIG_ATTR — methodology improvement (low-priority, next cycle)
+**Observation**: token "Together" exits at pnl=153% in SMART_COPY/SMART_COPY_TOP/SMART_TOP_AGE5/SMART_COPY_AGE5 rows but only 75% in SNIPER_A row (earliest entry). Under current "earliest-fire per-token" dedup we count it as 75% (not a big).
+
+**Implication**: our cycle_1200 count of "3 bigs in dataset" is the *first-fire* count. The *best-stream* count is at least 4 (adding Together). H_BIG_WINNER_SHAPE was characterised on first-fire bigs only — recharacterising on best-stream bigs may surface different feature distributions.
+
+**Cost**: re-run cycle_1200's bigs.js + backtest.js with best-stream-fire dedup rule. ~10-15min.
+
+**Status**: NEW (methodology, defer to next cycle).
+
+### NEGATIVE LESSON EXTENSION (cycle_1328) — Track A at stream level fails too
+SNIPER_G / SNIPER_GOLD5 / SNIPER_WHALE looked like clean Track A candidates in aggregate stats (low rug, decent WR). Walk-forward kills them:
+
+| stream | TRAIN avg | VAL avg | TEST avg | rug TRAIN/VAL/TEST | bigs caught |
+|---|---|---|---|---|---|
+| SNIPER_G | -34.6 | -17.1 | **-66.9** | 26 / 10 / 52 | 0/3 |
+| SNIPER_GOLD5 | -20.7 | -30.1 | -31.8 | 19 / 22 / 22 | 0/3 |
+| SNIPER_WHALE | -28.1 | +17.0 (n=4!) | -19.4 (n=5) | 23 / 25 / 0 | 0/3 |
+
+**The cycle_1200 lesson about anti-fat-tail rug-reduction filters generalises to streams.** SNIPER_G/GOLD5/WHALE are stream-level analogs of feature-level safety filters — same trade-off, same regime artifact, same walk-forward failure. They catch 0 of 3 known bigs.
+
+**Implication**: re-scope Track A entirely. Cannot be "find a safer subset". Most likely meaningful form is **Kelly-sized exposure to ALL streams during fat-tail-present regime** — a sizing rule, not a filter logic.
+
+**SNIPER_G investigation officially closed**: cycle_1639 raised "SNIPER_G mystery: best risk-adjusted of baseline streams". Cycle_1328 confirms: SNIPER_G aggregate stats are a regime artifact. No edge after walk-forward. Filtering for "safer streams" is the wrong question.
+
+### UPDATE: H_REGIME_GUARD (cycle_1328) — both conditions active
+- **Condition A** (rolling-50 avg < -55%): **RE-TRIGGERED THIS CYCLE**. last50=-56.2 (was -45.9 in cycle_1200). The cycle_1200 "recovery" was a 75-trade local maximum (peak -36.5 at idx 475-525) and has rolled back.
+- **Condition B** (big%=0 for ≥24h): **STILL TRIGGERED**. 2.65 days streak. Last big = PIGEON @ 2026-05-18T05:53Z.
+- **Both active**: guard remains on. Multiple recovery attempts may be expected before stable exit from this regime.
+
+**Status**: STILL ACTIVE (gating via either condition).
