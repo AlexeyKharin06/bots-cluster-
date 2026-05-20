@@ -169,6 +169,19 @@ def save_stats():
         pass
 
 
+def normalize_chat_id(cid):
+    """Telegram channels приходят как -1001234567890 в event.chat_id,
+    но в include_peers хранятся как 1234567890.
+    Возвращает 'normalized' positive id для сравнения."""
+    cid = int(cid)
+    if cid < 0:
+        s = str(abs(cid))
+        if s.startswith('100') and len(s) > 4:
+            return int(s[3:])
+        return abs(cid)
+    return cid
+
+
 async def main():
     client = TelegramClient(SESSION, API_ID, API_HASH)
     log(f"connecting (session: {SESSION})...")
@@ -193,11 +206,23 @@ async def main():
     if target_ids:
         log(f"target channels: {len(target_ids)}")
 
+    # Debug counter — на каждое полученное событие (до фильтра)
+    stats['events_received'] = 0
+    stats['events_in_target'] = 0
+    stats['events_with_signal'] = 0
+
     @client.on(events.NewMessage())
     async def handler(event):
         try:
-            if target_ids is not None and event.chat_id not in target_ids and abs(event.chat_id) not in target_ids:
+            stats['events_received'] += 1
+            norm_id = normalize_chat_id(event.chat_id)
+            if target_ids is not None and norm_id not in target_ids and event.chat_id not in target_ids and abs(event.chat_id) not in target_ids:
+                # Periodic stats save even if filtered out
+                if stats['events_received'] % 100 == 0:
+                    save_stats()
+                    log(f"events: received={stats['events_received']} in_target={stats['events_in_target']} with_signal={stats['events_with_signal']}")
                 return
+            stats['events_in_target'] += 1
             chat = await event.get_chat()
             channel_name = getattr(chat, 'username', None) or getattr(chat, 'title', 'unknown')
 
@@ -205,10 +230,12 @@ async def main():
             if record['sol_addrs'] or record['bsc_addrs'] or record['routes']:
                 write_signal(record)
                 stats['msgs_total'] += 1
+                stats['events_with_signal'] += 1
                 for r in record['routes']:
                     stats['msgs_routed'][r] += 1
-                if stats['msgs_total'] % 50 == 0:
+                if stats['msgs_total'] % 10 == 0:
                     save_stats()
+                    log(f"signal #{stats['msgs_total']}: {channel_name} routes={record['routes']}")
         except Exception as e:
             log(f"handler error: {type(e).__name__}: {e}")
 
