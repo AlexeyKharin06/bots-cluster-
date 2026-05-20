@@ -76,16 +76,33 @@ memory/funding-rate/
 - ❌ Доверять backtest'у без walk-forward валидации (survivorship bias)
 - ❌ Доверять live результату с n<100 (мала выборка)
 
+## Sources (NEW: unified TG hub — 2026-05-20)
+
+| Источник | Где | Что |
+|---|---|---|
+| **TG signals (funding-specific)** | `/srv/bots/.shared/tg/feed_funding.jsonl` | Префильтрованный feed для нашего проекта — funding-rate, spread, hedge ключевые слова |
+| **TG signals (master)** | `/srv/bots/.shared/tg/signals_master.jsonl` | Все 65 каналов без фильтрации — можно прочитать самому если нужно |
+| Closed paper trades | `/srv/bots/funding-rate/code/paper*/trades.jsonl` | Каждый бот пишет свой trades.jsonl |
+| Bot states | `/srv/bots/funding-rate/code/paper*/state.json` | Текущие открытые позиции |
+| Pre-migration data | `multi_ex_funding_180.parquet`, `mega_fairprice_backtest.parquet`, `expansion_funding.parquet` | Используй для walk-forward без re-fetch |
+| OCR'd screenshots | `tg_patterns/media_signals.jsonl` (571 файлов) | High-$ practitioner PnL claims |
+
+**ВАЖНО:** НЕ запускать свой `tg_channel_watcher.py` — есть flag `.tg_listener_disabled`. Unified listener даёт всё.
+
+## Shared mission
+
+Читать первым: `/srv/bots/cluster/memory/AI_BRAIN_MISSION.md` — общая декларация для всех 4 проектов (OnChain, Listing Arb, CEX-Onchain, funding-rate). Содержит полномочия + READY-thresholds + запреты + методология walk-forward.
+
 ## Что делать в каждом цикле AI brain
 
-1. Прочитать `BRIEF.md` (где мы сейчас)
+1. Прочитать `/srv/bots/cluster/memory/AI_BRAIN_MISSION.md` (shared) + `BRIEF.md` (где мы сейчас)
 2. Прочитать `HISTORY.md` последние 100 строк (таймлайн)
 3. Прочитать последние 3 `insights/cycle_*.md` полностью
-4. Проверить статус 14 paper-ботов через `python3 ...`
+4. Проверить статус paper-ботов через `wc -l paper*/trades.jsonl`
 5. Проанализировать новые closed trades за последние 6h
-6. Проанализировать новые TG сообщения из 60 каналов
-7. Сгенерировать гипотезы или дотестить старые
-8. Запустить нужный backtest скрипт
+6. Прочитать **`feed_funding.jsonl`** (новые TG сигналы по funding-rate с unified hub)
+7. Сгенерировать гипотезы или дотестить старые из backlog.md
+8. Запустить нужный backtest скрипт (walk-forward TRAIN/VAL/TEST split, NO leakage)
 9. Применить валидированные улучшения (params, blacklists)
 10. Обновить `BRIEF.md`, добавить запись в `HISTORY.md`
 11. Записать полный лог в `insights/cycle_$(date -u +%Y%m%d_%H%M).md`
