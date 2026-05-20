@@ -1,42 +1,47 @@
-# BRIEF — onchain AI brain (last update: cycle 20260519_1800)
+# BRIEF — onchain AI brain (last update: cycle 20260519_1826)
 
 ## Current state (live)
-- closed=4999 rows, **but only 683 unique tokens** (avg 7.32 rows/token from stream tag duplication). open=1.
-- Per-token Solana baseline: avgPnL=-41.5%, WR=17.8%, rug=51.1%, big=1.7%.
-- Span: 2026-05-11 → 2026-05-19T17:51. State unfrozen this cycle (+42 new rows / 18 new unique tokens since cycle_1702).
-- **Last-12h regime is catastrophic**: baseline -73%, last 6h -94%. NO known signal helps. Possibly macro or sniper-side.
+- closed=4624 Solana rows / **584 unique tokens** (per-token dedup, avg ~7.9 rows/token). open=many (sniper running live).
+- Per-token baseline (last ~17h TEST window): n=117 avg=-68.9% WR=11.1% rug=65% **big%=0 huge%=0**.
+- Span: 2026-05-11 15:33 → 2026-05-19 19:17. State growing live (sniper on VPS).
+- **Regime carnage persists**: TEST window 0 big-winners, 0 huge-winners. Cycle_1800 flagged 12h baseline -73%; today's 17h window confirms — possibly macro, sniper-side, or both. No filter on top of zero base rate can pass the +1M%-aligned fat-tail gate.
 
-## Methodology fix this cycle (critical)
-**Per-token, not per-row, is the correct unit for filter analysis.** Wallet-whitelist constructions that required n≥k per wallet were inflated 7-10× by stream-tag duplication. Going forward: dedupe by `token` (first entry kept), then split walk-forward, then evaluate filters.
+## Goal (user-updated cycle_1826)
+**+1,000,000% (×10K)** via 6-8 reinvested compounding wins. Implication: big%/huge% > avgPnL; strict +150% promotion gate should be replaced by expectancy/Kelly-based gate. Carrying open question since 1639.
 
 ## Paper streams in flight
-**NONE.** No hypothesis meets strict +150% avg gate. Several candidates clear risk-adjusted thresholds (rug halved, big% lifted) — pending user decision on alternative gate (carrying since 1639).
+**NONE.** Two candidate families exist but neither cleared this cycle:
+- Per-token validated edges (H_LP_HIST, H_DISTRIB, H_LOCKED) — risk-adjusted, halve rug, lift big% 4-6×, **regime blocks fat-tail signature** in current TEST window.
+- TG channel paper-streams — **none possible** (cycle_1826 NULL_TG_LEAD; see below).
 
 ## Last validated hypothesis & key cycle findings
-- **cycle_20260519_1800**: H_LP_WHITELIST **REJECTED — counting inflation** (TRAIN whitelist=1 wallet, TEST hits=0 after per-token dedup). Surviving per-token signals: **H_LP_HIST** (lp_hist.pumped_alive≥1; TEST n=22, avg=-41 vs base -62, rug=32 vs 58, big=4.5 vs 0.8), **H_DISTRIB** (top1<27; TEST rug=22 vs 58), **H_LOCKED** (lp_unlocked=false; TEST rug=33 vs 58). Best composition: LP_HIST+QUIET (n=13, big=7.7%, rug=23%). See [cycle_20260519_1800.md](insights/cycle_20260519_1800.md).
-- **cycle_20260519_1702**: H_RUG_PC REJECTED — hindsight leakage. cr_hist.pumped_alive≥1 confirmed NEG-veto.
-- **cycle_20260519_1639**: original LP-whitelist claim (now retracted).
+- **cycle_20260519_1826**: TG channel walk-forward → **NULL_TG_LEAD REJECTED**. 3 of 584 trade tokens overlap TG signal corpus; 0 with pre-entry mention. Sniper is upstream of TG corpus. `channel_pump_predictiveness.json` also degenerate (33/35 channels pump_rate=0). New: **H_TG_AS_EXIT** parked (mention-during-hold as exit signal — needs instrumentation). See [cycle_20260519_1826.md](insights/cycle_20260519_1826.md).
+- **cycle_20260519_1800**: H_LP_WHITELIST REJECTED — counting inflation. Surviving per-token signals: H_LP_HIST, H_DISTRIB, H_LOCKED. Best comp: LP_HIST+QUIET (n=13, big=7.7%, rug=23%).
+- **cycle_20260519_1702**: H_RUG_PC REJECTED — hindsight leakage in rugger_blacklist. cr_hist.pumped_alive≥1 confirmed NEG-veto (H_CR_HIST_NEG).
+- **cycle_20260519_1639**: original LP-whitelist claim (retracted in 1800).
 
 ## Planned for next cycle
-1. **tokens_unified.json deep-dive** (34K classified Solana tokens with `added_at`/`updated_at`). Cross-ref against our 683 unique tokens with strict `updated_at < entry_time` filter (avoid H_RUG_PC trap). Rich metrics: `db_rugBotCount, db_serialRugCount, db_smartMoneyBuyVol, db_highRiskWalletCount, db_positiveWalletCount, db_bundleDetected, ohlcv_athGain, serial_pump_count, sniper_count`.
-2. Re-run surviving per-token signals with fresh data window.
-3. Regime-guard hypothesis: is there a feature that predicts current hour's baseline? If avg-last-N-baseline < -60%, pause new entries.
-4. ULTRA_TRIPLE and H2 new streams — analyze when more rows.
+1. **Formalize expectancy/Kelly gate** to replace strict +150%. Apply retroactively to H_LP_HIST + H_DISTRIB + H_LOCKED + H_CR_HIST_NEG to see if any qualifies under new gate. No new data needed — code-only.
+2. **Symmetric null-check on pumpfun_monitor.js + dexscreener_signals.json**: same walk-forward template as TG. Likely also null (sniper is faster than these feeds) but worth confirming so we stop suggesting it.
+3. **tokens_unified.json deep-dive (carrying from 1800)**: 32K classified tokens with `updated_at`. Strict `updated_at < entry_time` cross-ref against our 584 trade-tokens. Rich features: `db_rugBotCount, db_serialRugCount, db_smartMoneyBuyVol, db_highRiskWalletCount, db_positiveWalletCount, db_bundleDetected, ohlcv_athGain, serial_pump_count, sniper_count`. **MUST run decontamination split** (avoid H_RUG_PC trap).
+4. **Regime-guard**: if avg-last-N-baseline < -60%, freeze paper-stream proposals until normal. Quick code-only fix; prevents premature gate evaluation.
+5. **H_TG_AS_EXIT instrumentation spec**: write the patch for `serial_sniper.js` to populate `first_tg_mention_ts` per open position from `realtime_signals.jsonl` tail. User applies.
 
 ## OPEN QUESTIONS to user
-1. **NEW: SMART_COPY duplication** — SMART_COPY/SMART_COPY_TOP and SMART_COPY_AGE5/SMART_TOP_AGE5 produce numerically-identical metrics on the same tokens. Intentional A/B or duplicated specs?
-2. **NEW: Last-12h carnage** (baseline -73%, last-6h -94%). External cause (BTC dump, Solana congestion, RPC issue) or sniper-side bug? Pause paper-stream proposals until normal?
-3. **NEW: ULTRA_TRIPLE & H2 stream filter logic** — can you share the spec? Helps interpret performance.
-4. **Carrying (1639): Strict gate** (n≥50, avgPnL≥+150%, WR≥60%, rug≤25%) blocks risk-adjusted edges where rug is halved + big% is lifted but avg stays sub-150 due to exit logic. Alternative Sharpe/expectancy gate?
-5. **Carrying (1639): BSC_FILTERED / SMART_CLUSTER** — both produced NO rows in last 10.5h. Killed already, or dormant?
-6. **Carrying (1639): bonding_curve_buyers** field empty in samples — populated downstream or never?
-7. **Carrying (1702): rugger_blacklist refresh policy** — for time-aware use, can entries carry `wallet_added_at`?
+1. **CARRYING (1800): SMART_COPY duplication** — SMART_COPY/SMART_COPY_TOP and SMART_COPY_AGE5/SMART_TOP_AGE5 produce numerically-identical metrics. Intentional A/B or duplicated specs?
+2. **CARRYING (1800): Last-12h+ regime carnage** (now confirmed in 17h window — TEST big%=0). External (BTC, Solana congestion, RPC) or sniper-side? Should new entries be paused (regime guard) until normal?
+3. **CARRYING (1800): ULTRA_TRIPLE & H2 stream filter logic** — share spec to interpret performance.
+4. **CARRYING (1639/1800): Strict gate vs expectancy/Kelly** — given +1M% goal pivot, can I formalize alternative gate next cycle?
+5. **CARRYING (1639/1800): BSC_FILTERED / SMART_CLUSTER dormant** — killed or just sleeping?
+6. **CARRYING (1639): bonding_curve_buyers field empty** — populated downstream or never?
+7. **CARRYING (1702): rugger_blacklist refresh policy** — can entries get `wallet_added_at` for time-aware use?
+8. **NEW (1826): H_TG_AS_EXIT instrumentation** — OK to write a spec patch that tails `realtime_signals.jsonl` and writes `first_tg_mention_ts` onto open_positions? User applies manually.
 
-## Rejected this cycle (1800)
-- **H_LP_WHITELIST** — counting inflation via stream duplication (row-basis 24 wallets → per-token 1 wallet; TEST hits=0). Was claimed edge of cycle_1639; retracted.
+## Rejected this cycle (1826)
+- **H_TG_LEAD** — TG corpus is reactive, not predictive. 0/584 pre-entry overlap. Confirms a structural property of the corpus, not a methodology bug.
 
-## Known catalogue of leakage forms (apply to every hypothesis)
-1. **Hindsight classifier** (cycle_1702 H_RUG_PC): external DB built with post-test info. Test: decontamination split (CLEAN vs DIRTY by overlap with our trade tokens).
-2. **Counting inflation** (cycle_1800 H_LP_WHITELIST): row-stats over stream-duplicated data. Test: per-token dedup.
-3. **Time-localization artifact** (cycle_1639 1AR wallet): aggregate alpha from a single day. Test: per-day breakdown.
-4. **Post-entry feature** (cycle_1639 ride_mode): flag set after entry. Test: check field is populated pre-trade.
+## Known catalogue of leakage forms — unchanged this cycle
+1. Hindsight classifier (cycle_1702 H_RUG_PC)
+2. Counting inflation (cycle_1800 H_LP_WHITELIST)
+3. Time-localization artifact (cycle_1639 1AR wallet)
+4. Post-entry feature (cycle_1639 ride_mode)
