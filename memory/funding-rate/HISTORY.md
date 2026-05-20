@@ -1,3 +1,4 @@
 # HISTORY — funding-rate AI brain cycles
 20260520_0640 | migration complete | cluster setup ok, TG QR pending | files: PROJECT_CONTEXT.md, SESSION_HANDOFF.md, BRIEF.md
 20260520_1343 | onchain walk-fwd analysis | all 4 hypos degrade out-of-sample; regime hostile (last24h rug 58% vs prior 48%); H_KNOWN_LT5 lifts +10pp persistent but absolute -49%; smart/known cluster signal INVERTED; need regime gate | files: insights/cycle_20260520_1343.md, BRIEF.md, backlog.md
+20260520_1700 | regime flipping + first profitable H | last100 +4.75% (first positive ever); SMART_COPY family flipped +18-23% (R9 inversion was regime-specific); H8 gate≤0.45+known<5 test n=46 raw / n=7 dedup avg +18.9% rug 0%; regime gate ≤0.35 alone n=112 avg +7.3% (+48pp lift); H11 lottery REJECTED (train rug 79%); dedupe-by-token methodology added | files: insights/cycle_20260520_1700.md, BRIEF.md, backlog.md

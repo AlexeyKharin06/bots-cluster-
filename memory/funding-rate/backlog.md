@@ -20,7 +20,13 @@ H7 regime gate: pause trading when rolling-24h rug% > 55% | pending 2026-05-20 |
 H8 regime gate + known<5 combo | pending 2026-05-20 | known<5 lifts +10pp persistent walk-fwd, combine with regime gate to skip hostile windows
 H9 forensic on ride_exit_X% exits (200-1158% pnl) | pending 2026-05-20 | identify which entry-signal combos produced the rare big winners (PIGEON, MTFR, ROAF profile)
 H10 liq_mcap_ratio < 30 + age >= 15 filter w/ regime gate | pending 2026-05-20 | strongest combined rug avoidance (rug 19% in-sample n=101)
-H11 asymmetric Kelly for lottery archetype | pending 2026-05-20 | tiny size (fixed bankroll %) on heavy-cluster signal (smart 7+, known 17+, both 6+) — 60% rug but occasional 30x; current bot loses to this with full size
+H11 asymmetric Kelly for lottery archetype | REJECTED 2026-05-20_1700 | smart>=7+known>=15+both>=4: train n=393 rug 79%! pct_3x only 1%; even tiny Kelly can't fix this — see cycle_20260520_1700.md / R11
+
+H12 `both` count signal (both>=5) | pending 2026-05-20_1700 | COMPUTE outlier (+288%) had smart=0 known=1 BOTH=10 — wallets that are BOTH smart AND known piling in. Distinct from cluster-rug pattern. Need to bucket by `both` and walk-fwd. n on a `both>=5` filter unknown.
+
+H13 SMART_COPY_GATED paper stream | pending 2026-05-20_1700 | SMART_COPY family flipped +18-23% in clean regime, -48% in hostile. Pair with regime gate ≤0.35 — joint walk-fwd. Requires permission to add new paper stream.
+
+H14 cross-stream exit attribution | pending 2026-05-20_1700 | 38 unique tokens this cycle hit by 7 streams each; same entry, different exit trails. Which exit (A vs B vs SMART_TOP_AGE5) captures most upside? Stream selection is half — exit is the other half.
 
 H_AGE_GE30 age >= 30 min entry timing | needs_more_data 2026-05-20 | train n=71 avgPnL -6%, rug 15% — promising BUT test n=5 all rugged. Need wait for more 30+ samples (current bot mostly buys <30m so naturally rare)
 
@@ -36,3 +42,8 @@ R7 multi-signal confluence LONG-side | rejected 2026-05-18 | 27% win
 R8 known<5 + smart 3-5 as profitability gate | rejected 2026-05-20 | train rug 2% / test rug 32% — regime artifact, not real edge; absolute test PnL -47%
 R9 SNIPER_SMART_COPY/TOP family streams | observation 2026-05-20 | these stream filters select for HIGH smart-wallet count (≥7) which inverts to higher rug rate; NOT formally rejected as stream config — flagged for review
 R10 any single-feature filter as profitability gate | rejected 2026-05-20 | no univariate filter reaches positive abs PnL in walk-forward; filters only reduce loss vs baseline by 9-23pp; need regime gate + multi-feature
+R11 lottery cluster asymmetric Kelly | rejected 2026-05-20_1700 | smart>=7+known>=15+both>=4 train n=393 rug 79%, pct_3x 1% — math doesn't survive even with 1% bet sizing
+R9 RECLASSIFIED 2026-05-20_1700 | SMART_COPY inversion claim was REGIME-SPECIFIC; family flipped to +18-23% avg in clean regime. NOT a structural inversion. Don't avoid these streams; they may be the best when regime allows.
+
+H7 regime gate ≤0.35 | TESTING 2026-05-20_1700 | walk-fwd train -41% / test +7.3% (n=112) — +48pp persistent lift, strongest validated edge. Trade only when trail100 rug ≤0.35. Need permission to patch into bot OR new gated paper stream.
+H8 UPDATED 2026-05-20_1700 | test n=46 raw / n=7 dedup avg +18.9% rug 0% pct_3x 14% — first profitable hypothesis but sample tiny. Track until n_dedup ≥50.
