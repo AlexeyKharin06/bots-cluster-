@@ -420,3 +420,66 @@ Planned task was to re-run H_V3 walk-forward on first-fire pnl. **Deprioritized*
 **Prevention rule**: every cycle should run partition probe `chain × stream × paper` on last100 rows BEFORE deeper analysis. If any partition shows materially different baseline (avg, big%, paper-state), investigate that partition separately before scoping further.
 
 **Added as future-cycle reminder** in BRIEF + this backlog.
+
+## NEW (proposed cycle 20260521_0600)
+
+### H_BIG_WINNER_SHAPE_V6 — OR-shape catching α (whale) and β (mid-pumpswap) bigs (highest-priority monitor)
+**Filter**: `lp_unlocked=true AND liq≥17K AND known≥9 AND ( (known≥11 AND smart≥2 AND top1≥85) OR (liq≥25K AND buys_m5≥300 AND top1 ∈ [50,75]) )`.
+
+**Mechanism**: two distinct Sol big-shapes observed since 05-18 — α (whale-concentrated meteora/pumpswap, top1≥85) and β (mid-concentration pumpswap, top1∈[50,75], high buys_m5). H_V3 was tuned to α only and missed entire β. V6 unions both via OR.
+
+**Evidence (Sol 555 first-fire / 555 best-fire, 60/20/20 walk-forward)**:
+- Catches **4/4 best-fire bigs** (Together+153, RONALDO+436, SPCXDRAGON+511, GITBANK+941).
+- Catches **3/3 first-fire bigs** (RONALDO+184, SPCXDRAGON+511, GITBANK+941).
+- FF: TRAIN n=96 avg=-62.3 big=0 / VAL n=38 avg=-42.7 big=2.6 / **TEST n=20 avg=+23.7 big=10 Er=+0.237 K=0.05 geom=+0.55%/trade**.
+- BF: TRAIN n=97 avg=-54.0 / VAL n=38 avg=-30.1 / **TEST n=20 avg=+29.1 big=10 Er=+0.291 K=0.07 geom=+0.9%/trade**.
+
+**Gate status**: PASSES n≥20 ✓, Er>0 ✓, K≥0.05 ✓; **FAILS geom≥1%/trade** (0.55% FF or 0.9% BF, both < 1%).
+
+**Why not deployable**:
+1. Geom fail by 0.10-0.45pp.
+2. TRAIN/VAL show same shape losing 42-62% — pre-cluster regime unprofitable.
+3. Bigs temporally clustered (β-pair within 70 sec; α-bigs within 5h).
+4. n=20 TEST at floor; redrawing 60/20/20 boundary 1h either way could flip bigs to VAL and collapse TEST.
+
+**Re-test triggers**: 1+ new Sol big entering TEST window in different cluster event; OR re-derive boundary 24h+ later when TRAIN+VAL absorb today's cluster.
+
+**Status**: NEW. Strongest descriptive Sol candidate yet. Primary monitoring target — supersedes H_V3 (which is now deprecated as α-only-restricted).
+
+### H_CLUSTER_ONSET_REGIME_SIZING — new hypothesis class (regime-aware sizing, not feature filter)
+**Observation across cycles_0000+0600**: every Sol/BSC big in current data lives inside a short event-window cluster:
+- BSC: 5/6 bigs in 4-hour window 05-20T13:39→17:48.
+- Sol α-shape: RONALDO+Together in ~5-hour window 05-20T10:53→15:41; PIGEON/MTFR earlier clustered.
+- Sol β-shape: SPCXDRAGON+GITBANK in **70-second window** 05-21T04:59→05:00.
+
+**Idea**: replace per-token feature filters as the primary sizing logic with a **rolling-window cluster-presence indicator + conditional sizing**.
+
+**Spec (draft)**:
+- Cluster-presence indicator: `last_25_unique_tokens_big_count >= 1` (Bayesian "fat-tail-live regime").
+- When indicator=TRUE AND H_V6 entry-features match → **size up 5×** (or Kelly-derived multiplier).
+- When indicator=FALSE → normal sizing on H_V6 / no entry.
+- Halflife of cluster: ~5-6 hours based on observed windows.
+
+**Why this might work**: turns the temporal-clustering "failure mode" of every per-token filter into the SIGNAL itself. Cluster events are themselves observable in the data stream within ~minutes (after first big).
+
+**Why this might not work**: cluster onset is inherently lagging — need ≥1 big to confirm we're in a cluster, by which time ~30-50% of cluster window has passed. May produce 1-2× compounding boost, not the 10× needed for +1M%.
+
+**Falsifiability**: replay 05-18 → present with the rule. Count cluster-detection lag (windows behind first big), cluster-trade catch rate (of bigs within cluster), and out-of-cluster avoidance rate. Expected: catch 2-4 bigs per cluster (of 5-6) and reduce rug exposure ~50% outside clusters.
+
+**Cost**: ~2 hours design + walk-forward backtest.
+
+**Status**: NEW (hypothesis class). Highest-priority next-cycle exploration after watching whether next 6-12h brings a 3rd cluster.
+
+## REJECTED (cycle 20260521_0600)
+
+### H_BSC_BC_FULL — REJECTED (was: descriptive, walk-forward TEST-fail; now: empirically falsified by post-cluster data)
+**cycle_0000 evidence**: walk-forward TEST FF n=9 avg=-50.4 big=0 K=0 (5/6 bigs in VAL window).
+**cycle_0600 evidence** (this): +6 fresh BSC tokens (now n=103). **7 NEW post-cluster bc=20 tokens. ZERO bigs.** 6/7 = 86% rugged (4 at -100%, 2 small-loss, 1 at +28%).
+
+In-cluster bc≥16 (TRAIN+VAL): 5/6 bigs (83% big rate).
+Post-cluster bc≥16 (TEST + new data): 0/7 bigs (0% big rate). **Bimodal, not monotonic.** bc≥16 is a NECESSARY but not SUFFICIENT marker; the sufficient condition was the broader 05-20 cluster event (narrative day / coordinated launches / external trigger — unknown).
+
+**Reason for rejection**: signal is a coincident artifact of single 4-hour event, not a predictive launch-time feature. Will reactivate if/when a 2nd BSC fat-tail cluster appears (would enable cross-cluster validation).
+
+**Lesson**: cohort signals with extreme TRAIN gain need cluster-membership check before being treated as features. Add to leakage-adjacent failure modes catalogue: **macro-failure mode "temporal clustering of fat tails"** — distinct from leakage; reflects sample-scarcity + event-driven concentration. Resolution: cluster-onset detection layer (proposed H_CLUSTER_ONSET_REGIME_SIZING).
+
