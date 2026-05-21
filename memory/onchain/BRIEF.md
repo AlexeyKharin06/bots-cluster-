@@ -1,46 +1,42 @@
-# BRIEF — onchain AI brain (last update: cycle 20260520_1800)
+# BRIEF — onchain AI brain (update: cycle 20260521_0000)
 
-## Current state (live)
-- closed=4888 / Solana=4627 rows / **561 unique tokens** per-token dedup. Rotating ~10/cycle.
-- **last50 best-fire avg=-43.8% WR=22% rug=40% big=2.00%** — both H_REGIME_GUARD conditions clear simultaneously for the first time since the 05-18 collapse.
-- last100 -48.6%/21/46/1.00. Span 2026-05-17T21:51Z → 05-20T17:44Z (2.83 days).
-- **4 best-fire bigs**: PIGEON +3699 (huge), RONALDO +436 (NEW; SNIPER_MC_LIQ; SNIPER_A only 184), MTFR +256, Together +153 (SMART_COPY; SNIPER_A only 75).
-- Last big = RONALDO @ 2026-05-20T15:41Z (~2h ago).
+## State (live, rolling ~3d window — NOT append-only)
+- closed=4807-4983 (5000-cap, rotating live). Brain memory durable; live state ephemeral.
+- **Sol** 4475 rows / 549 unique. last50 avg=-56.6 WR=22 rug=56 big=0. Bigs first-fire=1 (RONALDO), best-fire=2 (Together, RONALDO). Span 2026-05-18T04:11..05-20T23:37 (2.81d).
+- **BSC** 332 rows / 97 unique / **paper=false (real money)**. avg first-fire=-62.8 best-fire=-7.2. **Bigs=6**: PORTUGAL+906, MC+1268, COMPUTE+856, CATCOIN+542, WORLDCUP+971, CMC+288. 5/6 clustered 4h on 05-20T13:39-17:48.
+- **PIGEON+3699 and MTFR+251 rotated out** since cycle_1800; durable only in HISTORY.md.
 
-## Goal
-**+1,000,000% (×10K)** via fat-tail compounding. Gate: **GATE_EXPECTANCY_KELLY** (TEST n≥20, Er>0, Kelly≥0.05, geom≥1%/trade).
+## Goal & gate
+**+1,000,000%** via fat-tail compounding. GATE_EXPECTANCY_KELLY (TEST n≥20, Er>0, K≥0.05, geom≥1%/trade). Paper streams: **NONE** (H_V3 borderline-fail 1800; H_BSC_BC_FULL TEST-fail this cycle).
 
-## Paper streams in flight
-**NONE.** No hypothesis passed gate this cycle (H_V3 borderline-fail).
-
-## Regime status
-- Cond A (rolling-50 avg<-55%): **CLEAR** (-43.8). Cond B (big%=0 ≥24h): **CLEAR** (RONALDO). Guard OFF.
-- **Caveat**: cycle_1200→1328 was a similar partial clear that head-faked. Opportunistic, not confirmed. Re-trigger in next 1-2 cycles = head-fake.
+## Regime — both conds RE-TRIGGERED (cycle_1800 "both clear" was 1-cycle head-fake)
+- Cond A: -43.8 → **-56.6** (re-triggered). Same pattern as cycle_1200→1328.
+- Cond B: RONALDO slid out of last50 → big%=0 (re-triggered). Guard ON.
 
 ## Last validated work
-- **cycle_20260520_1800** (this): regime BOTH CLEAR; H_DEDUP_BEST_STREAM_BIG_ATTR executed (4 bigs revealed vs 3 first-fire); **H_BIG_WINNER_SHAPE_V3** (known≥11 smart≥2 liq≥17K unlocked top1≥85) catches 4/4 bigs, TRAIN n=44 Er=+0.449 K=0.03 geom=+0.49%, **TEST n=26 avg=-3.1 WR=50 rug=31 big=7.69% Er=-0.031 K=0 — BORDERLINE FAIL gate by ~3pp**. See [cycle_20260520_1800.md](insights/cycle_20260520_1800.md).
-- **cycle_1328**: H_SMART_CLUSTER_VETO clean walk-forward NEG (92/100/100% rug TRAIN/VAL/TEST n=41); per-stream Track A audit NEGATIVE.
-- **cycle_1200**: H_BIG_WINNER_SHAPE original proposed (3/3 first-fire bigs, TEST big=0); anti-fat-tail lesson on H_DISTRIB/H_LOCKED/H_QUIET/H_FAT_HUNTER.
+- **cycle_20260521_0000** (this): BSC universe blind-spot exposed (332 trades silently excluded since cycle_1639 by `!startsWith('0x')`). **H_BSC_BC_FULL** (`chain=bsc AND bonding_curve_buyers.length≥16`): best-fire n=45 avg=+75.6 WR=33 rug=29 **big=13.3% huge=2.2%** — strongest descriptive cohort yet, catches 6/6 BSC bigs. Walk-forward TEST n=9 avg=-50 big=0 → FAILS (temporal clustering of bigs in VAL). bonding_curve_buyers confirmed BSC-only (0/4475 Sol, 332/332 BSC) — closes cycle_1639+ pending. SNIPER_A vs B BSC trail differential 55pp (mirrors cycle_1800 MC_LIQ finding). See [cycle_20260521_0000.md](insights/cycle_20260521_0000.md).
+- **cycle_20260520_1800**: H_V3 borderline-fail (TEST Er=-0.031, catches 4/4 best-fire Sol bigs).
 
-## Top candidate (descriptive)
-**H_BIG_WINNER_SHAPE_V3** — `known≥11 ∧ smart≥2 ∧ liq≥17K ∧ lp_unlocked=true ∧ top1≥85`. Best-fire walk-forward: TRAIN n=44 Er=+0.449 K=0.03; VAL n=20 Er=-0.786; TEST n=26 Er=-0.031 K=0 big=7.69. Captures 4/4 best-fire bigs. One more huge → Kelly>0. **Realism gap**: live = 3/4 on SNIPER_A first-fire. Next cycle re-run on first-fire pnl.
+## Top candidates
+- **H_BSC_BC_FULL** (NEW, descriptive): re-test trigger = 2-4 cycles more BSC data → 05-20 cluster rolls into TRAIN/VAL, TEST gets fresh window.
+- **H_V3** (Sol, carried): n=1 first-fire big now, re-test waiting for 2+ new bigs.
+- **H_SMART_CLUSTER_VETO** (Sol, defensive): production-feasibility owed.
 
-## Top candidate (defensive)
-**H_SMART_CLUSTER_VETO** (1328): SMART_CLUSTER ∈ stream-fire-set → abandon. 92/100/100% rug TRAIN/VAL/TEST n=41. Entry-side vs exit-side deployment owed.
-
-## Planned for next cycle
-1. **Re-run H_V3 walk-forward on FIRST-FIRE pnl** (production-realistic). If TEST avg/big still beats baseline, propose paper at size=$1.
-2. Monitor regime stability (1-2 cycles → confirm or head-fake).
-3. Investigate SNIPER_MC_LIQ trail/exit differential vs SNIPER_A (RONALDO 184→436 is the largest first→best gap observed; could be zero-cost upgrade for H_V3 tokens).
-4. H_SMART_CLUSTER_VETO production-feasibility check — still owed.
-5. Carrying: pumpfun_monitor + dexscreener_signals null-check, bonding_curve_buyers field.
+## Planned next cycle
+1. Re-run H_BSC_BC_FULL when BSC data has rolled past the 05-20 cluster.
+2. **Cross-chain partition at every cycle start**: `chain × stream × paper` table on last100 — catches universe-scoping blind-spots.
+3. Investigate BSC A vs B trail differential (-62.8 vs -7.2 on same 97 tokens).
+4. Sol regime monitoring + H_V3 re-test queued for 2nd Sol big.
+5. CARRIED: H_SMART_CLUSTER_VETO feasibility, H_TG_AS_EXIT instrumentation, rugger_blacklist `wallet_added_at`.
 
 ## OPEN QUESTIONS to user
-1. **NEW (1800)**: SNIPER_MC_LIQ trail/exit vs SNIPER_A — RONALDO 184→436 is largest first→best gap. Small param delta? Zero-cost upgrade for H_V3 routing.
-2. **NEW (1800)**: H_V3 borderline gate-fail (TEST Er=-0.031). Worth "shadow paper" tier? First hypothesis catching all known bigs + positive TRAIN Kelly.
-3. CARRYING: H_SMART_CLUSTER_VETO entry-side vs exit-side deployment (1328); Track A re-scope to Kelly-sized regime exposure (1328); regime-guard PATCH for serial_sniper.js + macro 05-18T10:51Z context (0000); H_TG_AS_EXIT instrumentation (1826); rugger_blacklist `wallet_added_at` (1702); SMART_COPY duplicate metrics + ULTRA_TRIPLE/H2 filter logic (1800-orig).
+1. **CRITICAL NEW**: BSC trades all `paper=false` (real money) — intentional? Live positions? 6 bigs (+288..+1268%).
+2. **NEW**: BSC production stream = SNIPER_A (avg -62.8) or B (avg -7.2)? Determines whether H_BSC_BC_FULL is reachable.
+3. **NEW**: `bonding_curve_buyers` returns max 20 — hard API cap or natural ceiling? Affects bc≥16 vs bc=20 interpretation.
+4. CARRYING: MC_LIQ vs A (Sol, 1800); H_V3 "shadow paper" tier; H_SMART_CLUSTER_VETO entry-vs-exit; Track A re-scope; regime-guard sniper patch; H_TG_AS_EXIT; rugger_blacklist timestamps.
 
-## Leakage catalogue (5 forms, unchanged this cycle)
-Hindsight classifier · counting inflation · time-localization artifact · post-entry feature · stale classifier DB with reactive updates.
+## Leakage catalogue (5 forms unchanged): hindsight classifier · counting inflation · time-localization · post-entry feature · stale classifier DB.
+**NEW (0000)**: **universe-scoping blind-spot** — silent subset restriction (e.g. chain=solana) without probing excluded universe. Not a leakage form; **missed signal**. Prevention: partition chain×stream×paper before deeper analysis.
 
-**Methodology note (cycle_1800)**: best-fire dedup = *measurement* not deployment. Production enters on first-fire. H_V3 4/4 is theoretical; live = 3/4 unless MC_LIQ trail wired onto SNIPER_A. Deployment-realism gap, NOT leakage.
+## Methodology notes
+- state.json ~5000-cap rolling; HISTORY.md durable. Identify tokens by `token` mint, NEVER symbol. Best-fire=upside; first-fire=production. Walk-forward can fail via temporal fat-tail clustering — re-test when cluster rolls into TRAIN/VAL.

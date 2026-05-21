@@ -360,3 +360,63 @@ Confirmed: best-fire dedup adds 1 big (Together at 153% in SMART_COPY family, vs
 - **Caveat**: cycle_1200→1328 saw a partial clear that head-faked. Current double-clear could be a true regime transition OR a second head-fake. Re-trigger in next 1-2 cycles = head-fake confirmed.
 
 **Status**: OFF by formal criteria. Treat opportunistic, monitor for re-trigger.
+
+## NEW (proposed cycle 20260521_0000)
+
+### H_BSC_BC_FULL — BSC bonding_curve_buyers ≥ 16 (NEW — strongest descriptive cohort signal yet; walk-forward TEST-fails on temporal clustering)
+**Filter**: `chain = bsc AND entry_signal.bonding_curve_buyers.length ≥ 16`.
+
+**Evidence (BSC universe, 332 rows / 97 unique tokens, paper=false real-money)**:
+- Cohort stats (best-fire): **n=45 avg=+75.6% WR=33% rug=29% big=13.33% huge=2.22%**.
+- Captures **6/6 BSC bigs** (PORTUGAL +906, MC +1268, COMPUTE +856, CATCOIN +542, WORLDCUP +971, CMC +288). All have bc_count=20 (API cap).
+- bc bucket gradient (best-fire): bc=4-7 n=14 avg=-65 big=0; bc=8-15 n=38 avg=-81 big=0; **bc=16+ n=45 avg=+75.6 big=13.3 huge=2.2**. Bimodal — strong regime separation at bc=16.
+- All 6 bigs share: chain=bsc, dex=pancakeswap, smart=0, known=1, both∈{7..52}, ser_only∈{7..71}, liq∈[16668, 28683], 5/6 stream=SNIPER_B (1/6 SNIPER_F2).
+
+**Walk-forward 60/20/20 by entry_time (n=97 first-fire / 97 best-fire)**:
+- Baseline first-fire: TRAIN -71.2 / VAL -21.6 (big=10.5) / TEST -77.7 (big=0).
+- Baseline best-fire:  TRAIN -21.6 (big=3.4) / VAL +103.5 (big=21.1) / TEST -65.6 (big=0).
+- **H_BC16 first-fire**: TRAIN n=27 avg=-38.1 big=0 K=0 / VAL n=9 avg=+52.3 big=22.2 K=0.58 / **TEST n=9 avg=-50.4 big=0 K=0** → FAILS gate.
+- **H_BC16 best-fire**: TRAIN n=27 avg=+41.9 big=7.4 huge=3.7 Er=+0.419 K=0.08 geom=+1.39% / VAL n=9 avg=+302.4 big=44.4 Er=+3.024 K=0.99 / **TEST n=9 avg=-50.3 big=0 K=0** → FAILS gate.
+
+**Why TEST fails**: 5 of 6 BSC bigs cluster in a single 4-hour window (2026-05-20T13:39 → 17:48Z). PORTUGAL alone is in TRAIN; 5 are in VAL; TEST (idx 77-96 = 20% tail) is post-cluster and barren. Temporal localization of fat tails. **Not a leakage form — legitimate sample-scarcity issue.**
+
+**Composition variants tried** (`bc≥16 ∧ known≥1`, `bc≥16 ∧ both≥7`, `bc≥16 ∧ liq≥15K`, `stream=SNIPER_B`, `stream=SNIPER_B ∧ bc≥16`): all show same TEST collapse because every big satisfies all conditions. Tightening narrows TRAIN without helping TEST.
+
+**Mechanism (hypothesis)**: Pancakeswap pre-launch bonding-curve participation ≥16 wallets = strong organic/insider interest at launch. Bimodal outcome: bundle stays intact → fat-tail pump; bundle dumps → -90% rug. Bimodality is what we want for fat-tail capture.
+
+**Re-test trigger**: 2-4 more cycles of BSC data → 05-20 cluster rolls into TRAIN/VAL; TEST gets fresh post-cluster data. With current trajectory ~100 BSC trades per 2 days, n_TEST should grow from 20 to 40-60, statistical floor lifts.
+
+**Production-realism gap**: BSC bigs win **best-fire** (SNIPER_B trail); first-fire (likely SNIPER_A) catches only 2 of 6. Need to confirm production execution stream — see open question 2 in BRIEF.
+
+**Status**: **NEW** — primary monitoring target alongside H_V3. Strongest cohort signal in this brain's history. NOT walk-forward-passing yet.
+
+### H_BSC_SNIPER_B_TRAIL_DIFFERENTIAL — observation
+**Observation**: On 97 BSC tokens, SNIPER_A first-fire avg=-62.8% (big=2.06%); SNIPER_B best-fire avg=-7.2% (big=6.19%, huge=1.03%). **55-pp differential on the same tokens.** Each of the 6 BSC bigs wins on B's trail at materially higher pnl than A's.
+
+**Implication**: SNIPER_B's trail logic captures dramatically more fat-tail upside on BSC. Either (a) production routes through B (and SNIPER_A is a ghost-record stream), or (b) production routes through A and BSC PnL is significantly underwater vs theoretical-best.
+
+**Pattern**: same shape as cycle_1800 Sol observation (SNIPER_MC_LIQ ride-longer captures RONALDO 184→436 = +252 vs SNIPER_A first-fire). Two chains, two different "best-fire" stream candidates (BSC: B; Sol: MC_LIQ), same trail-logic-differential phenomenon. **Suggests broader sniper-architectural pattern: alpha is on the table by deduping to SNIPER_A first-fire across multiple chains.**
+
+**Status**: NEW (observation). Pending user confirmation of production execution stream per chain.
+
+### CLOSED — bonding_curve_buyers field investigation (cycle_1639+)
+**Resolved this cycle**: field is BSC-only. 0/4475 Sol rows have populated `bonding_curve_buyers`; 332/332 BSC rows have it populated (len 0..20). Investigation surfaced the BSC universe blind-spot (see H_BSC_BC_FULL). **CLOSED.**
+
+### UPDATE: H_REGIME_GUARD (cycle_0000) — both conditions RE-TRIGGERED (cycle_1800 "clear" was 1-cycle head-fake)
+- **Condition A** (rolling-50 avg < -55%): **RE-TRIGGERED.** -43.8 → -56.6 (-12.8pt). Same head-fake pattern as cycle_1200→1328.
+- **Condition B** (big%=0 for ≥24h): **RE-TRIGGERED.** RONALDO slid out of last50 window (now idx 520-570, post-RONALDO).
+- **Both active.** Guard ON.
+
+**Status**: ACTIVE via both conditions. Cycle_1800's "both clear simultaneously" was a single-cycle local maximum — same trajectory shape as cycle_1200→1328 head-fake. **The 05-18 collapse regime is still active 3+ days in.**
+
+### UPDATE: H_BIG_WINNER_SHAPE_V3 first-fire re-test (cycle_0000) — DEPRIORITIZED
+Planned task was to re-run H_V3 walk-forward on first-fire pnl. **Deprioritized** this cycle: PIGEON+MTFR have rotated out of state.json's rolling window; Sol first-fire bigs reduced from 3 to 1 (RONALDO only). Walk-forward on n=1 big = statistical noise. Re-queue when 2+ Sol bigs re-enter dataset.
+
+**Status**: WAITING (carried from cycle_1800).
+
+### NEW METHODOLOGY CATEGORY (cycle_0000) — universe-scoping blind-spot
+**Distinct from leakage forms.** Leakage = invalid signal. Universe-scoping blind-spot = **missed signal**: research silently restricts to a subset (e.g., chain=solana via `!startsWith('0x')`) and never probes the excluded universe. Brain carried Sol-only scoping for ~10 cycles (cycle_1639 → 1800) and missed the densest fat-tail cluster (BSC, 6 bigs in 2.4 days).
+
+**Prevention rule**: every cycle should run partition probe `chain × stream × paper` on last100 rows BEFORE deeper analysis. If any partition shows materially different baseline (avg, big%, paper-state), investigate that partition separately before scoping further.
+
+**Added as future-cycle reminder** in BRIEF + this backlog.
