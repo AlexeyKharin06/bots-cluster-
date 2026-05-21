@@ -67,3 +67,25 @@ H22 H20 + regime gate ≤0.25 joint filter | pending 2026-05-21_0500 | predict: 
 H23 SNIPER_MC_LIQ stream audit | pending 2026-05-21_0500 | this stream had best fit on H20 winners (n=5 avg +50.3% WR 80% rug 0%). What's its entry filter? If similar to H20 conditions, may be the natural production stream to propose for H20-style alpha (no new stream needed).
 
 GATE-≤0.25 walk-fwd reconfirmed 2026-05-21_0500 | test n=235 (was 112 prev cycle) avg -11.7% vs baseline -40.2% = +28.5pp lift; rug 31% vs 42% = -11pp lift. Strongest validated edge. Should be base layer for any paper-stream proposal. ≤0.20 also competitive (n=163 avg -14.4%). Tighter threshold optimal in current regime mix.
+
+GATE-≤0.20 walk-fwd POSITIVE-abs 2026-05-21_1100 | test n=271 (anchored cut 2026-05-20 15:35Z) avg **+6.5%** WR 44 rug 22 3x 5.0 (baseline test n=2169 avg -33.7 rug 39 3x 1.0) = +40pp lift, FIRST POSITIVE absolute test avg. ≤0.25 also positive: n=351 avg +1.5% rug 28. Gate optimum tightened from ≤0.25 last cycle to ≤0.20 this cycle (regime mildly more hostile + better tail coverage at tighter threshold). Current live gate 0.37 — would PAUSE trading right now. See cycle_20260521_1100.md.
+
+H17 UPDATED 2026-05-21_1100 → **DEPRECATED** | known≤1 clause was a confound, not a feature. Same big winners (MC, WORLDCUP, CATCOIN, COMPUTE, https, BEAN, PORTUGAL) all reappear in H25 (relaxed) + 22-23 more unique lottery candidates. Tagger PARTIALLY RECOVERED in newest 165 trades (smart 4.12→6.84, known 12.79→21.18) — drift was transient pocket, not permanent. BUT top1=0 halved (10.4→4.8%) so H17 strict still fires ZERO in newest data — structurally rare now. Switch to H25 going forward; keep H17 filter definition referenced as historical case.
+
+H24 rugcheck_score ∈ [100,1000] | promising_needs_validation_of_score_semantics 2026-05-21_1100 | bucket-test all-data: score=0 n=613 rug 59%; **score 100-1k n=242 / 32 unique avg -22% rug 13%**; score 5k-15k n=1848 rug 51%; score 15k-30k n=819 rug 57%; score ≥30k n=1292 rug 40%. Walk-fwd (anchored cut): train n=134/17u rug 24, test n=108/15u rug **0%** avg -5.8% dedup. H24 + gate ≤0.20: test n=21/3u avg **+7.3%** WR 71 rug 0. Sharpe-friendly (0% 3x — no lottery), strong rug-avoidance. CAVEAT: score=500 dominates the 100-1k bucket (13/15 unique) — could be sentinel or real risk-tier. NEED rugcheck pipeline docs to validate. Use as BASE LAYER. See cycle_20260521_1100.md.
+
+H25 = H17 RELAXED (drop known≤1) | **promising_high_priority — near-promotable** 2026-05-21_1100 | smart=0 ∧ top1=0 ∧ both≥5 (any known). Walk-fwd (anchored cut 2026-05-20 15:35Z): TRAIN n=42/14u avg +17.6%/+127% dedup rug 31 2x 14 3x 14; **TEST n=75/29u avg +4.3%/+28.2% dedup WR 45 rug 45 2x 14 3x 10.3**. Stream attribution (test): SNIPER_B +28.2% vs SNIPER_A -62% on SAME entries (+90pp gap) — confirms H18 B-exit alpha REPLICATES across archetypes. SNIPER_F/F2/D/D2 each n=3 avg +136% WR 100 rug 0 — possibly even better exit than B. Unique winners include MC+1268, WORLDCUP+971, CATCOIN+542, COMPUTE+856, CMC+288, 币安队长+105, plus losers like NBRDG/NMIND/OPULSX (rugs). With B-exit only, rug 45→~30% realistic (B exits rugs at +10-30%). Mission-aligned (lottery profile, 10.3% 3x). PROPOSE paper stream `SNIPER_PURE_BOTH_RELAXED_B_EXIT` if user permits. See cycle_20260521_1100.md.
+
+H26 H25 + gate ≤0.20 joint | needs_more_data 2026-05-21_1100 | test n=8 raw / 4 unique avg +128/+328 dedup, 50% rug 50% 2x 50% 3x. Extreme lottery profile but n=4 unique too small for paper stream. Re-test as data grows.
+
+H27 SNIPER_D/F-family exit forensic | high_priority 2026-05-21_1100 | on H25 test entries, SNIPER_F/F2/D/D2 each n=3 avg +136% WR 100% rug 0% (vs B +28%, A -62%). Suggests these streams may have an exit logic that OUTPERFORMS B's `early_exit_ratio_99` on lottery archetype. SNIPER_D/D2 also +20.9% avg in last 500 trades. Need source visibility for exit configs to validate and replicate.
+
+H28 H25 + rugcheck filter joint | pending 2026-05-21_1100 | predict: H25 + rugcheck_dangers ≤1 + bsr_m5 ∈[0.5,2] (organic flow) reduces H25's 45% rug while preserving 3x captures. Test next cycle once H25 sample grows or rugcheck semantics confirmed.
+
+FEATURE OBSERVATIONS 2026-05-21_1100:
+- `buy_sell_ratio_m5` ≥10: n=258 avg -75% **rug 89%** — coordinated pump-and-dump signal. INVERSE FILTER: avoid bsr≥5 always.
+- `rugcheck_dangers`=2: n=153 avg -80% rug 71% WR 0% — HORRIFIC. Always veto. dangers=0 alone is NOT meaningfully better than =1 (46% vs 48% rug); the signal lives in score combo (H24).
+- Stream `SNIPER_VOL_VEL` (n=17 last 500): rug 12% — cleanest in dataset. Audit filter.
+- Stream `SNIPER_ULTRA_TRIPLE` (n=11): rug 18% — new clean stream, three-feature confluence (likely).
+- Stream `SNIPER_MC_LIQ` audited: name misleading, only 35% of trades in $50-200k mcap range, mcap p90 = $250M. NOT a natural H20 stream.
+- State.json sliding window: ~2.5-day trim observed twice now. Use timestamp-anchored cuts not index-anchored.
