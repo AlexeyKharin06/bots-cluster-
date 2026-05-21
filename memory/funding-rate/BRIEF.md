@@ -1,60 +1,60 @@
-# BRIEF — funding-rate snapshot (last update: 2026-05-20 23:00 UTC)
+# BRIEF — funding-rate snapshot (last update: 2026-05-21 05:00 UTC)
 
 ## State
-- Data: `/srv/bots/onchain/code/scripts/wallet_v2/sniper_state.json` (38MB)
-- 4877 closed_trades (count dropped from 4978 — state.json was trimmed), 25 open, cycle=30290
+- Data: `/srv/bots/onchain/code/scripts/wallet_v2/sniper_state.json` (38MB, ms-epoch int timestamps now — NOT ISO)
+- 4993 closed_trades (+116 new), 0 open, cycle=30404
 - 20+ paper streams active. NONE production-promoted, NO real money.
 
-## Regime — REVERTED to hostile (clean pocket was transient)
-- **last 100: avg -63%, WR 18%, rug 66%** — back to baseline-hostile
-- 0-1h: -68%/70% rug; 0-3h: -57%/55% rug; 0-12h: -47%/48% rug
-- 3-day arc: -35% → -52% → +pos pocket → -63% (current)
-- Confirmed: regime DOES flip on 4-6h timescale. Regime gate is a necessary feature.
+## Regime — IMPROVED (second clean pocket; 6-12h cycle confirmed)
+- **last 100: avg -27.7%, WR 33%, rug 27%** (was -63%/66% prev cycle — +36pp lift)
+- 0-2h: -23.4%/21% rug (cleanest sub-window)
+- 3-day arc: -35% → -52% → +pos → -63% → **-27.7% (current)**
+- **CAVEAT**: last 200 has 0% 3x rate. Clean window without lottery events.
 
-## Discovered this cycle: H17 PURE_BOTH archetype
-- Signature: **smart=0 ∧ known≤1 ∧ both≥5 ∧ top1=0 ∧ liq_mc≥50 ∧ mcap≤25k ∧ age≤15min**
-- Test split (13h): 6 unique tokens, 0% rug, 17% 3x rate
-- 4 top winners ALL match (MC +1268%, WORLDCUP +971%, CATCOIN +542%, COMPUTE +856%)
-- Sample too small for promotion (train n=2 PORTUGAL only). Need accumulation.
-- Distinct from REJECTED H12 (any `both≥5`): H17 requires smart∧known counts near-zero so `both` is the WHOLE wallet signal. The wallet-tagger classifier matters here.
-- See `insights/cycle_20260520_2300.md`
+## 🔴 NEW CRITICAL: Wallet-tagger DRIFT detected
+- New window (n=121): smart avg 4.12 (was 7.33), known avg 12.79 (was 17.30), `both≥5` 1.7% (was 13.4%), `known≤1` 0.0% (was 0.3%), `top1=0` 14% (was 10%)
+- ALL counts trending DOWN 40-50%. Listener / wallet-pool seems to have changed.
+- **H17 fires ZERO in 121 new trades** — signal stopped existing, not low frequency
+- ANY hypothesis using extreme tagger values (smart=0, known≤1, both≥10) is now FRAGILE
+- Mid-range filters (H20) are robust to drift
 
-## EXIT-LOGIC alpha — `early_exit_ratio_99` (SNIPER_B)
-- 16 same-entry A vs B pairs: B beat A by **+344pp avg**
-- Mechanism: rug-avoidance (exits +10-30% on tokens A holds to rug_no_data -100%) AND big-winner capture (+500 to +1268%)
-- Likely THE most important alpha — same entry, different exit logic, 6-figure %% lift
-- Implication: H17 + B-exit is the target combo
+## NEW: H20 mid-cluster trail-capture archetype
+- Sig: **smart 1-7 ∧ known 8-15 ∧ both 0-2 ∧ top1 70-90 ∧ mcap $50-200k ∧ age 15-30**
+- Test: n=31 raw / 4 unique — avg **+50.9 / +59.8 dedup**, WR **87%**, rug **0%**, 2x 16%
+- New-window hits: ISIS +113, 芭比Q了 +104, ZEST +70 (H17 = 0 hits)
+- Best stream: SNIPER_MC_LIQ (n=5 avg +50.3% WR 80% rug 0%)
+- Exit: all `trail` — caps 50-150% pumps, MISSES 1000%+ tail
+- See `insights/cycle_20260521_0500.md`
+
+## STRONGEST validated edge: REGIME GATE ≤0.25
+- Walk-fwd test n=235 avg **-11.7%** (baseline -40.2%) = **+28.5pp lift**, rug 31% (-11pp)
+- Holds across larger sample (was n=112 prev cycle)
+- Use as base layer for any paper-stream proposal
+- Best as filter, not standalone (still negative absolute avg)
 
 ## Hypothesis frontier
-| H | Filter | n_test | dedup | avg | rug | 3x | Verdict |
-|---|--------|--------|-------|-----|-----|-----|---------|
-| Regime gate ≤0.25 | trail100 rug ≤0.25 | 112 | 19 | -6.9% raw / -27 dedup | 26% | 4.5% | **Persistent +39pp lift** |
-| **H17 PURE_BOTH** | smart=0 ∧ known≤1 ∧ both≥5 + tight | 12 raw | 6 | +318 raw / +21 A-dedup / **+614 B-dedup** | 0% | 17% | **NEW high-priority** |
-| H12 both≥5 standalone | bucket | 177 | 43 | -34% / -59 dedup | 69-90% | 6.2 | **REJECTED** cluster-rug |
-| H8 gate≤0.45+known<5 | combo | — | — | — | — | — | Subsumed by H17 |
+| H | Filter | n_test | n_unique | avg | rug | 3x | Verdict |
+|---|--------|--------|----------|-----|-----|----|---------|
+| Regime gate ≤0.25 | rolling-100 rug ≤25% | 235 | 36 | -11.7% raw / -35.7 dedup | 31% | 3.0% | **+28.5pp lift, validated** |
+| **H20 MID-CLUSTER** | mid smart+known + top1 70-90 + mid-cap | 31 raw | 4 | **+50.9 / +59.8 dedup** | 0% | 0% | **NEW promising_needs_n** |
+| H17 PURE_BOTH | smart=0 ∧ known≤1 ∧ both≥5 + tight | 0 new | 6 hist | n/a — fires zero | n/a | n/a | **blocked_on_tagger** |
+| H18 B-exit `early_exit_ratio_99` | exit-side | 16 pairs | — | +344pp vs A | — | — | high_priority (needs source) |
 
 ## Validated negatives — DON'T retest
-- interval-prediction (2-9% live precision)
-- fair-price scalping (0/5 weeks profitable)
-- listing momentum (32% win)
-- microcaps expansion (DEGRADES 86%)
-- known<5 + smart 3-5 standalone (R8 regime artifact)
-- single-feature filter alone (R10)
-- H11 lottery cluster smart≥7+known≥15+both≥4 (R11: train rug 79%)
-- **H12 both≥5 standalone (R12 NEW)** — rug 80% train / 69-90% test
-- R9 SMART_COPY inversion — RECLASSIFIED as regime-dependent
-- H15 both=0 standalone (rug lift but absolute -46% test)
+- interval-prediction (2-9% live precision); fair-price scalping (0/5wk); listing momentum (32% WR); microcaps expansion (-86%); known<5+smart 3-5 standalone (R8 regime artifact); single-feature filter alone (R10); H11 lottery cluster (R11 rug 79%); H12 both≥5 standalone (R12 rug 80%); H15 both=0 standalone (test -46%)
+- R9 SMART_COPY inversion — RECLASSIFIED regime-dependent (pair w/ gate)
 
 ## Next cycle priorities
-1. **Re-measure regime** post-reversion baseline (~ -55/-60% rug expected stable)
-2. **Accumulate H17 hits** — need ~30 more unique tokens to validate (currently 7 total)
-3. **Compare H17 entries across non-A/B streams** (D, E, G, F, SMART_COPY variants) — does any non-B stream have equivalent early_exit_ratio_99-style logic?
-4. **Re-test regime gate ≤0.25** as test split grows — confirm threshold shift
-5. If permission: propose `SNIPER_PURE_BOTH_B_EXIT` paper stream
+1. **Investigate wallet-tagger drift** (need read permission) OR add drift monitor metric
+2. **Accumulate H20 hits** — target n_unique≥20 to confirm
+3. **H22**: H20 + regime gate ≤0.25 joint filter
+4. **Audit SNIPER_MC_LIQ** stream (best fit for H20)
+5. **Cross-stream B-exit test on H20** — does early_exit_ratio_99 beat trail?
+6. Re-check gate ≤0.25 as test split grows
 
-## Open questions for user (blockers)
-1. **Permission to propose paper stream `SNIPER_PURE_BOTH_B_EXIT`** (H17 filter + B's `early_exit_ratio_99` exit, size=$1, paper)? Strongest archetype found.
-2. **KPI revision**: H17 has 0% rug + 17% 3x rate (asymmetric profile). KPI `avg≥+150%` misses Kelly-friendly profiles. Suggest **n_dedup≥30 AND (rug≤30% OR 3x_rate≥10%) AND EV≥+50% per trade w/ B-exit**.
-3. **Per-wallet metadata in entry_signal**? Need to see which wallets count as `both` (vs smart vs known) to distinguish stable-cluster (H17) from churning-cluster (rug).
-4. **Source visibility for `early_exit_ratio_99` exit logic**? If exit is the alpha, understanding it lets me clone into paper variants.
-5. **PROJECT_CONTEXT.md still describes funding-rate arb** but work is on-chain memes. Update or pivot officially.
+## Open questions for user (BLOCKERS)
+1. Wallet-tagger pool refresh cadence? Permission to read tg_listener / wallet_v2?
+2. H17: abandon until tagger stabilizes, or keep monitoring? (marked `blocked_on_tagger`)
+3. Propose H20 paper stream `SNIPER_MID_CLUSTER_TRAIL` if n_unique≥20 (rug ≤15%)?
+4. KPI: Sharpe-promotion tier (H20-style steady) vs Kelly-promotion (H17 lottery)?
+5. PROJECT_CONTEXT.md still says funding-rate arb — pivot officially (4th cycle noting)?
