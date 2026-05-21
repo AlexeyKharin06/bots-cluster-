@@ -483,3 +483,84 @@ Post-cluster bc≥16 (TEST + new data): 0/7 bigs (0% big rate). **Bimodal, not m
 
 **Lesson**: cohort signals with extreme TRAIN gain need cluster-membership check before being treated as features. Add to leakage-adjacent failure modes catalogue: **macro-failure mode "temporal clustering of fat tails"** — distinct from leakage; reflects sample-scarcity + event-driven concentration. Resolution: cluster-onset detection layer (proposed H_CLUSTER_ONSET_REGIME_SIZING).
 
+
+## NEW (proposed cycle 20260521_1200)
+
+### H_V7 — H_V6 OR γ-path (low-concentration LP-locked shape)
+**Filter**: H_V6 OR (lp_unlocked=false AND top1_pct<20 AND buys_m5≥400 AND smart≥4 AND liq≥15K).
+
+**Evidence (Sol universe 562/562 FF/BF, 60/20/20 walk-forward)**:
+- Catches **7/7 best-fire bigs** (cycle_0600 4 + this cycle 3 NEW).
+- Catches **5/5 first-fire bigs**.
+- **BF TEST: n=29 avg=+20.5 WR=31 rug=55 big=17.24% huge=0 Er=+0.205 K=0.05 geom=+0.49%/trade.**
+- FF TEST: n=29 avg=+8.3 WR=28 rug=59 big=13.79% Er=+0.083 K=0.02 geom=+0.08%.
+- TRAIN n=99-101 avg=-50 to -61 big~2% — pre-cluster carnage.
+- VAL n=27 avg=-50 big=0 — collapse contamination.
+
+**Gate status**: PASSES n≥20 ✓, Er>0 ✓, K≥0.05 ✓ (BF only). **FAILS geom≥1%/trade** (BF +0.49% < 1%).
+
+**vs H_V6 (deprecated)**: γ-path adds 1 big (CBSt +189) without admitting additional rugs in TEST. Marginal +0.26pp geom improvement.
+
+**Why not promotable**: geom criterion fail; rug rate (55-59%) too high for Kelly to size up.
+
+**Re-test trigger**: 1-2 more Sol bigs entering TEST; OR re-derive boundary 24h later as cluster fully ages into TRAIN.
+
+**Status**: NEW. Strongest descriptive Sol candidate; superseded H_V6.
+
+### H_V7_ANTICLUSTER — paradigm-shift: gate H_V7 entries to anti-cluster windows
+**Filter**: H_V7(t) AND NOT cluster_active(t, lookback=5h), where cluster_active(t, lb) = ∃ closed trade T' with T'.exit_time<t AND T'.entry_time ∈ [t-lb, t) AND T'.pnl_pct≥150.
+
+**Evidence (Sol universe BF, this cycle TEST)**:
+- **n=9 avg=+130.2% WR=56% rug=22% big=22.22% Er=+1.302 K=0.34 geom=+15.56%/trade.**
+- FF version: n=9 avg=+118% WR=44 rug=33 K=0.25 geom=+10.95%.
+- Subset of H_V7 BF TEST=29: 9 outside-cluster (this filter) vs 20 inside-cluster (avg=-28.8 K=0.01 geom=-0.30).
+
+**Gate status**: **PASSES Er+K+geom by huge margin. FAILS n<20** floor.
+
+**Mechanism**: Bigs are cluster TRIGGERS, not passengers. SPCXDRAGON+GITBANK (TEST's headline bigs) entered BEFORE any prior big had exited → they SHOW UP as anti-cluster. Inside cluster: market in "narrative excitement" → many launch attempts → most fail → rug-rate spikes 22%→70%.
+
+**Why this is a paradigm shift**: cycle_0600's H_CLUSTER_ONSET_REGIME_SIZING hypothesized "size UP during cluster". This data shows the opposite: size up at cluster ONSET (anti-cluster gate = no big has exited recently), size DOWN once a cluster is sustained.
+
+**Why this might still fail**: n=9 is small and DRIVEN BY 2 BIGS (SPCX+GITBANK 70-sec twin pop). If those bigs are the only ones the anti-cluster gate ever catches, the signal is one-cluster-anchored. Need 2-3 more independent cluster events for cross-cluster validation.
+
+**Production realism**: operationalizable as ~30 LOC scan of closed_trades.
+
+**Falsifiability**: replay state.json with rule; check anti-cluster gate vs first-mover bigs across ALL historical clusters (PORTUGAL/PIGEON/MTFR/RONALDO/SPCX-twin/CsgR-trio). If gate catches first-mover bigs across ≥3 independent clusters and TEST n grows ≥20 with K≥0.05+geom≥1% → PROMOTE TO PAPER STREAM.
+
+**Cost**: ~30 LOC filter integration. Backtest design ~1h, walk-forward ~30min.
+
+**Status**: NEW (paradigm-shift). Most promising signal this brain has produced. n<20 promotion floor; need 1-2 more clusters.
+
+## UPDATED (cycle 20260521_1200)
+
+### H_CLUSTER_ONSET_REGIME_SIZING — sizing-UP-during-cluster: REJECTED (wrong direction)
+cycle_0600 proposed: detect cluster, size up entries during active cluster window.
+**cycle_1200 walk-forward**: cluster-gated H_V7 BF TEST avg=-28.8% rug=70% big=15% K=0.01 geom=-0.30% — worse than H_V7 alone (avg=+20.5, K=0.05, geom=+0.49).
+**Mechanism failure**: cluster windows admit MORE rug-attempts than additional bigs. Bigs land at ONSET, before cluster signal trips.
+**Replaced by**: **H_V7_ANTICLUSTER** (opposite direction).
+**Status**: REJECTED. Kept for memory.
+
+### H_BSC_BC_FULL — UN-REJECTED (was REJECTED cycle_0600, now REOPENED FOR TESTING)
+**cycle_0600 evidence for rejection**: 7 fresh post-cluster bc=20 tokens, 0 bigs.
+**cycle_1200 evidence flips it**: NEW big **0x0598075dc4d1 +712% on SNIPER_A at 05-21 06:15 with bc=20, known=198, buys_m5=739** (a different BSC shape than the 4h-cluster: high known + high buys vs cluster's known=1, buys=6-9).
+
+**Walk-forward updated** (n=115, 60/20/20 = 69/23/23):
+- FF TRAIN n=37 avg=-16.2 big=5.41 K=0.01 geom=-0.17%
+- FF VAL n=10 avg=-59.1 big=0 K=0.01 geom=-0.59%
+- **FF TEST n=10 avg=+48.1 WR=40 rug=30 big=10% Er=+0.481 K=0.18 geom=+3.41%** — PASSES Er+K+geom
+- BF TRAIN n=37 avg=+80.6 big=13.51 K=0.24 geom=+6.72% (BF best-fire still includes 4h cluster)
+- BF TEST n=10 same as FF (new big was FF=BF on SNIPER_A)
+
+**Gate status**: PASSES Er+K+geom; FAILS n<20 floor.
+
+**Re-test trigger**: +10 more BSC bc≥16 tokens for n≥20 (ETA 2-4 days).
+
+**Methodological lesson**: cluster-shaped hypothesis rejection at small n is fragile. **Re-rejection criterion**: 3+ independent cluster events with TEST flunk before final reject. One independent cluster event flipped cycle_0600's rejection.
+
+**Status**: REOPENED, NEW status TESTING.
+
+## Pending investigations (not full hypotheses yet) — UPDATED cycle 20260521_1200
+- **CBSt γ-shape replication**: profile other lp_locked + top1<20 + buys≥400 + smart≥4 tokens. Are there fresh tokens matching γ-features that DIDN'T pump? What differentiates the duds from CBSt?
+- **0x0598 BSC SNIPER_A high-known shape**: is this a "second-wave BSC" pattern distinct from the original PORTUGAL-family 4h cluster? Profile any other BSC bc=20 tokens with known>100 — do they pump?
+- **Cross-cluster overlap of anti-cluster bigs**: SPCXDRAGON, GITBANK, CsgR, 8L7B — do their creator wallets / lp_providers overlap? Single-actor batch-launches would inform sizing strategy on anti-cluster gate.
+- **Post-onset cluster-during rug profiling**: 17 H_V7 inside-cluster TEST failures (avg=-28.8 rug=70%). What entry-features distinguish them from cluster-onset bigs?
