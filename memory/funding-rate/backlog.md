@@ -103,3 +103,5 @@ FEATURE OBSERVATIONS 2026-05-21_1100:
 - Stream `SNIPER_ULTRA_TRIPLE` (n=11): rug 18% — new clean stream, three-feature confluence (likely).
 - Stream `SNIPER_MC_LIQ` audited: name misleading, only 35% of trades in $50-200k mcap range, mcap p90 = $250M. NOT a natural H20 stream.
 - State.json sliding window: ~2.5-day trim observed twice now. Use timestamp-anchored cuts not index-anchored.
+
+H32 PREDICTIVE FUNDING-PAY SCALPING (from practitioner Прогноз фандинга site materials) | testing | source: D:/funding_rate/Info/, analysis in PRACTITIONER_FUNDING_PREDICTION_ALGORITHM.md, key formula: P_avg_weighted = sum(w_i*p_i)/sum(w_i), funding = clamp(p_avg + (interest-p_avg), ±0.05%), per-exchange weight rules in code. Implementation: WebSocket premium-index → predict funding 60s before T → arm SHORT/LONG → exit at T+30s. Materials at /srv/bots/funding-rate/code/Info/. Priority: HIGH (predictive power not yet tested in our project)
