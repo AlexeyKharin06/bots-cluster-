@@ -1,65 +1,64 @@
 # BRIEF — funding-rate snapshot
 
-## State (updated 2026-05-21 17:25 UTC)
+## State (updated 2026-05-21 23:30 UTC)
+- ✅ Paper-bots VPS: `paper_fairprice_v6` n=3 all winners (still noise); `paper_new_symbol/_practitioner/_whale` 0 trades
+- ✅ Parquet on VPS: `multi_ex_funding_180` (1.6M rows, 6 ex, 180d), `expansion_funding` (35k, explicit `interval_min`),
+  `mega_fairprice_backtest` (206k sims), `mega_fairprice_klines` (110k), `borrow_histories.jsonl` (45 coins)
+- ⚠️ `feed_funding.jsonl` empty; H29 poller pending user OK
+- ⚠️ Backlog still has onchain misattribution below H6 separator (no-delete rule)
 
-- ✅ Paper-bots on VPS: paper_fairprice_v6, paper_new_symbol, paper_practitioner, paper_whale
-- ✅ **Parquet backtest data IS on VPS** (BRIEF was stale on this prior to 2026-05-21_1700):
-  - `multi_ex_funding_180.parquet` 1.6M rows, 6 ex, 2025-11→2026-05
-  - `expansion_funding.parquet` 35k rows, explicit `interval_min`
-  - `mega_fairprice_backtest.parquet` 206,520 simulated trades
-  - `mega_fairprice_klines.parquet` 110,576 klines (only around the 206k event_ids)
-- ✅ Info/ practitioner materials at `/srv/bots/funding-rate/code/Info/` (H32 implementation deferred)
-- ⚠️ paper_fairprice_v6 n=2 (both winners — too small to revisit R2)
-- ⚠️ feed_funding.jsonl still empty (TG upstream absent — diagnosed 2026-05-21_1450)
+## 🟢🟢 H31 BASIS-HEDGED LONG-ONLY — KPI 3/4 PASSED (this cycle)
 
-## 🟢 NEW high-confidence lead — H31 GROSS validated (this cycle)
+**Strategy:** on each detected interval-shortening event with `pre_rate < 0` (76% of shortenings),
+LONG-perp + SHORT-spot at $1 notional, exit after 4 funding periods. Captures intensified negative funding;
+price risk neutralised by hedge.
 
-**Strategy class:** interval-shortening-triggered funding harvest.
-- 213 shortening events in 180d across 5 exchanges, 122 symbols
-- Mean "collect next funding" gross = +1.06%/period; cum 4 periods = +2.14%
-- WR 79.3%, Sharpe (gross) 0.62
-- TRAIN/TEST 70/30: +2.21% vs +1.98% — STABLE
-- Negative control (365 lengthening events): ≈0% (+0.009%)
-- 240→60 cleanest subgroup (n=154, test +2.75%)
-- Positive on all 5 exchanges; 6/7 months positive
+| metric | value | KPI | pass |
+|---|---|---|---|
+| Walk-fwd mean net 4h | **+3.52%** | >0 | ✅ |
+| n (180d) | **116** | ≥50 | ✅ |
+| WR | **100%** | ≥75% | ✅ |
+| Min single-event | +0.80% | DD ≤15% | ✅ |
+| TRAIN/TEST gap | 0.24pp (+3.59 / +3.35) | stable | ✅ |
+| ≥3 indep edges | only 1 | portfolio | ❌ |
 
-**Caveats (must clear before any live consideration):**
-1. GROSS funding only — no price-risk hedging in current numbers
-2. Single-leg perp exposed to 1-4h underlying drift
-3. Net edge requires BASIS TRADE (perp+spot delta-hedge = H30)
-4. Detection needs API poller (H29) at ≤60s cadence
-5. R6 naive funding harvest is NOT contradicted (different conditioning)
+All 5 ex positive WR=100%: bybit +4.11 / gate +3.57 / binance +3.31 / okx +3.19 / bitget +3.02.
+All 6 months positive WR=100% (Nov +4.89, Dec +2.62, Jan +2.86, Feb +3.50, Mar +3.98, Apr +3.35).
+240→60 subgroup (cleanest): n=89, +3.58%, WR 100%. Robust to borrow rate up to 300bp/day fallback.
+
+**Why 100% WR:** min(fund_cum4)=+0.80%, basis cost ≤70bp worst case. Hedge converts capture to deterministic
+spread. Out of 116 LONG-only events, ZERO had funding flip positive within 4 periods. Real-world WR
+expected 85-95% after execution failures.
+
+## Direction asymmetry
+- pre<0 (LONG-only): funding intensifies post-shortening → consistent capture
+- pre>0 SHORT-side: rate FLIPS to mean -2.94% post-event → SHORT loses funding. Rejected as R13.
 
 ## Backlog priority after this cycle
-
-1. **🟢 PRICE WALK-FORWARD on 213 H31 events** (NEW gating analysis next cycle)
-2. **H29 exchange-API funding poller** (PROMOTED — empirical justification now exists)
-3. **H30 basis spot-vs-perp scanner** (linked execution path for H31)
-4. H32 PREDICTIVE FUNDING-PAY scalping (still untested — deferred)
-5. H5 announcement watcher (Bybit interval-change pre-event)
-6. H1 whale copy-trade
-7. H2 confluence SHORT-only
-8. H3 stablecoin depeg arb
-9. H4 CEX→DEX algo flow
-10. H6 new symbol detection (running as paper_new_symbol)
+1. **🟢 H34 perp-perp cross-exchange hedge** (NEW — derive from same parquet; eliminates borrow concern)
+2. **🟢 H35 spot-leg availability matrix** (one-shot per ex)
+3. **🟢 H36 micro-cap slippage** (L1/L2 depth on thinnest symbols)
+4. **H31_BASIS_PAPER spec** (after H34/H35/H36)
+5. **H29 exchange-API poller** (pending user OK — empirical case overwhelming)
+6. H32 PREDICTIVE FUNDING-PAY (untested; orthogonal)
+7. H5 announcement watcher / H1 whale copy / H2 confluence-SHORT / H3 depeg / H4 dex-flow / H6 new-symbol
 
 ## Validated negatives — DO NOT retest
-- R1 interval prediction via TG-NLP (2-9% precision)
-- R2 fair-price scalping LAGGED (0/5 walk-forward weeks)
-- R3 listing momentum (32% win, -$11/90d)
-- R4 microcaps expansion (DEGRADES 86%)
-- R5 multi-ex spread arb naive (-$13473)
-- R6 naive funding harvest >2% threshold (-$304) — **distinct from H31** (no event trigger)
-- R7 confluence LONG (27% win)
+R1 interval-prediction TG-NLP (2-9% precision) · R2 fair-price scalping (0/5 wf weeks; paper_v6 n=3 still
+noise) · R3 listing momentum · R4 microcaps expansion · R5 multi-ex spread arb naive · R6 naive funding
+harvest >2% · R7 confluence LONG · **R13 H31 SHORT-side (pre>0 flips post-event)** · **R14 H31 unhedged
+single-leg (TRAIN/TEST gap 8x = test-pocket artifact)**.
 
 ## Next AI brain cycle action
-Fetch OHLCV around the 213 H31 event timestamps (5 exchange APIs, ±5h windows). Compute
-net basis-trade PnL with realistic slippage (5bp/leg) + borrow cost from `borrow_histories.jsonl`.
-This gates any H31 paper-stream proposal. Spec in cycle_20260521_1700.md.
+Compute H34 perp-perp cross-exchange hedge from `multi_ex_funding_180.parquet` alone (no fetching needed):
+for each of 116 LONG-only events identify primary ex (LONG, collects intensified -rate) + best hedging ex
+(SHORT, smallest concurrent funding magnitude). Net = +|primary post×4| − |hedge post×4| − 4×5bp slippage,
+zero borrow. Expected: net ≈ gross +3.75% with WR maintained, eliminates 44-symbol borrow gap.
 
 ## Sources
-- Backtest data: `/srv/bots/funding-rate/code/data/`
-- Paper bots: `/srv/bots/funding-rate/code/paper_*/trades.jsonl`
-- TG: `/srv/bots/.shared/tg/feed_funding.jsonl` (empty) + `signals_master.jsonl`
-- Practitioner: `/srv/bots/funding-rate/code/Info/`
-- This-cycle artefact: `/tmp/h31_results.parquet` (ephemeral, re-derivable)
+- `/srv/bots/funding-rate/code/data/` (parquets, borrow_histories.jsonl)
+- `/srv/bots/funding-rate/code/paper_*/trades.jsonl`
+- `/srv/bots/.shared/tg/feed_funding.jsonl` (empty) + `signals_master.jsonl` (820)
+- This-cycle: `/tmp/h31_results.parquet`, `/tmp/h31_klines.parquet`, `/tmp/h31_net.parquet`,
+  `/tmp/h31_price_fetch.py`, `/tmp/h31_compute_net.py`
+- Full log: `insights/cycle_20260521_2300.md`
