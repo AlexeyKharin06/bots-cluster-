@@ -564,3 +564,94 @@ cycle_0600 proposed: detect cluster, size up entries during active cluster windo
 - **0x0598 BSC SNIPER_A high-known shape**: is this a "second-wave BSC" pattern distinct from the original PORTUGAL-family 4h cluster? Profile any other BSC bc=20 tokens with known>100 — do they pump?
 - **Cross-cluster overlap of anti-cluster bigs**: SPCXDRAGON, GITBANK, CsgR, 8L7B — do their creator wallets / lp_providers overlap? Single-actor batch-launches would inform sizing strategy on anti-cluster gate.
 - **Post-onset cluster-during rug profiling**: 17 H_V7 inside-cluster TEST failures (avg=-28.8 rug=70%). What entry-features distinguish them from cluster-onset bigs?
+
+## NEW (proposed cycle 20260522_0000)
+
+### H_BSC_BC_FULL_B — PAPER-STREAM CANDIDATE (passes Kelly-gate on 3 independent clusters)
+
+**Filter**:
+- chain = bsc
+- entry_signal.bonding_curve_buyers.length >= 16
+- routing: SNIPER_B preferred (with SNIPER_F2 / SNIPER_D2 fallback for broader-known variants like CMC/TLS family)
+
+**Evidence (cycle_2200, BSC universe n=142, 60/20/20 walk-forward by entry_time)**:
+- TRAIN n=43 avg=+63.1 WR=35 rug=26 big=11.63% Er=+0.631 K=0.18 geom=+4.22%  ← PASS
+- VAL   n=13 avg=+30.1 WR=38 rug=31 big=7.69%  Er=+0.301 K=0.11 geom=+1.46%  ← PASS
+- TEST  n=15 avg=+43.2 WR=27 rug=20 big=13.33% Er=+0.432 K=0.16 geom=+2.68%  ← PASS
+- ALL   n=71 avg=+52.8 big=11.27% K=0.17 geom=+3.33%
+
+**Cross-cluster validation passed** — 3 INDEPENDENT cluster events represented in dataset:
+- 05-20-day cluster (TRAIN): MC +1269, COMPUTE +856, CATCOIN +542, WORLDCUP +971 (4 bigs, all SNIPER_B known=1).
+- 05-20-night → 05-21-dawn (VAL): CMC +288 (SNIPER_F2 known=166), TLS +712 (SNIPER_D2 known=198) — broader-known variants.
+- 05-21-mid (TEST): **MEMEWC +179, PEDUCK +908** (SNIPER_B known=1-2) — back to PORTUGAL-family shape.
+
+**Gate status**: PASSES Er+K+geom on ALL 3 splits. **Only TEST n=15 < n≥20 floor.** Need 5+ more BSC bc=20 entries for full validation (ETA 2-4 days at current growth).
+
+**Strict gate FAILS** (avg+WR criteria) but Kelly-gate PASSES — brain has held since c0000 that strict gate is structurally wrong for fat-tail compounding (+1M% goal).
+
+**Mechanism**: bc≥16 = strong organic/insider participation pre-launch on BSC PancakeSwap. Bimodal outcome distribution:
+- pumps to +100-1200% (when bundle holds)
+- rugs to -90% (when bundle dumps)
+
+**Production realism**: filter is a ~5 LOC gate on `entry_signal.bonding_curve_buyers.length >= 16`. Routing to SNIPER_B trail logic is existing sniper architecture. No new code required beyond a conditional on entry.
+
+**Best-fire capture**: 6 of 8 BSC bigs ride SNIPER_B trail. 2 ride SNIPER_F2/D2 (CMC, TLS — broader-known shape). For maximum capture, route bc≥16 ∧ known≥100 through F2/D2; bc≥16 ∧ known<100 through B. Or just SNIPER_B for ~75% capture.
+
+**Status**: NEW — **paper-stream candidate awaiting user approval**. Cross-cluster validated. n<20 floor only on TEST.
+
+### H_V8 — Sol α-path liq lowered to $13K (catches Blobby)
+
+**Filter**: (α-path) lp_unlocked=true AND liq≥13K AND known≥11 AND smart≥2 AND top1≥85 OR (β-path) lp_unlocked=true AND known≥9 AND liq≥25K AND buys_m5≥300 AND top1∈[50,75] OR (γ-path) lp_unlocked=false AND top1<20 AND buys_m5≥400 AND smart≥4 AND liq≥15K.
+
+**Evidence (cycle_2200, Sol BF universe n=533, walk-forward)**:
+- ALL n=161 avg=-23.0 big=5.59% K=0 geom=0
+- TRAIN n=101 avg=-26.5 big=3.96%
+- VAL n=32 avg=-35.1 big=9.38%
+- TEST n=28 avg=+3.2 big=7.14% Er=+0.032 K=0.01 geom=+0.01%
+
+**Catches all 9/9 Sol BF bigs** (V7 missed Blobby on liq≥17K; V8 lowered to 13K).
+
+**Status**: NEW (descriptive). FAILS GATE_EXPECTANCY_KELLY on BF TEST geom<1%. **Trend negative over 4 cycles**: c1800 V3 +0.49% → c0600 V6 +0.55% / +0.9% → c1200 V7 +0.49% → c2200 V8 +0.01% — Sol α-β-γ shape is too inclusive at current data; more bigs found but more rugs admitted faster.
+
+**Carry as primary Sol monitoring target. Not promotable. Need tighter sub-filter or accept Sol cannot pass gate yet at this data scale.**
+
+## UPDATED (cycle 20260522_0000)
+
+### H_V7_ANTICLUSTER — FALSIFIED (single-cluster artifact = 6th leakage form)
+
+cycle_1200 promoted H_V7 ∩ ¬cluster_active(5h) BF TEST n=9 avg=+130% K=0.34 geom=+15.56% as "paradigm-shift signal".
+
+**Cycle_2200 re-test on +12h shifted boundary**: TEST n=10 avg=+3.5% K=0.01 geom=+0.01%. Collapsed.
+
+**Cross-cluster validation**: 9 Sol BF bigs split into onsets (gap≥5h from prior big-exit) vs followers:
+- Chain 1: Together (ONSET) +153, RONALDO (follower) +436
+- Chain 2: SPCXDRAGON (ONSET) +511, GITBANK (follower) +941, ser (follower) +355, RNBINU (follower) +162, Omnimals (follower) +189
+- Chain 3: FOID (ONSET) +575, Blobby (follower) +682
+- **Onsets n=3 avg=+413%, Followers n=6 avg=+461%.**
+
+**Followers are no worse than onsets** — actually slightly better on average. Anti-cluster gate would miss 6 of 9 bigs (66% miss). The c1200 +130%/K=0.34 was driven by 2-big-out-of-9 statistical artifact in single TEST window.
+
+**Status**: REJECTED. Kept for memory.
+
+**New leakage form catalogued (6th)** — "single-cluster artifact promotion": any signal validated on n<20 with bigs concentrated in 1-2 events is structurally fragile. New methodology rule: tag such signals SINGLE-CLUSTER (not VALIDATED) pending 2+ independent cluster confirmation.
+
+### H_BSC_BC_FULL → renamed H_BSC_BC_FULL_B and PROMOTED to PAPER-STREAM CANDIDATE
+See entry above.
+
+### H_REGIME_GUARD — Cond A re-active
+
+- Cond A (rolling-50 avg < -55%): **ACTIVE** (-55.3, just below threshold).
+- Cond B (big%=0 ≥24h): **CLEAR** (Blobby 4h ago).
+- Guard ON via Cond A. Cluster fully decayed, post-Blobby rug tail.
+
+### CARRIED — unchanged
+- H_SMART_CLUSTER_VETO — production-feasibility owed.
+- H_TG_AS_EXIT — blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review — deferred.
+- rugger_blacklist `wallet_added_at` — pending user.
+
+## Pending investigations (NEW cycle 20260522_0000)
+
+- **Sol α-shape rug profile**: H_V8 has 161 BF tokens, 9 bigs, 73 rugs (~45%). Find features differentiating the 73 rugs from the 79 non-big/non-rug "mediocre" tokens within H_V8 universe. Candidate features: buys_m5 ratio, smart/known ratio, top1_pct percentile within H_V8.
+- **Mid-day Sol gap window** (idx 408-458, 05-21T13:18-17:10): 4h between chain-2 last (Omnimals 10:32) and chain-3 first (FOID 18:14). Were any near-bigs in this window? Want chain-transition signature.
+- **SNIPER_SMART_TOP_AGE5 best-stream attribution for Sol α-shape**: 6 of 9 BF bigs ride this stream. Production sniper currently enters on SNIPER_A. Should sniper route Sol α-shape entries through SMART_TOP_AGE5's trail logic, parallel to BSC B finding?
