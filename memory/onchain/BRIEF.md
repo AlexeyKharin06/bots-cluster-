@@ -1,40 +1,49 @@
-# BRIEF — onchain AI brain (cycle 20260522_0600)
+# BRIEF — onchain AI brain (cycle 20260522_1200)
 
 ## State (live, rolling ~3d)
-- closed=4905 (+98 vs c0000, 6h). Sol 533 / BSC 144 uniq (+2; +6 fresh bc=20).
-- Sol BF bigs=9 (**0 new in 6h**). Last big Blobby 9.6h ago (longest gap).
-- BSC BF bigs=8. **4 bc=20 clusters**: C1 PORTUGAL-day (4 bigs SNIPER_B) / C2 broader-wave (2 bigs CMC+TLS) / C3 PORTUGAL-mid (2 bigs MEMEWC+PEDUCK) / **C4 NEW 05-22 01:53-05:58 (6 entries, ZERO bigs, all SNIPER_A)**.
-- Sol last50 -62.4 (was -55.3). Cond A worsening. big%=0.
+- closed=4867 (-38 vs c0600=4905, net rotation). Sol uniq **536 (+3)**. BSC uniq **140 (-4)**, early-cluster bigs aged out.
+- **+3 NEW BIGS in 6h** (best 6h-delta since c2200): FATU Sol +232 (05-22T05:20, δ-shape NEW), METLIFE BSC +173 SNIPER_A (09:52, bc=20 known=1), Grandma BSC +568 SNIPER_B (10:54, bc=20 known=2).
+- Sol BF bigs **8** (Together rotated; FATU new). BSC BF bigs **7** (4 early rotated; METLIFE+Grandma new).
+- **5th BSC cluster C5 PRODUCTIVE** (05-22 06-13): n=11 K=0.71 geom=+17.67% big=18% rug=**0%**. Refutes c0600 "C4 dormant trend".
+- Sol last50 **-64.4** (was -62.4) — worst single-window since 05-19 collapse.
 
 ## Goal & gate
-**+1M%** via fat-tail compounding. GATE_EXPECTANCY_KELLY (TEST n≥20, Er>0, K≥0.05, geom≥1%/trade). Paper streams: **NONE** (H_BSC_BC_FULL_B proposed; this cycle re-evaluated).
+**+1M%** via fat-tail compounding. GATE_EXPECTANCY_KELLY (TEST n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%/trade). Paper streams: **NONE deployed**; PAPER_BSC_BC16 STRONGLY RECOMMENDED (extended evidence).
 
 ## Regime
-Cond A ACTIVE worsening. 4 BSC clusters bimodal (2 productive, 2 dormant). 3 Sol chains (Together-RONALDO; SPCX-Omnimals; FOID-Blobby). Post-Blobby gap 9.6h.
+- **Cond A ACTIVE — deeply worse** (-64.4). Post-FATU rug avalanche worse than post-Blobby.
+- Cond B CLEAR (FATU 6.7h ago).
+- Guard ON via Cond A.
 
 ## Last validated
-- **c0600 (this)**: H_BSC_BC_FULL_B percentile-redraw TEST FAILS (n=11 K=0). **FIXED time-boundary TEST PASSES marginally** (n=21 K=0.10 geom=+1.00% big=9.52% rug=24%). Per-cluster bimodal C1/C3 prod (K=0.12-0.76) vs C2/C4 dormant. Aggregate n=62 K=0.21 geom=+4.99%. **H_V9_STEALTH NEW** (Sol α top1≥90∧smart≥10∧buys≤250) catches 3/9 BF bigs cross-cluster, TRAIN K=0.22, TEST n=2 overfit-risk. **7th methodology lesson** catalogued. See [cycle_20260522_0600.md](insights/cycle_20260522_0600.md).
-- **c0000**: H_V7_ANTICLUSTER FALSIFIED (onsets+413% vs followers+461%). H_BSC_BC_FULL_B passed Kelly-gate on 3 indep clusters. 6th leakage catalogued.
+- **c1200 (this)**: H_BSC_BC_FULL_B FIXED-boundary TEST n=21→32 K=0.10→0.23 geom=+1.00%→+3.36% big=12.5% rug=**16%** — passes gate by **60% margin on n, 4.6× margin on K, 3.4× margin on geom**. Cross-cluster 5 events (3 productive C1+C3+C5, 2 dormant C2+C4). H_BSC_BC_PORTUGAL tighter (bc≥16∩known≤10) TEST n=5 K=0.74 geom=+123% big=80% rug=20% — extreme alpha across 3 productive clusters but n<floor. H_V9_STEALTH REJECTED-OVERFIT (FATU outside; 2nd 6th-leakage). H_V8 misses FATU; 5-cycle Sol negative geom trend. See [cycle_20260522_1200.md](insights/cycle_20260522_1200.md).
+- **c0600**: H_BSC_BC_FULL_B percentile-redraw TEST FAILS; FIXED-boundary PASSES marginally (n=21 K=0.10). 7th methodology rule.
+- **c0000**: H_V7_ANTICLUSTER FALSIFIED. H_BSC_BC_FULL_B passed Kelly-gate on 3 indep clusters. 6th leakage form.
 
 ## Top candidates
-- **H_BSC_BC_FULL_B** (paper-stream candidate, bc≥16 ∩ SNIPER_B routing). FIXED-boundary TEST n=21 K=0.10 geom=+1.00% — passes marginally; n above 20-floor first time. Cross-cluster 4 events (3 prod, 1 dormant). Margin narrowed vs c0000 (K 0.16→0.10).
-- **H_V9_STEALTH** (Sol α-tighten, NEW). Catches 3/9 BF bigs (RONALDO/FOID/Blobby) 2 clusters. TRAIN K=0.22 geom=+4.33%. TEST n=2 overfit-risk. Misses β+γ.
-- **H_V8** (Sol descriptive, 9/9 bigs, TEST geom=0%, 4-cycle drift). Too inclusive.
+- **H_BSC_BC_FULL_B** (PAPER-STREAM CANDIDATE — extended-validated). TEST n=32 K=0.23 geom=+3.36%. Cross-cluster 5 events (3 productive). Broad routing {B/F2/D2/A}. **STRONG RECOMMEND deploy** $1 paper.
+- **H_BSC_BC_PORTUGAL** (paper-stream-2 candidate, tighter known≤10). TEST n=5 K=0.74 geom=+123%. Cross-cluster across 3 productive clusters. Carry until n=10+ then promote.
+- **H_V_DELTA_FATU** (descriptive, 4th Sol shape). Single-big-fit. Need ≥2 δ-bigs to formalize.
+- **H_V8** (Sol descriptive, 5-cycle negative geom drift). Misses FATU (8th BF big). Not promotable.
+- **H_V9_STEALTH** REJECTED-OVERFIT c1200 (chain-4 cross-cluster fail).
 - **H_V7_ANTICLUSTER** REJECTED c2200.
 - **H_SMART_CLUSTER_VETO** carried (production-feasibility owed).
 
-## Methodology — 7 leakage forms
-1. Hindsight classifier (c1702) · 2. Counting inflation (c1800) · 3. Time-localization (c1639) · 4. Post-entry feature (c1639) · 5. Stale classifier DB (c0000) · 6. Single-cluster artifact (c2200) · 7. **Percentile-redraw boundary drift (c0600)** — redrawing 60/20/20 each cycle shifts TEST forward, invalidating cross-cycle persistence. **Resolution: lock TEST as absolute timestamp; new data extends TEST forward.**
+## Methodology — 7 leakage forms + macro modes
+1. Hindsight classifier (c1702) · 2. Counting inflation (c1800) · 3. Time-localization (c1639) · 4. Post-entry feature (c1639) · 5. Stale classifier DB (c0000) · 6. **Single-cluster artifact** (c2200, c1200 V9 = 2nd example) · 7. **Percentile-redraw boundary drift** (c0600 — lock TEST as abs timestamp).
 
 Best-fire=upside; first-fire=production. Cross-cluster ≥3 events mandatory. Fixed-time TEST boundary mandatory.
 
 ## Planned next cycle
-1. Watch next Sol cluster onset → H_V9_STEALTH catch test.
-2. Watch next BSC cluster onset (C5) → productive vs dormant modal pattern.
-3. H_BSC_BC_FULL_B paper-stream user re-iterate with FIXED-boundary stats.
-4. CARRIED: SMART_CLUSTER_VETO, H_TG_AS_EXIT, MC_LIQ review, rugger_blacklist `wallet_added_at`.
+1. Track C6 BSC cluster onset (if any). H_BSC_BC_FULL_B TEST may extend to n=40+.
+2. Track next Sol big — α/β/γ/δ or 5th shape?
+3. If user approves: write `paper_streams_spec/PAPER_BSC_BC16.md` deterministic spec + forward-tracking log.
+4. Pull external BSC chain-volume data for cluster productivity predictor (productive C1+C3+C5 vs dormant C2+C4).
+5. Profile 52 Sol open positions — any V8/V9/V_DELTA candidates?
+6. CARRIED: SMART_CLUSTER_VETO, H_TG_AS_EXIT, MC_LIQ review, rugger_blacklist `wallet_added_at`.
 
 ## OPEN QUESTIONS to user
-1. **H_BSC_BC_FULL_B paper-stream approval**: FIXED-boundary TEST passes gate marginally (n=21 K=0.10 geom=+1.00%). C4 was zero-big cluster — variance real. Brain still recommends $1 paper forward-tracking — cheap; validates K=0.10 over next 50+ entries.
-2. **H_V9_STEALTH future**: 3/9 BF bigs cross-cluster. Carry until 2+ more clusters confirm; then promote?
-3. CARRIED: SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`; MC_LIQ vs SNIPER_A code review.
+1. **PAPER_BSC_BC16 deploy approval**: extended TEST n=32 K=0.23 geom=+3.36% big=12.5% rug=16% — passes gate by wide margin across 5 BSC clusters (3 productive). Routing {B/F2/D2/A}. $1 paper. Auto-stop on K<0.05 after 30 entries OR cumulative pnl<0% after 50.
+2. **PAPER_BSC_PORTUGAL (tighter, known≤10) — deploy NOW or wait for n=10+?** TEST n=5 K=0.74 geom=+123% big=80% across 3 productive clusters but n=5<floor. Brain leans WAIT (broader spec covers same alpha + more capture).
+3. **External BSC chain-volume fetcher** for cluster productivity predictor? ~2h investment. Would test "productive vs dormant cluster" hypothesis externally.
+4. CARRIED: SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`; MC_LIQ vs SNIPER_A code review.

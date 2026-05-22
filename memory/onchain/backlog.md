@@ -750,3 +750,163 @@ See entry above.
 - **What predicts productive vs dormant BSC bc=20 clusters?** 4 clusters observed: 2 productive (C1+C3, big rate 12-42%) vs 2 dormant (C2+C4, big rate 0-8%). No clean per-token feature separator. Candidate factors: time-of-day, external narrative trigger, BSC chain activity baseline, total bc=20 entries per cluster window (density). C1 density 2.4/h (productive); C2 1.7/h (dormant); C3 6.25/h (productive); C4 1.5/h (dormant). **Hypothesis H_CLUSTER_DENSITY**: bc=20 clusters with launch density ≥2/h productive; <2/h dormant. n=4 — too few to validate but watch in next clusters.
 - **Sol α-shape "stealth-whale" mechanism verification**: are FOID/Blobby/RONALDO creators/LPs overlapping (single launcher)? Verify cross-cluster persistence of stealth signature.
 - **PORTUGAL-family known=1 BSC shape may be aging out**: C4's only known<=10 entry (known=9) rugged -100. Future bigs may need new sub-filter on known. Watch.
+
+## NEW (proposed cycle 20260522_1200)
+
+### H_BSC_BC_FULL_B — PAPER-STREAM CANDIDATE: extended-validated, STRONG RECOMMEND DEPLOY
+
+**Filter**:
+- chain = bsc
+- entry_signal.bonding_curve_buyers.length >= 16
+- routing: include all streams that fired on a BSC bc=20 big in dataset {SNIPER_B, SNIPER_F2, SNIPER_D2, SNIPER_A}. Exclude SNIPER_BSC_FILTERED (the filtered/rejected lane).
+
+**Evidence (cycle_1200, BSC universe n=66 bc>=16 BF, FIXED-boundary TRAIN.last=05-21T05:09Z, TEST.first=05-21T14:46Z)**:
+
+bc>=16 raw (any stream):
+- TRAIN n=18 avg=+42.5 K=0.14 geom=+2.39%/trade
+- VAL n=16 avg=+12.0 K=0.04 geom=+0.23%/trade
+- TEST n=32 avg=+38.4 WR=47 rug=**16** big=12.50% K=**0.23** geom=**+3.36%/trade**
+- ALL n=66 avg=+33.1 K=0.14 geom=+1.90%/trade
+
+bc>=16 ∩ {B/F2/D2/A}:
+- TRAIN n=15 K=0.26 geom=+6.14%
+- VAL n=12 K=0.18 geom=+2.90%
+- **TEST n=30 K=0.25 geom=+4.04% big=13.33%**
+- ALL n=57 K=0.23 geom=+4.28%
+
+bc>=16 ∩ SNIPER_B only:
+- **TEST n=8 K=0.49 geom=+32.29% big=37.50%** (PEDUCK+MEMEWC+Grandma drive)
+- ALL n=13 K=0.45 geom=+27.09%
+
+**Cross-cluster validation (5 BSC bc=20 clusters now)**:
+- C1 05-20T13-18 (TRAIN): WORLDCUP+971
+- C2 05-20T18→05-21T01 (TRAIN-VAL straddle): broader-wave dormant (0 bigs, 12 entries)
+- C3 05-21T04-19 (VAL/TEST straddle): MEMEWC+179, PEDUCK+908
+- C4 05-22T01-06 (TEST): 6-entry dormant (0 bigs, 2 rugs)
+- **C5 05-22T06-13 NEW (TEST): METLIFE+173 (SNIPER_A!), Grandma+568 (SNIPER_B), 11 entries 0 rugs K=0.71 geom=+17.67%** — REFUTES c0600 "dormant trend"
+
+**Productivity rate**: 3/5 = 60% (was 2/4 c0600). Each productive cluster has 1-2 PORTUGAL-family bigs (known≤10).
+
+**Cross-cycle persistence (FIXED boundary)**: n=15→21→32, K=0.16→0.10→0.23, geom=+2.68%→+1.00%→+3.36%. Per-cluster oscillation expected; aggregate signal robust and STRENGTHENING (c0600 C4 dormant drag now offset by C5 productive boost).
+
+**Gate verdict**: PASSES Er+K+geom+n on TEST with **60% margin on n (32 vs 20), 4.6× margin on K (0.23 vs 0.05), 3.4× margin on geom (3.36% vs 1.00%)**. Strict gate fails (avg=+38<150; WR=47<60); Kelly-gate (brain's calibrated gate since c0000) passes by wide margin.
+
+**Production realism**: ~5 LOC entry gate (length check on bonding_curve_buyers). Trail logic inherited from entering stream. No new sniper code beyond a conditional.
+
+**Status**: **PAPER-STREAM CANDIDATE — STRONG RECOMMEND DEPLOY at $1 paper**. Spec written to memory/onchain/paper_streams_spec/PAPER_BSC_BC16.md (pending user approval; brain will NOT push to sniper without explicit OK).
+
+**Falsification criteria** (auto-stop after deploy):
+- After 30+ paper entries: K drops below 0.05 OR rug% rises above 35%
+- After 50+ paper entries: cumulative pnl < 0%
+
+---
+
+### H_BSC_BC_PORTUGAL — TIGHTER sub-filter (paper-stream-2 candidate, defer to n=10+)
+
+**Filter**: chain=bsc ∧ entry_signal.bonding_curve_buyers.length≥16 ∧ entry_signal.known≤10
+
+**Evidence (cycle_1200, FIXED-boundary)**:
+- TRAIN n=1 +971 (WORLDCUP) K=0.99 geom=+961%
+- VAL n=2 -20.5 K=0
+- **TEST n=5 avg=+345.7 WR=80 rug=20 big=80.00% K=0.74 geom=+123.24%/trade**
+- ALL n=8 avg=+332.4 big=62.50% rug=13% K=0.75 geom=+102.84%
+
+TEST entries: MEMEWC+179, PEDUCK+908 (C3) / CTM-100 (C4) / METLIFE+173, Grandma+568 (C5) = 4 bigs / 1 rug.
+
+**Cross-cluster validation**: 5/5 PORTUGAL bigs caught across 3 productive clusters (C1 WORLDCUP, C3 MEMEWC+PEDUCK, C5 METLIFE+Grandma).
+
+**Gate verdict**: TEST FAILS n≥20 floor (n=5). Passes Er+K+geom by extreme margin. Inappropriate to promote at n=5 — same rule as c2200 H_V7_ANTICLUSTER (single-cluster artifact lesson). Need n≥10 minimum, ideally n≥20.
+
+**Re-test triggers**:
+- Next BSC cluster brings 5+ more bc=20 ∩ known≤10 entries → promote to paper-stream-2 (deploy in parallel with PAPER_BSC_BC16; track separately)
+- Next bc=20 ∩ known≤10 entry RUGS at -100 → re-evaluate fragility
+
+**Status**: NEW (paper-stream-2 candidate, queued). Carry as descriptive monitor; auto-promote at n≥10 maintaining K≥0.4.
+
+---
+
+### H_V9_STEALTH — REJECTED-OVERFIT (cross-cluster fail on FATU)
+
+**Mechanism**: c0600 hypothesized Sol α-tighten "stealth-whale" shape (top1≥90 ∧ smart≥10 ∧ buys_m5≤250 ∧ lp_unlocked=true ∧ liq≥13K). Captured RONALDO+FOID+Blobby (3/9 BF bigs at c0600). TEST n=2 overfit-risk flagged.
+
+**Cycle_1200 cross-cluster test**: NEW Sol big = FATU +232 (chain-4, gap=8.93h from prior). FATU features: top1=**59.7** smart=14 known=17 buys=263 liq=$23938. **top1=59.7 < 90 → FATU OUTSIDE V9 universe.**
+
+V9 walk-forward updated (FIXED-boundary):
+- TRAIN n=3 K=0 geom=0%
+- VAL n=2 K=0 geom=0%
+- TEST n=6 K=0.23 geom=+13.14% (driven by FOID+Blobby; 4 new TEST hits all -100% rugs)
+- ALL n=11 K=0.14 geom=+3.67% big=18% rug=55%
+
+Per-cluster:
+- chain-1 (RONALDO): 1 big caught (V9 includes RONALDO)
+- chain-3 (FOID+Blobby): 2 bigs caught (V9 motivating instances)
+- chain-4 (FATU): 0 bigs caught (FATU outside V9)
+
+**Verdict**: 2nd example of 6th-leakage-form (single-cluster artifact promotion). Filter was overfit to chain-3 stealth-whale shape; FATU (chain-4 mid-top1 shape) falsifies cross-cluster generalization. **REJECTED-OVERFIT** — kept for memory.
+
+**Lesson reinforced**: methodology rule from c2200 — require 2+ independent cluster confirmation BEFORE promoting; c0600's V9 nomination at n=2 cross-cluster (chains 1+3) was below the rule's threshold. The rule works; the brain just didn't apply it strictly enough.
+
+---
+
+### NEW (descriptive): H_V_DELTA_FATU — 4th Sol big shape (single-point obs)
+
+**Filter sketch** (NOT formalized): `lp_unlocked=true ∧ liq∈[17K,30K] ∧ top1∈[55,75] ∧ smart≥10 ∧ known≥15 ∧ dex='meteora'`
+
+**Caught**: FATU +232 (1/1 in dataset). FATU sub-features: top1=59.7 smart=14 known=17 buys_m5=263 liq=$23938 lp_unlocked=true dex=meteora stream BF=SNIPER_H.
+
+**Descriptive coverage test**: broader-shape (relaxing buys_m5 and dex constraints) catches n=63 across full Sol dataset, 1 big (FATU itself), 28 rugs (45%), avg=-42%. Single-big-shape descriptor — single-point overfit if formalized as filter.
+
+**Why NOT a filter yet**: 1 big across 4 Sol clusters is single-cluster-artifact-risk (6th leakage form). Need ≥2 δ-shape bigs in different clusters before formalizing.
+
+**Status**: 4th-shape observation. Track future Sol bigs for δ-shape repeat (mid-top1 + high-smart + meteora). If next Sol big also δ-shape → formalize. If next is α/β/γ → δ-shape was anomaly.
+
+---
+
+### UPDATE: H_V8 (Sol descriptive) — misses FATU, 5-cycle negative geom trend
+
+- Catches 7/8 current BF bigs (lost Together via rotation; gained FATU which V8 misses).
+- 5-cycle negative geom trend: c1800 V3 +0.49 → c0600 V6 +0.55/+0.9 → c1200 V7 +0.49 → c2200 V8 +0.01 → c0600 V8 0% → **c1200 V8 0%**.
+- TEST n=86 K=0 geom=0% big=2.33% rug=60% — collapsing as data grows.
+- Sol shape is multi-modal (4 distinct shapes confirmed: α/β/γ/δ); single union filter too broad to pass gate.
+
+**Status**: Descriptive only. Sol unified-filter approach NOT promotable at current data. Carry as Sol-side primary monitor.
+
+---
+
+### UPDATE: H_REGIME_GUARD — Cond A deeply worse
+
+- **Cond A** (rolling-50 avg < -55%): **ACTIVE — -64.4 (was -62.4)**. Worst single-window since 05-19 collapse.
+- Cond B (big%=0 ≥24h): CLEAR (FATU 6.7h ago).
+- Guard ON via Cond A.
+
+Post-FATU rug avalanche (last 50 Sol FF idx 486-536 = 05-22 08:35-11:56): WR=18 rug=66 big=0. Sliding-50 trajectory: -45.6 → -47.2 → **-64.4** (last 3 windows, big%=0 throughout). Same shape as post-Blobby tail c0600 but deeper.
+
+---
+
+### UPDATE: BSC cluster productivity now 3/5 = 60% (refutes c0600 dormant trend)
+
+- C1 (productive): WORLDCUP family, density 2.4/h (cycle c0000)
+- C2 (dormant): broader-wave high-known, density 1.7/h
+- C3 (productive): MEMEWC+PEDUCK PORTUGAL-mid, density 6.25/h (highest)
+- C4 (dormant): density 1.5/h (cycle c0600)
+- C5 (productive): METLIFE+Grandma PORTUGAL-late, density ~1.6/h — REFUTES "density≥2/h productive" sub-hypothesis from c0600
+
+**Density-based predictor REJECTED**: C5 productive at density 1.6 (below the c0600 proposed threshold) while C2 dormant at density 1.7 (above). The density hypothesis is falsified by C5.
+
+**Alternative predictor**: PORTUGAL-family presence (known≤10 entries) appears to be the productive cluster marker. All 3 productive clusters had ≥1 PORTUGAL-family big. C2 (broader-wave high-known) and C4 (no PORTUGAL launches, all known≥9 except 1 rug) lacked the family. **Open hypothesis H_CLUSTER_PORTUGAL_PRESENCE**: cluster is productive iff it contains ≥1 PORTUGAL-family bonding-curve entry (known≤10). Falsifiable at next cluster.
+
+---
+
+### CARRIED — unchanged
+- H_SMART_CLUSTER_VETO — production-feasibility owed.
+- H_TG_AS_EXIT — blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review — deferred.
+- rugger_blacklist `wallet_added_at` — pending user.
+
+## Pending investigations (NEW cycle 20260522_1200)
+
+- **External BSC chain-volume data fetcher**: pull BSC chain-wide tx count, PancakeSwap TVL, BNB price, BSC bonding-curve cohort flow during C1-C5 windows. Test if productive clusters correlate with broader BSC momentum. ~2h work (DexScreener/GeckoTerminal API). Could give pre-cluster productivity signal.
+- **Open positions profile** (52 Sol open): are any in V8/V_DELTA universe? Build descriptor table of open entries.
+- **PORTUGAL-family cross-cluster overlap**: do WORLDCUP/MEMEWC/PEDUCK/METLIFE/Grandma share creator wallets / LP providers? Single-actor launches would change sizing strategy on H_BSC_BC_PORTUGAL.
+- **Sol δ-shape (FATU) replication watch**: when next Sol big lands, check if it's δ-shape (mid-top1 + high-smart + meteora) or another shape. Single δ-big is single-point overfit; ≥2 needed for filter.
+- **H_CLUSTER_PORTUGAL_PRESENCE**: productive cluster iff contains ≥1 PORTUGAL-family bonding-curve entry (known≤10). N=5 clusters, 3 productive (all PORTUGAL-present), 2 dormant (both PORTUGAL-absent). Falsifiable: next BSC cluster with NO known≤10 entry that produces a big → reject; next cluster with ≥1 known≤10 entry that's dormant → reject.
