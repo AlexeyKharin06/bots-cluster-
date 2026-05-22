@@ -655,3 +655,98 @@ See entry above.
 - **Sol α-shape rug profile**: H_V8 has 161 BF tokens, 9 bigs, 73 rugs (~45%). Find features differentiating the 73 rugs from the 79 non-big/non-rug "mediocre" tokens within H_V8 universe. Candidate features: buys_m5 ratio, smart/known ratio, top1_pct percentile within H_V8.
 - **Mid-day Sol gap window** (idx 408-458, 05-21T13:18-17:10): 4h between chain-2 last (Omnimals 10:32) and chain-3 first (FOID 18:14). Were any near-bigs in this window? Want chain-transition signature.
 - **SNIPER_SMART_TOP_AGE5 best-stream attribution for Sol α-shape**: 6 of 9 BF bigs ride this stream. Production sniper currently enters on SNIPER_A. Should sniper route Sol α-shape entries through SMART_TOP_AGE5's trail logic, parallel to BSC B finding?
+
+## NEW (proposed cycle 20260522_0600)
+
+### H_V9_STEALTH — Sol α-tighten "stealth whale" sub-shape (NEW descriptive)
+
+**Filter**: `entry_signal.lp_unlocked === true AND liquidity_at_entry >= 13000 AND entry_signal.top1_pct >= 90 AND entry_signal.smart >= 10 AND entry_signal.buys_m5 <= 250`.
+
+**Evidence (Sol BF, FIXED time-boundary TRAIN.last=05-21T05:09 TEST.first=05-21T14:46)**:
+- TRAIN n=6 avg=+45.6 WR=50 rug=33 big=16.67 Er=+0.456 K=0.22 geom=+4.33%
+- VAL n=2 avg=-48.5 K=0 geom=0%
+- TEST n=2 avg=+628.5 WR=100 rug=0 big=100% K=0.99 geom=+620.25%  ← spectacular but n<<20
+
+**All 10 hits across full dataset**:
+- 3 BIGS: RONALDO +436 (chain-1 onset, TRAIN), FOID +575 (chain-3 onset, TEST), Blobby +682 (chain-3 follower, TEST)
+- 3 RUGS: 39AuiLcB3M -100, HRi9dDj5k4 -100, A5ubRQGZfD -100 (1 in TRAIN, 2 in VAL/TEST)
+- 4 MID: pnls ∈ [-12%, +39%]
+
+**Aggregate (n=10, full data)**: avg ≈ +143% across all hits. 30% big rate, 30% rug rate, 40% mid.
+
+**Mechanism (hypothesis)**: stealth-whale α-shape catches tokens launched by single whale (top1=98) AND recognized by max-tier smart wallets (smart=13) BUT not yet attracting broad attention (buys ≤200). It's the smart-money-only pre-discovery window before the crowd arrives. Loud-pump-attempts in same universe (high buys, lower smart) consistently rug.
+
+**Discriminator analysis (H_V8 TEST bigs vs rugs)**:
+- bigs med: top1=98, smart=13, buys=125, liq=$22798
+- rugs med: top1=70, smart=5, buys=410, liq=$29433
+- mid med: top1=71, smart=8, buys=535, liq=$31625
+- **buys_m5 is the discriminator** — bigs 3-4× quieter than rugs/mid within α.
+
+**Why not promotable**:
+1. TEST n=2 is far below n≥20 floor; the 2 TEST tokens (FOID+Blobby) are the bigs that motivated the filter — overfit risk.
+2. Misses 6/9 Sol BF bigs (Together, SPCX, GITBANK, ser, RNBINU, Omnimals — all have lower top1, lower smart, OR higher buys).
+3. Coverage 10/533 = 1.87% of Sol universe — very selective.
+4. Cross-cluster spans 2 events (chain-1 RONALDO + chain-3 FOID/Blobby) — needs ≥3 events per c2200 methodology rule.
+
+**Re-test triggers**:
+- Next Sol big lands inside H_V9_STEALTH → 3rd cross-cluster confirmation.
+- Next Sol big lands OUTSIDE H_V9_STEALTH → filter too narrow; abandon.
+
+**Status**: NEW (descriptive). Primary Sol monitoring target. NOT paper-stream yet.
+
+### UPDATE: H_BSC_BC_FULL_B — re-evaluated under FIXED boundary
+
+**c0000 (declared)**: TEST n=15 K=0.16 geom=+2.68% big=13.33% rug=20%. Paper-stream candidate.
+
+**c0600 re-test methodology lesson**:
+- Naive percentile-redraw 60/20/20 on +98 trades (n_BSC=144) shifts TEST to 05-21T19:58+. MEMEWC+PEDUCK move to VAL. New TEST n=11 K=0 geom=0% **FAILS**.
+- **FIXED time-boundary (c0000-declared 05-21T14:46+)**: TEST n=21 K=0.10 geom=+1.00% big=9.52% rug=24%. **STILL PASSES gate** (Er=+0.245, K=0.10≥0.05, geom=1.00%≥1.00%, n=21≥20).
+
+**Per-cluster breakdown** (n=62 across 4 BSC bc=20 cluster events since 05-20T13:39):
+- C1 PORTUGAL-day 05-20T13-18: n=12 K=0.76 geom=+82.76% big=41.67%
+- C2 broader-wave 05-20T18→05-21T01: n=13 K=0 geom=0% big=7.69%
+- C3 PORTUGAL-mid 05-21T05-19: n=25 K=0.12 geom=+2.02% big=12.00%
+- **C4 NEW 05-22T01-06: n=6 K=0 geom=0% big=0.00%** — zero bigs in 4-hour window, all SNIPER_A.
+- **AGGREGATE n=62: K=0.21 geom=+4.99% big=12.90%**
+
+**Cluster outcome bimodal**: 2 productive (C1+C3) vs 2 dormant (C2+C4). No visible per-token feature distinguishes "productive cluster about to start" from "dormant cluster".
+
+**Status update**: paper-stream candidate STILL recommended (forward-tracking at $1 paper) but with MORE caution:
+- Marginal gate pass (K just above 0.05 floor; geom right at 1.00% floor).
+- 1 of 4 observed clusters dormant (25% sample fail rate).
+- Aggregate-forward stats still strong (K=0.21).
+
+### NEW (7th methodology lesson): Percentile-redraw boundary drift
+
+**The problem**: re-running 60/20/20 percentile split on every cycle as the dataset grows shifts the TEST window forward each cycle. Prior-cycle TEST samples become this-cycle VAL samples. Cross-cycle "TEST passes 3 cycles in a row" comparisons become invalid.
+
+**Example this cycle**: c0000 declared TEST = 05-21T14:46+ (n=15 bc=20 BSC, contained MEMEWC+PEDUCK bigs). c0600 percentile-redraw would have TEST = 05-21T19:58+ (n=11 bc=20, MEMEWC+PEDUCK silently moved to VAL). Same data, completely different TEST verdict.
+
+**Resolution**:
+- When declaring TEST boundary for a hypothesis: pin it as ABSOLUTE TIMESTAMP in backlog.
+- Future cycles: APPEND new data to same TEST window (don't redraw percentile splits).
+- TRAIN/VAL boundaries stay fixed forever; TEST window EXTENDS forward.
+- Cross-cycle persistence check becomes valid: "did TEST stats hold or degrade as TEST n grew from 15 to 21?"
+
+**Applied retroactively to H_BSC_BC_FULL_B**: under fixed boundary TEST grew n=15→21; K dropped 0.16→0.10; geom dropped +2.68%→+1.00%. Honest reading: signal **degraded but still passes gate**.
+
+**Status**: ADOPTED — all hypothesis backlog entries from c0600 forward must declare absolute TEST.first timestamp.
+
+### UPDATE: H_REGIME_GUARD — Cond A worsening
+
+- Cond A (rolling-50 avg < -55%): **ACTIVE — worsening** (-62.4, was -55.3 last cycle).
+- Cond B (big%=0 ≥24h): **CLEAR** (Blobby 9.6h ago).
+- Guard ON via Cond A.
+
+### CARRIED — unchanged
+- H_V8 (Sol descriptive, 9/9 bigs, 4-cycle TEST geom drift c1800 +0.49→c0600 0%).
+- H_SMART_CLUSTER_VETO production-feasibility owed.
+- H_TG_AS_EXIT blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review deferred.
+- rugger_blacklist `wallet_added_at` pending user.
+
+## Pending investigations (NEW cycle 20260522_0600)
+
+- **What predicts productive vs dormant BSC bc=20 clusters?** 4 clusters observed: 2 productive (C1+C3, big rate 12-42%) vs 2 dormant (C2+C4, big rate 0-8%). No clean per-token feature separator. Candidate factors: time-of-day, external narrative trigger, BSC chain activity baseline, total bc=20 entries per cluster window (density). C1 density 2.4/h (productive); C2 1.7/h (dormant); C3 6.25/h (productive); C4 1.5/h (dormant). **Hypothesis H_CLUSTER_DENSITY**: bc=20 clusters with launch density ≥2/h productive; <2/h dormant. n=4 — too few to validate but watch in next clusters.
+- **Sol α-shape "stealth-whale" mechanism verification**: are FOID/Blobby/RONALDO creators/LPs overlapping (single launcher)? Verify cross-cluster persistence of stealth signature.
+- **PORTUGAL-family known=1 BSC shape may be aging out**: C4's only known<=10 entry (known=9) rugged -100. Future bigs may need new sub-filter on known. Watch.
