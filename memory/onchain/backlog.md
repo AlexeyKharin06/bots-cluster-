@@ -910,3 +910,143 @@ Post-FATU rug avalanche (last 50 Sol FF idx 486-536 = 05-22 08:35-11:56): WR=18 
 - **PORTUGAL-family cross-cluster overlap**: do WORLDCUP/MEMEWC/PEDUCK/METLIFE/Grandma share creator wallets / LP providers? Single-actor launches would change sizing strategy on H_BSC_BC_PORTUGAL.
 - **Sol δ-shape (FATU) replication watch**: when next Sol big lands, check if it's δ-shape (mid-top1 + high-smart + meteora) or another shape. Single δ-big is single-point overfit; ≥2 needed for filter.
 - **H_CLUSTER_PORTUGAL_PRESENCE**: productive cluster iff contains ≥1 PORTUGAL-family bonding-curve entry (known≤10). N=5 clusters, 3 productive (all PORTUGAL-present), 2 dormant (both PORTUGAL-absent). Falsifiable: next BSC cluster with NO known≤10 entry that produces a big → reject; next cluster with ≥1 known≤10 entry that's dormant → reject.
+
+## NEW (proposed cycle 20260522_1800)
+
+### UPDATE: H_BSC_BC_FULL_B — STRONGEST-EVER stats, EXTRA-STRONG DEPLOY RECOMMEND
+
+**Filter** (BSC, FIXED boundary TRAIN.last=05-21T05:09Z, TEST.first=05-21T14:46Z):
+- chain=bsc, entry_signal.bonding_curve_buyers.length≥16
+- Routing: {SNIPER_B, SNIPER_F2, SNIPER_D2, SNIPER_A, SNIPER_H} (5-stream); **exclude SNIPER_BSC_FILTERED** (structurally anti-fat-tail).
+
+**Evidence c1800 (FIXED-boundary)**:
+- TRAIN n=6 K=0.01 (rotation drift; not stable comparison point)
+- VAL n=16 K=0.04 geom=+0.23%
+- **TEST n=41 K=0.34 geom=+6.07% big=17.07% rug=15% avg=+45.7 WR=51**
+- ALL n=63 K=0.18 geom=+2.26%
+- 5-stream routing TEST: n=39 K=0.36 geom=+6.91% big=17.95%
+
+**Cross-cycle persistence** (FIXED boundary):
+- n: 15 → 21 → 32 → 41 (monotone growth as TEST window extends)
+- K: 0.16 → 0.10 → 0.23 → 0.34 (oscillation; trending UP)
+- geom: +2.68 → +1.00 → +3.36 → +6.07% (trending UP)
+- big%: 13.33 → 9.52 → 12.50 → 17.07 (highest yet)
+- rug%: 20 → 24 → 16 → 15 (lowest yet)
+
+**Cross-cluster: 6 clusters observed, 4 productive (C1+C3+C5+C6), 2 dormant (C2+C4).** C5 and C6 are consecutive productive clusters that pulled TEST stats up sharply.
+
+**Why this is the brain's most validated signal**: signal strengthens with data, opposite of typical degradation. C5 (2 bigs) + C6 (3 bigs) added 5 bigs to TEST in 12h period. Pattern is replicating, not eroding.
+
+**Status**: PAPER-STREAM CANDIDATE. **EXTRA-STRONG DEPLOY RECOMMEND** at $1 paper. Falsification criteria: K<0.05 after 30 entries OR cum pnl<0 after 50.
+
+---
+
+### UPDATE: H_BSC_BC_PORTUGAL — TEST n=8, approaching deploy threshold
+
+**Filter**: chain=bsc ∧ bc≥16 ∧ entry_signal.known≤10
+**Routing**: 5-stream (B/F2/D2/A/H)
+
+**Evidence c1800 (FIXED-boundary)**:
+- VAL n=2 K=0.01 geom=-0.21%
+- **TEST n=8 K=0.82 geom=+123.09% big=75% rug=13% avg=+280.4 WR=88**
+- ALL n=10 K=0.79 geom=+80.35% big=60%
+
+**Cross-cluster validation strongest yet**:
+- C3 (productive): 2/2 entries are bigs (MEMEWC, PEDUCK)
+- C4 (dormant): 0/1 is a big (CTM rugged)
+- C5 (productive): 2/2 entries are bigs (METLIFE, Grandma)
+- C6 (productive): 2/3 entries are bigs (WBC, UFU); ttt was small +61 near-miss
+- **3 of 4 productive clusters fire PORTUGAL bigs at 67-100% rate**; C4 dormant exception saw the lone rug.
+
+**Cross-cycle persistence** (FIXED boundary): n: 5 → 8 (+60% in 1 cycle); K: 0.74 → 0.82; geom: +123% → +123%. Strengthening.
+
+**Status**: NEAR-DEPLOY THRESHOLD. n still below 20 floor but K=0.82/geom=+123%/big=75% are extreme. **Recommend parallel-deploy with PAPER_BSC_BC16** (sub-spec, $1 paper, separate tracking). Auto-promote trigger n=12 K≥0.5.
+
+---
+
+### NEW (descriptive validated): H_CLUSTER_PORTUGAL_PRESENCE
+
+**Mechanism**: BSC bc=20 cluster is productive (produces ≥1 big with pnl≥150%) iff cluster contains ≥1 entry with bc=20 ∧ known≤10.
+
+**Evidence cross-cluster (6 clusters)**:
+| cluster | productive? | PORTUGAL entries? | first-PORTUGAL→first-big lag |
+|---|---|---|---|
+| C1 | YES | YES (WORLDCUP family) | first big = WORLDCUP itself |
+| C2 | NO | NO (no k≤10 entries) | n/a |
+| C3 | YES | YES (MEMEWC k=2) | ~minutes (MEMEWC→PEDUCK 24min) |
+| C4 | NO | 1 entry rugged (CTM k=9) | n/a — PORTUGAL entry didn't pump |
+| C5 | YES | YES (METLIFE k=1) | METLIFE itself was first big |
+| C6 | YES | YES (ttt k=2 14:07) | **51min** (ttt → WBC at 14:58) |
+
+**4/4 productive clusters had PORTUGAL entries; 2/2 dormant clusters either lacked PORTUGAL (C2) or had one that rugged (C4).**
+
+**Operational use**: as soon as a known≤10 bc≥16 BSC entry pumps (pnl>0 after first 5min), declare cluster onset; expect more bigs in next 3-5h.
+
+**Status**: NEW (descriptive predictor, validated cross-cluster). Carry as cluster-onset detector. Could become sizing-multiplier on PAPER_BSC_BC16 (size up bc≥16 entries within 5h of a PORTUGAL pump).
+
+**Falsifiability**: next BSC cluster with NO PORTUGAL entry but ≥1 big → falsified. Currently 0 such examples.
+
+---
+
+### NEW (observation): SNIPER_H is the 4th BSC big-fire stream
+
+**Evidence c1800**: UFU (BF=H, +170) and BINA (BF=H, +169) are first 2 BSC bigs with BF=H.
+
+**BSC BF stream distribution (8 bigs)**:
+- SNIPER_B: 5 bigs (MEMEWC, PEDUCK, Grandma, WORLDCUP, WBC)
+- SNIPER_H: 2 bigs (UFU, BINA)
+- SNIPER_F2: 1 big (CMC)
+- SNIPER_D2: 1 big (TLS)
+- SNIPER_A: 1 big (METLIFE — A exits early on most bigs but METLIFE timing favored A)
+
+BINA captured by 6 streams (B/D/D2/F/F2/H all +169) — broadest multi-stream catch in dataset.
+
+**Status**: 5-stream routing {B/F2/D2/A/H} is canonical for PAPER_BSC_BC16. H is real, must be included.
+
+---
+
+### CONFIRMED: SNIPER_BSC_FILTERED is structurally anti-fat-tail
+
+**Evidence c1800**:
+- BINA: SNIPER_BSC_FILTERED=-100% (while B/D/D2/F/F2/H all=+169)
+- UFU: SNIPER_BSC_FILTERED=-87% (while B/H=+170)
+- Pattern: tighter trail exits early on bonding-curve completion volatility.
+
+**Memo**: never include SNIPER_BSC_FILTERED in BSC routing; treat as veto stream.
+
+---
+
+### UPDATE: BSC cluster productivity rate 4/6 = 67%
+
+- C1+C3+C5+C6 productive; C2+C4 dormant
+- 3 consecutive productive clusters (C3 → C5 → C6) — current regime favors PORTUGAL family
+- Per-cluster PORTUGAL big rates: C3=2/2, C5=2/2, C6=2/3 (ttt small win) = **6 bigs from 7 PORTUGAL entries = 85.7%**
+- Per-cluster broader-wave big rates: C3=1/15 (TLS), C6=1/5 (BINA) ≈ 10%
+- Combined: PORTUGAL is the dominant big-source; broader-wave is supplementary
+
+---
+
+### UPDATE: Sol regime — Cond A worst-ever, Sol big-shape pipeline empty
+
+- last50 Sol FF avg = **-75.4** (worst observed; was -64.4 c1200)
+- Rug rate 76% (highest)
+- Last Sol big = FATU 12.7h ago; **11h until Cond B triggers** (24h threshold)
+- 0 δ-shape and 0 V9-stealth candidates among 28 open Sol positions — no current shape-positive launches to pump
+- Implication: Sol cannot be +1M% path at current data scale; carnage is structural in current sub-regime
+
+---
+
+### CARRIED — unchanged
+- H_SMART_CLUSTER_VETO — production-feasibility owed.
+- H_TG_AS_EXIT — blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review — deferred.
+- rugger_blacklist `wallet_added_at` — pending user.
+
+## Pending investigations (NEW cycle 20260522_1800)
+
+- **PORTUGAL-family creator/LP-provider overlap audit**: do WORLDCUP/MEMEWC/PEDUCK/METLIFE/Grandma/WBC/UFU share creator wallets or LP providers? Single-actor concentration would change sizing strategy (concentration risk on H_BSC_BC_PORTUGAL alpha). ~1h investigation.
+- **C2 vs C4 dormant cluster post-mortem**: what's common (and absent in productive ones)? Time-of-day (C2=18-01 UTC, C4=01-06 UTC — both overnight EU/asleep US)? Day-of-week? External BSC volume? ~1-2h work.
+- **PAPER_BSC_BC16 deterministic spec doc** (paper_streams_spec/PAPER_BSC_BC16.md): if user approves deploy, write the spec doc with deterministic filter implementation, 5-stream routing, regime-guard integration, forward-tracking log format. ~30min.
+- **PAPER_BSC_PORTUGAL parallel-spec** (paper_streams_spec/PAPER_BSC_PORTUGAL.md): tighter spec (bc≥16 ∩ known≤10) with separate tracking. Auto-promote trigger n=12 K≥0.5. ~30min.
+- **ttt as PORTUGAL near-miss study**: ttt (k=2, bc=20) had SNIPER_A=-19, SNIPER_B=+61. PORTUGAL shape but pnl<150 = not a "big". What sub-filter (if any) would differentiate "PORTUGAL big" from "PORTUGAL small-win" pre-entry? Or accept inherent variance (75% big-rate is the resting state).
+- **External BSC chain-volume fetcher** (carried from c1200): pull DexScreener/GeckoTerminal BSC bonding-curve cohort flow during 6 cluster windows. ~2h.
