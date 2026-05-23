@@ -1,49 +1,51 @@
-# BRIEF — onchain AI brain (cycle 20260523_0600)
+# BRIEF — onchain AI brain (cycle 20260523_1200)
 
-## State (live, rolling ~3d)
-- closed=**4947** (+76 vs c0000-day2=4871, real growth). Sol uniq **565 (+18)**. BSC uniq **140** (rotation balanced). **51 open positions (+37 vs c0000-day2=14)** — heavy launch flow.
-- **0 new bigs in 6h** on either chain. Last Sol big = FATU 24.7h ago. Last BSC big = BINA 12.8h ago.
-- **+85 BSC closes / +37 bc≥16 in 5h** — avg=-38%, 17 rugs, 0 bigs.
-- BSC BF bigs **7** (unchanged). Sol BF bigs **3** (unchanged).
+## State (live, rolling ~38h)
+- closed=**4883** (-64 vs c0600=4947 — rotation > new closes). Sol uniq **560 (-5)**. BSC uniq **134 (-6, includes MEMEWC+PEDUCK aged out)**. **25 open positions (-26 vs c0600=51)** — closing rapidly.
+- **2 NEW BSC bigs in 6h** (C7 PRODUCTIVE): **RICH +847 SNIPER_B k=2 PORTUGAL** (06:44), + near-bigs **WOJCUP +136 k=1 PORTUGAL** (06:17) and **MARSCITY +146 k=115 broader-wave BF=SNIPER_BSC_FILTERED!** (10:00).
+- **ELON -86 (11:25) = 2nd PORTUGAL rug** ever (after CTM C4). PORTUGAL rug-floor ~17%.
+- Sol: 0 new bigs. FATU gap 30.5h (Cond B firmly TRIGGERED).
 
 ## Goal & gate
-**+1M%** via fat-tail compounding. GATE_EXPECTANCY_KELLY (TEST n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom_at_K≥1%). Paper streams: **NONE deployed**; PAPER_BSC_TG2 **NEW HEADLINE** candidate (supersedes PAPER_BSC_TG3); PAPER_BSC_BC16 demoted to descriptive.
+**+1M%** via fat-tail compounding. GATE_EXPECTANCY_KELLY (TEST n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%/trade). Paper streams: **NONE deployed**; PAPER_BSC_TG2 headline candidate (gate-passing despite weakening).
 
 ## Regime
-- **Cond A trending UP** (last50 -40.7 c0000-day2 → **-52.8** now). 2.2pt from -55% re-trigger. c0000-day2 "carnage break" appears head-fake.
-- **Cond B TRIGGERED** (FATU 24.7h gap, threshold 24h). Guard ON via Cond B alone.
-- If Cond A re-triggers next cycle → DOUBLE-GUARD state.
+- **Cond A**: oscillating, currently CLEAR (-47.8) but volatile (briefly hit -70 mid-cycle then recovered to -36).
+- **Cond B**: **TRIGGERED** (FATU 30.5h gap > 24h threshold).
+- **Guard ON via Cond B alone.**
 
 ## Last validated
-- **c0600-day2 (this)**: **TG-2h dethrones TG-3h** as headline. TG-2h TEST n=28 K=0.145 geom=+6.60% big=25.0% rug=21 — same 7/7 big-coverage, +29% big%, +109% geom vs TG-3h. Cross-cluster C3+C5+C6 individually pass gate. C7 cluster (BabyAsteroid k=2 +33 + WORLDCUP-2 k=1 +109) ACTIVE: 2 PORTUGAL entries positive but 0 bigs in 6h — first "PORTUGAL pumped small, no bigs" mode (stress test for H_CLUSTER_PORTUGAL_PRESENCE). H_BSC_BC_FULL_B 2nd cycle weakening (K=0.099 barely-passes). 以太币 k=11 RUG validates k≤10 boundary. See [cycle_20260523_0600.md](insights/cycle_20260523_0600.md).
-- **c0000-day2**: H_BSC_BC_TIME_GATED_PORTUGAL_3H NEW headline; H_BSC_BC_FULL_B 1st weakening. Cond A CLEARED.
-- **c1800**: H_BSC_BC_FULL_B TEST n=41 K=0.34 geom=+6.07% strongest-ever. C6 productive (WBC/UFU/BINA).
+- **c1200-day2 (this)**: **C7 productive — RICH +847 BIG (PORTUGAL k=2 at 06:44, 6h40min after BabyAsteroid onset)**. H_CLUSTER_PORTUGAL_PRESENCE re-confirmed (5/7 cluster productivity). TG-2h TEST n=31 K=0.127 geom=+4.31% big%=19.4% **STILL GATE-PASSING**; weakened c0600→c1200 partly due to state.json rotation (MEMEWC+PEDUCK aged out — lost +179, +908 anchors). C7 PORTUGAL big-rate 17% (1/6) is weakest productive cluster observed (vs C3/C5=100%, C6=67%) — watch alpha cooling. **NEW Methodology Lesson #9 candidate**: state-window rotation bias systematically drags cross-cycle TEST stats. See [cycle_20260523_1200.md](insights/cycle_20260523_1200.md).
+- **c0600-day2**: TG-2h DETHRONES TG-3h. C7 with 2 PORTUGAL +33/+109 but 0 bigs — partial-falsification stress test (resolved POSITIVELY this cycle).
+- **c0000-day2**: H_BSC_BC_TIME_GATED_PORTUGAL_3H NEW headline.
 
 ## Top candidates
-- **H_BSC_BC_TIME_GATED_PORTUGAL_2H** (**NEW HEADLINE PAPER-STREAM CANDIDATE**). TEST n=28 K(var)=0.145 geom=+6.60% big=25.0% rug=21. Cross-cluster C3+C5+C6 (3 productive, each individually passes gate). Routing {B,F2,D2,A,H}. Captures 7/7 TEST bigs. **STRONGEST DEPLOY RECOMMENDATION**.
-- **H_BSC_BC_TIME_GATED_PORTUGAL_3H** (DEMOTED to secondary). TEST n=36 K=0.112 geom=+3.16% big=19.4%. Still gate-passing. Parallel-deploy option.
-- **H_BSC_BC_FULL_B** (DEMOTED to descriptive). TEST n=58 K=0.099 geom=+1.58% — barely above gate, 2nd consecutive weakening.
-- **H_BSC_BC_PORTUGAL** (strict k≤10). TEST n=10 K=0.307 geom=+55.93% big=60% — sub-floor n; TG-2h supersedes.
-- **H_CLUSTER_PORTUGAL_PRESENCE** — C7 stress test pending. If C7 ends with 0 bigs → partial falsification.
-- **H_CLUSTER_TIME_OF_DAY** (NEW descriptive). 4/4 productive UTC daytime (04-20Z); 2/2 dormant + C7 currently-dormant overnight (18-06Z). n too small to promote.
-- **H_V_DELTA_FATU / H_V8 / H_V9_STEALTH** (Sol shapes) — 0 new Sol bigs, unchanged.
+- **H_BSC_BC_TIME_GATED_PORTUGAL_2H** (HEADLINE, still gate-passing): TEST n=31 K=0.127 geom=+4.31% big=19.4% rug=29 — 6/6 currently-visible bigs caught. Routing {B,F2,D2,A,H}. Spec: bc≥16 ∩ (k≤10 OR within 2h of prior bc≥16∩k≤10).
+- **H_BSC_BC_PORTUGAL** (strict k≤10): TEST n=12 K=0.268 geom=+36.22% big=41.7. 8 more PORTUGAL entries needed for n≥20 floor.
+- **H_BSC_BC_FULL_B** (DEMOTED): TEST n=55 K=0.101 geom=+1.60% — barely above gate. Descriptive-only.
+- **H_CLUSTER_PORTUGAL_PRESENCE**: re-confirmed 5/7 productive clusters; lag-to-first-big now wider distribution (0-400min).
+- **H_PORTUGAL_RUG_FLOOR**: NEW descriptive ~17% rug rate on PORTUGAL TEST (2/12).
+- **H_CLUSTER_TIME_OF_DAY**: DEMOTED (C7 overnight onset broke pattern).
 
-## Methodology — 7 leakage forms + macro modes
-1. Hindsight classifier · 2. Counting inflation · 3. Time-localization · 4. Post-entry feature · 5. Stale classifier DB · 6. Single-cluster artifact · 7. Percentile-redraw boundary drift.
+## Methodology — 8 leakage forms + macro modes + NEW #9 candidate
+1. Hindsight classifier · 2. Counting inflation · 3. Time-localization · 4. Post-entry feature · 5. Stale classifier DB · 6. Single-cluster artifact · 7. Percentile-redraw boundary drift · 8. (regime-context separation).
+**NEW #9 candidate**: state.json rolling-window rotation biases TEST stats downward over time as oldest fat-tail bigs rotate out while dormant tails accumulate. Flag rotation events when reporting cross-cycle weakening.
 
-Best-fire=upside; first-fire=production. Cross-cluster ≥3 events mandatory. FIXED TEST boundary mandatory. SNIPER_A early-exits BSC bigs (6/7 PORTUGAL; METLIFE k=1 only exception with A=+173 vs B=+37). SNIPER_BSC_FILTERED structurally anti-fat-tail (3rd confirmation). Variance-Kelly preferred (cross-cycle consistent).
+Best-fire=upside; first-fire=production. Cross-cluster ≥3 events mandatory. FIXED TEST boundary mandatory. SNIPER_BSC_FILTERED anti-fat-tail (MARSCITY anomaly noted, n=1). Variance-Kelly preferred.
 
 ## Planned next cycle
-1. **C7 outcome resolution** (does C7 produce a big in next 6h? if 0 → partial falsification H_CLUSTER_PORTUGAL_PRESENCE).
-2. Sol Cond A re-trigger watch (-52.8 within 2.2pt of -55%).
-3. TG-2h forward validation (target n≥40).
-4. **PAPER_BSC_TG2 deterministic spec doc** if user approves.
-5. H_CLUSTER_TIME_OF_DAY tracking on next cluster.
-6. WORLDCUP-2 vs WORLDCUP-1 re-launch underperformance study (n=1).
-7. CARRIED: SMART_CLUSTER_VETO, MC_LIQ review, PORTUGAL creator wallet audit, External BSC volume fetcher.
+1. **C7 wind-down monitoring** (does C7 produce another big after RICH? ELON-rug suggests winding down).
+2. C8 detection (next PORTUGAL bc≥16∩k≤10 onset after >3h gap).
+3. TG-2h forward validation target n≥40 (currently 31).
+4. Sol Cond A re-trigger watch (-47.8 vs -55 threshold).
+5. Sol Cond B duration tracking (30.5h and counting).
+6. PAPER_BSC_TG2 deterministic spec doc if approved.
+7. Methodology #9 formalization — adopt rotation-flag in cross-cycle reporting.
+8. PORTUGAL alpha cooling watch (C7 big-rate 17% lowest yet; track C8).
+9. CARRIED: SMART_CLUSTER_VETO, MC_LIQ review, PORTUGAL creator wallet audit (WORLDCUP/WORLDCUP-2/WOJCUP shared creator?), External BSC volume fetcher.
 
 ## OPEN QUESTIONS to user
-1. **PAPER_BSC_TG2 deploy approval (NEW headline)** — replaces TG-3h: TEST n=28 K(var)=0.145 geom=+6.60% big=25.0% rug=21. Routing {B,F2,D2,A,H}. Entry rule: bc≥16 ∩ (k≤10 OR within 2h of prior bc≥16∩k≤10). $1 paper. Auto-stop K<0.05 after 30 OR cum<0 after 50 OR 10-streak no-big avg<-30%.
-2. **PAPER_BSC_TG3 (broader) parallel A/B?** TEST n=36 K=0.112 geom=+3.16% — gate-passing but weakened. Could deploy both in parallel ($2 paper total).
-3. **PAPER_BSC_PORTUGAL (k≤10 strict) parallel?** n=10 K=0.307 geom=+55.93%, sub-floor n. TG-2h covers. Brain leans SKIP.
-4. CARRIED: External BSC chain-volume fetcher (~2h); PORTUGAL-family creator wallet audit (~1h); SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`; MC_LIQ vs SNIPER_A code review.
+1. **PAPER_BSC_TG2 deploy approval (UNCHANGED HEADLINE, still gate-passing)**: TEST n=31 K=0.127 geom=+4.31% big=19.4% rug=29% — weakened from c0600 partly due to state-window rotation (MEMEWC+PEDUCK aged off), partly C7 dilution; catches 6/6 currently-visible TEST bigs. Routing {B,F2,D2,A,H}. Spec: bc≥16 ∩ (k≤10 OR within 2h of prior bc≥16∩k≤10). Auto-stop K<0.05 after 30 OR cum<0 after 50 OR 10-streak no-big avg<-30%. $1 paper.
+2. **PAPER_BSC_PORTUGAL strict (k≤10) parallel?** n=12 (was 8) K=0.268 geom=+36.22% — still sub-floor on n=20. Brain leans wait.
+3. **Methodology #9 adoption** — track state.json rotation events in BRIEF cross-cycle reports? ~10min/cycle overhead.
+4. CARRIED: External BSC chain-volume fetcher (~2h); PORTUGAL-family creator wallet audit (~1h); SMART_CLUSTER_VETO; rugger_blacklist `wallet_added_at`; MC_LIQ vs SNIPER_A code review.

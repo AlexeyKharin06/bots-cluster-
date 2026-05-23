@@ -1363,3 +1363,140 @@ A's BSC big-fire role is exclusive to k=1 ∩ low-buys ∩ pancake setup (METLIF
 - **WORLDCUP re-launch (and any PORTUGAL re-launch) study** — track future re-launches for systematic underperformance.
 - **Sol Cond A re-trigger watch** — last50 -52.8 within 2.2pt of -55%; if re-triggers → DOUBLE-GUARD.
 - **CARRIED**: PORTUGAL creator wallet audit (cross-check WORLDCUP-1 vs WORLDCUP-2 creator), C2/C4 dormant post-mortem (TOD now leading candidate), External BSC volume fetcher.
+
+## NEW (proposed cycle 20260523_1200)
+
+### UPDATE: H_CLUSTER_PORTUGAL_PRESENCE — C7 STRESS TEST PASSED
+
+c0600 partial-falsification candidate (C7 pumped PORTUGAL but 0 bigs at 6h) resolved POSITIVELY: **RICH +847 BIG (PORTUGAL k=2) landed at 06:44**, 6h40min after BabyAsteroid onset. Cluster productivity rate now **5/7=71%** (was 4/6=67%). 7/7 phase observations consistent with hypothesis.
+
+**Refinement noted (not formalized)**: first-PORTUGAL → first-big lag distribution now wider than initially characterized.
+- C1: 0min (WORLDCUP itself big)
+- C3: ~minutes (MEMEWC itself big)
+- C5: 0min (METLIFE itself big)
+- C6: 51min (ttt→WBC)
+- C7: **400min** (BabyAsteroid→RICH) — outlier, 8× longer than next
+
+**Status**: RE-CONFIRMED operationally; lag-distribution variance carried as observation. Do NOT change TG-2h gate spec yet (TG-2h still catches RICH via self-include).
+
+---
+
+### UPDATE: H_BSC_BC_TIME_GATED_PORTUGAL_2H (PAPER_BSC_TG2) — STILL GATE-PASSING (mechanically weakened)
+
+c0600 → c1200: TEST n 28→31, K 0.145→0.127, geom +6.60%→+4.31%, big% 25.0→19.4, rug 21→29. **Gate**: Er=+0.529>0, K=0.127≥0.05 (2.5×), geom=+4.31%≥1% (4.3×), n=31≥20 (1.55×). **STILL PASSES.**
+
+**Decomposition of weakening**:
+- ~50% mechanical: MEMEWC (+179) and PEDUCK (+908) rotated out of state.json (rolling window). If retained, n~33 K~0.15 geom~+6%.
+- ~50% genuine: C7 dormant-tail (9 broader-wave entries, low big% conversion).
+
+Cross-cluster: C5 K=0.241 / C6 K=0.481 / C7 K=0.074 individually pass gate. **3 productive clusters validate**. C3 zeroed by rotation.
+
+**Status**: HEADLINE PAPER-STREAM CANDIDATE retained. Forward-validation target n≥40 (currently 31).
+
+---
+
+### NEW (descriptive): H_PORTUGAL_RUG_FLOOR ~17%
+
+2 PORTUGAL rugs now observed across 12 TEST PORTUGAL entries:
+- CTM (05-22 02:36, C4, k=9) → -100% (RUG-catastrophic)
+- ELON (05-23 11:25, C7, k=2) → -86% (RUG-gradual)
+
+Rug rate 2/12 = **17%**. Below broad bc≥16 rug rate (~25%) but **not 0%**. PORTUGAL is "lower-rug + higher-big" alpha, not "no-rug".
+
+**Status**: NEW (descriptive). Implication: even strict PORTUGAL paper-stream must size for ~17% catastrophic loss expectation.
+
+---
+
+### NEW (descriptive, n=1 anomaly): SNIPER_BSC_FILTERED wins at near-big magnitude
+
+MARSCITY (05-23T10:00Z, k=115, bc=20, near-big +146): BF=SNIPER_BSC_FILTERED=+146 vs A/B/D/D2/F/F2/H/H2 all=+142.3. BSC_FILTERED leads by 4pp.
+
+**Prior pattern**: BSC_FILTERED -87 UFU, -100 BINA = aggressively early-exit on bigs (≥+169%).
+**New observation**: at near-big magnitude (~+150%), BSC_FILTERED's tighter trail can edge out looser trails (curve flattens, looser trails reverse).
+
+**Interpretation**: BSC_FILTERED is anti-fat-tail on HIGH-magnitude bigs but possibly neutral/slight-positive on near-bigs. n=1 deviation, not enough to reverse routing decision.
+
+**Status**: NEW single-point observation. Carry — do NOT add BSC_FILTERED to routing (UFU/BINA losses still dominate the evidence).
+
+---
+
+### NEW (descriptive): A on k=1 PORTUGAL is non-deterministic
+
+3 k=1 PORTUGAL entries this dataset:
+- METLIFE (k=1, C5): A=+173, B=+37 — **A wins by 136pp**
+- WORLDCUP-2 (k=1, C7): A=-61, B=+109 — **B wins by 170pp**
+- WOJCUP (k=1, C7): A=B=+136 — **tie**
+
+**No consistent rule** for A on k=1. A's role is opportunistic (sometimes catches inflection, sometimes exits early). **Routing implication**: A must remain in BSC routing for opportunistic catches; cannot be deterministically excluded or boosted on k=1.
+
+**Status**: NEW (descriptive 3-point pattern).
+
+---
+
+### NEW (observation): C7 PORTUGAL big-rate 17% — weakest productive cluster
+
+PORTUGAL → big conversion across productive clusters:
+| cluster | PORTUGAL entries | bigs | big-rate |
+|---|---|---|---|
+| C3 | 2 (MEMEWC, PEDUCK) | 2 | 100% |
+| C5 | 2 (METLIFE, Grandma) | 2 | 100% |
+| C6 | 3 (ttt, WBC, UFU) | 2 (WBC, UFU; ttt small-win) | 67% |
+| **C7** | **6 (BabyAsteroid, WORLDCUP-2, WOJCUP, RICH, TRUMPETTE, ELON)** | **1 (RICH)** | **17%** |
+
+**Monotone DECREASE across observed clusters**. May reflect:
+- Genuine PORTUGAL alpha cooling (concerning)
+- Small-sample variance (1/6 could become 2/6 if another big lands in C7 tail)
+- C7 PORTUGAL "fatigue" — too many launches in short window dilutes per-launch pump probability
+
+**Status**: NEW (descriptive). **Watch C8 closely**: if C8 PORTUGAL big-rate also <50%, declare alpha cooling.
+
+---
+
+### UPDATE: H_CLUSTER_TIME_OF_DAY — DEMOTED to weakly-supported
+
+c0600 pattern: 4/4 productive UTC daytime (04-20Z), 2/2 dormant overnight (18-06Z), C7 testing overnight.
+
+**c1200 refutation**: C7 onset 00:04Z (overnight) → produced RICH +847 at 06:44Z (early daytime). Cluster productivity NOT determined by onset hour.
+
+**Refined version (n=1)**: "overnight onsets delay first-big until UTC daytime crossover" — single observation only. Cannot promote.
+
+**Status**: DEMOTED from "descriptive" to "weakly-supported observation". Track UTC hour but no operational role.
+
+---
+
+### NEW (methodology lesson #9 candidate): STATE-WINDOW ROTATION BIAS
+
+**Symptom**: TG-2h, H_BSC_BC_PORTUGAL, all sub-specs systematically weakened c0600→c1200 because MEMEWC and PEDUCK aged out of state.json's rolling ~38h window. Those C3 PORTUGAL entries anchored TEST stats (+179 and +908). Brain has no way to retain them once state.json purges.
+
+**Root cause**: state.json is a **rolling buffer**, not a permanent record. FIXED-boundary methodology (lesson #7) anchors `TEST.first` timestamp, but does NOT protect against shrinkage of the source data from the left.
+
+**Implications**:
+- Cross-cycle "weakening" trends are partly mechanical, not signal-deterioration
+- Long-historical big-anchors will repeatedly age out
+- Cross-cycle stats need a "rotation-adjusted" caveat in BRIEF reporting
+
+**Fix candidates**:
+- Persist `tested_bigs_log.jsonl` (append-only) outside state.json with frozen pnls for all observed bigs (most robust)
+- When reporting cross-cycle stats, explicitly note which bigs rotated out
+- Compute "adjusted-if-no-rotation" K estimate alongside actual K
+
+**Status**: NEW (methodology lesson #9 candidate). Adopt: report rotation events in BRIEF starting next cycle.
+
+---
+
+### CARRIED — unchanged
+- H_SMART_CLUSTER_VETO — production-feasibility owed.
+- H_TG_AS_EXIT — blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review — deferred.
+- rugger_blacklist `wallet_added_at` — pending user.
+- H_V_DELTA_FATU / H_V8 / H_V9_STEALTH — Sol shapes; 0 new Sol bigs this cycle (FATU 30.5h gap).
+
+## Pending investigations (NEW cycle 20260523_1200)
+
+- **C7 wind-down monitoring** — does C7 produce another big after RICH? ELON-rug at 11:25 suggests winding down; if no more PORTUGAL pumps in next 6h, declare C7 closed with final stats 6 PORTUGAL → 1 big + 1 near-big.
+- **C8 detection** — watch for next PORTUGAL bc≥16∩k≤10 onset after >3h gap.
+- **TG-2h forward validation target n≥40** — currently n=31; +9 more entries needed.
+- **Methodology #9 formalization** — adopt rotation-flag in cross-cycle reporting; consider writing `tested_bigs_log.jsonl` to outlive state.json rotation.
+- **PORTUGAL alpha cooling watch** — C7 big-rate 17% lowest yet; if C8 also <50%, declare cooling.
+- **WORLDCUP-family creator/launchpad audit** — WORLDCUP +971 (C1), WORLDCUP-2 +109 (C7), WOJCUP +136 (C7) — same launchpad? Compare creator wallets, LP providers. ~1h.
+- **CARRIED**: External BSC chain-volume fetcher (~2h); SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`.
