@@ -6,6 +6,29 @@
 
 ---
 
+## 2026-05-23 15:30 UTC — TG signals = СЫРЬЁ для causal research, не buy-trigger
+
+**Симптом**: AI brain ловит TG mention и сразу строит filter "channel ∈ {X,Y} → buy". Это **слепое следование**.
+
+**Корень**: TG mention — это **симптом** что кто-то увидел токен. **НЕ доказательство** что покупать стоит. Каналы делятся на 5 типов:
+- Lagging reporter (пишут после pump)
+- Real-time follower (во время)
+- Insider/Alpha (до pump — драгоценны)
+- Pumper (сами запускают)
+- Bot/spam
+
+**Фикс**: Для **каждой** TG-based hypothesis ОБЯЗАН ответить:
+1. WHY канал работает (insider? lagging? pumper?)
+2. WHEN канал упоминает relative to pump (timing matters)
+3. HOW предсказать ДО канала (leading indicator upstream of channel)
+4. Decontamination split на любой pre-computed channel ranking
+
+**УРОК**: Цель не "follow TG" а "**обогнать TG**". Если найти feature X которая всегда коррелирует с channel mention за 5-60 мин до X — используем X, игнорируем канал. Это leading indicator.
+
+См. также: `memory/onchain/TG_DEEP_DIVE_MANDATE.md` для OnChain — расширенная инструкция включая image analysis (Read tool читает JPG напрямую без OCR), channel classification, wallet leaderboard discovery.
+
+---
+
 ## 2026-05-20 18:00 UTC — TG unified listener: events.NewMessage decorator pattern
 
 **Симптом**: tg_unified_listener запускается, подключается, видит 65 каналов, но `events_received: 0` через час+ uptime.

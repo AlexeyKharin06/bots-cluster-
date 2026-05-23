@@ -123,6 +123,13 @@ CTX=/tmp/brain_context_$CYCLE_ID.md
     echo "(нет файла)"
   fi
   echo
+  # Project-specific deep-dive mandates (если есть в memory/<project>/)
+  for MANDATE in "$PROJ_MEMORY"/*_MANDATE.md; do
+    [ -f "$MANDATE" ] || continue
+    echo "## 🔴 PROJECT-SPECIFIC MANDATE: $(basename $MANDATE)"
+    cat "$MANDATE"
+    echo
+  done
   echo "## AI BRAIN MISSION (общие полномочия и цели)"
   [ -f "$MEMORY/AI_BRAIN_MISSION.md" ] && head -50 "$MEMORY/AI_BRAIN_MISSION.md" || echo "(нет)"
   echo
