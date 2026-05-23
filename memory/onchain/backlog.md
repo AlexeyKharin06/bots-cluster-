@@ -1500,3 +1500,105 @@ c0600 pattern: 4/4 productive UTC daytime (04-20Z), 2/2 dormant overnight (18-06
 - **PORTUGAL alpha cooling watch** — C7 big-rate 17% lowest yet; if C8 also <50%, declare cooling.
 - **WORLDCUP-family creator/launchpad audit** — WORLDCUP +971 (C1), WORLDCUP-2 +109 (C7), WOJCUP +136 (C7) — same launchpad? Compare creator wallets, LP providers. ~1h.
 - **CARRIED**: External BSC chain-volume fetcher (~2h); SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`.
+
+---
+
+## Cycle 20260523_1800 updates
+
+### UPDATE: H_BSC_BC_TIME_GATED_PORTUGAL_2H — STRONGEST EVER (PAPER_BSC_TG2)
+
+c1200→c1800: TEST n 31→**40**, K 0.127→**0.181**, geom +4.31→**+11.73%**, big% 19.4→**25.0**, rug 29→**18**. **Exceeds c0600 peak (n=28 K=0.145 geom=+6.60% big=25) across every metric.** C8 added 4 PORTUGAL bigs (VELVET+xing+TRUMPBANK+BABYTROLL) without state-window rotation losses → methodology #9 symmetric un-masked recovery.
+
+**Cross-cluster**: 4 productive clusters individually pass gate (C5 K=0.201 / C6 K=0.421 / C7 K=0.096 / C8 K=0.194). **10/10 currently-visible TG-eligible bigs caught.**
+
+**Gate**: PASSES with extreme margin (K 3.6× floor, geom 11.7× floor, n 2× floor).
+
+**Recommendation**: DEPLOY-READY. User approval pending. Spec: bc≥16 ∩ (k≤10 OR within 2h of prior bc≥16∩k≤10). Routing {B,F2,D2,A,H}. Auto-stop K<0.05 after 30 OR cum<0 after 50 OR 10-streak no-big avg<-30%.
+
+---
+
+### UPDATE: H_BSC_BC_PORTUGAL (strict k≤10) — DEPLOY-READY-AT-SUB-FLOOR-N
+
+c1200→c1800: TEST n 12→**15**, K 0.268→**0.372**, geom +36.22→**+82.63%**, big% 41.7→**60.0**, rug 0%. C8 added 4 PORTUGAL→4 bigs (100% conversion) at avg +485% per entry.
+
+**Cross-cluster**: C5 100%, C6 67%, C7 17%, **C8 100%** big-rate. Pooled C7+C8 = 50% — refutes C7 alpha-cooling theory.
+
+**Gate**: PASSES Er+K+geom, FAILS n≥20 (n=15, 5 short). Brain proposes deploy with sub-floor disclosure given strict-Kelly evidence and trajectory.
+
+---
+
+### UPDATE: H_BSC_BC_FULL_B — UN-DEMOTED
+
+c1200→c1800: K 0.101→**0.149**, geom +1.60→**+5.60%**, big% 10.9→**16.4**, rug 25.5→**19.7**. Recovers from c1200's descriptive-only status. **Gate-passing again.** Catches 10/10 TG-eligible TEST bigs.
+
+**Status**: Re-elevated to deployable diagnostic. TG-2h remains preferred (higher K, higher big%); broad spec retained as forward-validator.
+
+---
+
+### NEW (descriptive, n=1): H_BSC_BC<16_BROADER_BIG (TKLV)
+
+TKLV +254 (bc=13, k=15, SNIPER_H BF) at 2026-05-23T17:09Z, 1h32min after BABYTROLL (last C8 PORTUGAL). **First BSC big with bc<16** observed in TEST.
+
+**Mechanism candidate**: during active PORTUGAL window, broader bc-cohort (bc=12-15) gains heat without requiring bc=20. Sub-hypothesis: bc≥12 ∩ within 2h of PORTUGAL ∩ k≤20.
+
+**Sub-spec test**: bc≥12 (catches TKLV) n=79 K=0.093 geom=+1.78% big=13.9% — admits TKLV but adds 18 dilutive low-bc entries → K halves vs bc≥16. **bc≥16 boundary correctly placed**; TKLV is acceptable miss given dilution cost. Defer until n=2+ bc<16 bigs.
+
+---
+
+### NEW (descriptive, n=1): H_SOL_EPSILON_SHAPE (GIVE)
+
+GIVE +308 features: smart=8, known=15, liq=$23K, dex=meteora, **top1=null**, **buys=null**. Does not match α/β/γ/δ shapes (which rely on top1+buys).
+
+**Mechanism candidate**: null top1/buys may be a **fast-entry signature** (bot entered before holder-distribution snapshot populated). If so, "null top1" is a marker, not feature absence.
+
+**Status**: n=1; cannot promote. Track next 1-2 Sol bigs for shape match.
+
+---
+
+### NEW (descriptive, n=1): H_SMART_CLUSTER_TRAIL_EDGE
+
+On GIVE +308: SMART_COPY / SMART_COPY_TOP / SMART_COPY_AGE5 / SMART_TOP_AGE5 / MC_LIQ all caught +308, while SNIPER_A and SNIPER_H reached only +171 (**137pp differential**). Smart-cluster streams have looser trail that retains more upside.
+
+**Distinct from c1328 H_SMART_CLUSTER_VETO**: that was about entry-FILTER direction (smart-cluster as veto due to 92/100/100% rug). TRAIL_EDGE is about exit RETENTION direction. **Both can co-exist**: smart-cluster as entry-filter is bad, as exit-trail is good.
+
+**Status**: n=1. Track next 2+ Sol bigs. If pattern holds, propose smart-cluster streams as Sol big-fire BF routing.
+
+---
+
+### CLOSED-REJECTED: METLIFE A-wins-on-k=1 pattern
+
+3 new k=1 PORTUGAL bigs this cycle (xing/TRUMPBANK/BABYTROLL) all SNIPER_B BF with A losing -44/-69/-100% respectively. **6 k=1 PORTUGAL total: A=1 win (METLIFE), B=4 wins, tied=1.** METLIFE was anomaly; SNIPER_B is consistent BSC PORTUGAL BF.
+
+**Status**: hypothesis CLOSED. SNIPER_B confirmed as primary routing for BSC PORTUGAL strict.
+
+---
+
+### CANCELLED: PORTUGAL alpha cooling watch (C7 17% big-rate concern)
+
+C8 100% PORTUGAL big-rate refutes the cooling theory. Pooled C7+C8 = 9/15 = 50% = consistent with productive-cluster norm. **Variance, not erosion.**
+
+**Methodology lesson**: do not declare alpha cooling on n=1 cluster sample. Wait for ≥2 consecutive low-conversion clusters.
+
+---
+
+### CONFIRMED: H_CLUSTER_PORTUGAL_PRESENCE — re-confirmed 6/8=75%
+
+C8 onset 12:25 VELVET (itself first big) → 4 bigs in 3h12min. Returns to "self-onset-big" pattern (C1/C3/C5/C8) distinct from "follower-big" (C6 51min, C7 6h40min). **0 falsifications across 8 clusters now.**
+
+---
+
+### ADOPTED: Methodology #9 (state-window rotation bias) — FORMALIZED
+
+c1200 proposed; c1800 validated symmetric. Adopt: track rotation log in cycle insights. Format: `state_first_ts, bigs_in_window, bigs_added_this_cycle, bigs_rotated_off`. ~5min/cycle overhead.
+
+---
+
+## Pending investigations (NEW cycle 20260523_1800)
+
+- **C8 wind-down monitoring** — does C8 produce more bigs through 22:00Z? Last PORTUGAL BABYTROLL 15:37; TKLV 17:09 inside window.
+- **C9 detection** — next bc≥16∩k≤10 onset after >3h gap from BABYTROLL.
+- **TG-2h n≥50 forward validation** — currently 40 = 80% to target.
+- **PORTUGAL strict n→18+ if 1+ new PORTUGAL** — close to floor.
+- **GIVE-shape replication check** — does next Sol big match null-top1 + meteora + smart=5-15?
+- **Smart-cluster trail edge replication** — next Sol big: does smart-cluster beat A/H trail?
+- **CARRIED**: PORTUGAL creator wallet audit (12+ tokens C1-C8 now: WORLDCUP, WORLDCUP-2, WOJCUP, METLIFE, Grandma, WBC, UFU, RICH, VELVET, xing, TRUMPBANK, BABYTROLL, ELON, CTM, BabyAsteroid, TRUMPETTE); External BSC volume fetcher; SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`; MC_LIQ vs A code review (more urgent — MC_LIQ caught GIVE).
