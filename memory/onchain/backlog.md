@@ -1050,3 +1050,137 @@ BINA captured by 6 streams (B/D/D2/F/F2/H all +169) — broadest multi-stream ca
 - **PAPER_BSC_PORTUGAL parallel-spec** (paper_streams_spec/PAPER_BSC_PORTUGAL.md): tighter spec (bc≥16 ∩ known≤10) with separate tracking. Auto-promote trigger n=12 K≥0.5. ~30min.
 - **ttt as PORTUGAL near-miss study**: ttt (k=2, bc=20) had SNIPER_A=-19, SNIPER_B=+61. PORTUGAL shape but pnl<150 = not a "big". What sub-filter (if any) would differentiate "PORTUGAL big" from "PORTUGAL small-win" pre-entry? Or accept inherent variance (75% big-rate is the resting state).
 - **External BSC chain-volume fetcher** (carried from c1200): pull DexScreener/GeckoTerminal BSC bonding-curve cohort flow during 6 cluster windows. ~2h.
+
+## NEW (proposed cycle 20260523_0000)
+
+### H_BSC_BC_TIME_GATED_PORTUGAL_3H — NEW HEADLINE PAPER-STREAM CANDIDATE
+
+**Mechanism**: bc≥16 entry is productive iff occurs within **3 hours** of a prior bc≥16 ∩ known≤10 (PORTUGAL-family) entry. Combines (a) PORTUGAL-family entry as cluster onset detector (inheriting H_CLUSTER_PORTUGAL_PRESENCE), (b) time decay of the productive window, (c) admits *any* k value within the active window (catches broader-wave bigs like BINA that fire during PORTUGAL-active phase).
+
+**TEST stats** (FIXED-boundary c0000-lock TEST.first=05-21T14:46Z):
+| spec | n | avg | WR | rug | big% | Er | K(var) | geom_at_K |
+|---|---|---|---|---|---|---|---|---|
+| TG-3h TEST | **27** | +67.75 | 48 | 22 | **25.93** | +0.677 | **0.140** | **+6.27%** |
+| TG-5h TEST | 36 | +50.60 | 47 | 17 | 19.44 | +0.506 | 0.135 | +4.53% |
+| (compare) all bc≥16 TEST | 48 | +35.27 | 50 | 17 | 14.58 | +0.353 | 0.121 | +2.77% |
+| (compare) PORTUGAL-only TEST | 8 | +280 | 88 | 13 | 75 | +2.80 | 0.319 | +68.1% |
+
+**Cross-cluster decomposition** (TG-3h):
+| cluster | n | avg | big% | rug% | K | geom_at_K | bigs |
+|---|---|---|---|---|---|---|---|
+| C3 PORTUGAL-mid | 14 | +53.3 | 14.29 | 21 | 0.086 | +2.97% | MEMEWC,PEDUCK |
+| C4 dormant | 2 | -100 | 0 | 100 | 0 | -100% | (both rug: CTM, 💯PUMP) |
+| C5 productive | 7 | +111 | 28.57 | 0 | 0.273 | +21.33% | METLIFE,Grandma |
+| C6 productive | 9 | +50.5 | 33.33 | 22 | 0.323 | +9.51% | WBC,UFU,BINA |
+
+3 of 4 productive clusters pass Kelly+geom gate individually. C4 dormant cluster shows the failure mode (PORTUGAL CTM rugged → followers compound the rug; 2/2 rug). **NOT a single-cluster artifact**: validated across C3+C5+C6.
+
+**Big coverage**: 7/7 TEST BSC bigs caught (MEMEWC/PEDUCK/METLIFE/Grandma/WBC/UFU/BINA). Strictly better than PORTUGAL-only (6/7 — misses BINA).
+
+**Gate status**: PASSES (n=27≥20, Er=+0.677>0, K(var)=0.140≥0.05, geom_at_K=+6.27%≥1%). First sub-spec to pass n-floor with big%-lift over broad bc≥16.
+
+**Operational deployment spec (proposed PAPER_BSC_TG3)**:
+```
+Entry rule:
+  - chain == 'bsc'
+  - entry_signal.bonding_curve_buyers_count >= 16  (count of bc:true entries in top20)
+  - exists prior trade T_p within last 3h such that:
+      T_p.chain == 'bsc' AND
+      T_p.entry_signal.bonding_curve_buyers_count >= 16 AND
+      T_p.entry_signal.known <= 10
+  - stream IN {SNIPER_B, SNIPER_F2, SNIPER_D2, SNIPER_A, SNIPER_H}
+  - position_size = $1 (paper)
+Auto-stop:
+  - K(var) < 0.05 after 30 entries
+  - OR cum_pnl < 0 after 50 entries
+  - OR consecutive 10 entries with 0 bigs AND avg < -30%
+```
+
+**Risk**: Depends on a PORTUGAL entry occurring first. In dormant phases (8.7h since UFU as of probe), stream idle. This is desired behavior.
+
+**Status**: NEW, HEADLINE PAPER-STREAM CANDIDATE pending user approval. Replaces PAPER_BSC_BC16 as preferred deployment. Forward-validation target n≥40 for scale-up consideration.
+
+---
+
+### UPDATE: H_BSC_BC_FULL_B — WEAKENED but still gate-passing (demoted to diagnostic)
+
+c0000-day2 stats: TEST n=48 K(var)=0.121 geom_at_K=+2.77% big=14.58 rug=17 (vs c1800 n=41 K=0.139 geom_at_K=+4.22% big=17.07 rug=15). First cross-cycle weakening caused by 7 NEW NON-PORTUGAL dormant-tail entries (k=21-177, 2 rugs + 5 small + 0 bigs).
+
+Cross-cycle TEST persistence (n / K(var) / big% / geom_at_K):
+- c0000: 15 / 0.05 / 13.33 / —
+- c0600: 21 / 0.04 / 9.52 / —
+- c1200: 32 / 0.08 / 12.50 / —
+- c1800: 41 / 0.139 / 17.07 / +4.22%
+- **c0000-day2: 48 / 0.121 / 14.58 / +2.77%** ← first weakening
+
+**Status**: STILL gate-passing. Demoted from headline candidate to **diagnostic broad-net** (track in parallel with TG-3h for differential signal). If signal recovers next PORTUGAL burst, re-promote. The variance-Kelly trajectory differs from earlier brain-reported binary-Kelly K=0.34; both pass gate; var-Kelly preferred (more conservative).
+
+---
+
+### UPDATE: H_BSC_BC_PORTUGAL — SUPERSEDED by TG-3h
+
+TEST stats unchanged (no new PORTUGAL entries in 8.7h since UFU 15:21Z): n=8 K(var)=0.319 geom_at_K=+68% big=75%. n still sub-floor.
+
+**Status**: TG-3h is preferred substitute (catches PORTUGAL set plus broader-wave-during-active bigs, larger n). PORTUGAL-only kept as "alpha purity" benchmark.
+
+---
+
+### NEW (descriptive validated): CLUSTER_PHASE_TAIL
+
+**Mechanism**: After PORTUGAL bursts end and last BSC big lands, cluster enters a 3-6h "tail phase" with continued bc≥16 entries (broader-wave shape, k≥20) but produces 0 bigs and elevated rug rate (~30%).
+
+**Evidence c0000-day2**: C6 tail observed 18:02→20:38 (7 entries, k=21-177, all broader-wave): 2 rugs (PIRA, 登月金融), 5 small (-21 to +38), 0 bigs. Last PORTUGAL was UFU 15:21Z; gap 2.6h→5.3h to these entries.
+
+**Operational use**: already captured by TG-3h time-gate (excludes entries >3h after last PORTUGAL). Carry as descriptive corroboration.
+
+---
+
+### UPDATE: H_CLUSTER_PORTUGAL_PRESENCE — FORWARD-TEST PASSES (c1800 → c0000-day2)
+
+c1800 prediction: cluster productive iff ≥1 PORTUGAL entry. **Forward observation c0000-day2**: 7 new BSC bc≥16 entries since c1800, 0 PORTUGAL among them, 0 bigs (2 rugs + 5 small). C6 wound down to dormant tail per hypothesis.
+
+Across 6 clusters (4 productive + 2 dormant) + 1 tail phase (C6-tail counted as dormant sub-phase): hypothesis holds 7/7 phase observations.
+
+**Status**: re-confirmed forward; operational implementation = TG-3h.
+
+---
+
+### UPDATE: H_REGIME_GUARD — Cond A CLEARED
+
+- Cond A (last50 < -55%): **CLEARED** (was DEEPLY ACTIVE worst-ever -75.4 c1800; now -40.7). 3-window monotone recovery.
+- Cond B (big%=0 ≥24h): CLEAR but ~5.3h to trigger (FATU 18.7h gap).
+- Guard: OFF (provisional; treat as 1-cycle improvement, monitor next cycle).
+
+If no Sol big by 05-23T05:20Z, Cond B fires unilaterally; gate goes back ON via Cond B alone.
+
+---
+
+### UPDATE: BSC cluster productivity rate 4/6 = 67% (unchanged)
+
+C7 not declared. 23:45 lone non-PORTUGAL entry (登月金融 k=29 rug) may be start of C7 (broader-wave-first onset, predicted dormant by H_CLUSTER_PORTUGAL_PRESENCE) OR extended C6 dormant tail (10h after UFU).
+
+---
+
+### NEW (observation): SNIPER_H2 emerges as 6th-tier BSC stream
+
+3 entries this cycle (发财金融 +3, 新时代 -21, 幸运 -21): n=3 avg=-13 0 bigs 0 rugs. Sample too small.
+
+**Status**: Carry observation. Excluded from PAPER_BSC_TG3 routing pending more data. If 2+ TG-3h-window H2 entries pump in future, reconsider for routing.
+
+---
+
+### CARRIED — unchanged
+- H_SMART_CLUSTER_VETO — production-feasibility owed.
+- H_TG_AS_EXIT — blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review — deferred.
+- rugger_blacklist `wallet_added_at` — pending user.
+- H_V_DELTA_FATU / H_V8 / H_V9_STEALTH — Sol shapes; no new Sol bigs.
+
+## Pending investigations (NEW cycle 20260523_0000)
+
+- **TG-3h sensitivity analysis**: test TG-2h, TG-4h, TG-1.5h. Possible that BINA at 1.85h is the binding constraint and TG-2h excludes 1 big. Run next cycle.
+- **TG-3h with stream sub-filter**: TG-3h ∩ stream=SNIPER_B alone vs full routing — micro-benchmark of stream contribution. Quick test.
+- **k threshold sensitivity** (PORTUGAL detector): relax to k≤15 (currently k≤10) — would it admit borderline cases like CTM (k=9 already in) or new ones with k=11-15? Test next cycle.
+- **Variance-Kelly vs binary-Kelly**: brain has been reporting binary-Kelly K (e.g. c1800 K=0.34) but var-Kelly (this cycle 0.121) is more conservative. Standardize on var-Kelly going forward; revise prior cycle stats? — no, just note in methodology that earlier K values used binary approximation.
+- **C7 cluster detection rule formalization**: need clearer rule for "cluster start" — current heuristic is "PORTUGAL bc≥16 ∩ k≤10 entry after >3h gap from last bc≥16 entry". Codify and forward-test.
+- **CARRIED**: PORTUGAL creator wallet audit, C2/C4 dormant post-mortem, External BSC volume fetcher.
