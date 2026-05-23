@@ -1184,3 +1184,182 @@ C7 not declared. 23:45 lone non-PORTUGAL entry (登月金融 k=29 rug) may be st
 - **Variance-Kelly vs binary-Kelly**: brain has been reporting binary-Kelly K (e.g. c1800 K=0.34) but var-Kelly (this cycle 0.121) is more conservative. Standardize on var-Kelly going forward; revise prior cycle stats? — no, just note in methodology that earlier K values used binary approximation.
 - **C7 cluster detection rule formalization**: need clearer rule for "cluster start" — current heuristic is "PORTUGAL bc≥16 ∩ k≤10 entry after >3h gap from last bc≥16 entry". Codify and forward-test.
 - **CARRIED**: PORTUGAL creator wallet audit, C2/C4 dormant post-mortem, External BSC volume fetcher.
+
+## NEW (proposed cycle 20260523_0600)
+
+### H_BSC_BC_TIME_GATED_PORTUGAL_2H — NEW HEADLINE PAPER-STREAM CANDIDATE (supersedes TG-3h)
+
+**Mechanism**: bc≥16 entry within 2h of nearest PORTUGAL bc≥16∩k≤10 entry (self-inclusive: PORTUGAL entries themselves admitted).
+
+**TEST stats** (FIXED-boundary c0000-lock TEST.first=05-21T14:46Z):
+- n=28 avg=+68.0 WR=50 rug=21 big%=25.0 Er=+0.680 K(var)=0.145 geom_at_K=+6.60%
+- **Catches 7/7 TEST BSC bigs**: MEMEWC, PEDUCK, METLIFE, Grandma, WBC, UFU, BINA
+
+**Why supersedes TG-3h**:
+- c0000-day2 TG-3h: n=27 K=0.140 geom=+6.27% big=25.93%
+- c0600-day2 TG-3h: n=36 K=0.112 geom=+3.16% big=19.4% (weakened 1st cycle)
+- c0600-day2 TG-2h: n=28 K=0.145 geom=+6.60% big=25.0% — **tighter window preserves all bigs, excludes 8 dormant-tail entries that drag big% and add rugs**
+- Same 7/7 big-coverage
+- 29% lift in big%, 109% lift in geom vs TG-3h
+- TG-1.5h marginally better K/geom but n=25 smaller (TG-2h preferred for n-cushion)
+
+**Cross-cluster decomposition TG-2h** (3 productive each individually pass gate):
+| cluster | n | avg | rug% | big% | K | geom |
+|---|---|---|---|---|---|---|
+| C3 PORTUGAL-mid | 6 | +154 | 17 | 33.3 | 0.127 | +13.42% |
+| C4 dormant | 2 | -100 | 100 | 0 | 0 | 0% |
+| C5 productive | 6 | +114 | 0 | 33.3 | 0.241 | +18.99% |
+| C6 productive | 8 | +69 | 12 | 37.5 | 0.481 | +20.45% |
+| C7 testing | 6 | -10 | 33 | 0 | 0 | 0% |
+
+**Gate status**: PASSES (n=28≥20, Er=+0.680>0, K=0.145≥0.05, geom=+6.60%≥1%).
+
+**Deployment spec (proposed PAPER_BSC_TG2)**:
+```
+Entry rule:
+  - chain == 'bsc'
+  - entry_signal.bonding_curve_buyers_count >= 16
+  - EITHER: entry_signal.known <= 10  (self-include PORTUGAL onset)
+    OR: exists prior trade T_p within last 2h such that
+        T_p.chain == 'bsc' AND
+        T_p.entry_signal.bonding_curve_buyers_count >= 16 AND
+        T_p.entry_signal.known <= 10
+  - stream IN {SNIPER_B, SNIPER_F2, SNIPER_D2, SNIPER_A, SNIPER_H}
+  - position_size = $1 (paper)
+Auto-stop:
+  - K(var) < 0.05 after 30 entries
+  - OR cum_pnl < 0 after 50 entries
+  - OR consecutive 10 entries with 0 bigs AND avg < -30%
+```
+
+**Risk**: Depends on a PORTUGAL entry occurring first. Tighter window than TG-3h (2h vs 3h) means more dormant time. **Falsification candidate**: if C7 (currently active with 2 PORTUGAL entries but 0 bigs) ends with 0 bigs, this would be 1st known case of PORTUGAL-pumped-but-no-bigs and could weaken stats further.
+
+**Status**: NEW HEADLINE PAPER-STREAM CANDIDATE pending user approval. Forward-validation target n≥40 for scale-up consideration.
+
+---
+
+### UPDATE: H_BSC_BC_TIME_GATED_PORTUGAL_3H — DEMOTED to secondary
+
+c0000-day2 → c0600-day2: TEST n 27→36, K 0.140→0.112, geom +6.27→+3.16%, big% 25.93→19.4%, rug 22→28%. First TG-3h weakening — 9 new TEST entries (mostly C7 + dormant tail) added 0 bigs / 3 rugs.
+
+**Status**: DEMOTED to secondary (broader-window variant). Still gate-passing (K=0.112≥0.05, geom=3.16%≥1%). Could parallel-deploy with TG-2h as broader-net A/B (~$2 paper total).
+
+---
+
+### UPDATE: H_BSC_BC_FULL_B — 2nd cycle weakening; DEMOTED to descriptive-only
+
+Cross-cycle K (var): 0.139 (c1800) → 0.121 (c0000-day2) → **0.099** (this). Geom: +4.22% → +2.77% → **+1.58%**. Big%: 17.07 → 14.58 → **12.1**. Rug%: 15 → 17 → **21**.
+
+Barely above gate (K=0.099 vs floor 0.05; geom=1.58% vs floor 1.0%). 2-cycle weakening. **Recommendation**: descriptive-only diagnostic; do not propose as standalone paper-stream. TG-2h supersedes operationally.
+
+**Status**: DEMOTED to descriptive-only.
+
+---
+
+### NEW (descriptive, partial-falsification candidate): C7 cluster stress test for H_CLUSTER_PORTUGAL_PRESENCE
+
+**Observation**: C7 cluster active 05-23T00:04→05:12+ has **2 PORTUGAL entries both POSITIVE** (BabyAsteroid k=2 +33 SNIPER_A/B/H; WORLDCUP-2 k=1 +109 SNIPER_B) but **0 bigs in 6h**. Distinct from C4 (PORTUGAL CTM rugged) and from C3/C5/C6 (PORTUGAL pumped → big within <1h).
+
+**If C7 ends without a big in next 3-6h**: this would be the **1st observation of "PORTUGAL pumped but no big follows"** mode → partial falsification of H_CLUSTER_PORTUGAL_PRESENCE.
+
+**Possible mediators (if C7 dormant)**:
+- Time-of-day (C7 in overnight UTC like dormant C2/C4)
+- PORTUGAL pnl magnitude (BabyAsteroid +33 weakest first-PORTUGAL of any productive cluster — ttt C6 onset was +61 → followed by WBC +284)
+- WORLDCUP-2 re-launch identity (WORLDCUP-1 was +971 c0000; WORLDCUP-2 only +109 = -89% relative)
+- Sol Cond B trigger / regime context (this is the only cluster fully during Sol regime carnage)
+
+**Status**: ACTIVE TEST. Resolution next cycle.
+
+---
+
+### NEW (descriptive, weak): H_CLUSTER_TIME_OF_DAY — overnight UTC clusters tend dormant
+
+**Observation across 7 clusters**:
+| cluster | productive? | UTC onset hour |
+|---|---|---|
+| C1 | YES | 13Z |
+| C2 | NO | 18-01Z |
+| C3 | YES | 04-19Z |
+| C4 | NO | 01-06Z |
+| C5 | YES | 06-13Z |
+| C6 | YES | 13-20Z |
+| C7 | testing (dormant so far) | 00-05Z |
+
+**Pattern**: 4/4 productive in UTC daytime (04-20Z = EU-morning→US-afternoon). 2/2 confirmed dormant in UTC overnight (18-06Z). C7 currently dormant in overnight zone.
+
+**Mechanism (hypothesis)**: BSC PORTUGAL launchpad runs EU-Asia hours. Overnight UTC clusters lack the buyer-pump-momentum that productive daytime clusters experience.
+
+**Why NOT promoting as sizing rule yet**:
+- n=2 dormant overnight + 1 (C7) testing — single-event addition could be selection bias
+- Need ≥3 cross-event overnight dormants to confirm
+- Need ≥1 productive overnight cluster to falsify
+
+**Status**: NEW (descriptive). Track every future cluster's TOD-bucket.
+
+---
+
+### NEW (descriptive, single-point): WORLDCUP re-launch underperformance
+
+**Observation**: 2 BSC tokens with symbol "WORLDCUP" in dataset, different contract addresses:
+- WORLDCUP-1 (05-20T13:39Z, C1, k=2, bc=20): +971 BIG
+- WORLDCUP-2 (05-23T03:53Z, C7, k=1, bc=20): +109 NOT-BIG (-89% relative)
+
+**Hypothesis**: PORTUGAL family re-launches systematically underperform originals. n=1 paired comparison → insufficient.
+
+**Status**: NEW (single-point obs). Track future re-launches (symbol re-use across different contracts).
+
+---
+
+### CONFIRMED: k≤10 PORTUGAL boundary correctly placed
+
+**Test**: c0000-day2 proposed relaxing PORTUGAL boundary to k≤15. c0600-day2 forward data point:
+- 以太币 (05-23T04:33Z, k=11, bc=20): **RUGGED -100%** (SNIPER_A/B/D/D2)
+
+n=1 not statistically significant but consistent with hypothesis that PORTUGAL "shape" tightly tied to k≤10.
+
+**Status**: **DO NOT relax k threshold beyond 10.** Re-evaluate if 3+ k=11-15 bc=20 entries with ≥2 pumps appear.
+
+---
+
+### CONFIRMED (3rd time): SNIPER_BSC_FILTERED structurally anti-fat-tail
+
+c0600-day2 data:
+- 6/85 new BSC trades had SNIPER_BSC_FILTERED row
+- On rugs (BSC k=41 -100, FIRESTORM -100, 💰POP-equiv -100, CFY -100, DRAM -100): parity with other rug streams
+- On BabyAsteroid +33 (PORTUGAL small-win): parity (+33)
+- **Diverges only on bigs**: c1800 UFU=-87 vs B/H=+170; BINA=-100 vs all-fired=+169
+- Pattern: trail logic exits early on bonding-curve completion volatility; only matters when token continues to pump past initial volatility
+
+**Memo**: NEVER include SNIPER_BSC_FILTERED in BSC routing.
+
+---
+
+### CONFIRMED: METLIFE BF=SNIPER_A (sole BSC big A-wins)
+
+Row audit c0600-day2:
+- METLIFE: A=+173 (best), B=+37 (only other stream)
+- A wins by 136pp on METLIFE
+- Other 6 BSC bigs: A=-54 to -100 (consistently early-exit)
+
+A's BSC big-fire role is exclusive to k=1 ∩ low-buys ∩ pancake setup (METLIFE only). Routing MUST include A despite A's typical underperformance.
+
+**Status**: CONFIRMED. Routing {B, H, A} is minimal-7/7; {B, F2, D2, A, H} adds broader-wave redundancy on BINA (no extra unique bigs).
+
+---
+
+### CARRIED — unchanged
+- H_SMART_CLUSTER_VETO — production-feasibility owed.
+- H_TG_AS_EXIT — blocked on instrumentation.
+- MC_LIQ vs SNIPER_A code review — deferred.
+- rugger_blacklist `wallet_added_at` — pending user.
+- H_V_DELTA_FATU / H_V8 / H_V9_STEALTH — Sol shapes; 0 new Sol bigs this cycle.
+
+## Pending investigations (NEW cycle 20260523_0600)
+
+- **C7 outcome resolution** — does C7 produce a big in next 6h? If 0 → partial falsification H_CLUSTER_PORTUGAL_PRESENCE; need refined hypothesis.
+- **TG-2h forward validation target n≥40** — currently n=28; +12 more entries needed.
+- **PAPER_BSC_TG2 deterministic spec doc** if user approves (paper_streams_spec/PAPER_BSC_TG2.md). ~30min.
+- **H_CLUSTER_TIME_OF_DAY tracking** — every future cluster's UTC onset hour logged; promote if 5+ overnight dormant vs 0+ overnight productive accumulate.
+- **WORLDCUP re-launch (and any PORTUGAL re-launch) study** — track future re-launches for systematic underperformance.
+- **Sol Cond A re-trigger watch** — last50 -52.8 within 2.2pt of -55%; if re-triggers → DOUBLE-GUARD.
+- **CARRIED**: PORTUGAL creator wallet audit (cross-check WORLDCUP-1 vs WORLDCUP-2 creator), C2/C4 dormant post-mortem (TOD now leading candidate), External BSC volume fetcher.
