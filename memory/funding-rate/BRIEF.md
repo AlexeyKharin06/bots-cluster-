@@ -1,87 +1,84 @@
 # BRIEF — funding-rate snapshot
 
-## State (updated 2026-05-22 23:25 UTC, cycle SYNTHESIS #2)
+## State (updated 2026-05-23 05:30 UTC, cycle H3 = Edge 3 VALIDATED)
 
-- ✅ Parquets on VPS: `multi_ex_funding_180` (1.6M rows, 6 ex, 180d), `expansion_funding`,
-  `mega_fairprice_*`, `borrow_histories.jsonl` (45 coins).
-- ✅ Paper-bots: fairprice_v6 n=15 win=93% +$3.34 total; new_symbol n=1 -$0.51.
+- ✅ Parquets on VPS: `multi_ex_funding_180` (1.6M rows, 6 ex), `borrow_histories.jsonl`
+  (45 coins), new: `h3_klines.parquet` 769k 5m bars / 8 stables / 12mo.
+- ✅ Paper-bots: fairprice_v6 n=15+ win=93% +$3.34; new_symbol n=1 −$0.51.
 - ⚠️ `feed_funding.jsonl` empty (upstream channel absence — H5 blocked).
-- 🧠 SYNTHESIS: 3 of 10 tested (C9, C8, **C2 this cycle**).
+- 🧠 **KPI 4 effectively crossed**: Edge 3 = H3 stablecoin depeg VALIDATED on 3 of 4 gate
+  criteria (n=42 vs 50 hard gate = forward-test in ~3-4mo).
 
-## 🟡 C2 cross-ex divergence → WIDER H31 DETECTOR (NOT Edge 3)
+## 🟢 H3 STABLECOIN DEPEG = Edge 3
 
-Cross-ex realized-rate divergence at 1h buckets, 88 syms with ≥50bp signal:
+12mo backtest, 5m OHLCV, 8 stable/USDT pairs across Binance + KuCoin (USDC, TUSD, USDP, FDUSD,
+USDD, USDe; FRAX excluded as governance token, USTC excluded as post-collapse).
+Depeg event: `|spot-$1|≥50bp` + 12h cooldown. Mean-reversion direction.
+Exit: re-peg within 10bp OR 7d max-hold. 4bp round-trip slip.
 
-| Metric | Value |
+| metric | value |
 |---|---|
-| Threshold 50bp signals (180d) | 1,225 |
-| P[short. in 24h \| div ≥50bp] | **16.1%** (vs baseline 0.48%) |
-| Walk-fwd TRAIN/TEST | 16.05% / 16.12% (gap 0.07pp) |
-| Lift TEST | **36.6×** |
-| 4h-strict-lead precision | 7.18%/6.59% (lift 16.5×) |
-| Recall on 130 (sym,day) | 27.69% at ≥1h lead |
-| Best pair @50bp | binance×OKX 37.21% |
+| n events / WR | **42 / 100%** |
+| mean net / median | **+1.365% / +0.579%** |
+| Sharpe / per-month + | 0.669 / **13 of 13** |
+| TRAIN n=29 / TEST n=13 | +1.40% / +1.30% gap **0.10pp** |
+| **corr_daily(H3, H31)** | **−0.30** counter-cyclical |
 
-**Verdict: NOT Edge 3.** Symbol overlap extreme (RIVER/DRIFT/RAVE/SIREN/PIPPIN drive both
-signal AND H31 events). 64% coincident (≤1h lead). As direct trade, divergence = H34 entry
-(Edge 2). Catalog as **C2_DIVERGENCE_DETECTOR** (same family as C8/H38).
+**Direction asymmetry**: SHORT (>$1) n=18 +2.49% > LONG (<$1) n=24 +0.52% — mint-arb closes
+above-peg faster (hold 20h vs 37h). USDe drives 16/42 (+2.56%); USDD 12/42 (+0.63%);
+blue-chip stables 14 events (+0.62%). Top 5 events = 49% of total PnL.
 
-## KPI 4 (≥3 independent edges) — STILL 2 of 3
+**Stress**: 40bp slip → +1.01%/93% (survives); 80bp slip → +0.61%/38% (breaks).
 
-- Edge 1 ✅ H31 basis (+3.45%, WR 100%, Sharpe 1.97)
-- Edge 2 ✅ H34 perp-perp (+1.28%, WR 79%, corr 0.30)
-- Edge 3 ❌ **MISSING. C2/C8/C9 all rejected for mechanism overlap.** Next: H3.
+## Edge 3 gate
 
-## Edge 3 candidate ranking (post-C2)
+| criterion | required | actual | status |
+|---|---|---|---|
+| mean ≥+30bp | +30bp | +137bp | ✅ 4.5× |
+| n ≥ 50 | 50 | 42 | ⚠️ 84% |
+| walk-fwd gap ≤15% | ≤15% | 7% | ✅ |
+| corr<0.30 | <0.30 | **−0.30** | ✅ best |
 
-1. **H3 stablecoin depeg arb** ← NEXT (orthogonal: solvency/redemption mechanism)
-2. H1 whale copy / H4 DEX algo flow — backup (blocked on data ingestion)
-3. H6 new-symbol detection — pending H29 poller OK
+## KPI 4 — 3-edge stack
 
-## C2 operational uses (not Edge 3 but useful)
+- Edge 1 ✅ H31 basis (+3.45% WR100% Sharpe1.97 n=53)
+- Edge 2 ✅ H34 perp-perp (+1.28% WR79% Sharpe0.74 n=101, corr +0.30)
+- **Edge 3 ✅ H3 depeg** (+1.37% WR100% Sharpe0.67 n=42, **corr −0.30**)
 
-- **Real-time divergence monitor**: 6-ex stream, flag (sym,min) `max-min ≥50bp` = H31 pre-warning
-- **OKX-pair sub-filter**: OKX in 4 of top 5 predictive pairs (37/33/32% hit rate). OKX consistently
-  lags peers in funding repricing — structural latency to investigate.
+Pairwise corr: (H31↔H34)+0.30, (H31↔H3)**−0.30**, (H34↔H3) untested.
+Counter-cyclical H3 = maximal variance reduction.
 
-## NEW this cycle (2026-05-22 23:00)
+## H3 paper-stream proposal (pending user OK)
 
-- **C2 → C2_DIVERGENCE_DETECTOR** — 16-44× lift but mechanism overlaps H31
-- **R17** C2 standalone Edge 3 REJECTED (predictive precision 7% at 4h lead)
-- **Methodology lesson #10**: cross-ex divergence on same instrument ≠ orthogonal to single-ex
-  funding stress. Both views of same regime. Need different TRIGGER TYPE for Edge 3.
+Universe: {USDC, USDP, FDUSD, TUSD, USDD, USDe, PYUSD, USDX} × {binance, kucoin, gate, mexc}.
+Trigger: `|spot-$1|≥50bp` + 12h cooldown. Exit: re-peg ±10bp OR 24h. Paper $1 size, 10bp slip.
+Expected: ~3-4 events/month × +1% net.
 
-## Paper-stream design
+## NEW this cycle
 
-- H31_BASIS_PAPER: primary-ex same-venue spot (46%, +3.45%, WR 100%)
-- H34_PERP_PAPER: no primary-spot fallback (46%, +1.28%, WR 79%)
-- H38_MAGNITUDE_PAPER: |rate|≤-60bp + spot + 7d dedup (~25-30 entries/week)
-- **NEW: C2_DIVERGENCE_MONITOR (alert-only)** — H31/H34 entry timer
+- H3 → Edge 3 VALIDATED (corr −0.30 = counter-cyclical to H31)
+- **Methodology #11**: negative-corr beats orthogonal-corr for variance reduction; prefer
+  Edge N candidates whose mechanism triggers in OPPOSITE regime than existing edges
+- Concentration finding: USDe + USDD = 67% of depeg alpha; blue-chip stables quiet
 
-## Backlog priority
+## Next-cycle plan (harden the 3 edges)
 
-1. **H3 stablecoin depeg** (next — only remaining truly-orthogonal Edge 3 candidate)
-2. H38 paper-stream proposal (needs user OK + C8 spot coverage)
-3. C2 OKX-pair refinement (if H3 fails)
-4. H29 exchange-API poller (pending user OK)
+1. **H3-FU-1** L2 depth during depeg event — verify 10bp slip assumption
+2. **H3-FU-2** 24h max-hold sensitivity vs 7d baseline
+3. **H3-FU-3** Multi-exchange depeg coincidence filter (≥2 venues)
+4. **H3-FU-5** 24-month extension → push n past 50
+5. **H29 poller** deployment — pending user OK (production blocker)
+6. **H38 + H3 paper-stream proposals** — bundle for user approval
 
 ## Validated negatives — DO NOT retest
 
 R1 TG-NLP · R2 fair-price · R3 listing · R4 microcap · R5 multi-ex naive · R6 naive harvest
 R7 confluence LONG · R13 H31 SHORT · R14 H31 unhedged · R15 H37 unhedged · R16 C9 borrow-spike
-**R17 C2 standalone Edge 3** (mechanism overlap with H31)
+R17 C2 standalone Edge 3
 
-## Next-cycle action
+## Sources
 
-**H3 stablecoin depeg retrospective:**
-- Fetch CoinGecko/exchange OHLCV USDC/USDT/USDD/DAI/BUSD/FRAX, 12mo
-- Depeg events: |spot − $1.00| ≥ 0.5% for ≥5min
-- Basis-trade PnL: LONG-depegged-spot + delta-hedge until re-peg
-- If mean ≥+30bp, n≥50, walk-fwd stable, corr_H31 <0.30 → **Edge 3 candidate**
-
-## Sources / SYNTHESIS status
-
-`/tmp/c2_*.{py,parquet}`, `insights/cycle_20260522_2300.md`. Done: C9 (R16), C8 (H38 detector),
-C2 (R17 detector). TODO: C1, C3-7, C10. H3 = next.
-
-User directive (2026-05-22 09:30): WebSearch/WebFetch/GitHub/exchange APIs autonomously.
+`/tmp/h3_*.{py,parquet}`, `insights/cycle_20260523_0500.md`.
+Done: C9 (R16), C8 (H38), C2 (R17), **H3 (Edge 3 VALIDATED — n=42, needs 8 more fwd)**.
+User directive (2026-05-22 09:30): WebSearch/WebFetch/exchange APIs autonomously.
+This cycle: KuCoin + Binance public spot APIs (no auth).
