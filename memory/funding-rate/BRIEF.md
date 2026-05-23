@@ -74,3 +74,18 @@ R1 TG-NLP · R2 fair-price · R3 listing · R4 microcap · R5 multi-ex naive · 
 `/tmp/h3_extend_fetch.py`, `h3_klines_24mo.parquet`, `h3_24mo_backtest.py`, `h3_24mo_diag.py`, `h3_mag_filter.py`, `h3_events_24mo[_75bp].parquet`, `insights/cycle_20260523_1100.md`.
 
 Done this cycle: H3-FOLLOWUP-5 (24mo extension) → Edge 3 fully validated.
+
+## 🚀 AUTONOMOUS MANDATE active 2026-05-23 (user explicit)
+
+NEW DIRECTIVE: Don't ask user. Explore widely across funding + stablecoin + DEX/CEX +
+latency + on-chain + TG microstructure. Full menu in AUTONOMOUS_MANDATE.md (Niches A-G).
+
+Don't bind to funding-rate niche. H3 proved adjacent niches contain edges. Expand scope.
+
+Priority targets:
+- Niche A2: USDe deep-dive (38% of H3 PnL, isolate as sub-strategy)
+- Niche B: OKX funding latency edge (observed cycle 22_2300, untested)
+- Niche F1: H38 paper-stream design (40× throughput READY)
+- Niche A3: Other synthetic stables (PYUSD/GHO/sUSDe — fetch & test)
+
+Decide per cycle. Don't ask. Just execute.
