@@ -321,3 +321,47 @@ H_DEX_DEX_PERP NEW 2026-05-24_1700 | pending → **modest priority** | External 
 OBS_FAIRPRICE_V6 NEW 2026-05-24_1700 | observation → revisit at n=100 | paper_fairprice_v6 on VPS shows 31 trades / 84% WR / +$2.80 net since deployment. ALL trades are SHORT on micro-caps (BOBBOB×4 tail-sample, STEEM) at HIGH realized funding rates (0.66-1.49%) with very short holds (5-300s, mostly target_hit exits). Apparent conflict with R2 (fair-price scalping rejected 0/5 weeks walk-fwd positive, mean -$0.89/trade on 206k sims). Hypothesis space: (a) v6 has tighter pre-filter (high |funding| only, e.g. ≥0.5%/period) selecting survivor regime — same failure mode as R4 microcaps but inverse selection; (b) BOBBOB-class chronic-discount cluster is a legit narrow R2 sub-edge; (c) hot streak on n=31. Probability assessment: 60% survivor bias / 25% legit narrow sub-edge / 15% noise. Action: WAIT — revisit when n≥100 or 2 weeks more data accumulated, whichever first. If diversifying beyond BOBBOB-cluster with WR≥75% sustained → elevate to backlog item with R2-diff analysis to isolate the surviving filter. Other 3 paper bots (new_symbol, practitioner, whale) have no trades.jsonl or 1 trade — practitioner+whale appear gated on TG feed which is at 0.08% routing rate (H_TG_ROUTING_PATCH still pending user OK).
 
 METHODOLOGY OBSERVATION 2026-05-24_1700 | External recon every N cycles is a methodology fix worth canonizing. This cycle uncovered Pendle Boros — a fundamentally new instrument-class mechanism that didn't exist when the project was framed around CEX funding rates. Internal-only cycles risk over-fitting to known mechanism axes (we ran 5+ cycles on Meth #14 SOLO/CONFIRMED nuances without ever asking "is there a new instrument class entirely?"). Suggest schedule rule: every 3-5 cycles, dedicate one cycle to external strategy reconnaissance (WebSearch + GitHub + academic + practitioner blogs). Cheap option-value extraction. Filed as cycle-cadence suggestion; NOT a methodology lesson candidate (no formal validation pattern yet) — but worth tracking whether subsequent recon cycles continue to surface novelty or hit diminishing returns.
+
+---
+
+## 20260524_2300 cycle additions
+
+### H38_CONFIRMED_TIER (status: spec-ready, awaits user OK for paper-stream)
+
+Operational sub-tier of existing H38 edge gated by cross-venue confirmation.
+
+**Spec**:
+- Universe: same as H38 (~229 syms, 6 ex)
+- Entry trigger: H38 magnitude-trigger (|funding rate| ≥ 30bp on funding-cycle anchor)
+- **Additional gate**: at least 1 OTHER CEX has rate ≤ -50bp at same hourly bucket on the same sym (CONFIRMED-50bp filter)
+- Hedge: basis-conservative (cycle 1750 spec)
+- Hold: 4 funding cycles
+- Expected: n=5324/180d (~890 events/month), mean +2.23%, WR 99.0%, Sharpe 1.28
+- Slip robustness: 40bp → mean 1.83% / WR 92.8%; breaks at 80bp slip → mean 1.43% / WR 80.2%
+- Concentration risk: top-15 syms 66% (RIVER/PIPPIN/ENSO/ORCA/RAVE/DRIFT chronic-discount cluster)
+- NOT a 4th edge (same family as H31/H38)
+- Use case: capital-rationing variant — if can't deploy on all H38 events, prioritize CONFIRMED tier
+
+### Methodology #17 — CONFIRMED (was candidate cycle 1418)
+
+**Sign-flip-by-trade-structure rule for cross-venue coincidence filtering:**
+
+- **HEDGED funding-capture** (basis trades, perp-perp delta-neutral): apply CONFIRMED gate; SOLO tier underperforms. Mechanism: basis IS the return, more systemic stress = more basis = more PnL.
+- **UNHEDGED mean-reversion** (stablecoin depeg, fair-price scalps): apply SOLO gate; CONFIRMED tier underperforms. Mechanism: CONFIRMED = systemic stress = slow revert (long hold = drawdown); SOLO = idiosyncratic = fast revert.
+
+Three independent samples corroborate:
+- H3 depeg (unhedged, n=129): SOLO +1.026pp > CONFIRMED — Meth #14 cycle 2300
+- H31 LONG basis (hedged, n=116): CONFIRMED +1.346pp > SOLO — Meth #17 candidate cycle 1418
+- H38 mag-trigger basis (hedged, n=10,686): CONFIRMED +1.090pp at 50bp threshold > SOLO — **Meth #17 confirmed cycle 2300**
+
+Apply MANDATORY in all future hedged/unhedged backtest design.
+
+Stable-class boundary (Meth #16 candidate cycle 1100): centralized-redemption stables (PYUSD) show no SOLO/CONFIRMED discrimination → Meth #14 only applies to distributed-redemption stables (USDe/USDD on-chain bridges + per-venue dollar rails). Meth #17 boundary on hedged trades NOT YET TESTED for centralized-redemption analogs (no such instrument in scope).
+
+### R2 SOLO retest — DEPRIORITIZED
+
+Cycle 1700 had R2 SOLO retest as priority #3. Post-cycle 2300:
+- R2 is unhedged mean-rev/scalp → Meth #14 trivially applies (SOLO > CONFIRMED)
+- Meth #17 has been corroborated on bigger sample (H38 n=10,686) than R2 (316k events but unhedged so wrong sign-rule applies anyway)
+- Retest would only confirm the trivially-applicable Meth #14 → no marginal information value
+- Status: deprioritized to backlog tail
