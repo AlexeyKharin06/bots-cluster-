@@ -1602,3 +1602,92 @@ c1200 proposed; c1800 validated symmetric. Adopt: track rotation log in cycle in
 - **GIVE-shape replication check** — does next Sol big match null-top1 + meteora + smart=5-15?
 - **Smart-cluster trail edge replication** — next Sol big: does smart-cluster beat A/H trail?
 - **CARRIED**: PORTUGAL creator wallet audit (12+ tokens C1-C8 now: WORLDCUP, WORLDCUP-2, WOJCUP, METLIFE, Grandma, WBC, UFU, RICH, VELVET, xing, TRUMPBANK, BABYTROLL, ELON, CTM, BabyAsteroid, TRUMPETTE); External BSC volume fetcher; SMART_CLUSTER_VETO feasibility; rugger_blacklist `wallet_added_at`; MC_LIQ vs A code review (more urgent — MC_LIQ caught GIVE).
+
+---
+
+## CYCLE 20260524_0000 updates
+
+### NEW (descriptive, n=19, GATE-PASSING except n<20 floor): H_SERIAL_SYMBOL_ALPHA_REVIVAL
+
+**Filter spec**: Sol token where:
+- Token's symbol has ≥2 prior distinct deployments (different mint addresses, same symbol string)
+- This deployment shows: top1_pct≥85 ∩ dex=meteora ∩ smart≥5 ∩ known≥15
+
+**Test stats (descriptive, single time-block, no walk-forward available)**:
+- n=19, big=2 (MTFR +506 [token 79y6FesF], GIVE +308 [token 2Mcxjye7])
+- rug=4, avg=+23.9%, WR=47%
+- Kelly(var)=0.115, geom@K=+1.65%
+- **PASSES Er/K/geom gates; FAILS n<20 floor by 1**
+
+**Origin**: c0000-day3 discovery — both Sol bigs in c1800→c0000 window come from serial-token-symbol families (MTFR 7-deployment, GIVE 6-deployment). MTFR has SHARP differentiation: deployments #1-4 all top1=5 → all rugged; deployments #5-7 all top1=87.8 → 1 big + 2 small wins.
+
+**Caveats**:
+1. MTFR appears 3× in n=19 set (deployments 5, 6, 7 — all α-shape). Per-symbol-dedup: n=17.
+2. Both bigs are in same 7h window (12:25-19:36 of 05-23) → single-cluster risk (6th leakage form).
+3. Walk-forward impossible — all candidates after 2026-05-22T04:07Z (state.json doesn't extend pre-TEST.first 05-21T14:46Z).
+
+**Status**: NEW HEAVY HYPOTHESIS. **HOLD** for n=20+ accumulation + cross-cluster validation. **Closest sub-floor candidate** (95% of n=20 floor).
+
+**Routing recommendation** (if promoted): {A, B, H, MC_LIQ, SMART_COPY_TOP_AGE5, SMART_TOP_AGE5} — smart-cluster streams to capture H_SMART_CLUSTER_TRAIL_EDGE.
+
+---
+
+### UPDATE: H_SMART_CLUSTER_TRAIL_EDGE — PROMOTED n=1 → n=2 BOTH POSITIVE
+
+| token | A pnl | B pnl | H pnl | MC_LIQ pnl | SMART_COPY pnl | smart-edge |
+|---|---|---|---|---|---|---|
+| GIVE 2Mcxjye7 | +171 | n/a | +171 | +308 | +308 | **+137pp** |
+| MTFR 79y6FesF | +485 | +485 | +485 | +506 | +506 | **+21pp** |
+
+Both POSITIVE direction. Both Sol bigs in c1800→c0000 (last 11h). Both meteora α-shape.
+
+**Action**: track on next Sol big for n=3+ validation. If pattern holds, promote to routing-default for any Sol paper-stream candidate.
+
+---
+
+### CLOSED-REJECTED: H_SOL_EPSILON_SHAPE
+
+c1800 introduced based on claimed "null top1, null buys" for GIVE. **Actual state.json data shows top1=99.3 buys=262** (α-shape). c1800's claim was a misread.
+
+ε-shape doesn't exist as defined. Hypothesis withdrawn.
+
+---
+
+### ADOPTED: Methodology Lesson #10 — FEATURE-VALUE DOUBLE-CHECK
+
+**Lesson**: when claimed feature values contradict shape priors, double-check raw state.json before forming new shape hypothesis.
+
+**Trigger event**: c1800 cycle reported GIVE had null top1/null buys → formalized as ε-shape candidate. c0000-day3 re-check showed actual values are top1=99.3 buys=262 — α-shape match. The "null" was likely from a different GIVE deployment's open-position row or an earlier failed deployment.
+
+**Adoption**: ~2min/cycle overhead. Standard practice: when reporting features in cycle insights, paste the raw entry_signal JSON snippet for any new shape claim.
+
+---
+
+### UPDATE: C8 cluster — CONFIRMED ENDED
+
+Last C8 entry: TKLV 17:09 (bc=13 k=15 broader-band big). After 17:09 only k>10 broader-wave bc=20 entries (RD💵, SP, META, 旺财链❤️, BSC, 🍜好运币) all rugged/lost.
+
+**C8 productive phase**: 12:25-15:37 (3h12min, 4 PORTUGAL bigs).
+**C8 tail**: 15:37-17:09 (TKLV broader-band big).
+**Total C8 duration**: ~4h45min.
+
+**Productive cluster lengths**: C5 ~7h, C6 ~6h, C7 ~12h, C8 ~5h. C8 was shortest productive cluster.
+
+---
+
+### NO C9 ONSET YET (8h+ since last C8 PORTUGAL BABYTROLL)
+
+After BABYTROLL 15:37, 24 unique BSC tokens entered through 00:00Z but ZERO had bc≥16∩k≤10 (PORTUGAL strict). Cluster gap continuing.
+
+Watch for: first PORTUGAL strict entry to initiate C9.
+
+---
+
+## Pending investigations (NEW cycle 20260524_0000)
+
+- **Re-check open positions** (53 → see what closes) for fresh α-revival candidates.
+- **C9 onset detection** — next PORTUGAL bc≥16∩k≤10 entry.
+- **H_BSC_BC_FULL_B recompute** — 24 new bc≥16 broader-wave entries since c1800 (all rugs) likely weaken K from 0.149 down to ~0.10.
+- **Next Sol big shape match** — does it come from serial-symbol family + α-shape? Validates H_SERIAL_SYMBOL_ALPHA_REVIVAL cross-cluster.
+- **MC_LIQ + SMART_COPY trail-management code review** — both caught GIVE +308 and MTFR +506. URGENT.
+- **CARRIED**: PORTUGAL creator wallet audit (now 14+ tokens C1-C8); External BSC volume fetcher; rugger_blacklist `wallet_added_at`; SMART_CLUSTER_VETO feasibility; H_SMART_CLUSTER_TRAIL_EDGE retroactive audit on older Sol bigs (PIGEON, MTFR-prior, OSOR, GITBANK, SPCXDRAGON, RONALDO, FOID, Blobby, FATU); investigate state.json shrink (4982→4841) — rotation pattern or recount.
