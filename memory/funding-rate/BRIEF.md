@@ -1,12 +1,12 @@
 # BRIEF — funding-rate snapshot
 
-## State (2026-05-23 23:00 UTC, cycle: H3-FU-3 multi-venue coincidence — HYPOTHESIS INVERTED, filter accepted as optional variant)
+## State (2026-05-24 05:30 UTC, cycle: H3-FU-4 stable-perp basis — REJECTED as yield, ACCEPTED as tail-risk insurance overlay)
 
-- ✅ **3-edge portfolio FULLY VALIDATED** (KPI 4 cleared).
-- 🟡 **H3-FU-3 outcome**: hypothesis from BRIEF was INVERTED by data. Multi-venue CONFIRMED depegs are SLOW-revert systemic events (median 112h hold, 41% miss max-hold). SOLO depegs are FAST-revert idiosyncratic (median 2h, 100% reach-peg). DROP-CONFIRMED filter still accepted: 50bp tier n=129→101, mean +0.81%→+0.89%, WR 96.1%→98.0%, captures 3/3 historical losses, walk-fwd asymmetric PASS. Cost: throughput −22%, KuCoin concentration 74%→91%.
-- 📐 **Methodology #14 NEW**: For mean-reversion strategies, cross-venue coincidence = SYSTEMIC stress marker (slow), NOT signal validation. **INVERT the cross-venue intuition.**
+- ✅ **3-edge portfolio FULLY VALIDATED** (KPI 4 cleared since 2026-05-23_1100).
+- 🟡 **H3-FU-4 outcome**: BRIEF cycle 2300 hypothesis ("2-3× yield via perp-basis capture") REJECTED. Universe of stable-PERP listings on 7 CEXes = literally {Bybit USDeUSDT-PERP}. Tested on 21 of 22 KuCoin USDe events: Bybit perp stays within ±10bp of $1 even during +1246bp / +852bp spot spikes. Substitute REJECTED (-0.004%/WR 27%), funding capture REJECTED (0 of 1713 fundings ≥30bp). Delta-hedge ACCEPTED only as tail-risk insurance for Ethena protocol risk (combined +2.00%/WR 95% ≈ spot-only +2.00%/WR 100%, ~20bp extra cost; useful only at $10k+ notional).
+- 📐 **Methodology #15 NEW**: perp leg on venue-isolated depeg = tail-risk insurance, not arb. Third independent line of evidence for Methodology #14.
 - ⚠️ `feed_funding.jsonl` still empty.
-- 🟢 HARDEN-AND-DEPLOY phase: paper-streams + L2 + H29 pending user OK.
+- 🟢 HARDEN-AND-DEPLOY phase: paper-streams + L2 + H29 pending user OK. No new edge candidates queued.
 
 ## 🟢 3-edge counter-cyclical portfolio (vol-vetted, multi-venue-graded)
 
@@ -15,47 +15,52 @@
 | H31_basis (LONG-perp+SHORT-spot, shortening) | 53 | +3.45% | 100% | 1.97 | — |
 | H34_perp_perp (LONG-pri+SHORT-hedge) | 101 | +1.28% | 79% | 0.74 | +0.30 |
 | H3 50bp baseline | 129 | +0.81% | 96.1% | 0.63 | −0.31 |
-| **H3 50bp DROP-CONFIRMED (NEW)** | **101** | **+0.89%** | **98.0%** | 0.65 | TBD |
+| H3 50bp DROP-CONFIRMED | 101 | +0.89% | 98.0% | 0.65 | TBD |
 | H3 75bp baseline | 39 | +1.76% | 100% | 0.87 | −0.31 |
-| **H3 75bp DROP-CONFIRMED (NEW)** | **30** | **+1.96%** | **100%** | 0.88 | TBD |
+| H3 75bp DROP-CONFIRMED | 30 | +1.96% | 100% | 0.88 | TBD |
 
 Pairwise: (H31↔H34) +0.30, (H31↔H3) −0.31, (H34↔H3) untested.
 
-## 🟡 H3-FU-3 — multi-venue coincidence (Methodology #14)
+## 🟡 H3 paper-stream variants (FULL / SOLOFLAG / USDE_TAIL_HEDGED)
 
-129 events scored against ±30min cross-venue depeg presence on Binance/Bybit/OKX/KuCoin (Gate/MEXC/Bitget capped at 35d lookback). Categories: CONFIRMED 27, CONFIRMED_LOOSE 1, SOLO 36, UNVERIFIABLE 65. Hold-time decisive: CONFIRMED median 112h reach_peg 59%, SOLO median 2h reach_peg 100%.
+| variant | applies to | role |
+|---|---|---|
+| H3_DEPEG_PAPER_FULL | all 129 events | baseline diversified Edge 3 |
+| H3_DEPEG_PAPER_SOLOFLAG | all 129 (drop CONFIRMED at entry-time) | optional risk-management filter (cycle 2300 / Meth #14) |
+| **H3_DEPEG_PAPER_USDE_TAIL_HEDGED (NEW 0500)** | 22 USDe events only | optional Ethena protocol-tail-risk overlay (Meth #15); enable when notional ≥ $10k |
 
-## 📐 Methodology #14 — invert cross-venue intuition
+## 📐 Methodology #14 (cycle 2300) + #15 (this cycle) — converging evidence
 
-For DEPEG arb (and likely all mean-reversion strategies), multi-venue coincidence = SYSTEMIC stress (slow revert, max-hold risk), NOT signal validation. SOLO depegs are the higher-quality, faster-reverting subset. Apply filter as anti-confirmation.
+Two independent vantage points now confirm that KuCoin USDe spot depegs are **venue-isolated SOLO events**, not systemic CEX-wide depegs:
+- #14: ±30min cross-venue SPOT coincidence on Binance/Bybit (where listed) — 20 of 22 USDe events in SOLO category.
+- #15: Bybit USDe-PERP at-peg behavior during 21 of 21 covered KuCoin spot depegs (perp at $1±10bp during +1246bp spot spike).
 
-## 🟢 H3 paper-stream spec (post-FU-3, two variants)
-
-**A) FULL** (baseline): G_paper 50/75bp triggers, 12h cooldown, NOT phantom, notional gate. n=129/39, mean +0.81/+1.76, WR 96/100.
-
-**B) SOLOFLAG** (new): same trigger + at entry-time check ±30min on 1-3 other CEXes. If any ≥30bp same-direction → tag CONFIRMED (skip or half-size). Else → full-size. n=101/30, mean +0.89/+1.96, WR 98/100.
-
-Run B paper-stream as overlay variant of A to validate live median-hold gap.
+Implication: depeg arb mechanism is KuCoin-orderbook-local, not protocol-systemic, for the dominant USDe subset. Mean-reversion is fast (median 2h hold per Meth #14) because no broader force sustains the depeg.
 
 ## 📊 KPI 4 — gate scorecard
 
-All 6 criteria cleared on both variants at both tiers: mean ≥30bp ✅, walk-fwd asymmetric ✅ (TEST>TRAIN both+), corr ≤ −0.30 ✅, Sharpe ≥0.6 ✅, WR ≥90% ✅, n ≥50 ✅ (50bp tiers).
+All 6 criteria cleared on H3 baseline + SOLOFLAG variants at both tiers since cycle 1100. USDE_TAIL_HEDGED overlay does not change gate verdict; preserves +2.00% mean / 95% WR on USDe subset at ~20bp cost.
 
-**Verdict: Edge 3 preserved. New optional filter layer adds risk-management dimension at concentration cost.**
+**Verdict: Edge 3 preserved. New optional tail-hedge overlay adds Ethena-protocol-risk-management dimension for live deployment at scale.**
+
+## Stable-perp universe (NEW finding 0500)
+
+Exhaustive scan across Binance/Bybit/OKX/Gate/Bitget/MEXC/Hyperliquid for {USDe,USDD,USDP,TUSD,FDUSD,PYUSD}-quoted perpetuals: ONLY Bybit USDEUSDT-PERP. No USDD-perp anywhere. Structural ceiling on perp-leg strategies for stable arb.
 
 ## Next-cycle plan
 
-1. H3-FU-1 L2 depth on KuCoin USDE/USDD (concentration 91% post-FU-3).
-2. H3-FU-4 perp-basis (Bybit USDe-PERP + Gate USDD-PERP) — KuCoin-delisting hedge.
-3. Bundle 3-edge paper-stream proposals (FULL + SOLOFLAG variants + H31/H34 + H29 poller).
-4. Meth #14 on H3-A3 PYUSD + C8/H38 funding-stress — does it generalize?
+1. H3-FU-1 L2 depth on KuCoin USDE/USDD (concentration 91% post-FU-3 SOLOFLAG, structural since no perp substitute per FU-4).
+2. Methodology #14 retroactive on PYUSD events (cycle 2300 plan #4).
+3. Methodology #14 retroactive on C8/H38 high-mag funding events (cycle 2300 plan #5).
+4. Bundle 3-edge paper-stream proposals (FULL + SOLOFLAG + USDE_TAIL_HEDGED overlay + H31/H34 + H29 poller).
+5. (Deferred indefinitely) H3-FU-4 perp-basis as yield — REJECTED this cycle.
 
 ## Negatives (DO NOT retest)
 
-R1 TG-NLP · R2 fair-price · R3 listing · R4 microcap · R5 multi-ex naive · R6 naive harvest · R7 confluence LONG · R13 H31 SHORT · R14 H31 unhedged · R15 H37 unhedged · R16 C9 borrow-spike · R17 C2 standalone
+R1 TG-NLP · R2 fair-price · R3 listing · R4 microcap · R5 multi-ex naive · R6 naive harvest · R7 confluence LONG · R13 H31 SHORT · R14 H31 unhedged · R15 H37 unhedged · R16 C9 borrow-spike · R17 C2 standalone · R18 H3-FU-4 substitute + funding-capture (Bybit perp non-tracking; mean -0.004%/WR 27%; 0 of 1713 fundings ≥30bp)
 
 ## Sources
 
-`/tmp/h3_fu3_*` + `insights/cycle_20260523_2300.md`. Prior: `/tmp/h3_fu6_*` + `cycle_20260523_1700.md`.
+`/tmp/h3_fu4_*` (this cycle) + `insights/cycle_20260524_0500.md`. Prior: `/tmp/h3_fu3_*` + cycle_20260523_2300.md; `/tmp/h3_fu6_*` + cycle_20260523_1700.md.
 
-## 🚀 MANDATE: H3-FU-1 L2 depth (concentration↑), H3-FU-4 perp-basis hedge, paper-stream bundle (BOTH variants). Edge hunt OVER.
+## 🚀 MANDATE: H3-FU-1 L2 depth (only remaining live-deploy gating step), Meth #14 retroactives (PYUSD + C8/H38), paper-stream bundle (3 H3 variants + H31 + H34 + H29). Edge hunt OVER.
