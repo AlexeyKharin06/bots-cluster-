@@ -1,82 +1,76 @@
 # BRIEF — funding-rate snapshot
 
-## State (2026-05-24 11:30 UTC, cycle: Meth #14 retro on PYUSD — REFUTED, stable-class boundary discovered)
+## State (2026-05-24 14:18 UTC — Microstructure M1+M3: BOTH user-hypotheses REFUTED, Meth #17 sign-flip filed)
 
-- ✅ **3-edge portfolio FULLY VALIDATED** (KPI 4 cleared since 2026-05-23_1100).
-- 🟡 **PYUSD Meth #14 retroactive REFUTES** the cycle 0500 prediction. SOLO (n=19) ≈ CONFIRMED (n=5): mean +0.489% vs +0.481%, WR 100% both, hold_median 8.42h vs 8.25h. Delta = pure noise.
-- 📐 **Methodology #16 CANDIDATE filed**: Meth #14 has stable-class boundary; centralized-redemption stables (PYUSD, Paxos B2B desk) show no SOLO/CONFIRMED discrimination. Distributed-redemption stables (USDe/USDD on-chain bridges + TUSD/USDP/FDUSD/USDC per-venue dollar rails) do.
-- 🟢 SOLOFLAG decision matrix UPDATED: apply on {USDe, USDD, TUSD, USDP, FDUSD, USDC}-only; BYPASS for PYUSD. Preserves 5/24 PYUSD events.
-- 🟢 HARDEN-AND-DEPLOY phase continues. Paper-stream bundle + L2 + H29 still pending user OK. No new edge candidates queued.
+- ✅ **3-edge portfolio FULLY VALIDATED** (KPI 4 cleared since 2026-05-23_1100). UNCHANGED.
+- 🟡 **M1 REFUTED**: h=100% basis-hedge is monotone Sharpe-optimal. Sharpe 0.16→1.90 across h=[0,100%]; mean only -49bp (slip), std collapses 13×. 74/116 events see perp FALL post-event, 42/116 rise — no directional gain.
+- 🟡 **M3 INVERTED**: CONFIRMED n=72 outperforms SOLO n=44 (+4.03% vs +2.68%, Sharpe 2.07 vs 1.77, both WR=100%). |price_4h| dispersion CONFIRMED 18% vs SOLO 6%, but HEDGED → only funding mag matters → CONFIRMED wins.
+- 📐 **Meth #17 CANDIDATE**: Meth #14 sign depends on TRADE STRUCTURE. UNHEDGED mean-rev (H3): SOLO > CONFIRMED. HEDGED funding-capture (H31): CONFIRMED > SOLO (sign flips).
+- 🟢 H31 spec stays **100% basis-hedge / full universe**. Aggregate edge: 116×3.52% = 408bp-evt > 72×4.03% = 290bp-evt. No CONFIRMED-only variant.
+- 🟢 M2/M5 implicitly closed by M1/M3. M4/M7/R2 retest deferred. Bundle + L2 + H29 still pending user OK.
 
-## 🟢 3-edge counter-cyclical portfolio (vol-vetted, multi-venue-graded)
+## 🟢 3-edge counter-cyclical portfolio
 
 | Edge | n | Mean | WR | Sharpe | corr |
 |---|---|---|---|---|---|
-| H31_basis (LONG-perp+SHORT-spot, shortening) | 53 | +3.45% | 100% | 1.97 | — |
-| H34_perp_perp (LONG-pri+SHORT-hedge) | 101 | +1.28% | 79% | 0.74 | +0.30 |
+| H31_basis (LONG-perp+SHORT-spot, h=100%) | 116 | +3.52% | 100% | 1.90 | — |
+| H34_perp_perp | 101 | +1.28% | 79% | 0.74 | +0.30 |
 | H3 50bp baseline | 129 | +0.81% | 96.1% | 0.63 | −0.31 |
 | H3 50bp DROP-CONFIRMED | 101 | +0.89% | 98.0% | 0.65 | TBD |
 | H3 75bp baseline | 39 | +1.76% | 100% | 0.87 | −0.31 |
 | H3 75bp DROP-CONFIRMED | 30 | +1.96% | 100% | 0.88 | TBD |
 
-Pairwise: (H31↔H34) +0.30, (H31↔H3) −0.31, (H34↔H3) untested.
+(H31↔H34) +0.30, (H31↔H3) −0.31, (H34↔H3) untested.
 
-## 🟡 H3 paper-stream variants (FULL / SOLOFLAG / USDE_TAIL_HEDGED / PYUSD_PASSTHROUGH)
+## 📊 H31 informational sub-tiers (NEW — not separate variants)
 
-| variant | applies to | role |
-|---|---|---|
-| H3_DEPEG_PAPER_FULL | all events incl. PYUSD | baseline diversified Edge 3 |
-| H3_DEPEG_PAPER_SOLOFLAG | **{USDe,USDD,TUSD,USDP,FDUSD,USDC}-only events** | risk-managed quality filter (Meth #14 applies) |
-| H3_DEPEG_PAPER_PYUSD_PASSTHROUGH (NEW 1100) | PYUSD events | SOLOFLAG bypassed (Meth #16 candidate; SOLO ≈ CONFIRMED) |
-| H3_DEPEG_PAPER_USDE_TAIL_HEDGED | 22 USDe events only | Ethena tail-risk overlay (Meth #15); enable when notional ≥ $10k |
+| subset | n | mean | Sharpe |
+|---|---|---|---|
+| H31 ALL canonical | 116 | +3.52% | 1.90 |
+| H31 CONFIRMED (≥1 other-ex shortening ±24h) | 72 | +4.03% | 2.07 |
+| H31 SOLO | 44 | +2.68% | 1.77 |
+
+## 📐 H31 hedge-ratio M1 sweep (definitive)
+
+h=0%: mean +4.10 / std 25.69 / Sharpe 0.16 / WR 49%
+h=50%: mean +3.86 / std 12.95 / Sharpe 0.30 / WR 60%
+**h=100%: mean +3.62 / std 1.91 / Sharpe 1.90 / WR 100%** ✅ structural optimum
+
+## 🟡 H3 paper-stream variants
+
+- FULL — all events
+- SOLOFLAG — apply on {USDe,USDD,TUSD,USDP,FDUSD,USDC} (Meth #14)
+- PYUSD_PASSTHROUGH — bypass SOLOFLAG (Meth #16)
+- USDE_TAIL_HEDGED — 22 USDe events, enable ≥$10k (Meth #15)
 
 ## 📐 Methodology canon (latest)
 
-- **#12**: walk-fwd gap rule asymmetric (penalize only TRAIN>TEST).
-- **#13.1**: graduated vol gate by deployment size (phantom_print rule).
-- **#14** (cycle 2300): multi-venue coincidence = systemic stress = slow revert; SOLO = idiosyncratic = fast revert. INVERT cross-venue intuition.
-- **#15** (cycle 0500): perp leg on venue-isolated depeg = tail-risk insurance, not yield arb.
-- **#16 CANDIDATE** (this cycle): Meth #14 has stable-class boundary. Centralized-redemption stables (Paxos B2B desk) show no SOLO/CONFIRMED discrimination. Distributed-redemption do.
-
-## 📊 PYUSD subset characterization (NEW this cycle)
-
-- n=24 / 12mo / 50bp tier
-- Mean +0.487%, median +0.443%, WR 100%, hold median 8.4h
-- 23 LONG + 1 SHORT; 24/24 reach_peg; no losses; no slow-revert tail
-- SOLO 19 / CONFIRMED 5 split, PnL/WR/hold uniformly distributed → SOLOFLAG bypassed
-- Cleanest Sharpe-friendliness sub-tier of H3 universe
-
-## 📊 KPI 4 — gate scorecard
-
-All 6 criteria cleared on H3 baseline + SOLOFLAG variants since cycle 1100. PYUSD passthrough and USDE_TAIL_HEDGED overlays do not change gate verdict.
+- #12: walk-fwd asymmetric gap (penalize only TRAIN>TEST)
+- #13.1: graduated vol gate / phantom_print rule
+- #14: multi-venue coincidence → SOLO > CONFIRMED **for UNHEDGED mean-rev** (original framing)
+- #15: perp-leg on venue-isolated depeg = tail insurance
+- #16 CANDIDATE: Meth #14 has stable-class boundary (PYUSD: SOLO ≈ CONFIRMED)
+- **#17 CANDIDATE (THIS CYCLE)**: Meth #14 sign depends on TRADE STRUCTURE. HEDGED funding-capture: CONFIRMED > SOLO (flipped). Classify trade before applying.
 
 ## Next-cycle plan
 
-1. **Meth #14 retroactive on C8/H38 funding events** (cycle 2300 plan #5). Funding is venue-distributed → predict SOLO outperforms CONFIRMED. ~10,686 events, downsample to ≥100bp tier (~2103 events).
-2. **H3-FU-1 L2 depth snapshot** on KuCoin USDE/USDD — primary live-deploy gating step.
-3. **Paper-stream bundle for user OK** — H31_BASIS + H34_PERP + H3_DEPEG (FULL + SOLOFLAG + USDE_TAIL_HEDGED + PYUSD_PASSTHROUGH).
-4. **RLUSD watch** — Meth #16 candidate corroboration (regulated single-B2B-desk stable). Re-test if events fire at 50bp tier.
-5. **H29 exchange-API poller user OK** — production blocker.
+1. **M4 BTC regime conditioning** — BTC 7d regime × H31 events. Cheap, uses parquet.
+2. **R2 SOLO retest** (HYPOTHESIS_R2_SOLO_RETEST.md). R2 is UNHEDGED → predict H3-direction (SOLO > CONFIRMED if applies).
+3. **Meth #17 cross-validation on H38** (10,686 events). Predict CONFIRMED > SOLO. If yes → Meth #17 graduates.
+4. **M7 funding-velocity trigger** vs H38 magnitude trigger.
+5. **Meth #14 retro on C8/H38** (also serves as Meth #17 corroboration).
+6. **H3-FU-1 L2 depth snapshot** on KuCoin USDE/USDD.
+7. **Paper-stream bundle for user OK**.
+8. **H29 exchange-API poller user OK** — production blocker.
+
+DEFER permanently (closed): M1 partial-hedge, M2 basis-pure, M3 SOLO-only H31 variant, M5 microstructure filter.
 
 ## Negatives (DO NOT retest)
 
-R1 TG-NLP · R2 fair-price · R3 listing · R4 microcap · R5 multi-ex naive · R6 naive harvest · R7 confluence LONG · R13 H31 SHORT · R14 H31 unhedged · R15 H37 unhedged · R16 C9 borrow-spike · R17 C2 standalone · R18 H3-FU-4 substitute + funding-capture
+R1-R18 (see prior BRIEF) + **R19 NEW H31 partial-hedge (M1)** + **R20 NEW H31 SOLO-only variant (M3)**.
 
 ## Sources
 
-`/tmp/h3_fu_pyusd_*` (this cycle) + `insights/cycle_20260524_1100.md`. Prior: `/tmp/h3_fu4_*` + cycle_20260524_0500.md; `/tmp/h3_fu3_*` + cycle_20260523_2300.md; `/tmp/h3_fu6_*` + cycle_20260523_1700.md.
+`/tmp/m1_*` + `/tmp/m3_*` + `insights/cycle_20260524_1418.md`. Prior: `/tmp/h3_fu_pyusd_*` + cycle_20260524_1100.md.
 
-## 🚀 MANDATE: Meth #14 retro on C8/H38 high-mag funding (prediction: replicates), L2 depth, paper-stream bundle, H29 poller. Edge hunt OVER; canon refinement continues.
-
-## 🔄 NEW DIRECTIVE 2026-05-24 14:30 UTC (user-prompted)
-
-**HYPOTHESIS_R2_SOLO_RETEST.md** — apply Methodology #14 retroactively to fair-price (R2).
-SOLO funding events may scalp profitably (idiosyncratic mean-rev), CONFIRMED events fail
-(systemic = price drift overwhelms).
-
-Run next cycle (17:00 UTC). If successful, generalize Meth #14 to ALL R1-R18 systematically.
-
-Status of paper_fairprice_v6: n=31 trades, 84% WR, +$2.80 total. Top symbol BOBBOB 10/31
-(32% concentration). 5 losses mean -$1.30, can erase 14 wins. Backtest 206k sims says -$0.89/trade
-— live result may be SOLO-pocket artifact. WORTH CHECKING.
-
+## 🚀 MANDATE: M4, R2 SOLO retest, Meth #17 on H38, L2 depth, bundle, H29. Edge hunt OVER; canon refinement continues.
