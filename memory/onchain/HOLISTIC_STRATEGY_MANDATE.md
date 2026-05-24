@@ -236,6 +236,38 @@ Position trajectory monitor каждые 5 мин снимает snapshots (pric
 2. **Trajectories of HUPHey tokens vs random tokens**: разные кривые? Если да — это leading shape indicator.
 3. **TG mention time vs trajectory peak time**: каналы упоминают за сколько до peak? Если 2h до peak — exit signal.
 
+## ★ READY-TO-USE WALLET LEADERBOARD (cycle 20260524_1900)
+
+**Источник**: `/srv/bots/.shared/data/wallet_leaderboard.jsonl` — 48 wallets с criterion (≥1 big, ≥20% big+pump, ≤25% rug) из 36K tokens БД.
+
+**Топ-приоритет** для watchlist (если эти wallets появляются в новом token как top1/lp/creator — PRIORITY BUY):
+```
+HLnpSz9h2S4hiLQ43rnS       n=391 53bigs  1.8% rug (likely launchpad service, verify)
+Hz672hiCpvSbPaVnZQWA       n=12   5bigs  0%  rug
+Tcz87LRTzQLJuSozniRn       n=11   4bigs  0%  rug
+BUWu6VGRrrWCPvC32g8p       n=9    4bigs  0%  rug (top1+lp dual role)
+jbRV3tKXeskwVBCkqQH3       n=6    3bigs  0%  rug (66% pump rate)
+G2xecSyrnn3zjJA8Mj63       n=5+5  3bigs  0%  rug (top1+lp same entity)
+AACbZCirAVK1TTC8yveP       n=19   3bigs  0%  rug
+5HXzw2mYfHpQPxqBB1xMs..    n=3    3bigs  0%  rug (100% pump rate, small n)
+```
+
+**Anti-watchlist** (AVOID если в новом token):
+```
+FsA6f93EdYDtqETsH5YT     8/8 rug (100%)
+7amWwPCD5hXWTsZBs2xN     6/6 rug (100%)
+Hqb1nHQ7ngdKeM9fwfrk     6/9 rug (67%)
+GQhp1metiEge237QfN6r     4/6 rug (67%)
+9f8W8zXhk5L6UZ6aspBv     4/6 rug (67%)
+```
+
+**Mandatory tasks для AI brain**:
+1. **Walk-forward** на 48 кандидатов — time-split TRAIN/VAL/TEST; persist если passing → paper-stream WALLET_WATCHLIST.
+2. **Verify** HLnpSz9h2S4hiLQ43rnS — launchpad service или real wallet? Solscan check.
+3. **Backfill wallet_roles** для оставшихся 32K токенов без classification — это разблокирует ещё больше кандидатов.
+4. **Live monitoring**: добавить hook в sniper — если top1/lp/creator ∈ watchlist → высокий приоритет вход, ∈ blacklist → veto.
+5. **Re-run** этого скрипта (`shared/wallet_leaderboard_from_db.py`) каждые 6-12 циклов чтобы leaderboard обновлялся новыми данными.
+
 ## CARRY queries (не закрывать пока не решено)
 
 1. Что общего у 18 bigs?
