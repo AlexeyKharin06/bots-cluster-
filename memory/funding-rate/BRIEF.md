@@ -67,3 +67,16 @@ R1 TG-NLP · R2 fair-price · R3 listing · R4 microcap · R5 multi-ex naive · 
 `/tmp/h3_fu_pyusd_*` (this cycle) + `insights/cycle_20260524_1100.md`. Prior: `/tmp/h3_fu4_*` + cycle_20260524_0500.md; `/tmp/h3_fu3_*` + cycle_20260523_2300.md; `/tmp/h3_fu6_*` + cycle_20260523_1700.md.
 
 ## 🚀 MANDATE: Meth #14 retro on C8/H38 high-mag funding (prediction: replicates), L2 depth, paper-stream bundle, H29 poller. Edge hunt OVER; canon refinement continues.
+
+## 🔄 NEW DIRECTIVE 2026-05-24 14:30 UTC (user-prompted)
+
+**HYPOTHESIS_R2_SOLO_RETEST.md** — apply Methodology #14 retroactively to fair-price (R2).
+SOLO funding events may scalp profitably (idiosyncratic mean-rev), CONFIRMED events fail
+(systemic = price drift overwhelms).
+
+Run next cycle (17:00 UTC). If successful, generalize Meth #14 to ALL R1-R18 systematically.
+
+Status of paper_fairprice_v6: n=31 trades, 84% WR, +$2.80 total. Top symbol BOBBOB 10/31
+(32% concentration). 5 losses mean -$1.30, can erase 14 wins. Backtest 206k sims says -$0.89/trade
+— live result may be SOLO-pocket artifact. WORTH CHECKING.
+
