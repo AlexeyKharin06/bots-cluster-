@@ -1691,3 +1691,160 @@ Watch for: first PORTUGAL strict entry to initiate C9.
 - **Next Sol big shape match** — does it come from serial-symbol family + α-shape? Validates H_SERIAL_SYMBOL_ALPHA_REVIVAL cross-cluster.
 - **MC_LIQ + SMART_COPY trail-management code review** — both caught GIVE +308 and MTFR +506. URGENT.
 - **CARRIED**: PORTUGAL creator wallet audit (now 14+ tokens C1-C8); External BSC volume fetcher; rugger_blacklist `wallet_added_at`; SMART_CLUSTER_VETO feasibility; H_SMART_CLUSTER_TRAIL_EDGE retroactive audit on older Sol bigs (PIGEON, MTFR-prior, OSOR, GITBANK, SPCXDRAGON, RONALDO, FOID, Blobby, FATU); investigate state.json shrink (4982→4841) — rotation pattern or recount.
+
+---
+
+## cycle 20260524_0600 updates
+
+### CLOSED-REJECTED: H_SERIAL_SYMBOL_ALPHA_REVIVAL (form-6 single-cluster overfit, 7th instance)
+
+c0000 declared n=19 K=0.115 geom@K=+1.65% big=10.5% rug=21% with spec "Sol meteora ∩ symdup≥2 ∩ top1≥85 ∩ smart≥5 ∩ known≥15". Brain leaned "first SOL-side gate-passing candidate; HOLD for cross-cluster validation".
+
+**Forward re-test (5.5h later)**: n=34 K=0.012 geom=+0.03%. K dropped 10×.
+
+**Walk-forward time-block decomposition** confirms single-cluster overfit:
+
+| window | n | big% | rug% | K | geom@K |
+|---|---|---|---|---|---|
+| 05-22 14-22Z (TRAIN) | 9 | 0% | 67% | -1.18 | 0% |
+| 05-22 22Z→05-23 12Z (VAL) | 10 | 0% | 40% | -1.63 | 0% |
+| **05-23 12-24Z (C8 era)** | **12** | **25% (3 bigs)** | **8%** | **+0.28** | **+25.35%** |
+| 05-24 00-06Z (latest) | 3 | 0% | 33% | -1.48 | 0% |
+
+**All 3 bigs (GIVE, MTFR-79y, MTFR-7ZxMR3s6) cluster in single 12h window.** Same fate with serial≥3 (n=28 K=0.014). 
+
+**Methodology**: 7th instance of leakage form #6 (single-cluster artifact). c0000's "HOLD for cross-cluster" stance was correct; "first SOL-side gate-passing candidate" framing was premature optimism. **Lesson #11 candidate (NEW)**: SINGLE-TIME-BLOCK INFLATION — any candidate whose entries all fall within <24h needs ≥2× n penalty before sub-floor deploy approval.
+
+**Status**: REJECTED. Do not promote.
+
+---
+
+### NEW (descriptive, n=1): H_POOR_ZETA_SHAPE
+
+Poor +3857% Sol pumpswap (largest single big in brain history). Features: smart=13, known=19, top1=79.5, top5=87.8, buys=236, sells=112, mcap=$55,764, liq=$88,135, holders=20 (concentrated), dex=pumpswap, lp_unlocked=True, symdup=1, volume_h24=$297,623.
+
+**ζ-shape candidate spec**: Sol pumpswap ∩ top1∈[60,85] ∩ smart≥10 ∩ buys≥150 ∩ liq≥$50K ∩ symdup=1.
+
+**Filter test results on current Sol BF universe**:
+
+| spec | n | K | geom | big% | rug% |
+|---|---|---|---|---|---|
+| pumpswap smart≥10 known≥15 | 142 | -0.041 | 0% | 0.7% | 78% |
+| pumpswap top1∈[60,85] smart≥10 buys≥150 | 74 | -0.012 | 0% | 1.4% | 82% |
+| pumpswap top1∈[50,85] smart≥10 buys≥200 liq≥$50K | 28 | 0.019 | +1.97% | 3.6% | 46% |
+| pumpswap top1∈[70,85] smart≥10 | 38 | 0.007 | +0.18% | 2.6% | 79% |
+
+**Verdict**: every filter that contains Poor is dominated by losers (78%+ rug). Cannot generalize from n=1.
+
+**Symbol-level**: Poor #2 deployment (AGi7aD5M, symdup=2) entered 2h after big → -100 RUG (different from MTFR/GIVE "later deployments BIG" pattern; Poor inverted — first is big, subsequent fail).
+
+**Status**: DESCRIPTIVE ONLY (n=1). Track future pumpswap bigs for shape match.
+
+---
+
+### NEW (descriptive, n=1): H_BSC_SERIAL_SYMBOL_REVIVAL
+
+BabyAsteroid v3 (token=0xcbfcb155, symdup=3, k=1, bc=20) +880 BSC PORTUGAL big. Prior BabyAsteroid v2 (symdup=2, C7 onset) was +33 small win. Same symbol, escalating outcome — BSC analog of MTFR/GIVE Sol α-revival pattern.
+
+**Existing capture**: BabyAsteroid v3 already caught by PAPER_BSC_PORTUGAL strict (k=1, bc=20). No new filter needed.
+
+**Sub-hypothesis**: BSC PORTUGAL strict ∩ symdup≥2 may have higher big-rate than symdup=1.
+
+**Stratified test on n=16 PORTUGAL strict**:
+- symdup=1: 8 entries, 4 bigs (WBC, UFU, TRUMPBANK, BABYTROLL, xing — 5 actually) = 50-62% big-rate
+- symdup≥2: 8 entries, 2 bigs (VELVET, BabyAsteroid-v3) = 25% big-rate
+- symdup=1 PORTUGAL is STRONGER, not weaker
+
+**Verdict**: BSC serial-symbol PORTUGAL is **NEUTRAL or marginally negative** sub-spec. No additional alpha vs base PORTUGAL strict.
+
+**Status**: DESCRIPTIVE n=1. Do not adopt as filter. Monitor for divergence.
+
+---
+
+### DOWNGRADE: H_SMART_CLUSTER_TRAIL_EDGE — n=2→n=3 AMBIGUOUS
+
+| big | smart-cluster best | A/B/H best | delta |
+|---|---|---|---|
+| GIVE 2Mcxjye7 (c1800) | +308 | +171 | **+137pp** (smart wins) |
+| MTFR 79y6FesF (c0000) | +506 | +485 | **+21pp** (smart wins) |
+| **MTFR 7ZxMR3s6 (this cycle)** | **+75** | **+365** | **-290pp** (REVERSE) |
+
+By absolute magnitude, reverse direction dominates positives (290pp REVERSE vs 158pp combined positive).
+
+**Status**: DOWNGRADED to AMBIGUOUS. Defer routing recommendation. Need n=5+ consistent direction.
+
+**Possible mechanism (speculation)**: smart-cluster trail uses stricter exit-on-drawdown criteria. On GIVE/MTFR-79y (sharp parabolic), loose trail captures peak; on MTFR-7ZxMR3s6 (deeper mid-pump drawdown), smart-cluster bailed early while H/H2 held through. Unverifiable without per-trade trail logs.
+
+---
+
+### UPDATE: PAPER_BSC_PORTUGAL strict — n=16, first 6% rug introduced
+
+CAP (k=1 bc=20 symdup=6) at C9 onset rugged -100. First true rug (ELON was -86, didn't count as full).
+
+Stats: n=16 K=0.277 geom=+74.48% big=50% rug=6%.
+
+**Recommendation unchanged**: DEPLOY-READY-AT-SUB-FLOOR with 6% rug + 4-from-floor (80% of n=20) disclosure. Routing {SNIPER_B} primary.
+
+---
+
+### UPDATE: PAPER_BSC_TG2 — slight K weakening, geom best ever
+
+n=39 K=0.152 geom=+14.66% (BEST EVER — BabyAsteroid +880 lift) big%=23.1 rug=23%. Catches 9/10 bigs (misses TKLV bc=13).
+
+Cross-cycle K: 0.181→0.152 (drift -0.029). Still gate-passing by 3× on K.
+
+**Recommendation unchanged**: DEPLOY with 78% n-floor (n=39/50) disclosure.
+
+---
+
+### NEW (carry, observation): SOL BIG CLUSTER candidate
+
+4 Sol bigs in 17.5h (GIVE 12:25, MTFR-79y 19:36, MTFR-7ZxMR3s6 23:45, Poor 00:36) — first Sol big-cluster since 05-20-21 SPCXDRAGON/GITBANK pair.
+
+Two distinct shapes (3× α-revival meteora + 1× ζ-Poor pumpswap). Cluster duration ~12h.
+
+**Hypothesis**: Sol big-clusters may have onset detection signal analogous to BSC clusters (PORTUGAL onset). Onset candidates: Sol Cond A starting to clear, first big in new dex/shape, regime transition.
+
+**Status**: CARRY as observation. Investigate next cycle if data permits.
+
+---
+
+### UPDATE: C9 cluster — ONSET CONFIRMED, productivity verified
+
+C9 onset: CAP 01:58Z (PORTUGAL k=1 bc=20 symdup=6) → **-100 RUG**. First onset-RUG ever (prior productive clusters all had PORTUGAL-pump onset).
+
+C9 productive: BabyAsteroid v3 04:46 +880 (first big, 2h48m after CAP onset).
+
+C9 stats (n=3 PORTUGAL strict): 1 big / 1 small / 1 rug = 33% big.
+
+Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
+
+**Sub-pattern: ONSET-RUG-PRODUCTIVE cluster** — new shape variant. Previously believed onset rug = cluster fail (C4 CTM model). C9 refutes that mode.
+
+---
+
+### NEW Methodology Lesson #11 candidate — SINGLE-TIME-BLOCK INFLATION
+
+**Lesson**: when a candidate filter's matches all fall within <24h window, gate must apply ≥2× n penalty (or wait for cross-block validation) before sub-floor deploy approval.
+
+**Trigger**: H_SERIAL_SYMBOL_ALPHA_REVIVAL fell from K=0.115 to K=0.012 in 5.5h post-c0000 — pure single-cluster overfit despite passing all other gate metrics.
+
+**Application**: at sub-floor candidate evaluation, check if entries span <24h. If yes:
+- Inflate n requirement to 2× floor (40 for sub-floor; would have correctly held H_SERIAL_SYMBOL_ALPHA_REVIVAL at n=19→requires n=40)
+- OR require ≥1 inter-cluster gap of >12h with at least 1 match in each sub-window
+
+**Status**: NEW CANDIDATE. Adopt informally this cycle. Consider formal codification next cycle.
+
+---
+
+## Pending investigations (NEW cycle 20260524_0600)
+
+- **C9 wind-down monitoring** — does C9 produce more bigs through 12:00Z?
+- **PORTUGAL strict to n=20 floor** — need 4 more entries.
+- **TG-2h to n=50 floor** — need 11 more.
+- **Sol Cond A head-fake check** — Poor +3857 lift sustained or fade?
+- **Investigate Poor exit_reason** — true ATH-capture vs lucky trail trigger? Defer unless user wants.
+- **BSC serial-symbol stratification** on next PORTUGAL strict — symdup tally.
+- **Sol-cluster onset hypothesis** — characterize 4-bigs-in-17.5h regime.
+- **Methodology Lesson #11 formal adoption** — if next cycle's data confirms pattern.
+- **CARRIED**: PORTUGAL creator wallet audit (now 17+ tokens including BabyAsteroid v2+v3, CAP, MOODANG), External BSC volume fetcher, rugger_blacklist wallet_added_at, SMART_CLUSTER_VETO feasibility, MC_LIQ code review (deprioritized — trail-edge ambiguous), state.json shrink investigation (now stable).
