@@ -6,6 +6,33 @@
 
 ---
 
+## 2026-05-24 — Не сужать фокус. Multi-dimensional ОБЯЗАТЕЛЬНО.
+
+**Симптом**: AI brain нашёл одно открытие (например wallet leaderboard) и назвал его "paradigm shift", забыв предыдущие подходы (technical, holders, liquidity).
+
+**Корень**: Узкое мышление. Один dimension = слабый сигнал. Их **конъюнкция** = сильный.
+
+**Фикс**: Каждый цикл ОБЯЗАН касаться 3+ из 11 dimensions:
+1. Technical (candles, BC progress, liquidity ramp)
+2. Holder distribution (top1, top5, fresh wallets)
+3. Wallet behavioral (top1_owner, lp_provider, smart-cluster, funding)
+4. TG signals (5-type classification, cluster timing)
+5. Liquidity dynamics
+6. Volume / flow
+7. Time / regime / phase
+8. Creator history
+9. Cross-token correlation (clusters, twins, duplicates)
+10. Mint security
+11. External tools (GMGN, Photon, BullX mentions)
+
+**УРОК**: Если walk-forward standalone FAILS — НЕ удаляй из backlog. Перенеси в "weak alone, test in combo". Compound filter (3+ dims agree) = high precision.
+
+**Фазовая модель пампа** обязательна: каждый big классифицировать по entry-phase (Accumulation/Smart-money/Hype/Top/Decay). Знание phase помогает понять WHERE edge.
+
+Подробнее: `memory/onchain/HOLISTIC_STRATEGY_MANDATE.md`.
+
+---
+
 ## 2026-05-23 15:30 UTC — TG signals = СЫРЬЁ для causal research, не buy-trigger
 
 **Симптом**: AI brain ловит TG mention и сразу строит filter "channel ∈ {X,Y} → buy". Это **слепое следование**.
