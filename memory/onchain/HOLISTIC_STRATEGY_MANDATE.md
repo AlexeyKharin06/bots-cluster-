@@ -201,6 +201,41 @@ Tracking phases помогает understand WHERE our edge is.
 - **Compound filter**: хотя бы 1 продвинутый компаунд (3+ dimensions) в testing
 - **18 bigs analysis**: для каждого из 18 исторических bigs (+ новых) — common-pattern report
 
+## ★ NEW DATA SOURCES (2026-05-24) — ОБЯЗАТЕЛЬНО использовать
+
+### A. `/srv/bots/.shared/data/pumps_24h.jsonl` — Universe of pumped Solana tokens
+
+24h pump scanner запускается каждые 15 мин и captures **ВСЕ** Solana токены которые сделали ≥+200% за 24h (от GeckoTerminal trending + DexScreener search). Это **корпус для обратного обучения**.
+
+### B. `/srv/bots/.shared/data/missed_pumps.jsonl` — токены которые наш sniper НЕ увидел
+
+Каждый pumped токен который **не** в нашем `seen_tokens` — это **discovery blind spot**. Анализируй WHY мы их не заметили:
+- Wrong source (только pump.fun, не pumpswap graduated)?
+- Wrong filter (too narrow boost/profile criteria)?
+- Too late (нам нужно catching раньше)?
+
+**Mandatory задача**: каждые 5-10 циклов делать "missed pumps post-mortem":
+- Take N последних missed
+- Find common dimensions: dex, age at peak, mcap при peak, creator wallet
+- Propose source addition (если pumpswap миграции пропускаем → надо мониторить pumpswap отдельно)
+
+### C. `/srv/bots/.shared/data/trajectories/<mint>.jsonl` — траектории наших open позиций
+
+Position trajectory monitor каждые 5 мин снимает snapshots (price, liq, vol, buys/sells, mcap) для каждой open позиции. После exit — полная траектория сохранена.
+
+**Use cases для AI brain**:
+1. **Phase identification**: где в кривой мы вошли (accumulation/markup/distribution/decay)?
+2. **Time-to-peak**: сколько minutes от entry до max price? Распределение по типам токенов?
+3. **Drawdown-from-peak**: насколько сливается? Это даёт правильный trail/cap.
+4. **Pattern classification**: V-shape (fast up/down), Plateau (slow trend), Staircase (multi-leg). Какие patterns предсказуемы?
+5. **Exit timing analysis**: наш cap/trail — оптимальный или мы exit'им слишком рано/поздно?
+
+### Cross-analysis tasks
+
+1. **Compare bigs vs missed**: что в `pumps_24h.jsonl` НЕ попало в наши bigs? Какой dimension отличает (`pumpswap dex`, `age > 1h at first big`, `mcap > $500K at entry impossible`)?
+2. **Trajectories of HUPHey tokens vs random tokens**: разные кривые? Если да — это leading shape indicator.
+3. **TG mention time vs trajectory peak time**: каналы упоминают за сколько до peak? Если 2h до peak — exit signal.
+
 ## CARRY queries (не закрывать пока не решено)
 
 1. Что общего у 18 bigs?
