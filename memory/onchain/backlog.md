@@ -1902,3 +1902,45 @@ Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
 **Definition**: Cross-cycle K comparisons can SPURIOUSLY appear to strengthen via state.json rotation removing K-dragging entries. Any "K improved X→Y across cycles" claim MUST identify which specific entries rotated and report n-delta.
 **This-cycle trigger**: PORTUGAL strict K appearing to jump 0.277→0.750 across cycles c0600→c1200. Investigation revealed 3 entries rotated (WBC/UFU/BINA/METLIFE candidates) plus K-search grid differences.
 **Status**: CANDIDATE (formalize after 1 more rotation observation).
+
+### 🆕 H_WALLET_TOP1_LEADERBOARD — NEW HEADLINE (paradigm shift)
+**Idea**: Use Sol `entry_signal.top1_owner` as a wallet-leaderboard feature. Build per-wallet history (n, bigs, rugs, avg pnl). At entry time T, take entry IF top1_owner has prior_n ≥ X AND prior_rugs ≤ Y AND prior_avg ≥ Z%.
+**Evidence**: HUPHeyBkcSCkHTxS9wsbVcj9UP9wZNXU998g5Csbc9AT — n=10 unique Sol tokens, 4 BIGS (40%), 0 RUGS, avg=+207%, max=+943. Sol baseline n=593 1.3% big 59% rug = 30× big-rate lift, infinite rug-rate reduction. Walk-forward filter `prior≥5 ∩ rugs=0` n=15 avg=+128 K=0.15 geom=+12.85%/trade big=27% rug=13% — **PASSES Er/K/geom by 3-12× margins, fails only n<20 floor (5 below)**.
+**Mechanism (hypothesis)**: HUPHey + D4Bgpf (lp_provider) are co-pair entity behind serial Sol meteora launches. When launch "succeeds", target wallet rides to big. When fails, stays small loss (never goes full rug — they always set bag-cap exits before -90%). Effective copy-trade of a competent market-maker / launcher.
+**Caveats / Methodology #13**:
+  1. **Single-wallet dominance** — 4/4 walk-forward bigs from HUPHey alone. Effective n_independent_wallets=1.
+  2. **Single time-cluster** — all 10 tokens in 29h window 05-23 10:03 → 05-24 14:49.
+  3. **Methodology #13 (SINGLE-WALLET INFLATION) penalty** doubles n floor to n=40.
+**D4Bgpf lp_provider co-correlate**: 13 tokens 4 bigs 0 rugs avg=+166. Same set as HUPHey (probably 1:1 overlap).
+**BSC equivalent NOT YET BUILT**: BSC pool_creator field mostly None. Try `bonding_curve_buyers[0]` (rank-1 bc) as analog next cycle.
+**Open positions matching qualifying wallet right now**: 0/57. Signal forward-only.
+**Status**: 🚀 PARADIGM SHIFT — major hypothesis with paper-stream candidate path. **Deploy DEFERRED for n<20 + Methodology #13 penalty** (need 2nd qualifying wallet). **Highest-priority infrastructure ask: pre-compute live `wallet_alpha_v1.json` snapshot.**
+**Next**:
+  - Scan ALL Sol top1_owners with ≥3 tokens; find 2nd qualifying wallet.
+  - Build BSC bc[0] wallet leaderboard.
+  - Solscan/blockchain deep-dive HUPHey + D4Bgpf for additional features (balance, age, tx count).
+  - Forward-watch HUPHey new launches (~6h cadence).
+
+### 🆕 Methodology Lesson #13 CANDIDATE — SINGLE-WALLET INFLATION
+**Definition**: When a walk-forward filter's bigs all trace to a single wallet/creator/LP entity, apply 2× n penalty (effective floor doubles) until ≥2 distinct entities contribute bigs. This is the wallet-dimension analog of Lesson #11's time-dimension penalty.
+**This-cycle trigger**: H_WALLET_TOP1_LEADERBOARD — n=15 with 4 bigs all from HUPHey (single wallet). Effective floor goes 20 → 40 entries OR 1 → 2 distinct wallets.
+**Status**: CANDIDATE (formalize after 1 more single-entity-bigs observation, OR when 2nd wallet qualifies and we observe the penalty actually softening).
+
+### H_BSC_C10_CLUSTER_ONSET — STAKE→BELIEF
+**Idea**: STAKE 0xea8b BSC (05-24 11:37 PORTUGAL k=1) + BELIEF 0xe0ac BSC (05-24 14:02 PORTUGAL k=1 BIG +235) = candidate C10 cluster onset. 2h25min gap after STAKE (analog of WORLDCUP-2→WOJCUP onset in C7).
+**Evidence**: 1 BIG (BELIEF +235) + 1 small loss (STAKE -52) so far. PORTUGAL strict productive in 5/6 historical clusters.
+**Next**: watch for follow-on PORTUGAL strict entries in next 2-4h. If C10 productive (≥1 more BIG), confirms H_CLUSTER_PORTUGAL_PRESENCE on n=6/9.
+**Status**: NEW (n=2, descriptive).
+
+### H_SMART_CLUSTER_TRAIL_EDGE — REJECTED-CONFIRMED (3rd reverse)
+**Update from c1200's REJECTED-AMBIGUOUS**: Poor3 c1800 = 5th observation. SMART_COPY/SMART_COPY_TOP/SMART_COPY_AGE5/SMART_TOP_AGE5/MC_LIQ all **-100 rug** at 140min hold; SNIPER_A/B/H/H2 all **+943 capped exit** at 93min hold. Catastrophic smart-cluster TRAIL FAIL.
+**Updated cumulative**: n=5
+  - GIVE: smart +137pp (POSITIVE)
+  - MTFR-79y: smart +21pp (POSITIVE)
+  - MTFR-7Zx: A wins +290pp (REVERSE)
+  - Maple: A wins +93pp (REVERSE)
+  - **Poor3: A wins +1043pp (CATASTROPHIC REVERSE)** ← new
+**Direction**: 2 POSITIVE vs 3 REVERSE. **Magnitude**: A-wins-by 1426pp vs smart-wins-by 158pp = 9× toward A.
+**Conclusion**: STRONGLY NEGATIVE. Smart-cluster TRAIL is HARMFUL on Sol fat-tail bigs (holds past A's optimal exit, catches the post-cap rug).
+**Status**: REJECTED-CONFIRMED. **Do NOT add smart-cluster streams to Sol big-routing.** Standard A/B/H/H2 routing remains optimal.
+
