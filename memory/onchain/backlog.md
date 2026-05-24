@@ -1848,3 +1848,57 @@ Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
 - **Sol-cluster onset hypothesis** — characterize 4-bigs-in-17.5h regime.
 - **Methodology Lesson #11 formal adoption** — if next cycle's data confirms pattern.
 - **CARRIED**: PORTUGAL creator wallet audit (now 17+ tokens including BabyAsteroid v2+v3, CAP, MOODANG), External BSC volume fetcher, rugger_blacklist wallet_added_at, SMART_CLUSTER_VETO feasibility, MC_LIQ code review (deprioritized — trail-edge ambiguous), state.json shrink investigation (now stable).
+
+## NEW (proposed cycle 20260524_1200)
+
+### H_GAMMA_SHAPE_V2 — γ-shape #2 (RE-AFFIRMED)
+**Idea**: Sol pumpswap entry with `top1<25 ∩ buys_m5≥200 ∩ mcap≤$50K ∩ smart≥2 ∩ lp_locked`.
+**Evidence**: n=2 in window (CBSt c1200 top1=12 buys=491 smart=6; GYATT c1200-day3 top1=21.5 buys=289 smart=2 +187%). Both pumpswap, both lp_locked, both small mcap.
+**Why interesting**: 2nd observation of γ-shape pattern after 5+ cycles of α/β/δ/ε/ζ dominance. Possible distinct generative mechanism (low-concentration high-buyer-count meme-pump).
+**Limitation**: n=2 unmodelable. Need n≥5 before any backtest.
+**Next**: monitor next pumpswap low-top1/high-buys entry → big or rug?
+**Status**: NEW (n=2, descriptive only).
+
+### H_LATE_LOWCAP_BIG_CONVERSION — multi-wave re-entry big-capture
+**Idea**: When same Sol token sees ≥5 entry waves (multiple sniper-bundle re-firings on rebuy attempts), eventual winning wave catches LATE/LOWCAP streams (typically anti-fat-tail). Suggests late-stream big-capture is possible on specific re-entry pattern.
+**Evidence**: GYATT n=1 (8 waves over 4h, wave 8 = winning, LATE/LOWCAP tied at +187%).
+**Mechanism candidate**: late waves benefit from prior wave's price-discovery; LATE/LOWCAP avoid the early-rug waves.
+**Limitation**: unmodelable from n=1. Distinguishing "5+ wave token" from "many sub-token tickers same address" requires careful detection.
+**Next**: instrument same-token wave-counter; tally wave-N winning probability across all multi-wave tokens.
+**Status**: NEW (n=1, observation only).
+
+### H_SOL_BIG_ROUTING_H2 — SNIPER_H2 as 4th Sol BF stream
+**Idea**: Add SNIPER_H2 to standard Sol big-routing alongside A/B/H. Currently SNIPER_H2 is in the BSC big-routing {B/F2/D2/A/H} but not formally in Sol.
+**Evidence**: n=2 BF observations (MTFR-7Zx +365 BF=H2, Maple +163.8 in BF tie {A,B,H,H2}). H2 captures 2/6 current Sol bigs at best-fire.
+**Mechanism**: H2 appears to be a faster trail variant of SNIPER_H — captures same alpha but maintains hold longer in some cases.
+**Next**: routine routing addition. Low-risk paper change.
+**Status**: NEW (n=2, low-risk; brain leans deploy as routing change).
+
+### H_SMART_CLUSTER_TRAIL_EDGE — REJECTED-AMBIGUOUS (final)
+**Idea**: smart-cluster streams (SMART_TOP_AGE5 / SMART_COPY_AGE5 / etc.) catch a tighter trail variant that holds bigs longer than A/B/H.
+**Evidence**: n=4 observations:
+  - GIVE: smart wins +137pp
+  - MTFR-79y: smart wins +21pp
+  - MTFR-7Zx: A/B/H/H2 wins +290pp
+  - Maple: A/B/H/H2 wins +93pp
+**Direction**: 2-2 split. **Magnitude**: A/B/H wins 383pp vs smart wins 158pp = 2.4× toward A/B/H.
+**Conclusion**: smart-cluster streams are CO-ENTRY indicators (fire on same alpha ~1sec after A/B/H), NOT trail-superior. Standard A/B/H routing remains optimal.
+**Status**: REJECTED-AMBIGUOUS (kept for negative learning; do not re-propose).
+
+### H_BSC_FAST_RETAIL_PUMP — anti-portugal n=1
+**Idea**: BSC token with bc≤3 ∩ known=1 ∩ low age ∩ symdup≥3 ∩ pancakeswap → potential fast retail pump.
+**Evidence**: n=1 (Poor BSC +659 — bc=1, known=1, symdup=4, age=11min, SNIPER_B +617pp over A).
+**Why interesting**: catches a big that ALL existing BSC filters miss. Different mechanism than PORTUGAL (PORTUGAL = bonding curve players unwinding; this = pure retail FOMO on serial symbol).
+**Limitation**: n=1 unmodelable. Anti-correlated with existing bc≥16 filter.
+**Next**: monitor low-bc bsc entries with symdup≥3 for replication.
+**Status**: NEW (n=1, descriptive).
+
+### Methodology Lesson #11 ADOPTED IN PRACTICE
+**Definition**: SINGLE-TIME-BLOCK INFLATION — when a filter's bigs concentrate in a <24h window, apply ≥2× n penalty before sub-floor deploy approval.
+**This-cycle trigger**: PORTUGAL strict 5/6 bigs in C8 single 3.2h block (RICH/VELVET/xing/TRUMPBANK/BABYTROLL) → effective floor n=26 (current n=13 = 50%). PAPER_BSC_PORTUGAL deploy DEFERRED.
+**Status**: ADOPTED-IN-PRACTICE (formal adoption pending next cycle confirmation).
+
+### Methodology Lesson #12 CANDIDATE — ROTATION-INDUCED K INFLATION
+**Definition**: Cross-cycle K comparisons can SPURIOUSLY appear to strengthen via state.json rotation removing K-dragging entries. Any "K improved X→Y across cycles" claim MUST identify which specific entries rotated and report n-delta.
+**This-cycle trigger**: PORTUGAL strict K appearing to jump 0.277→0.750 across cycles c0600→c1200. Investigation revealed 3 entries rotated (WBC/UFU/BINA/METLIFE candidates) plus K-search grid differences.
+**Status**: CANDIDATE (formalize after 1 more rotation observation).
