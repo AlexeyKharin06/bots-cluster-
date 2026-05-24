@@ -1,52 +1,49 @@
-# BRIEF — funding-rate snapshot
+# BRIEF — funding-rate snapshot (post-cycle 20260524_1505)
 
-## 🎯 PRIORITY OVERRIDE 2026-05-24 — USER REVEALED CRITICAL STRATEGY PATTERN
+## Status: 3-edge portfolio VALIDATED + REGIME-AGNOSTIC. HARDEN-AND-DEPLOY phase continues.
 
-User explained predictive cross-exchange basis arb around interval changes (NOT post-event reactive).
-Same funding rate, different intervals → longs prefer shorter-interval exchange → cross-ex basis
-diverges → predictive LONG short-interval-ex + SHORT long-interval-ex captures basis BEFORE
-official announcement.
+## Validated edges (regime-agnostic on n=10,686 H38 sample)
 
-CURRENT H31/H34 are REACTIVE post-event. User pattern is PREDICTIVE pre-event.
-We have been undercapturing this dimension. Full directive: CRITICAL_INSIGHT_USER_2026_05_24.md
+| Edge | n | Mean | WR | Sharpe | corr to H31 |
+|---|---|---|---|---|---|
+| H31 basis-hedge | 116 (LONG-only) | +3.52% | 100% | 1.84 | — |
+| H34 perp-perp | 101 | +1.28% | 79% | 0.82 | +0.30 |
+| H3 50bp depeg (post-vet) | 129 | +0.81% | 96.1% | 0.63 | −0.31 |
+| H3 75bp depeg (operational tier) | 39 | +1.76% | 100% | 0.87 | −0.31 |
+| H38 mag-trigger (wider H31) | 10,686 | +2.02% | 99.7% | 1.27 | — |
 
-## Action queue (override all previous)
+**Regime overlay (cycle 1505)**: all five edges show <6% relative PnL difference across BTC bull/bear/chop on 7d-return regime tagging. NO regime-conditioned routing needed.
 
-1. **U1** — analyze cross-ex basis dynamics around 116 H31 events (existing parquet)
-2. **U2** — predict-event model from cross-ex divergence features
-3. **U3** — backtest user predictive LONG-shortener strategy
-4. **U4** — dynamic exit policy testing
-5. **U7** — decompose: when is funding-dominant vs basis-dominant per event
-6. **U5** — start live L1/L2 orderbook collection daemon
-7. **U6** — mine TG cases for additional manipulation patterns (NOT JUST funding)
+## Findings from cycle 1505 (BTC regime overlay)
 
-After U1-U7: build ADAPTIVE STRATEGY that picks F/B/FB per regime/event.
+- **H_adapt_1..3 REJECTED as edge-selectors** — practitioner mechanism choice (TG corpus) IS regime-skewed at the OPPORTUNITY-RATE level but NOT at the per-event-PnL level. Conflation killed.
+- **H_adapt_5 PARTIAL** — re-framed as capital-deployment-planning input (O_depeg events fire more in bear regimes, but each pays the same; H3 actually best in CHOP).
+- **METHODOLOGY #19 CANDIDATE** filed — separate `freq(mech|regime)` from `mean_PnL(mech|regime)` when validating adaptive hypotheses.
+- Vol tercile shows monotone decrease in H38 mean PnL (lo_vol 2.15% > hi_vol 1.91%), but the 12% relative lift sacrifices 6× sample size = not a useful gate.
 
-## DATA on VPS (after today upload)
+## Active to-do (priority order)
 
-- multi_ex_funding_180.parquet (1.6M rows)
-- multi_ex_changes_180.xlsx (213 shortenings detected)
-- tg_messages_historical.jsonl (3036 msgs / 14 channels)
-- tg_trade_cases.jsonl (80 reverse-engineered)
-- media_signals_historical.jsonl (571 OCR screenshots)
-- pnl_claims_historical.jsonl (18 large-$ claims)
-- borrow_histories.jsonl (45 coins Bybit)
+1. **T1 mining** — extract 100-200 more trade cases from 3036 raw TG msgs using cycle 1435's T2-learned text priors. Doubling corpus relieves the n=3-7 per-regime-cell binding constraint.
+2. **R2 SOLO retest** — apply Meth #17 lens (Meth #14 sign-flip by trade structure: H3 SOLO>CONFIRMED, H31 CONFIRMED>SOLO).
+3. **H_BASIS_EVENT prototype** — gated by T1 (need ≥15 event-specific B-class cases; current n=5 too small).
+4. **H_TG_ROUTING_PATCH** — still pending user OK (shared infra at `/srv/bots/.shared/tg/tg_unified_listener.py:67-68`).
+5. Lower priority: L2 depth daemon, Meth #17 cross-validation on H38, paper-stream bundle ask.
 
-## Validated edges (still valid, but framework needs adaptation)
+## Known caveats (preserved)
 
-| Edge | n | Mean | WR | corr |
-|---|---|---|---|---|
-| H31_basis | 53 | +3.45% | 100% | — |
-| H34_perp_perp | 101 | +1.28% | 79% | +0.30 |
-| H3_75bp_dropC | 30 | +1.96% | 100% | -0.31 |
+- Paper-stream deployment STILL pending user OK (cycle 1100 / 1700 readiness call).
+- H3 concentration: USDe+USDD 73.6% of events post-vet.
+- H31 coverage gap: 30% of practitioner FB cases match our 50-symbol universe (cycle 1435 finding).
+- Validated edges have no regime routing — but capital allocation could optionally tilt toward H3 in bear (more opportunities, same per-trade alpha).
 
-These are CURRENT, will likely be UPGRADED after U1-U7 by adaptive variants.
+## DO NOT
+- Do not propose real-money paper-stream deploy without user OK.
+- Do not collapse 3-edge portfolio into a single composite — each edge has different corr (+0.30 / +0.30 / −0.31) and that variance-reduction is the portfolio.
+- Do not retest H_adapt_1..3 as edge-selectors (REJECTED with conviction at n=10,686).
 
-## DO NOT (per user)
-- Do not propose paper-stream (premature without U1-U7)
-- Do not fix on funding-only thinking
-- Do not analyze just close-price (need bid/ask, direction-aware)
-- Do not ask user for permission for L1/L2 collection — start
-- Do not continue M1-M7 until U1-U3 done
+## Available data (on VPS, unchanged)
 
-## CYCLE PRIORITY: U1+U3 sampler next cycle
+- /srv/bots/funding-rate/code/data/: multi_ex_funding_180.parquet (1.6M rows), multi_ex_changes_180.xlsx (213 shortenings), tg_messages_historical.jsonl (3036 msgs / 14 channels), tg_trade_cases.jsonl (80), media_signals_historical.jsonl (571 OCR), borrow_histories.jsonl (45 coins)
+- /tmp/: h31_net.parquet (154 events), h3_events_24mo.parquet (150), c8_fwd.parquet (10,686 H38), c2_wide.parquet (cross-ex pivot), btc_daily.parquet (NEW: 500 BTC daily bars for regime overlay reuse), btc_regime_cases.parquet (NEW: 80 TG cases × regime).
+
+## Cycle priority NEXT: T1 mining (to relieve n-cell constraint on adaptive testing)
