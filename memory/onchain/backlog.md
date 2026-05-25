@@ -1944,3 +1944,54 @@ Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
 **Conclusion**: STRONGLY NEGATIVE. Smart-cluster TRAIL is HARMFUL on Sol fat-tail bigs (holds past A's optimal exit, catches the post-cap rug).
 **Status**: REJECTED-CONFIRMED. **Do NOT add smart-cluster streams to Sol big-routing.** Standard A/B/H/H2 routing remains optimal.
 
+
+## NEW (proposed cycle 20260525_0000)
+
+### 🆕 PAPER_SOL_HUPHEY_WATCH — NEW HEADLINE deploy candidate (named-wallet)
+**Idea**: Paper-stream watch on the HUPHey wallet. Buy any new Sol token where `entry_signal.top1_owner == HUPHeyBkcSCkHTxS9wsbVcj9UP9wZNXU998g5Csbc9AT` OR `entry_signal.lp_provider == D4BgpfCAEqYfoVVBdcokDovU5sXvhHXAYxwCn2ojPkHc`. Size=$1 paper, TP_500_CAP exit, no stop-loss (HUPHey has never rugged).
+**Evidence (this cycle, post-MTFR-BVB)**: 12 unique tokens, 5 BIGS (42%), 0 RUGS, avg=+186.8%, K=0.68, geom=+47.2%/trade. Sub-filter top1≥85 ∩ meteora: n=5 3 bigs 0 rugs K=1.0 geom=+144%. Cadence observed ~3-6h between fires.
+**Why deploy at n=12 (sub-floor)**: Methodology #14 candidate — NAMED-WALLET WATCH has different deploy criteria from generalized filter. With 0 rugs in 12 tokens, downside risk is bounded (~-$1 per fire worst case if filter degrades). Generalized filter rejection (Methodology #13) does NOT block named-wallet deploy because we're not claiming "any wallet with this prior profile" — we're claiming "THIS specific wallet historically performs".
+**Risk**: HUPHey identity unknown (could go quiet, could shift strategy). 75qsE3p5y2 counter-example (Maple +164 1 big, then 5 more rugs in 12h) shows wallet alpha can deteriorate.
+**Mitigation**: monitor cycle-over-cycle HUPHey performance. If big-rate drops below 30% or any rug appears, demote.
+**Status**: 🚀 NEW HEADLINE — formal spec pending user approval.
+
+### 🆕 Methodology Lesson #14 CANDIDATE — NAMED-ALPHA vs GENERALIZED-FILTER distinction
+**Definition**: When wallet alpha is identified, distinguish between:
+  - **NAMED-WALLET WATCH**: deploy criteria = `specific wallet has ≥3 bigs AND 0 rugs in own history AND active in current rolling window`. No n≥20 floor.
+  - **GENERALIZED FILTER**: deploy criteria = standard n≥20 + Er>0 + K≥0.05 + geom≥1% + ≥2 distinct contributing wallets (Methodology #13).
+**This-cycle trigger**: H_WALLET_TOP1 walk-forward filter FAILS to generalize (NOAR test — 75qsE3p5y2 doesn't qualify with 5 prior rugs), but HUPHey-NAMED watch passes all named-criteria. Brain proposes separating deploy paths.
+**Why #14 matters**: HUPHey is the strongest single-feature signal in brain history (n=12, K=1.0 on sub-filter). Without #14, signal is blocked indefinitely waiting for 2nd qualifying wallet (which may never come — alpha wallets are by definition rare).
+**Status**: CANDIDATE (formalize when first NAMED-WALLET paper-stream deploys and produces forward results).
+
+### 🆕 H_WALLET_TOP1_LEADERBOARD — STATUS UPDATE — GENERALIZATION REJECTED
+**Update from c1800's PARADIGM SHIFT**: walk-forward filter `prior≥5 rugs=0` excluding HUPHey → n=8 catches **0 bigs / 3 rugs (37.5%) ≈ baseline 59%**. Filter is 100% HUPHey-dependent. NOAR test (05-24 23:45 NEW WALLET 75qsE3p5y2 +152) does NOT light up filter — wallet has 5 prior rugs.
+**Conclusion**: Generalized filter REJECT. Re-framed as HUPHey-named watch (see PAPER_SOL_HUPHEY_WATCH above).
+**Methodology #13 (single-wallet inflation) ADOPTED via this falsification**.
+**Status**: GENERALIZED FILTER REJECTED. Named-wallet derivative ACTIVE.
+
+### 🆕 H_NOAR_FORK — descriptive (NEW WALLET 75qsE3p5y2)
+**Idea**: Track 75qsE3p5y2 wallet as serial launcher of NOAR-symbol Sol meteora tokens. 14 tokens 2 bigs (Maple +164, NOAR +152) 5 rugs avg=-15%.
+**Evidence**: big-rate 14% (9× Sol baseline 1.6%), rug-rate 36% (better than baseline 59% but still high). Mixed alpha.
+**Hypothesis**: 75qsE3p5y2 is a launchpad/factory wallet spraying NOAR launches. Different alpha profile from HUPHey (high variance, not clean).
+**Open positions**: 5 NOAR tokens still holding +186-188% unrealized.
+**Next**: track resolution of 5 open positions. If big-rate sustains, consider sub-filter; if rugs dominate next 5-10 launches, reject as low-quality launcher.
+**Status**: NEW (n=14 descriptive, NOT promote-to-paper without cleaner pattern).
+
+### 🆕 H_SMART_CLUSTER_TRAIL_EDGE — RE-EXAMINED (MTFR-BVB neutral, NOAR pending)
+**Update**: Two new observations this cycle.
+  - MTFR-BVB +175: MC_LIQ won +175.4% vs A/B/H/H2 tied +168.8% = MC_LIQ +6.6pp edge (within noise/cap)
+  - NOAR +152: A still open at +186%, B/H closed at +152.5%, 4 smart-cluster streams still open at +188% — too early to evaluate; A's trail and smart-cluster's are both UP versus the early-exit B/H pair
+**Updated cumulative n=6** (5 prior + MTFR-BVB = neutral). Cumulative direction still 2 POSITIVE / 3 REVERSE / 1 NEUTRAL. Magnitude still strongly toward A.
+**Status**: REJECTED-CONFIRMED (no change). Wait for NOAR closure for n=7.
+
+### 🆕 H_PORTUGAL_C10_PRODUCTIVITY — CONFIRMED DORMANT TAIL
+**Update**: BELIEF +235 was C10 entry at 14:02Z. Since c1800 (17:49Z), **14 new BSC tokens entered, 0 PORTUGAL strict eligible, 0 bigs**. C10 dormant for 9h58min. Mirrors C6→C7 transition (~6h dormant before productive cluster).
+**Status**: C10 cluster cooled. Watch C11 onset over next 6-12h.
+
+### 🆕 H_LEADERBOARD_WALLET_OPEN_TRACKING — descriptive observation
+**Idea**: 27 open Sol positions match wallets from `/srv/bots/.shared/data/wallet_leaderboard.jsonl` (48 candidates). Examples this cycle:
+  - 75qsE3p5y2 (n=5 1 big 0 rugs in lb): 5 open NOAR positions, +186-188% unrealized — converted to 1 closed big (+152) already
+  - BHD5YKNkbo3 (n=11 2 bigs 0 rugs in lb): 2 open Sol "BELIEF" positions -5/-14%
+  - 2QioJBwKBVtsP2FajW (n=20 2 bigs 1 rug in lb): 1 open ENHANCED -100% RUG ← counter-example showing leaderboard wallets can still rug
+**Status**: NEW — leaderboard tracking surface. Build forward-validation per wallet over next 5-10 cycles.
+

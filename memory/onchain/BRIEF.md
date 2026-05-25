@@ -1,47 +1,43 @@
-# BRIEF — onchain AI brain (cycle 20260524_1800)
+# BRIEF — onchain AI brain (cycle 20260525_0000)
 
-## State (live, ~40h rolling window)
-- closed=**4849** (+44 net of rotation; 606 raw new since c1200), 57 open.
-- **+3 NEW BIGS + 1 closed-during**: Poor3 Sol +943 (HUPHey top1, meteora), Stake Sol +481 (HUPHey top1, closed-during), BELIEF BSC +235 (PORTUGAL strict k=1 — possible C10 onset).
-- All 3 bigs land within 5h window (11:39 → 14:49 today).
-- State window: 05-23 02:07Z → 05-24 17:49Z. +5h25min rotation since c1200.
+## State (live, ~43h rolling window)
+- closed=**4994** (+145 net; 579 raw new), 71-83 open. Window: 05-23T04:35 → 05-24T23:50Z.
+- **+2 NEW Sol bigs**: MTFR-BVB +175 (**HUPHey 5th big**, top1=90 meteora MC_LIQ BF), NOAR +152 (**NEW WALLET 75qsE3p5y2**, top1=99.8 meteora B/H BF).
 
 ## Goal & gate
 **+1M%**. GATE_EXPECTANCY_KELLY (n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%). **0 paper streams deployed**.
 
 ## Regime
-- Cond A **DRAMATIC RECOVERY** -73 → **-35.9** (+37pt). CLEAR.
-- Cond B **CLEAR** (Poor3 3h11min ago).
-- **Guard OFF** — head-fake risk per c1200 precedent (was OFF at c0600 too, then re-triggered).
+- Cond A CLEAR (-46.1). Cond B CLEAR (NOAR 0.2h). Guard OFF. **7 Sol bigs in 24h = record**.
 
-## Last validated (this cycle c1800-day3)
-**🆕 PARADIGM SHIFT: H_WALLET_TOP1_LEADERBOARD discovered** — HUPHey wallet top1_owner on 10 Sol tokens, 4 BIGS (40%), 0 RUGS, avg=+207% (Sol baseline 1.3% big / 59% rug = 30× big-rate lift). Walk-forward filter `prior≥5 ∩ rugs=0`: n=15 K=0.15 geom=+12.85%/trade big=27% rug=13% — **PASSES Er/K/geom by 3-12× margins, fails only n<20 floor**. **D4Bgpf lp_provider co-correlate** (13 tokens 4 bigs 0 rugs). **PORTUGAL strict +1 (BELIEF cross-cluster validation)** softens Methodology #11. **TG-2h K DROP 0.30→0.106** variance drag. **Smart-cluster TRAIL 3rd reverse** confirmed NEGATIVE. **Methodology Lesson #13 candidate** (single-wallet inflation). **Sol big-shape STUCK BROKEN** by wallet-feature path. See [cycle_20260524_1800.md](insights/cycle_20260524_1800.md).
+## Last validated (this cycle)
+**H_WALLET_TOP1 GENERALIZATION REJECTED — Methodology #13 FORWARD-CONFIRMED**: walk-forward `prior≥5 ∩ rugs=0` EXCLUDING HUPHey → n=8 catches **0 bigs / 3 rugs**. NOAR's wallet (75qsE3p5y2) fails filter (5 prior rugs). Filter 100% HUPHey-specific. **HUPHey aggregate n=12 5 bigs (42%) 0 rugs avg=+186.8% K=0.68 geom=+47%** → NAMED-WALLET ALPHA. HUPHey ∩ top1≥85 ∩ meteora sub: n=5 K=**1.0** geom=**+144%**. See [cycle_20260525_0000.md](insights/cycle_20260525_0000.md).
 
-## Top candidates (current rolling stats)
-- **🆕 H_WALLET_TOP1_LEADERBOARD (NEW HEADLINE)**: prior≥5 ∩ rugs=0 → n=**15** K=**0.15** geom=**+12.85%** big=**27%** rug=13%. PASSES Er/K/geom by wide margins. Distance to vanilla floor=5. **Methodology #13 penalty floor=40 (single-wallet — HUPHey only)**.
-- **PORTUGAL strict**: n=**14** K=0.267 geom=+56% big=50% rug=7%. Bigs now distributed C7/C8/C9/C10 (was 5/6 in C8 → 4/7). Distance to floor=6. **Deploy-leaning** (was DEFER c1200).
-- **TG-2h (HEADLINE)**: n=**43** K=**0.106** geom=+4.41% big=16% rug=28%. **K DROPPED 0.30→0.106** — variance drag from +9 entries. Still 2× floor. WAIT for K stability.
-- **BC_FULL_B**: n=65 K=0.057 geom=+0.85% big=11% rug=31%. Descriptive-monitor tier.
+## Top candidates
+- **🆕 PAPER_SOL_HUPHEY_WATCH (NEW HEADLINE)**: named-wallet (top1=HUPHey OR lp=D4Bgpf). n=12 5 bigs 0 rugs. **No n-floor (Methodology #14)**. Brain leans DEPLOY.
+- **PORTUGAL strict**: n=**13** (was 14, WORLDCUP-2 rotated, 0 new), K=**0.79** geom=+107% big=54% rug=8%. 4/7 bigs in C8 (#11 eff. floor 26-30). **C10 DORMANT 9h58min**.
+- **TG-2h**: n=**33** (-10 rotation, 0 new), K=**0.18** (rotation artifact 0.106→0.18), geom=+3.87%. big% trend DOWN 25→23→17.6→16→**15.2**, rug 18→30 — fundamental weakening. Distance n=50 REGRESSED 7→17.
+- **BC_FULL_B**: n=68 K=0.05 borderline. Descriptive-only.
 
-## Methodology — 12 forms + #13 CANDIDATE
-1-10 unchanged. **11.SINGLE-TIME-BLOCK INFLATION** (n×2 floor when bigs cluster in single time block). **12.ROTATION-INDUCED K INFLATION** (cross-cycle K changes via rotation). **13.SINGLE-WALLET INFLATION (NEW CANDIDATE)** — wallet-dimension analog of #11: when bigs all trace to single wallet/entity, apply 2× n penalty (effective floor doubles) until ≥2 distinct entities contribute bigs.
+## Methodology — 12 forms + #13 ADOPTED + #14 CANDIDATE
+**11.SINGLE-TIME-BLOCK INFLATION**. **12.ROTATION-INDUCED K** (4th confirmation). **13.SINGLE-WALLET INFLATION — ADOPTED** via NOAR test. **14.NAMED-ALPHA vs GENERALIZED-FILTER (CANDIDATE)** — named-wallet deployable with `≥3 bigs AND 0 rugs in own history` (no n≥20 floor).
 
-## Planned next cycle (00:00Z 05-25)
-1. **MORE wallets like HUPHey** — scan ALL Sol top1_owners with ≥3 tokens; find 2nd qualifying wallet to break Methodology #13 penalty (this is THE highest priority).
-2. **BSC wallet leaderboard** — try `bonding_curve_buyers[0]` (rank-1 bc) as analog of Sol's top1_owner. pool_creator field mostly None.
-3. **HUPHey deep-dive** — Solscan visit, balance/age/tx-count; pre-compute live wallet leaderboard snapshot.
-4. **Forward-watch HUPHey new launches** — if HUPHey/D4Bgpf token enters via sniper, mark MUST-WATCH (cadence ~6h observed).
-5. **PORTUGAL strict 3-more-entry watch** — n=14→17 ideally cross-cluster productivity.
-6. **TG-2h K stability** — if drops below 0.05 floor, gate fails. If recovers, candidate strengthens.
-7. **C10 cluster productivity** — STAKE+BELIEF onset. Watch follow-on.
-8. **Sol big-shape DEPRIORITIZED** — wallet-feature is the new Sol path.
-9. CARRIED: Methodology #12 formalization, PORTUGAL creator wallet audit, External BSC volume fetcher.
+## Planned next cycle (06:00Z 05-25)
+1. **PAPER_SOL_HUPHEY_WATCH spec** — write `paper_streams_spec/PAPER_SOL_HUPHEY_WATCH.md`.
+2. **More HUPHey-class wallets** — full state.json scan: ≥5 priors AND ≥2 bigs AND 0 rugs.
+3. **Forward-watch HUPHey/D4Bgpf** — scan opens; alert on new HUPHey token.
+4. **75qsE3p5y2 5 open NOAR positions** — resolve bigs or rugs in 2-4h. Track.
+5. **PORTUGAL strict C11 onset watch** — 9h58min dormant since BELIEF.
+6. **TG-2h big% trend** — if <10% drop, demote to descriptive.
+7. **Wallet leaderboard re-run** — refresh `/srv/bots/.shared/data/wallet_leaderboard.jsonl`.
+8. **BSC wallet leaderboard** — analog via bonding_curve_buyers[0].
+9. CARRIED: SNIPER_H2 add to Sol routing; HUPHey identity Solscan; PORTUGAL creator audit.
 
 ## OPEN QUESTIONS to user
-1. **🆕 PRE-COMPUTE LIVE WALLET LEADERBOARD?** Brain wants to build `wallet_alpha_v1.json` snapshot — live top1_owner + lp_provider history per wallet, scored by big/rug/avg-pnl. Would enable real-time entry-filter. **Brain leans YES — highest priority infrastructure ask.**
-2. **🆕 PAPER_SOL_WALLET_TOP1 deploy decision**: H_WALLET_TOP1_LEADERBOARD n=15 K=0.15 geom=+12.85% — PASSES Er/K/geom but fails n<20 + Methodology #13 single-wallet penalty (effective floor n=40). Brain leans **WAIT for 2nd qualifying wallet** (forward-watch).
-3. **PAPER_BSC_PORTUGAL strict deploy**: was DEFER c1200, now **deploy-leaning** after BELIEF cross-cluster validation (4/7 bigs in C8 vs 5/6 at c1200 — penalty softened). n=14 K=0.267 geom=+56%. Brain leans WAIT 1-2 cycles for n=17.
-4. **PAPER_BSC_TG2 deploy decision**: n=43 K=0.106 (K dropped 0.30 c1200). Brain leans WAIT — concerning K trend.
-5. **SNIPER_H2 added to Sol big-routing**: n=2 evidence (MTFR-7Zx + Maple), but Stake fired H2 too (+470 capped same as A/B/H). Now n=3 confirms H2 valid. **Brain leans YES — trivial change.**
-6. **Methodology Lesson #11 + #12 + #13 formal adoption**: #11 ADOPTED c1200. #12 confirmed (2nd cycle K-drop via variance). #13 CANDIDATE — formalize after 2nd qualifying wallet found.
-7. CARRIED: External BSC volume fetcher, PORTUGAL creator wallet audit, SMART_CLUSTER_VETO feasibility, rugger_blacklist wallet_added_at, MC_LIQ code review.
+1. **🆕 PAPER_SOL_HUPHEY_WATCH deploy** — n=12 5 bigs 0 rugs as NAMED-WALLET (Meth #13 doesn't block per #14). ~$4/day paper. Brain leans **YES DEPLOY NOW**.
+2. **PAPER_BSC_PORTUGAL strict deploy** — K=0.79 big=54% but n=13<20 + #11 penalty. Brain leans **WAIT C11**.
+3. **PAPER_BSC_TG2 deploy** — n=33 K=0.18 big% REGRESSING 25→15. Brain leans **WAIT or DEMOTE**.
+4. **🆕 Methodology #14 formal adoption** — enables HUPHey deploy without 2nd qualifying wallet. Brain leans **YES**.
+5. **SNIPER_H2 add to Sol big-routing** — 3 evidence (MTFR-7Zx/Maple/Stake). Brain leans **YES (trivial)**.
+6. **Wallet leaderboard re-run cadence** — every 6-12 cycles? Brain leans **YES c0600**.
+7. CARRIED: External BSC volume fetcher, PORTUGAL creator audit, SMART_CLUSTER_VETO, MC_LIQ code review.
