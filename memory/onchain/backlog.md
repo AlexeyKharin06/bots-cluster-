@@ -2079,3 +2079,95 @@ Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
 **Important**: HUPHey has fired 3 forward-fires this cycle (MTFR×2 closed-during + PP420), all small/neutral. Wallet is ACTIVE, just not producing bigs. Different from "wallet quit".
 **Status**: NEW — monitor next cycle for big-fire or 28h+ cadence break.
 
+
+---
+
+## NEW (proposed cycle 20260525_1800)
+
+### H_SYMBOL_COPYCAT_VETO — Methodology #18 candidate (SERIAL-SYMBOL COPYCAT TRAP)
+**Idea**: When a symbol appears N≥3 times in recent state with DIFFERENT top1_owners, only the FIRST entry is the originator and pumps; later same-symbol entries are bag-holder bait and should be skipped.
+**Evidence (this cycle, Popus 11-token cluster)**:
+  - Popus #1 (5eZTfvn..., BEJ3dC9r top1, entry 13:49Z) = +220.5% BIG
+  - Popus #2-11 (10 different top1_owners) = 1 big, 4 rugs, 5 small, avg=-40%
+  - HUPHey was Popus #11 buyer (top1=99.7 matched past wins) → FAILED -46.1%
+  - **All 11 top1_owners DIFFERENT** (confirms copycat not serial-deployer)
+**Counterexample (productive serial-symbol)**: MTFR family — 5 entries all HUPHey-top1, multiple bigs. Same-wallet repeated deployment = productive; different-wallet copycat burst = bag-holder trap.
+**Filter formulation**: 
+```
+SKIP IF (
+  symbol_dup_count_in_state ≥ 3
+  AND top1_owner NOT IN prior_top1_owners_for_this_symbol_in_state
+)
+```
+**Retro-test target**: would this rule have excluded Popus -46 from HUPHey paper-stream? YES (Popus is symdup_count=13 within window, prior top1_owners were all different from HUPHey).
+**Why important**: 
+  1. Fixes the only known HUPHey leak
+  2. Generalizes — should improve ANY named-wallet filter
+  3. Opens new feature dimension (cross-symbol wallet identity check)
+**Status**: NEW candidate — 1 cluster example so far (Popus). Need 2nd cluster before formal adoption.
+**Next**: retro-test HUPHey K with filter overlay; scan state for other symbols with symdup≥5.
+
+### H_SOL_GAMMA_REFINED — 3rd paper-stream candidate (Sol pumpswap mid-buys)
+**Idea**: γ-shape Sol filter: chain=solana ∩ top1<22 ∩ smart∈[2,8] ∩ dex=pumpswap ∩ age_min≤15 ∩ lp_unlocked=false ∩ buys_m5≥250.
+**Walk-forward (this cycle, full state window n=11)**:
+  - AIR -3.1, Cancercoin -27.3, GYATT +13.6, ROI +48.7, PERPSLAUNCH -29.2, BILLY -50.7 (rug-touch), BEAR +16.2, PolarBear +56.1, /meme -24.0, TOKEN -27.6, **Popus +220.5 (BIG)**
+  - Stats: mean=+17.6%, **K=0.341, geom@K=+3.71%, Er=+0.176**
+  - Gate check: Er ✓, K ✓ (by 6.8×), geom ✓ (by 3.7×), n=11<20 ✗
+**Cross-cluster instance**: γ-shape echoes CBSt c1200 (+189% historical) — reduces single-block penalty
+**Risk**: Popus alone drives 100% of lift; without Popus K crashes to ~0. SINGLE-TIME-BLOCK INFLATION applies.
+**Why important**: 3rd paper-stream candidate ever, first non-wallet-feature based candidate. Different alpha mechanism (low-top1 high-buys vs HUPHey/85871 wallet-pattern).
+**Deploy gate**: 9 more entries / 1-2 more bigs needed.
+**Status**: NEW — close to deploy but blocked by n<20.
+**Next cycle**: track γ-shape entries; if 2nd γ-big lands, n → 13/20 K stays elevated → deployable.
+
+### H_POPUS_POOL_CREATOR_BVfVe44Wj — 4th named-alpha candidate?
+**Idea**: pool_creator BVfVe44WjgrmNX5rGXa3uNk5ZBgACVqJgb9c7J59c696 deployed 2 tokens in state: Popus (+220 big) + BEAR (+15 small).
+**Evidence**: n=2 / 1 big / 0 rugs / avg=+118%. Promising but insufficient.
+**Why important**: pool_creator is a NEW wallet feature dimension; could be 4th named-alpha entity if 3rd token lands big.
+**Status**: NEW candidate, n=2 too thin for adoption.
+**Next**: watch for 3rd BVfVe44Wj pool_creator token.
+
+### H_BSC_CHAIN_GUARD_SPLIT — regime refinement
+**Idea**: Chain-asymmetric regime detected this cycle (Sol last50=-40.6 clear vs BSC last50=-62.6 triggered). Current Guard rolls combined; should split per chain.
+**Evidence (this cycle)**:
+  - Sol Cond A CLEARED via Popus +220 lift
+  - BSC Cond A TRIGGERED via 13.5h drought + 4 dormant tail entries
+**Why important**: applying Sol-clear guard to BSC entries during BSC-drought wastes capital.
+**Status**: NEW candidate — formalize as 2 separate Cond A trackers (Cond A_sol, Cond A_bsc).
+**Next**: code Cond A_chain into paper-stream entry gate spec.
+
+---
+
+## STATUS UPDATES (existing backlog items)
+
+### H_WALLET_TOP1 HUPHey (deploy-ready)
+**Update c1800**: First stumble — Popus #11 -46.1% (top1=99.7 matched past wins but symdup_count=13 = Methodology #18 leak). n=10 K=0.273→0.252 (still passes gate by 5×). Rugless streak (-50% threshold) INTACT at 15 cumulative tokens. Optional filter overlay: `symdup<3 OR same-top1-for-symbol` would have excluded Popus -46.
+**Status**: deploy-ready unchanged, Methodology #18 overlay recommended.
+
+### H_85871_BC0_WATCH (deploy-ready)
+**Update c1800**: +2 forward-fires (DICKMAXX -1, PTAI +52.9; both bc=20 k=1 PORTUGAL strict). n=7 K=0.223 geom=+42%. STRICTLY OUTPERFORMS PORTUGAL strict (3 bigs vs 2 since captures Poor bc=1 +659). Subsumption REVISED 100%→85.7% (STAKE bc0=0x26f6ebd1).
+**Status**: deploy-ready unchanged, dominant over PORTUGAL strict.
+
+### H_PORTUGAL_C11_ONSET (descriptive monitor c1200)
+**Update c1800**: C11/C3 at 9h+ dormant tail (DICKMAXX -1, PTAI +52.9, no big). RICH C7 precedent was 6h40min so now moving INTO un-productive territory. If still 0 bigs at 00:00Z 26 May (= 15h after DICKMAXX), 1st UN-productive PORTUGAL onset confirmed → big methodology update.
+**Status**: WATCH (moving toward UN-productive flag).
+
+### PORTUGAL strict (dominated, drop from candidates)
+**Update c1800**: n=7 K=0.163 geom=+18%. 85.7% subsumed by 0x85871 (NOT 100% as c1200 claimed; STAKE counter-example bc0=0x26f6ebd1). 0x85871 also catches Poor bc=1 PORTUGAL misses. **DROP from candidate list**, defer to 0x85871 as primary BSC filter.
+**Status**: DEPRECATED.
+
+### H_NEAR_BIG_REGIME (Methodology #17 candidate c1200)
+**Update c1800**: Popus +220.5 BREAKS the magnitude-shrink hypothesis on Sol (was 3 near-bigs c1200 max +141). +220.5% is solidly fat-tail range. BSC side still no big since PROS 13.5h ago — magnitude check defers to next BSC big.
+**Status**: Sol REFUTED this cycle; BSC pending.
+
+### H_HUPHEY_CADENCE_BREAK (c1200 pending observation)
+**Update c1800**: HUPHey forward-fires this cycle = $UGD +16, PP420 -33 (closed), Popus -46. Wallet is ACTIVE but cadence broken — no HUPHey big since 28h+. Cadence-break confirmed; quality (non-rug) maintained.
+**Status**: ACTIVE LOW-PRODUCTIVITY phase confirmed; wallet still rugless.
+
+### H_3RD_NAMED_WALLET_HUNT (FAILED c1200)
+**Update c1800**: BEJ3dC9r (Popus #1 originator) n=1 insufficient. BVfVe44Wj pool_creator n=2 (Popus+BEAR). NAMED-ALPHA class size still 2 entities (HUPHey + 0x85871). Hunt deferred until n≥3 candidate surfaces.
+**Status**: FAILED, retry deferred.
+
+### Methodology #15 SUBSUMPTION-OVERLAP (claimed 100% c1200)
+**Update c1800**: WALK-BACK. Actual 6/7 = 85.7% (STAKE bc0=0x26f6ebd1 NOT 85871; c1200 brain miscounted). Re-frame: NEAR-COMPLETE OVERLAP not perfect. 0x85871 ALSO catches tokens PORTUGAL misses (Poor bc=1) so they are MUTUALLY ENRICHING not strict containment.
+**Status**: revised from "100% subsumption" to "near-complete asymmetric overlap".

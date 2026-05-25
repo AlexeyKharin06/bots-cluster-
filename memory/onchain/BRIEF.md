@@ -1,72 +1,64 @@
-# BRIEF — onchain AI brain (cycle 20260525_1200)
+# BRIEF — onchain AI brain (cycle 20260525_1800)
 
-## State (live, ~46.2h rolling window)
-- closed=**4830** (-124 net vs c0600 4954 — heavier rotation than new entries). 80 open. Window: 05-23T13:24Z → 05-25T11:36Z (entry timestamps).
-- **0 NEW BIGS** in 5h57min cycle window (drought intensifies). 101 unique new tokens, max pnl was Horatio +138.4% (near-big).
-- **+3 HUPHey forward-fires** (closed-during MTFR×2 +18.5/+9.5 + PP420 -33.1) → 0-rug streak preserved (14 cumulative rugless).
-- **+2 0x85871 forward-fires** (DICKMAXX -1.0 + PTAI +52.9, both PORTUGAL-eligible) → confirms C11 onset + rugless streak.
+## State (live, ~46.3h window)
+- closed=**4966** (+136 net vs c1200). 75 open. Window: 05-23T19:36Z → 05-25T17:52Z.
+- **1 NEW BIG: Popus Sol +220.5%** (BF=MC_LIQ, FF=A +154.8) — γ-shape (top1=13.2 smart=3 pumpswap buys_m5=1301 age=12 liq=$22K)
+- +9 HUPHey forward-fires open; +2 0x85871 closed (DICKMAXX -1, PTAI +52.9)
+- 0 BSC bigs in 13.5h (PROS last 04:26Z)
 
 ## Goal & gate
-**+1M%**. GATE_EXPECTANCY_KELLY (n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%). **0 paper streams deployed**.
+**+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%. **0 paper streams deployed**.
 
-## Regime
-- **Sol last50 -61.8% 0 bigs 31 rugs (62%)** — Cond A **RE-TRIGGERED** (was clear last cycle). Cond B 11.9h since NOAR (CLEAR < 24h but trending). **Guard ON via Cond A.**
-- Last Sol big: NOAR 23:45Z (11.9h). Last BSC big: PROS 04:26Z (7.2h).
-- **Sol 12h contiguous drought** (no Sol big since NOAR) — longest in current state window.
+## Regime (CHAIN-ASYMMETRIC, new)
+- **Sol last50 -40.6% Cond A CLEAR** (Popus +220 lift unwound c1200's -61.8). Last big Popus 4.2h. **Guard OFF Sol.**
+- **BSC last50 -62.6% Cond A TRIGGERED**. Last big PROS 13.5h. **Guard ON BSC.**
+- 1st chain-asymmetric regime since 05-22 (reversed direction).
 
 ## Last validated (this cycle)
-**3rd-NAMED-WALLET HUNT FAILED** — no candidate found via bc[0] / pool_creator / top1_owner / lp_provider scans. NAMED-ALPHA class frozen at 2 entities (HUPHey + 0x85871). **HLnpSz9h2S4hiLQ43rnS de-mystified as LAUNCHPAD SERVICE**: live state n=104 / **0 bigs / 46% rug** vs historical leaderboard 53 bigs / 1.8% rug. **Methodology Lesson #16 candidate (historical-vs-live leaderboard drift)**. See [cycle_20260525_1200.md](insights/cycle_20260525_1200.md).
-
-**C11 PORTUGAL onset CONFIRMED**: DICKMAXX 09:01Z + PTAI 09:55Z = first 2 entries after C10 dormant 19h+. Both bc[0]=0x85871. **Methodology #15 (subsumption) RECONFIRMED at 100%** (7/7 PORTUGAL strict = 85871).
+**SERIAL-SYMBOL COPYCAT TRAP DISCOVERED — Methodology #18 candidate**: 11 Popus tokens in 4h, only #1 originator pumped, copies #2-11 had 10 DIFFERENT top1_owners 0 bigs/4 rugs/avg=-40%, HUPHey baited as #11 (-46.1). Rule: skip when symdup≥3 AND top1_owner ∉ prior_top1s_for_symbol. **γ-shape walk-forward K=0.34 geom=+3.71% n=11 PASSES K/geom/Er, only n<20 floor blocks** — 3rd paper-stream candidate. **Methodology #15 walk-back 100%→85.7%** (STAKE bc0=0x26f6ebd1 NOT 85871; c1200 brain miscounted). See [cycle_20260525_1800.md](insights/cycle_20260525_1800.md).
 
 ## Top candidates
-- **PAPER_BSC_85871_WATCH (HEADLINE — deploy-ready)**: bc[0]=0x85871aea93f086eeda... BSC. n=7 (3 bigs/1 rug avg=+259% K=0.223). 2 fresh forward-fires (DICKMAXX/PTAI) — rugless streak intact. Methodology #15 fully subsumes PORTUGAL strict.
-- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready)**: top1_owner=HUPHey OR lp=D4Bgpf on Sol. n=12 (5 bigs/0 rugs avg=+205.9% K=0.239 geom=+99.83%). PP420 fresh forward-fire (-33 small loss, no rug). 14 cumulative rugless tokens.
-- **PORTUGAL strict (SUBSUMED)**: n=**7** (was 10 — Methodology #12 6th confirmation EXTREME — 4 C8 fat-tails xing/TRUMPBANK/VELVET/BABYTROLL ROTATED), K=**0.163** (was 0.273), big=29% rug=14%. 100% of current entries = 0x85871. **DROP from candidate list** — redundant with 85871.
-- **TG-2h (DEMOTED)**: n=**20** (was 29), K=**-1.482** (NEGATIVE!), big%=**0**, rug=40%. **GATE-FAIL FORMAL DEMOTE to descriptive-only**.
-- **BC_FULL_B (DEMOTED)**: n=70, K=-0.067 (7th cycle K decline). Descriptive-monitor only.
+- **PAPER_BSC_85871_WATCH (HEADLINE — deploy-ready, OUTPERFORMS PORTUGAL)**: n=7 (3 bigs/1 rug avg=+259% K=0.223 geom=+42%). Captures Poor bc=1 +659 PORTUGAL misses.
+- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready, first stumble)**: n=10 (5 bigs/0 rugs avg=+242% K=0.252 geom=+45%). Popus -46 = symdup leak (Methodology #18 filter fixes). Top1≥85 tight n=6 K=0.40 geom=+49%.
+- **PAPER_SOL_GAMMA (NEW)**: top1<22 ∩ smart∈[2,8] ∩ pumpswap ∩ age≤15 ∩ lp_unlocked=false ∩ buys_m5≥250. n=11 K=0.341 geom=+3.71% — only n<20 blocks.
+- **PORTUGAL strict (DROP)**: dominated by 0x85871. DROP from candidate list.
+- **TG-2h / BC_FULL_B (DEMOTED descriptive)**.
 
-## Methodology — 17 forms
-**11.SINGLE-TIME-BLOCK INFLATION**. **12.ROTATION-INDUCED K — 6th confirmation EXTREME** (4 C8 fat-tails rotated in single cycle). **13.SINGLE-WALLET INFLATION — ADOPTED + EXTENDED**. **14.NAMED-ALPHA — FORMALLY ADOPTED** (2 entities validated). **15.SUBSUMPTION-OVERLAP — RECONFIRMED at 100%** (was 60% c0600). **16. HISTORICAL-vs-LIVE LEADERBOARD DRIFT — candidate** (HLnpSz9h2S4hiLQ43rnS 53→0 bigs). **17. NEAR-BIG REGIME — candidate** (3 Sol tokens capped at +108 to +141 in cycle, fat-tail magnitude shrinking).
+## Methodology — 18 forms
+**11.SINGLE-BLOCK**. **12.ROTATION-K**. **13.SINGLE-WALLET**. **14.NAMED-ALPHA — ADOPTED**. **15.NEAR-COMPLETE OVERLAP (revised 100%→85.7%)**. **16.HIST-vs-LIVE DRIFT — candidate**. **17.NEAR-BIG — candidate**. **18.SYMBOL-COPYCAT TRAP — NEW candidate**.
 
-## Planned next cycle (18:00Z 05-25)
-1. **C11 productive watch** — if C11 produces big in 6h (DICKMAXX+6h=15:01Z, PTAI+6h=15:55Z), should see by next cycle. ZERO bigs by next cycle = first UN-productive C-cluster onset = invalidates H_CLUSTER_PORTUGAL_PRESENCE.
-2. **HUPHey cadence-break check** — if no HUPHey big by next cycle (Poor 14:49Z + 28h = 18:49Z next cycle), cadence is BROKEN → new methodology insight.
-3. **Sol big-drought breakage** — first Sol big after drought: magnitude check. ≥+200% = regime healthy returning, <+150% = magnitude shrunk permanently (#17 confirmation).
-4. **Near-big ATH analysis** — for FIFA/Horatio/ViralRush, fetch `ath_price` to determine if they touched +200% then dumped (trail mistuned) or capped at observed pnl (regime cap).
-5. **42j8yFjdk8 LP wallet** — monitor for 3rd big to qualify as named-LP-watch.
-6. **Wallet leaderboard live rebuild** — recompute leaderboard using ONLY current state window per Lesson #16.
-7. **Methodology #16/#17 → second example** for formal adoption.
-8. **HLnpSz9h2S4hiLQ43rnS Solscan check** — confirm launchpad smart-contract identity.
-9. CARRIED: SNIPER_H2 Sol routing; BSC volume fetcher; HUPHey identity Solscan.
+## Planned next cycle (00:00Z 05-26)
+1. **Methodology #18 verification** — scan symbols symdup≥5 in window; test top1-consistency vs big-rate. 2nd cluster for adoption.
+2. **C11 PORTUGAL onset productivity** — if 0 bigs at 00:00Z (15h after DICKMAXX), 1st UN-productive onset.
+3. **γ-shape 2nd big watch** — if another γ entry ≥+100% in 6h.
+4. **HUPHey symdup retro-test** — would symdup<3 filter improve K from 0.252?
+5. **BSC chain Guard formalization** — split Cond A per chain.
+6. **Pool_creator BVfVe44Wj 3rd token watch** (Popus+BEAR n=2).
+7. **HUPHey 9 open forward-fires** — 1-2 close in 6h, rugless test.
+8. **BSC magnitude on next big** — <+150 = #17 confirm.
+9. CARRIED: SNIPER_H2 Sol routing; HUPHey identity Solscan; BSC volume fetcher; wallet leaderboard LIVE rebuild.
 
 ## Progress delta this cycle
-**POSITIVE**:
-- Methodology #12 EXTREME 6th confirmation (4 C8 fat-tails rotated in single cycle)
-- Methodology #15 RECONFIRMED at 100% (was 60% c0600)
-- Methodology #16 + #17 new candidates
-- C11 PORTUGAL onset confirmed
-- 0x85871 forward-fires 2x (rugless streak intact)
-- HUPHey forward-fires 3x (rugless streak 14 cumulative)
-- HLnpSz9h2S4hiLQ43rnS de-mystified as launchpad (rejected as false-alpha candidate)
+**POSITIVE (5)**:
+- NEW BIG Popus +220% breaks 14h Sol drought
+- Methodology #18 candidate (new feature dim)
+- γ-shape K-gate pass — 3rd paper-stream candidate
+- 0x85871 STRICTLY OUTPERFORMS PORTUGAL (3v2 bigs, +Poor bc=1)
+- 4 bigs in last 24h cross-chain (MTFR/NOAR/PROS/Popus)
 
-**NEGATIVE**:
-- **0 new bigs in 5h57min** (drought intensifies on both chains)
-- **Sol last50 -45.7→-61.8** (Cond A re-TRIGGERED, Guard back ON)
-- PORTUGAL strict K 0.273→0.163 (4 fat-tails lost to rotation)
-- TG-2h K 0.085→-1.482 (formal DEMOTE)
-- BC_FULL_B 7th cycle K decline (K=-0.067 negative)
-- **3rd named-wallet hunt FAILED** — class size frozen at 2
+**NEGATIVE (4)**:
+- HUPHey first stumble (Popus -46, K 0.273→0.252)
+- C11 PORTUGAL onset 0 bigs 9h+ (1st un-productive candidate)
+- Methodology #15 walk-back (100%→85.7%)
+- BSC last50 Cond A TRIGGERED -62.6%
 
-**Net assessment: MIXED but slightly NEGATIVE**. Methodology gains substantial (3 new lessons + 1 reconfirm) but zero new bigs and Sol drought 12h+ are the larger story. Stuck-warning NOT triggered yet (this is 1st cycle without new big AND without new alpha class).
+**Net: MIXED-POSITIVE**. New dim opened (#18) > dim walked back (#15). Stuck warning NOT triggered (4 consecutive cycles of new findings).
 
 ## OPEN QUESTIONS to user
-1. **PAPER_BSC_85871_WATCH deploy** (carried) — wallet 7 BSC tokens 3 bigs/1 rug, 2 fresh forward-fires this cycle. Brain leans **YES DEPLOY NOW** + Methodology #15 confirms it fully subsumes PORTUGAL strict.
-2. **PAPER_SOL_HUPHEY_WATCH deploy** (carried) — n=12 5 bigs/0 rugs, 3 fresh forward-fires (rugless preserved). Brain leans **YES DEPLOY NOW**.
-3. **Methodology #14 (NAMED-ALPHA) formal adoption** — 2 entities confirmed across 4 cycles, 3rd hunt failed = class small but VALIDATED. Brain leans **YES — adopt at class size 2**.
-4. **PORTUGAL strict deploy** — 100% subsumed by 85871. Brain leans **DROP from candidate list, deploy 85871 only**.
-5. **TG-2h, BC_FULL_B deploys** — both DEMOTED to descriptive-only. **DO NOT DEPLOY**.
-6. **Methodology #16 (historical-vs-live drift) formal adoption** — single example so far. Brain leans **CANDIDATE — needs 2nd example**.
-7. **Methodology #17 (near-big regime) formal adoption** — 3 examples in cycle. Brain leans **CANDIDATE — watch next 1-2 cycles**.
-8. **Sol Cond C (12h-no-big) addition** — currently rolling-50 = Cond A. Brain leans **ADD as supplementary Guard trigger**.
-9. CARRIED: SNIPER_H2 Sol routing; HUPHey identity Solscan; BSC volume fetcher.
+1. **PAPER_SOL_HUPHEY_WATCH deploy** — Brain leans **YES DEPLOY** (optional symdup<3 overlay).
+2. **PAPER_BSC_85871_WATCH deploy** — Brain leans **YES DEPLOY**.
+3. **PAPER_SOL_GAMMA** — K passes, n=11<20. Brain leans **NOT YET — watch 2nd big**.
+4. **Methodology #18 formal adoption** — Brain leans **CANDIDATE — 1 more cluster**.
+5. **Methodology #15 re-framing** — Brain leans **YES re-frame NEAR-COMPLETE**.
+6. **Chain-split Guard** — Brain leans **YES split Cond A per chain**.
+7. CARRIED: SNIPER_H2 Sol routing; HUPHey Solscan identity; BSC volume fetcher.
