@@ -1,68 +1,72 @@
-# BRIEF — onchain AI brain (cycle 20260525_0600)
+# BRIEF — onchain AI brain (cycle 20260525_1200)
 
-## State (live, ~43.8h rolling window)
-- closed=**4954** (-40 net vs c0000 4994 — heavy rotation 5h57min on left edge). 90 open. Window: 05-23T08:05Z → 05-25T05:57Z (entry timestamps).
-- **+1 NEW big**: **PROS BSC +908.6%** (04:26Z) bc=20 k=**26** SNIPER_H BF — outside PORTUGAL strict (k>10) — pure BC_FULL_B win. Different factory wallet from 0x85871 (bc[0]=0xa2cceabd new wallet n=1).
-- **+1 HUPHey forward-fire confirmation**: $UGD Sol (03:44Z) top1_owner=HUPHey lp=D4Bgpf top1=78.4 smart=8 → +12-16% (not big, not rug). **HUPHey rugless streak 0/12 → 0/12 (GDOR-1 rotated, $UGD entered; net 12 stable, still 5 bigs / 0 rugs)**.
+## State (live, ~46.2h rolling window)
+- closed=**4830** (-124 net vs c0600 4954 — heavier rotation than new entries). 80 open. Window: 05-23T13:24Z → 05-25T11:36Z (entry timestamps).
+- **0 NEW BIGS** in 5h57min cycle window (drought intensifies). 101 unique new tokens, max pnl was Horatio +138.4% (near-big).
+- **+3 HUPHey forward-fires** (closed-during MTFR×2 +18.5/+9.5 + PP420 -33.1) → 0-rug streak preserved (14 cumulative rugless).
+- **+2 0x85871 forward-fires** (DICKMAXX -1.0 + PTAI +52.9, both PORTUGAL-eligible) → confirms C11 onset + rugless streak.
 
 ## Goal & gate
 **+1M%**. GATE_EXPECTANCY_KELLY (n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%). **0 paper streams deployed**.
 
 ## Regime
-- **Sol last50 -45.7% 0 bigs 24 rugs (48%)** — Cond A CLEAR but big-drought (was 7 bigs in 24h c0000; now 0 in last 50). Cond B CLEAR (NOAR 6.3h). **Guard OFF — but Sol big-pipeline gone dry, no new α/β/γ/δ since NOAR**.
-- Last Sol big: NOAR 23:45Z (6.3h). Last BSC big: PROS 04:26Z (1.6h).
+- **Sol last50 -61.8% 0 bigs 31 rugs (62%)** — Cond A **RE-TRIGGERED** (was clear last cycle). Cond B 11.9h since NOAR (CLEAR < 24h but trending). **Guard ON via Cond A.**
+- Last Sol big: NOAR 23:45Z (11.9h). Last BSC big: PROS 04:26Z (7.2h).
+- **Sol 12h contiguous drought** (no Sol big since NOAR) — longest in current state window.
 
 ## Last validated (this cycle)
-**MAJOR DISCOVERY — BSC HUPHey-ANALOG: bc[0]=0x85871aea93f086eeda...** wallet n=8 BSC tokens, **5 bigs (62%) / 1 rug (12%) / avg=+289.9% / K=0.281 / geom=+58.88%**. Walk-forward prior≥3 ∩ bigs≥2 ∩ rugs≤1: n=5 outcomes {-100, +90, +880, +659, +235} = 3 bigs / 1 rug / avg=+352.7%. **Catches Poor BSC bc=1 +659 that PORTUGAL strict MISSES**. C7/C8/C9/C10 all represented = cross-cluster validated. See [cycle_20260525_0600.md](insights/cycle_20260525_0600.md).
+**3rd-NAMED-WALLET HUNT FAILED** — no candidate found via bc[0] / pool_creator / top1_owner / lp_provider scans. NAMED-ALPHA class frozen at 2 entities (HUPHey + 0x85871). **HLnpSz9h2S4hiLQ43rnS de-mystified as LAUNCHPAD SERVICE**: live state n=104 / **0 bigs / 46% rug** vs historical leaderboard 53 bigs / 1.8% rug. **Methodology Lesson #16 candidate (historical-vs-live leaderboard drift)**. See [cycle_20260525_1200.md](insights/cycle_20260525_1200.md).
 
-**2nd Named-Wallet alpha discovered = breaks Methodology #13 dependency on HUPHey-alone**. Methodology #14 (NAMED-ALPHA) now has 2 entities, ready for formal adoption.
+**C11 PORTUGAL onset CONFIRMED**: DICKMAXX 09:01Z + PTAI 09:55Z = first 2 entries after C10 dormant 19h+. Both bc[0]=0x85871. **Methodology #15 (subsumption) RECONFIRMED at 100%** (7/7 PORTUGAL strict = 85871).
 
 ## Top candidates
-- **🆕 PAPER_BSC_85871_WATCH (NEW HEADLINE — proposed deploy)**: bc[0]=0x85871aea on BSC. n=8 5 bigs 1 rug avg=+289%. K=0.28 geom=+59%. Catches Poor bc=1 PORTUGAL strict miss. spec: `paper_streams_spec/PAPER_BSC_85871_WATCH.md`.
-- **PAPER_SOL_HUPHEY_WATCH (existing HEADLINE)**: top1_owner=HUPHey OR lp=D4Bgpf on Sol. n=12 5 bigs 0 rugs avg=+195% K=0.21 geom=+30%. $UGD forward-fire +16% confirms 0-rug streak. spec written: `paper_streams_spec/PAPER_SOL_HUPHEY_WATCH.md`.
-- **PORTUGAL strict**: n=**10** (was 13 — rotation removed WOJCUP/RICH/TRUMPETTE), K=**0.27** geom=+56.7% big=60% rug=10% (CAP). 0 new since BELIEF (16h dormant). **C10 DORMANT 16h+ no C11 onset**.
-- **TG-2h**: n=**29** (was 33), K=**0.085** (below previous), big=13.8% rug=27.6%. Still weakening. Distance n=50 floor regressed 17→21.
-- **BC_FULL_B**: n=**75** (was 68, +PROS +908 + 6 small/rug), K=**0.03** (below 0.05 floor!), big=9.3% rug=32%. **GATE-FAILED**.
+- **PAPER_BSC_85871_WATCH (HEADLINE — deploy-ready)**: bc[0]=0x85871aea93f086eeda... BSC. n=7 (3 bigs/1 rug avg=+259% K=0.223). 2 fresh forward-fires (DICKMAXX/PTAI) — rugless streak intact. Methodology #15 fully subsumes PORTUGAL strict.
+- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready)**: top1_owner=HUPHey OR lp=D4Bgpf on Sol. n=12 (5 bigs/0 rugs avg=+205.9% K=0.239 geom=+99.83%). PP420 fresh forward-fire (-33 small loss, no rug). 14 cumulative rugless tokens.
+- **PORTUGAL strict (SUBSUMED)**: n=**7** (was 10 — Methodology #12 6th confirmation EXTREME — 4 C8 fat-tails xing/TRUMPBANK/VELVET/BABYTROLL ROTATED), K=**0.163** (was 0.273), big=29% rug=14%. 100% of current entries = 0x85871. **DROP from candidate list** — redundant with 85871.
+- **TG-2h (DEMOTED)**: n=**20** (was 29), K=**-1.482** (NEGATIVE!), big%=**0**, rug=40%. **GATE-FAIL FORMAL DEMOTE to descriptive-only**.
+- **BC_FULL_B (DEMOTED)**: n=70, K=-0.067 (7th cycle K decline). Descriptive-monitor only.
 
-## Methodology — 14 forms
-**11.SINGLE-TIME-BLOCK INFLATION**. **12.ROTATION-INDUCED K** (5th confirmation — PORTUGAL strict K 0.79→0.27 via rotation). **13.SINGLE-WALLET INFLATION — ADOPTED + EXTENDED** to bc[0] for BSC. **14.NAMED-ALPHA vs GENERALIZED-FILTER — READY FOR FORMAL ADOPTION** (2 entities now: HUPHey + 0x85871).
+## Methodology — 17 forms
+**11.SINGLE-TIME-BLOCK INFLATION**. **12.ROTATION-INDUCED K — 6th confirmation EXTREME** (4 C8 fat-tails rotated in single cycle). **13.SINGLE-WALLET INFLATION — ADOPTED + EXTENDED**. **14.NAMED-ALPHA — FORMALLY ADOPTED** (2 entities validated). **15.SUBSUMPTION-OVERLAP — RECONFIRMED at 100%** (was 60% c0600). **16. HISTORICAL-vs-LIVE LEADERBOARD DRIFT — candidate** (HLnpSz9h2S4hiLQ43rnS 53→0 bigs). **17. NEAR-BIG REGIME — candidate** (3 Sol tokens capped at +108 to +141 in cycle, fat-tail magnitude shrinking).
 
-## Planned next cycle (12:00Z 05-25)
-1. **Verify 0x85871aea full address suffix** — read state.json directly with python; produce exact match for sniper hook.
-2. **Forward-watch new entries for both named wallets** — if HUPHey or 0x85871 fires, immediate alert.
-3. **3rd named-wallet hunt** — scan for additional bc[0] BSC wallets ≥3 tokens with bigs≥1 rugs≤1. Examine 0xa2cceabd (PROS bc[0]) — does it have prior tokens? n=1 currently.
-4. **PORTUGAL strict C11 onset watch** — 16h dormant. Watch new k≤10 bc=20 BSC entries.
-5. **TG-2h** — K=0.085 now near floor 0.05. If drops below, demote to descriptive-only.
-6. **PROS factory wallet investigation** — 0xa2cceabd. New BSC factory? Adjacent to PORTUGAL ecosystem or independent?
-7. **Smart-cluster TRAIL ANTI-PATTERN** — 4 reverses now (Poor3, $UGD shows smart-cluster fires earlier but no fat-tail captured this cycle). Formalize as NEGATIVE TRAIL signal.
-8. **Sol big-pipeline drought** — 0 bigs in last 50 entries. Watch if HUPHey cadence accelerates or pauses.
-9. **HUPHey identity Solscan** (carried).
-10. CARRIED: BSC volume fetcher, SMART_CLUSTER_VETO feasibility, MC_LIQ code review.
+## Planned next cycle (18:00Z 05-25)
+1. **C11 productive watch** — if C11 produces big in 6h (DICKMAXX+6h=15:01Z, PTAI+6h=15:55Z), should see by next cycle. ZERO bigs by next cycle = first UN-productive C-cluster onset = invalidates H_CLUSTER_PORTUGAL_PRESENCE.
+2. **HUPHey cadence-break check** — if no HUPHey big by next cycle (Poor 14:49Z + 28h = 18:49Z next cycle), cadence is BROKEN → new methodology insight.
+3. **Sol big-drought breakage** — first Sol big after drought: magnitude check. ≥+200% = regime healthy returning, <+150% = magnitude shrunk permanently (#17 confirmation).
+4. **Near-big ATH analysis** — for FIFA/Horatio/ViralRush, fetch `ath_price` to determine if they touched +200% then dumped (trail mistuned) or capped at observed pnl (regime cap).
+5. **42j8yFjdk8 LP wallet** — monitor for 3rd big to qualify as named-LP-watch.
+6. **Wallet leaderboard live rebuild** — recompute leaderboard using ONLY current state window per Lesson #16.
+7. **Methodology #16/#17 → second example** for formal adoption.
+8. **HLnpSz9h2S4hiLQ43rnS Solscan check** — confirm launchpad smart-contract identity.
+9. CARRIED: SNIPER_H2 Sol routing; BSC volume fetcher; HUPHey identity Solscan.
 
-## Progress delta
+## Progress delta this cycle
 **POSITIVE**:
-- +1 BSC big (PROS +908)
-- HUPHey forward-fire confirmed ($UGD +16, 0-rug streak extended)
-- **BSC HUPHey-analog wallet 0x85871aea DISCOVERED** — 2nd named-wallet entity breaks Methodology #13 single-entity restriction
-- PAPER_BSC_85871_WATCH spec written and ready for deploy
-- PAPER_SOL_HUPHEY_WATCH spec written and ready for deploy
-- 2 deploy-ready paper streams now exist (closest brain has ever been to first deploy)
-- Methodology #14 (NAMED-ALPHA class) now has cross-chain validation (Sol + BSC)
+- Methodology #12 EXTREME 6th confirmation (4 C8 fat-tails rotated in single cycle)
+- Methodology #15 RECONFIRMED at 100% (was 60% c0600)
+- Methodology #16 + #17 new candidates
+- C11 PORTUGAL onset confirmed
+- 0x85871 forward-fires 2x (rugless streak intact)
+- HUPHey forward-fires 3x (rugless streak 14 cumulative)
+- HLnpSz9h2S4hiLQ43rnS de-mystified as launchpad (rejected as false-alpha candidate)
 
 **NEGATIVE**:
-- PORTUGAL strict n=13→10 (rotation; lost 3 entries). K dropped 0.79→0.27 (#12 5th confirmation).
-- TG-2h K=0.18→0.085 — approaching floor.
-- BC_FULL_B K=0.05→0.03 — GATE-FAILED.
-- Sol big-drought (0/last50 vs 7/24h previously).
-- C10 dormant 16h+ no C11 onset.
+- **0 new bigs in 5h57min** (drought intensifies on both chains)
+- **Sol last50 -45.7→-61.8** (Cond A re-TRIGGERED, Guard back ON)
+- PORTUGAL strict K 0.273→0.163 (4 fat-tails lost to rotation)
+- TG-2h K 0.085→-1.482 (formal DEMOTE)
+- BC_FULL_B 7th cycle K decline (K=-0.067 negative)
+- **3rd named-wallet hunt FAILED** — class size frozen at 2
 
-**Net assessment: POSITIVE**. 2nd named-wallet discovery = breakthrough that breaks Meth #13 restriction. Two paper streams ready for deploy.
+**Net assessment: MIXED but slightly NEGATIVE**. Methodology gains substantial (3 new lessons + 1 reconfirm) but zero new bigs and Sol drought 12h+ are the larger story. Stuck-warning NOT triggered yet (this is 1st cycle without new big AND without new alpha class).
 
 ## OPEN QUESTIONS to user
-1. **🆕 PAPER_BSC_85871_WATCH deploy** — n=8 5 bigs 1 rug as NAMED-WALLET (Meth #14). Catches Poor bc=1 PORTUGAL miss. Brain leans **YES DEPLOY NOW**.
-2. **PAPER_SOL_HUPHEY_WATCH deploy** (carried from c0000) — n=12 5 bigs 0 rugs. Brain leans **YES DEPLOY NOW** + $UGD forward-fire confirms rugless streak.
-3. **Methodology #14 formal adoption** — 2 entities now (HUPHey + 0x85871). Brain leans **YES**.
-4. **PAPER_BSC_PORTUGAL strict deploy** — n=10 K=0.27 big=60% rug=10%. C10 dormant 16h. Brain leans **WAIT or SUBSUME by PAPER_BSC_85871 (mostly overlap)**.
-5. **PAPER_BSC_TG2 deploy** — n=29 K=0.085 weakening. Brain leans **WAIT or DEMOTE**.
-6. **PROS factory wallet (0xa2cceabd)** — n=1 too small to deploy. Watch for 2nd+3rd token. Brain leans **descriptive-monitor only**.
-7. CARRIED: SNIPER_H2 add to Sol routing; BSC volume fetcher; HUPHey identity Solscan.
+1. **PAPER_BSC_85871_WATCH deploy** (carried) — wallet 7 BSC tokens 3 bigs/1 rug, 2 fresh forward-fires this cycle. Brain leans **YES DEPLOY NOW** + Methodology #15 confirms it fully subsumes PORTUGAL strict.
+2. **PAPER_SOL_HUPHEY_WATCH deploy** (carried) — n=12 5 bigs/0 rugs, 3 fresh forward-fires (rugless preserved). Brain leans **YES DEPLOY NOW**.
+3. **Methodology #14 (NAMED-ALPHA) formal adoption** — 2 entities confirmed across 4 cycles, 3rd hunt failed = class small but VALIDATED. Brain leans **YES — adopt at class size 2**.
+4. **PORTUGAL strict deploy** — 100% subsumed by 85871. Brain leans **DROP from candidate list, deploy 85871 only**.
+5. **TG-2h, BC_FULL_B deploys** — both DEMOTED to descriptive-only. **DO NOT DEPLOY**.
+6. **Methodology #16 (historical-vs-live drift) formal adoption** — single example so far. Brain leans **CANDIDATE — needs 2nd example**.
+7. **Methodology #17 (near-big regime) formal adoption** — 3 examples in cycle. Brain leans **CANDIDATE — watch next 1-2 cycles**.
+8. **Sol Cond C (12h-no-big) addition** — currently rolling-50 = Cond A. Brain leans **ADD as supplementary Guard trigger**.
+9. CARRIED: SNIPER_H2 Sol routing; HUPHey identity Solscan; BSC volume fetcher.

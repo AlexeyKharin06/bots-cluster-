@@ -2030,3 +2030,52 @@ Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
 **Idea**: When a new filter catches a superset of an existing filter's productive hits, choose the wider as primary. Example this cycle: PAPER_BSC_85871_WATCH catches 6/10 PORTUGAL strict entries + Poor BSC bc=1 (PORTUGAL miss) → deploy 85871 instead of PORTUGAL strict.
 **Status**: NEW — pending observation in next cycles before formal adoption.
 
+
+
+## NEW (proposed cycle 20260525_1200)
+
+### H_HISTORICAL_VS_LIVE_LEADERBOARD_DRIFT — Methodology #16 candidate
+**Idea**: Pre-computed wallet leaderboards built from N=36K historical corpus can mislead in current regime. Wallet alpha is regime-dependent.
+**Evidence**: `HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC` historical leaderboard tag: 391 tokens / 53 bigs (13.6%) / 1.8% rug. LIVE state.json (46h window): **n=104 / 0 bigs / 46.2% rug / avg=-45%**. Same wallet, opposite alpha profile across different windows.
+**Mechanism**: Launchpad/factory wallets create many tokens but % that pump depends on broader market conditions. In bull regime 13% pump, in current regime 0% pump. Wallet identity ≠ guaranteed alpha — regime is the multiplier.
+**Why important**: Brain MUST recompute leaderboard within current state window before any deploy. Never trust pre-computed historical leaderboard for live signals.
+**Status**: NEW candidate Methodology Lesson #16 — needs 2nd example before formal adoption.
+
+### H_NEAR_BIG_REGIME — Methodology #17 candidate (Sol fat-tail magnitude shrinking)
+**Idea**: Sol fat-tail magnitude appears capped at +100-150% in current regime (Cond A triggered) instead of historical +150-900% range. 
+**Evidence (this cycle, last 100 Sol best-fire)**:
+  - FIFA +140.9% α-strict (top1=95.8 smart=8 known=16 meteora symdup=28)
+  - Horatio +138.4% α-borderline (top1=82.4 smart=15 known=17 meteora)
+  - ViralRush +108.7% β-shape (top1=58.6 smart=13 known=18 meteora)
+  - 0 tokens reaching +150% threshold in this cycle window
+**Why important**: trail/TP designed for +150%-+900% fat tails may be MISTUNED for +100-140% capped regime. Consider lower TP target during near-big regime detection.
+**Required**: ATH fetch for FIFA/Horatio/ViralRush to verify cap vs trail-mistune.
+**Status**: NEW candidate — needs ATH check + 2-3 more cycles confirmation.
+
+### H_PORTUGAL_C11_ONSET — descriptive monitor
+**Idea**: DICKMAXX (09:01Z) + PTAI (09:55Z) = first 2 PORTUGAL strict entries after C10 dormant 19h+. Both bc[0]=0x85871. C11 onset confirmed.
+**Watch**: If a big lands within 6h of onset (DICKMAXX+6h=15:01Z, PTAI+6h=15:55Z = before next cycle 18:00Z), C11 PRODUCTIVE → H_CLUSTER_PORTUGAL_PRESENCE re-validated (6/9 productive). If 0 big by next cycle, FIRST UN-productive cluster onset = invalidates H_CLUSTER_PORTUGAL_PRESENCE.
+**Status**: NEW — watch monitor.
+
+### H_3RD_NAMED_WALLET_HUNT — FAILED this cycle, retry path documented
+**Idea**: Build 3rd member for NAMED-ALPHA class (Methodology #14). Hunt failed this cycle.
+**Searched (current state.json, 4 vector scans)**:
+  - BSC bc[0]: only 0x85871 qualifies (other top wallets: 0x757eba15 n=3 0 bigs; 0xe2ce6ab8 n=2 1 rug; 0x5c952063 n=2 0 bigs)
+  - BSC pool_creator: 0 wallets with ≥2 tokens AND bigs ≥1 OR rugs ≤1
+  - Sol top1_owner: only HUPHey qualifies (with ≥3 tokens ∩ ≥1 big ∩ ≤1 rug)
+  - Sol lp_provider: D4Bgpf (HUPHey partner, already counted) + 42j8yFjdk8 (NOAR/Maple, 7 tokens 2 bigs 1 rug — but underlying 75qsE3p5y2 is 36% rug so NOT clean)
+**Conclusion**: NAMED-ALPHA class frozen at 2 entities in current 46h window. Retry next cycle when more rotation has occurred OR new entities surface.
+**Next**: try aged_creator_history feature (creator wallet's track record), or buys_m5 dominant-buyer wallet, or scan BSC top1_owner field (analog of Sol).
+**Status**: FAILED this cycle, retry deferred.
+
+### H_HLn_LAUNCHPAD_REJECTED — false-alpha de-mystified
+**Idea**: HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC was a top-priority candidate in PROJECT_CONTEXT's wallet_leaderboard (n=391 / 53 bigs / 1.8% rug).
+**Evidence**: LIVE state n=104 / 0 bigs / 46% rug = NOT alpha in current regime. It's a launchpad service smart-contract that creates serial tokens (FNCS, EZO, BLOODBANK, MTFR, Horatio, ViralRush, DICKMAXX-Sol, etc).
+**Conclusion**: REJECT as named-wallet alpha. Re-classify as launchpad/factory service.
+**Status**: REJECTED — fed into Methodology #16 candidate as primary example.
+
+### H_HUPHEY_CADENCE_BREAK — pending observation
+**Idea**: HUPHey median cadence is ~6h between fires. Last HUPHey big: Poor 14:49Z. 20.8h elapsed without HUPHey big at cycle time. If next cycle (18:00Z = 28h post-Poor) also has no HUPHey big, cadence is BROKEN — needs new methodology lesson.
+**Important**: HUPHey has fired 3 forward-fires this cycle (MTFR×2 closed-during + PP420), all small/neutral. Wallet is ACTIVE, just not producing bigs. Different from "wallet quit".
+**Status**: NEW — monitor next cycle for big-fire or 28h+ cadence break.
+
