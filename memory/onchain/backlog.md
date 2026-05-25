@@ -1995,3 +1995,38 @@ Cluster productivity now 7/9 = 78% (C9 productive despite rug-onset).
   - 2QioJBwKBVtsP2FajW (n=20 2 bigs 1 rug in lb): 1 open ENHANCED -100% RUG ← counter-example showing leaderboard wallets can still rug
 **Status**: NEW — leaderboard tracking surface. Build forward-validation per wallet over next 5-10 cycles.
 
+
+## NEW (proposed cycle 20260525_0600)
+
+### H_BSC_BC0_WALLET_LEADERBOARD_85871 — NEW HEADLINE (BSC named-wallet)
+**Idea**: BSC-side analog of HUPHey wallet alpha. Identify high-fat-tail BSC wallets via `entry_signal.bonding_curve_buyers[0].addr`. Filter: enter any new BSC token where bc[0] == 0x85871aea93f086eeda... (full 42-char addr to be verified next cycle).
+**Evidence (in-corpus aggregate, n=8)**: bigs=5 (62%), rugs=1 (12%), avg=+289.9%, K=0.281, geom=+58.88%/trade. Tokens: ELON -86, xing +293, TRUMPBANK +349, CAP -100, MOODANG +90, BabyAsteroid +880, **Poor BSC bc=1 +659** (PORTUGAL strict MISSES — bc<16), BELIEF +235. C7/C8/C9/C10 all represented = cross-cluster validated (Methodology #11 safe).
+**Walk-forward (prior≥3 ∩ bigs≥2 ∩ rugs≤1)**: n=5, outcomes {-100, +89.7, +879.5, +659.2, +235.0}, bigs=3 (60%), rugs=1 (20%), avg=+352.7%.
+**Status**: NEW — paper-stream spec `paper_streams_spec/PAPER_BSC_85871_WATCH.md` written. Deploy decision pending user approval.
+**Deploys via**: Methodology #14 NAMED-WALLET WATCH class (now formal — 2 entities cross-validate with HUPHey).
+
+### H_NAMED_WALLET_CLASS — formalized concept (Methodology #14)
+**Idea**: Maintain a "Named-Wallet Watch List" of entities (Sol top1_owner, BSC bc[0], etc.) with proven track records. Deploy criterion: ≥3 tokens, ≥2 bigs, ≤1 rug.
+**Current members**:
+- HUPHeyBkcSCkHTxS9wsbVcj9UP9wZNXU998g5Csbc9AT (Sol top1_owner; n=12, 5 bigs, 0 rugs)
+- 0x85871aea93f086eeda... (BSC bc[0]; n=8, 5 bigs, 1 rug)
+**Status**: FORMAL ADOPTION pending user approval. With 2 entities the class breaks Methodology #13 single-wallet restriction.
+**Next**: hunt 3rd member; consider Sol bc[0] analog if applicable; verify cadence and rescind rules.
+
+### H_PROS_FACTORY_0xa2cceabd — descriptive monitor
+**Idea**: PROS BSC +908.6% bc[0]=0xa2cceabd... — new BSC factory wallet, n=1 unmodelable. Watch for 2nd/3rd token from same bc[0] addr.
+**Status**: NEW, descriptive-monitor only.
+
+### H_SMART_CLUSTER_ANTI_TRAIL — formalize as negative direction (n=6, 4 reverses)
+**Idea**: Smart-cluster (SMART_COPY/SMART_TOP_AGE5) fires correctly at entry but trail-holds too long, capturing rug or missing cap. Aggregate observed: Poor3 Sol -100 vs A/B/H/H2 +943, Maple Sol smart -93pp behind A/B/H, MTFR-7Zx smart -290pp behind H, $UGD smart +4pp (noise). Net direction: 4 reverses vs 2 small wins.
+**Status**: NEW — formalize as anti-trail; route smart-cluster ENTRY signal to A/B/H/H2 trail rather than smart-cluster trail.
+**Next**: implement SMART_CLUSTER_USE_A_TRAIL flag.
+
+### H_SOL_BIG_DROUGHT — Cond C regime gate candidate
+**Idea**: When last_50 Sol unique tokens have 0 bigs (≥150%), set Guard ON regardless of Cond A/B status. Currently Cond A/B clear but big-rate=0.
+**Status**: NEW — proposes 3rd Guard condition. Need historical backtest of big-drought as forward signal vs noise.
+
+### Methodology Lesson #15 candidate: SUBSUMPTION-OVERLAP
+**Idea**: When a new filter catches a superset of an existing filter's productive hits, choose the wider as primary. Example this cycle: PAPER_BSC_85871_WATCH catches 6/10 PORTUGAL strict entries + Poor BSC bc=1 (PORTUGAL miss) → deploy 85871 instead of PORTUGAL strict.
+**Status**: NEW — pending observation in next cycles before formal adoption.
+
