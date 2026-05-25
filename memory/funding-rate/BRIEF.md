@@ -1,67 +1,70 @@
-# BRIEF — funding-rate (post-cycle 20260525_1700)
+# BRIEF — funding-rate (post-cycle 20260525_2300)
 
-## Latest finding (1700) — Meth #22 PROMOTION FAILED on H38 → NEW Meth #23 candidate + H38_QUALITY_TIER
+## Latest finding (2300) — H_COMBO_7 Meth #23 on H34 perp-perp n=101: NULL → Meth #23 refined to (trigger × hedge_type)-conditional
 
-**Meth #22 sign INVERTS on H38** vs cycle 1247's H31 finding:
+H_COMBO_7 tested cycle 1700's queued #1 prediction (Meth #23 POSITIVE filter on H34 perp-perp). Result: **BOTH framings wrong.**
 
-| Sample | n | c2_100bp=True gap |
-|---|---|---|
-| H31 LONG (1247) interval-shortening trigger | 116 | **−1.04pp** (NEGATIVE filter) |
-| **H38 (1700) magnitude trigger** | **10,686** | **+1.19pp** (POSITIVE filter) |
+| Cell | Trigger | Hedge | n | gap@100bp | Sign |
+|---|---|---|---|---|---|
+| 1247 | H31 LONG behavioral | basis | 116 | **−1.04pp** | NEG (stable) |
+| 1700 | H38 magnitude | basis | 10,686 | **+1.19pp** | POS (stable) |
+| **2300** | **H31 LONG behavioral** | **perp-perp** | **101** | **−0.12pp** | **NULL (WF flips)** |
 
-Walk-fwd both halves preserve respective signs. Per-ex 6/6 positive on H38. Decisive n=92× sample → cycle 1247 finding is H31-SPECIFIC, not universal.
+**Decisive sanity check:** SAME 101 events with basis-hedge metric (net_4h_basis) gives gap **−1.13pp** — reproduces cycle 1247. Trigger unchanged; hedge change alone destroys signal.
 
-**METHODOLOGY #23 CANDIDATE filed (subsumes Meth #22):** Cross-ex divergence sign on hedged trades is **trigger-conditional**:
-- **Behavioral triggers** (H31 interval-shortening, single-ex action): divergence ≥100bp = outlier-noise marker → NEGATIVE filter
-- **Magnitude triggers** (H38 |rate|≥thr universe-wide): divergence ≥100bp = systemic-stress amplitude → POSITIVE filter
+**Meth #23 REFINED (not killed):** `(trigger_family × hedge_type) → divergence_filter_sign`. Perp-perp hedge directly absorbs cross-ex funding dispersion that basis hedge externalizes. 4th cell (magnitude × perp-perp) untested — predicted NULL or weakly POS under absorption hypothesis.
 
-Promotion gate: cross-validate on H34 perp-perp n=101 (predict POSITIVE per Meth #23) — ~20 min next cycle.
-
-**NEW H38_QUALITY_TIER:** `cat_50bp=CONFIRMED ∧ c2_max_div≥100bp`. n=1554, +2.838%, WR 99.16%, Sharpe ~2.0. WF TRAIN +3.17/TEST +2.62 (both halves +1.2-1.6pp gap, same direction). 6/6 months +; 6/6 ex + (gate +3.37%, bybit +3.16% strongest). Throughput ~260/mo agg, ~40/mo dedup.
+**Operational:** H34 spec UNCHANGED. Do NOT add `c2_div_100bp` filter to H34 paper-stream (28% throughput cost for null PnL).
 
 ## 3-edge portfolio (UNCHANGED, validated 2026-05-23)
 
 | Edge | n | mean | Sharpe | WR | corr |
 |---|---|---|---|---|---|
-| H31_basis (interval-shorten LONG + basis-hedge) | 116 | +3.52% | 1.84 | 100% | H38 +0.54, H34 +0.30, H3 -0.31 |
-| H34_perp_perp (cross-ex max-pos hedge) | 101 | +1.28% | 0.82 | 79% | H31 +0.30 |
-| H3_depeg 75bp (mean-rev to peg) | 39 | +1.96% | 0.87 | 100% | H31 -0.31 |
-| H38_CONFIRMED-50bp (THROUGHPUT TIER, NOT edge#4) | 5324 | +2.23% | 1.28 | 99% | H31 +0.54 |
-| H31_QUALITY_COMBO (H31 + meth17 ∧ ¬c2_div_100bp) | 70 | +3.95% | 2.04 | 100% | H31-overlap |
-| **H38_QUALITY_TIER (NEW)** H38 + CONFIRMED ∧ c2_div≥100bp | **1554** | **+2.84%** | **~2.0** | **99.2%** | overlap |
+| H31_basis (interval-shorten LONG + basis-hedge) | 116 | +3.52% | 1.84 | 100% | H38 +0.54, H34 +0.30, H3 −0.31 |
+| H34_perp_perp (fixed_binance_else_bybit hedge) | 101 | +1.28% | 0.74 | 79% | H31 +0.30 |
+| H3_depeg 75bp (mean-rev to peg) | 39 | +1.96% | 0.87 | 100% | H31 −0.31 |
+| H38_CONFIRMED-50bp (THROUGHPUT TIER) | 5324 | +2.23% | 1.28 | 99% | H31 +0.54 |
+| H31_QUALITY_COMBO (cycle 1247) | 70 | +3.95% | 2.04 | 100% | overlap |
+| H38_QUALITY_TIER (cycle 1700) | 1554 | +2.84% | ~2.0 | 99.2% | overlap |
 
-## Next cycle — priorities (re-ordered post-1700)
+## Next cycle — priorities (re-ordered post-2300)
 
-1. **H_COMBO_7 (NEW)** — Meth #23 cross-validation on H34 n=101 perp-perp. Same c2_max_div≥100bp cross-tab. Predicted POSITIVE. ~20 min.
+1. **H_COMBO_8 (NEW)** — Meth #23v2 4th-cell test: H38 magnitude trigger × perp-perp hedge. Predicted NULL or weakly POS under absorption hypothesis. ~30-45 min. Decisive promotion gate for Meth #23v2.
 2. **H_COMBO_2** H3 × H38 same-day co-occurrence — trivial intersection. ~30 min.
 3. **H_COMBO_3** dynamic hedge ratio. ~30-45 min.
-4. **H_BOROS_INDICATOR** — DEFERRED 7 cycles. Needs USER decision.
-5. T1 per-exchange feature enrichment (~1h).
-6. paper_fairprice_v6 — n=42/100 gate.
+4. **H_BOROS_INDICATOR** — DEFERRED 8 cycles. Critical-path debt; needs USER decision on multi-cycle allocation.
+5. T1 per-exchange feature enrichment (~1h). DEFERRED 4 cycles.
+6. paper_fairprice_v6 — n=42/100 gate, no new trades 24h+.
 7. H_TG_ROUTING_PATCH — pending user OK.
 
 ## STOP / DO NOT
 
-- Audit-only cycles (user explicit mandate). 1700 is 3rd consecutive combination/promotion test.
+- Add c2_div_100bp filter to H34 paper-stream (cycle 2300 confirmed null effect, 28% throughput cost).
+- Promote Meth #23 to confirmed methodology until H_COMBO_8 closes the 4th cell.
+- Audit-only cycles (user explicit mandate). 4th consecutive combination/promotion test.
 - Defer H_COMBO_2..6 indefinitely (test 1 per cycle).
 - Submit new paper-stream specs until user OKs baseline H31/H34/H3 deployment.
-- Assume cycle 1247's negative-divergence filter applies beyond H31 — Meth #23 shows trigger-conditional sign.
 
 ## Live paper bot status (UNCHANGED)
 
-- paper_fairprice_v6: n=42, no new trades since cycle 1100 (17h+).
+- paper_fairprice_v6: n=42, no new trades since cycle 1100 (24h+).
 - paper_new_symbol: n=1 (dormant since 2026-05-22).
 - paper_practitioner / paper_whale: no trades.jsonl yet (feed_funding empty without TG patch).
 
-## Methodology stack (#1-#23 candidates)
+## Methodology stack
 
-Confirmed: #1-#21. #22 (cycle 1247) DEMOTED to H31-special-case. #23 (this cycle) candidate: trigger-conditional divergence sign rule (subsumes #22).
+Confirmed: #1-#21.
+#22 (cycle 1247) DEMOTED cycle 1700 to H31-special-case.
+#23v1 (cycle 1700, trigger-only) REVISED cycle 2300 to (trigger × hedge_type).
+#23v2 candidate: promotion gate at H_COMBO_8 (4th cell).
 
-Sign-flip rules:
-- HEDGED + behavioral trigger (H31): CONFIRMED (#17) + LOW divergence (#23)
-- HEDGED + magnitude trigger (H38): CONFIRMED (#17) + HIGH divergence (#23)
+Sign-flip rule (current evidence):
+- HEDGED + behavioral trigger + BASIS hedge: CONFIRMED + LOW divergence (#23v2)
+- HEDGED + magnitude trigger + BASIS hedge: CONFIRMED + HIGH divergence (#23v2)
+- HEDGED + behavioral trigger + PERP-PERP hedge: no divergence filter (#23v2 NULL cell)
+- HEDGED + magnitude trigger + PERP-PERP hedge: UNTESTED (H_COMBO_8 target)
 - UNHEDGED mean-rev (H3): SOLO (#14), divergence-filter untested
 
 ## Cycle log
 
-`/srv/bots/cluster/memory/funding-rate/insights/cycle_20260525_1700.md` — full untruncated.
+`/srv/bots/cluster/memory/funding-rate/insights/cycle_20260525_2300.md` — full untruncated.
