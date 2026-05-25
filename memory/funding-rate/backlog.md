@@ -365,3 +365,56 @@ Cycle 1700 had R2 SOLO retest as priority #3. Post-cycle 2300:
 - Meth #17 has been corroborated on bigger sample (H38 n=10,686) than R2 (316k events but unhedged so wrong sign-rule applies anyway)
 - Retest would only confirm the trivially-applicable Meth #14 → no marginal information value
 - Status: deprioritized to backlog tail
+
+---
+
+## Cycle 20260525_0500 updates
+
+### H38_CONFIRMED_TIER — status CONFIRMED operational tier, NOT Edge #4
+- **Correlation-corroborated this cycle** (priority #3 from cycle 2300 list, executed).
+- Event-level: 79.3% of H31 LONG events ⊂ H38_CONFIRMED at exchange+sym+hourly key (92/116).
+- Day-mean Pearson 0.39 (overlap days, n=60), Spearman 0.35; union zero-fill 0.21; weekly 22-wk noise (-0.09).
+- H38C is strict day-superset: 96.77% of H31-days have H38C events; H38C has 107 exclusive days (high-mag funding without interval-shorten).
+- Symbol overlap 41/58 H31 ⊂ 93 H38C (chronic-discount cluster).
+- Verdict: throughput tier on H31's funding-capture family. Not a 4th independent edge for diversification math.
+- Use case: capital-rationing or paper-stream parallel-deploy variant where coverage breadth matters.
+
+### CYCLE_1750_CORR_AUDIT — NEW (filed cycle 0500)
+- Cycle 1750 reported H31 daily mean vs H38_FULL daily mean Pearson = 0.171 (LOW)
+- This cycle's re-derivation on same data = 0.538 (much higher; same family confirmed)
+- Possible causes: (a) different daily-mean weighting per-event vs per-(ex,sym)-event; (b) different sample window; (c) zero-fill choice
+- Not portfolio-load-bearing yet (neither number drives a decision; both are above-zero same-direction)
+- Audit before relying on either number for portfolio variance modeling
+- Priority: low (~20 min), schedule before any portfolio-variance-driven decision
+
+### T1_MINING_EXPANSION — PARTIAL DONE (was deferred 3 cycles)
+- Vow honored: executed this cycle. Refined-FP-filter yield 174 NEW cases on 3894-msg `tg_messages_historical.jsonl`.
+- 21 dups vs T2 existing 80 skipped → effective unique now 254 (was 80, +212%).
+- Class distribution shift vs T2 (significant): B 16.2→36.8%, F 5.0→24.7%, L 6.2→13.8%, FB 12.5→14.9% (stable), O_depeg 10.0→4.6% (lower because T2 inflated by month-summaries).
+- Top channels (T1): @ua_cryptoinvest 61, @vincerid_lost 45 NEW, @arbitragediarys 30, @twix1444 21, @lopata_arb 14, @cryptoarbitr_obline 2.
+- FP rate ~15-30% (false-pos coin extraction): DOLBAYOB, BSC, DAO, ADL, LBANK still slip through.
+- **NEXT STEP** (filed as priority #2): run cycle-1435 `t2_classify.py` enrichment loop on the 174 cases to attach `per_exchange_features` from `multi_ex_funding_180.parquet`. ~1h. Until done, T1 cases are useful for class-distribution shape and channel-source-mapping only.
+
+### NEW_CHANNEL_REVIEW — @vincerid_lost
+- 45 cases mined in T1 expansion this cycle.
+- Mechanism focus: listing + basis (L + B).
+- Not in T2 top-3 because T2's pre-filter (event tied to known sym + exchange-features + $-claim) discarded the listing-news content.
+- ASK USER: add `@vincerid_lost` to unified TG hub keyword-routing config; consider broadening `feed_funding.jsonl` filter to catch listing+basis-without-$ messages.
+
+### H_BASIS_EVENT_PRIMARY — PROMOTED (was candidate cycle 1435)
+- T1 cycle-0500 shows B-class is 37% of practitioner mentions (was 16% in T2), the largest under-served class.
+- Most prevalent practitioner mechanism with no validated edge in our 3-edge portfolio.
+- Sub-classes (per cycle 1435): delisting / fresh-listing dislocation / CEX↔DEX rasinkhron during pump / CEX↔CEX rasinkhron / algo-bot delay.
+- **NEXT STEP**: needs T1 per-exchange enrichment (priority #2 above) before per-event backtest is feasible. After enrichment, cluster B-cases by trigger-class and walk-fwd test the most-frequent cluster first.
+
+### Methodology #20 CANDIDATE — Mining-sample bias maps to mechanism-class under-representation
+- T2 pipeline ($-claim → per-exchange-features → known-sym → labelable) systematically discarded basis-spread reports (B mechanism), which tend to be live-trade ephemera without explicit $-PnL claims.
+- T1 expansion shifts B-class proportion +20.6pp.
+- Generalizable: any practitioner-validated hypothesis from T2's n=80 should be re-checked against T1's n=174 for class-prior-shifts before being treated as decisive.
+- Methodology #20 promotion to CONFIRMED depends on: (a) confirming this bias holds on listing-arb / cex-onchain mining pipelines (cross-project), (b) demonstrating one re-tested hypothesis whose class-prior would shift with T1 numbers.
+
+### H_BOROS_INDICATOR — DEFERRED 2 CYCLES (status: must-allocate-next-cycle)
+- Cycle 1700: filed as priority #1, ~2h Arbitrum-RPC infra.
+- Cycle 2300: deferred 1 cycle (chose Meth #17 cross-val).
+- Cycle 0500: deferred 2 cycles (chose T1 + H38C-corr; 2h doesn't fit 30-min budget).
+- **STATUS: must allocate ≥2h next cycle.** Explicit budget commitment required.
