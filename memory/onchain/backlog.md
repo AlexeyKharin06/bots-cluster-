@@ -2227,3 +2227,71 @@ SKIP IF (
 ### H_GAMMA_STRICT (c1800 candidate)
 **Update c0000**: Rolling n=10 K=0.370 geom=+4.43% — slight weakening from c1800 (n=11 K=0.34, Luce -18 dilution + CBSt rotation). Superseded by H_GAMMA_AGE_RELAXED.
 **Status**: SUPERSEDED by relaxed variant.
+
+---
+## STATUS UPDATES (cycle 20260526_0600)
+
+### H_WALLET_TOP1 HUPHey (deploy-ready, STRENGTHENED)
+**Update c0600**: MTFR-J1rp +103.0% (top1=75) lands as HUPHey hit #9 token, hit #5 ≥+100% event. Rolling n=8→9, bigs=4 stable, rugs=0 (cumul-16-rugless intact), wins=7/9=78%, avg=+196% (capped 500), avg_win=+258%, avg_loss=-19.7%, geom=+117%/trade (was +140% c0000, weakened by MTFR-J1rp +103 sub-avg dilution), Er=+1.96. ALL gates PASS by 5-100× except n<20 floor. Distance n=11 from floor.
+**Sub-filter top1≥85 REJECTED**: MTFR-J1rp top1=75 + Stake top1=69 both ≥+100% events. 2/5 winners have top1<85 → sub-filter false-negative 40%. Adopt **H_HUPHEY_TOP1_FLEX**: drop top1 threshold OR set to ≥65 (preserve Stake/MTFR-J1rp lower bound).
+**Status**: STRENGTHENED. Brain leans STRONG DEPLOY.
+**Next**: 10th-token watch; refit walk-forward without top1 threshold.
+
+### H_85871_BC0_WATCH (deploy-ready, rug-clamp MOOT)
+**Update c0600**: n=7→4 ROTATION (CAP -100 + 2 others rotated). Current n=4: Poor +659 / BELIEF +235 / DICKMAXX -1 / PTAI +52.9. **0 rugs visible** → rug-clamp policy MOOT (all floor choices converge to geom=+135%/trade). avg=+197%, 2 bigs (50% rate). Distance n=16 from floor.
+**Methodology #12 8th confirmation**: rotation purged the only rug → K/geom inflated.
+**Subsumption analysis**: 0x85871 ∩ PORTUGAL strict = 3/4 each = 75% overlap. 0x85871 catches Poor (+659) which PORTUGAL misses (bc<16) and AVOIDS STAKE (-52.7) which PORTUGAL catches. **0x85871 STRICTLY DOMINATES PORTUGAL**.
+**Status**: STRENGTHENED. Rug-clamp MOOT. Brain leans DEPLOY.
+**Next**: forward-fire watch for next 85871 entry (C12 onset likely starts here).
+
+### H_PORTUGAL_STRICT (formally DROPPED)
+**Update c0600**: n=7→4 ROTATION same as 85871. Current n=4: STAKE -52.7 / BELIEF +235 / DICKMAXX -1 / PTAI +52.9. avg=+58.6%, 1 big (25%). **Dominated by 0x85871** (subsumption 75% + 85871 catches more bigs + avoids losses).
+**Status**: FORMALLY DROPPED from paper-stream candidates. Retain as descriptive monitor only.
+
+### H_GAMMA_RELAXED (borderline)
+**Update c0600**: +2 entries Poop -6 + grail -20 (both small losses, no rugs). n=16 unchanged at brain's count. **Fresh geom-per-trade computation: +1.55%** (vs brain's prev +6.60% — possible measurement methodology drift). 1 big (Popus +221) + 1 near-big (Luce +137). PASSES geom gate by margin (gate ≥1%, fresh +1.55%) but BORDERLINE.
+**Status**: BORDERLINE — gate-passes by margin only. Defer deploy.
+**Next**: n=20 watch; investigate measurement discrepancy.
+
+### H_RUG_CLAMP_POLICY (Methodology #19 — MOOT)
+**Update c0600**: 0x85871 only rug (CAP -100) rotated out → all floor choices converge. Policy decision MOOT for now. Defer formal adoption until next 85871 rug observed.
+**Status**: DEFERRED (was: candidate).
+
+### H_BETA_HARAMBEX_SUBFILTER (n=1 candidate)
+**Update c0600**: REJECTED. HarambeX is single-instance — only 1 HARAMBEX token visible with current data (+11.2% close on different mint). The +132 reading from c0000 was from a different mint that fits broader near-big cohort, not a distinct β-class. Defer until 2nd β-shape big observed.
+**Status**: REJECTED single-instance.
+
+### H_NEAR_BIG_COHORT (NEW DIMENSION)
+**Observation**: 19 unique Sol tokens in current 47h window with pnl 80-149.99% (near-big band). BF stream distribution:
+- SNIPER_ULTRA_TRIPLE: 4 (21%)
+- SNIPER_SMART_TOP_AGE5: 4 (21%)
+- SNIPER_LOWCAP: 3 (16%)
+- SNIPER_H: 3 (16%)
+- SNIPER_H2: 2 (11%)
+- SNIPER_MC_LIQ / SNIPER_SMART_COPY_AGE5 / SNIPER_G: 1 each
+
+ULTRA_TRIPLE + SMART_TOP_AGE5 capture 42% of near-bigs vs <20% on full bigs. Hypothesis: near-bigs are caught by TIGHTER multi-condition filters that exit earlier (cap-side) on weaker fat-tails.
+**Status**: NEW candidate. n=19 sample available.
+**Next**: compute feature-distribution comparison (top1/smart/known/liq/buys_m5) between near-big cohort vs full-big cohort; if near-bigs are "would-have-been-bigs" with shorter trails → ULTRA_TRIPLE family may have early-exit edge worth combining with HUPHey/85871 stream.
+
+### H_NOAR_75qsE3_WALLET (3rd named-wallet candidate)
+**Observation**: 8cYhZ3M9hzWS +142.5% Sol (NOAR symbol) lands as 2nd ≥+100% event from wallet 75qsE3p5y2BF (after GvxMd2m5x47d +152.5 in c0000). Wallet now has 10 NOAR tokens visible: 2 wins (20% ≥+100% rate), 2 rugs (20%), 6 small/mid (mostly -20% to +10%). Avg ≈ +1.4%.
+**Comparison**: HUPHey 0% rug (cleaner alpha). 75qsE3p5y2BF 20% rug (still better than baseline 51%).
+**Status**: CANDIDATE — worse than HUPHey but better than baseline. Defer deploy.
+**Next**: monitor for 11th NOAR or non-NOAR token from same wallet; if rugs stay ≤25% and ≥+100% rate >15% over n=15+, consider paper-stream WALLET_NOAR_WATCH.
+
+### H_SMART_CLUSTER_TRAIL_EDGE (n=5-6 ambiguous, weak positive for HUPHey mid-fat-tails)
+**Update c0600**: 6th data point MTFR-J1rp smart +4.5pp lift over A/B/H/H2. HUPHey pattern emerging:
+- Mid-fat-tail HUPHey wins (sub-500%): smart wins on Stake +481, MTFR-BVB +175, MTFR-J1rp +103
+- Extreme fat-tail HUPHey wins (≥500%): H2 wins on Poor +943, GENWEALTH +620
+3/5 smart wins, 2/5 H2 wins on HUPHey wins. Not deployable but suggests dual routing: smart for mid, H2 for extreme.
+**Status**: WEAK POSITIVE for HUPHey-specific routing.
+
+### H_REGIME_ASYMMETRIC_DURATION (NEW)
+**Observation**: Sol clear / BSC triggered regime now 3 consecutive cycles (c1800 → c0000 → c0600). Sol Cond A improved over cycles -62.6 → -57.6 → -54.7 → -44.5 (steady recovery). BSC Cond A worsened -57.6 → -62.0 (deeper trigger).
+**Hypothesis**: Chain-asymmetric regimes have non-zero duration (≥3 cycles, ≥18h). Pre-c1800 was symmetric (both triggered or both clear).
+**Status**: DESCRIPTIVE candidate.
+**Next**: track duration; if >5 cycles, consider as durable regime feature for chain-specific gates.
+
+### Stuck warning status
+**6 consecutive cycles with new findings** (since c1200 paradigm shift to wallet-feature). Trajectory: HUPHey discovery → 0x85871 discovery → γ-shape candidate → Methodology #15-18 → near-big cohort → top1-flex refinement. Stuck warning NOT triggered.

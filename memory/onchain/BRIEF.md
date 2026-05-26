@@ -1,52 +1,51 @@
-# BRIEF — onchain AI brain (cycle 20260526_0000)
+# BRIEF — onchain AI brain (cycle 20260526_0600)
 
-## State (live, ~50h window)
-- closed=**4962** (-4 vs c1800; rotation > new). 55 open (-20). Window: 05-23T21:42Z → 05-25T23:50Z.
-- **1 NEW BIG: GENWEALTH Sol +620.4%** (BF=H2 tied A/B/H — top1=99.9 smart=6 meteora lp=D4Bgpf symdup=2 — perfect HUPHey sub-filter)
-- **+2 near-bigs: Luce +136.5 (γ-relaxed!) + HarambeX +132.2 (β-fits)**
-- 0 BSC bigs in 19.5h (PROS last 04:26Z)
+## State (live, ~47h window)
+- closed=**4986** (+24). 33 open (-22). Window: 05-24T06:57Z → 05-26T06:06Z.
+- **0 NEW BIGS in 6h** (Sol GENWEALTH 9.4h, BSC PROS 25.2h crosses 24h).
+- **HUPHey near-big #5 MTFR-J1rp +103.0% SMART_TOP_AGE5** (top1=75 → refutes top1≥85 sub-filter).
+- **+4 Sol near-bigs (NOAR +143 / Dark +118 / RWA +108 / MTFR +103)** — ULTRA_TRIPLE disproportionate catch.
 
 ## Goal & gate
 **+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%. **0 paper streams deployed**.
 
-## Regime (CHAIN-ASYMMETRIC 2nd consec)
-- **Sol last50 -54.7% Cond A BORDERLINE CLEAR** (above -55). Last big GENWEALTH 5h. **Guard OFF Sol.**
-- **BSC last50 -57.6% Cond A TRIGGERED** (improved -62.6→-57.6). Last big PROS 19.5h. **Guard ON BSC.**
+## Regime (CHAIN-ASYMMETRIC 3rd consec)
+- **Sol last50 -44.5% Cond A CLEAR IMPROVED** (was -54.7). GENWEALTH 9.4h. **Guard OFF Sol.**
+- **BSC last50 -62.0% Cond A DEEPER TRIG** (was -57.6). PROS 25.2h Cond B fires. **Guard ON BSC.**
 
 ## Last validated (this cycle)
-**GENWEALTH = HUPHey hit #6 (rolling n=8 bigs=4=50% rugs=0 K=0.242 geom=+140%/trade WR=75% gate-PASSES Er/K/geom)**; **γ-RELAXED age≤25 STRENGTHENS n=16 K=0.453 geom=+6.60% catches Luce big** — 2nd cross-cluster γ instance, closest-by-n deploy (80% floor); **Methodology #18 SYMBOL-COPYCAT TRAP FALSIFIED** (orig 1.5% vs copy 2.9% big-rate 66 clusters); **HUPHey symdup<3 retrofit REJECTED** (excludes 3/4 bigs); **0x85871 geom CONTROVERSIAL** (floor=0.001 → FAIL, floor=0.05 → PASS — Methodology #19); **C11 PORTUGAL onset CONFIRMED UN-PRODUCTIVE** 15h+ 0 bigs (> C7's 6h40min max productive lag). See [cycle_20260526_0000.md](insights/cycle_20260526_0000.md).
+**HUPHey MTFR-J1rp +103 = hit #5 ≥+100% event** (n=9 bigs=4=44% rugs=0 cumul-16-rugless geom=+117%/trade Er=+1.96 WR=78% — gate-PASSES Er/K/geom by 5-100×); **H_HUPHEY_TOP1_85 REJECTED** (MTFR-J1rp top1=75 + Stake top1=69 prove wallet>top1); **0x85871 rug-clamp controversy MOOT** (CAP -100 rotated out, n=7→4 all wins geom=+135%/trade all floor choices); **PORTUGAL strict FORMALLY DOMINATED by 0x85871** (75% subsumption + Poor pickup + STAKE avoid); **NEW DIM H_NEAR_BIG_COHORT n=19** Sol 80-150% (ULTRA_TRIPLE+SMART_TOP_AGE5 42% catch); **NOAR 75qsE3p5y2BF 2nd big** (n=10 2b/2r 3rd named-wallet cand worse than HUPHey); **γ-relaxed +2 small no big** geom-fresh +1.55% vs brain-prev +6.60% measurement gap. See [cycle_20260526_0600.md](insights/cycle_20260526_0600.md).
 
 ## Top candidates
-- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready, hit #6 just landed)**: n=8 4b/0r avg=+278% K=0.242 geom=+140%/trade WR=75%. Gate: top1=HUPHey ∨ lp=D4Bgpf.
-- **PAPER_BSC_85871_WATCH (HEADLINE — PENDING RUG-CLAMP POLICY)**: n=7 3b/1r avg=+259% K=0.223. geom -4.67%/+66.5% policy-dependent.
-- **PAPER_SOL_GAMMA_RELAXED (NEW)**: top1<22 ∩ smart∈[2,8] ∩ pumpswap ∩ age≤25 ∩ lp_unlocked=False ∩ buys_m5≥250. n=16 K=0.453 geom=+6.60% — Popus + Luce bigs, 80% n-floor.
-- PORTUGAL strict (DROP — dominated by 0x85871 85.7% subsumption). TG-2h / BC_FULL_B (DEMOTED).
+- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready)**: n=9 4b/0r WR=78% avg=+196% geom=+117%/trade Er=+1.96. Gate: top1_owner=HUPHey... (drop top1≥85).
+- **PAPER_BSC_85871_WATCH (HEADLINE — rug-clamp MOOT, deploy-ready)**: n=4 2b/0r avg=+197% geom=+135%/trade. Gate: bc[0].addr=0x85871...
+- **PAPER_SOL_GAMMA_RELAXED**: top1<22 ∩ smart∈[2,8] ∩ pumpswap ∩ age≤25 ∩ lp_unlocked=False ∩ buys_m5≥250. n=16 geom-fresh=+1.55% (borderline).
+- PORTUGAL strict (**DROPPED** — formally dominated). TG-2h / BC_FULL_B (DEMOTED).
 
 ## Methodology — 19 forms
-**11.SINGLE-BLOCK**. **12.ROTATION-K** (7th confirm). **13.SINGLE-WALLET**. **14.NAMED-ALPHA ADOPTED**. **15.NEAR-COMPLETE OVERLAP 85.7%**. **16.HIST-vs-LIVE DRIFT candidate**. **17.NEAR-BIG REGIME candidate**. **18.SYMBOL-COPYCAT TRAP REJECTED on aggregate**. **19.RUG-CLAMP CONVENTION SENSITIVITY — NEW candidate (0x85871 geom 70pp swing).**
+**11.SINGLE-BLOCK**. **12.ROTATION-K 8th confirm** (85871+PORTUGAL n=7→4 same cycle). **13.SINGLE-WALLET**. **14.NAMED-ALPHA**. **15.SUBSUMPTION 75%** (85871 dominates PORTUGAL). **16.HIST-vs-LIVE DRIFT**. **17.NEAR-BIG REGIME CONFIRMED at n=19**. **18.SYMBOL-COPYCAT REJECTED**. **19.RUG-CLAMP — MOOT for 85871, defer.**
 
-## Planned next cycle (06:00Z 05-26)
-1. γ-relaxed 3rd-big watch (~4-6h cadence → n=18-20 reachable).
-2. HUPHey 7th-hit watch (consecutive Sol bigs Popus→GENWEALTH).
-3. C11 final disposition at 21h+ (fully un-productive precedent if 0 bigs).
-4. PORTUGAL strict full recompute under rotation.
-5. **0x85871 rug-clamp policy decision** — floor=0.001 vs 0.05.
-6. β-shape HarambeX sub-filter (known≥18 ∩ liq<$20K).
-7. 2nd Sol named-wallet hunt from 807 tokens.
-8. HUPHey/85871 open-position rescan (0 open both this cycle).
-9. 0x85871 BSCscan classification.
-10. CARRIED: SNIPER_H2 Sol routing (won GENWEALTH!); HUPHey Solscan identity; BSC volume fetcher; wallet leaderboard LIVE rebuild; pool_creator BVfVe44Wj 3rd-token watch.
+## Planned next cycle (12:00Z 05-26)
+1. HUPHey 10th-token watch (cadence ~1.8h/entry).
+2. 0x85871 forward-fire watch (C12 onset likely).
+3. NEAR-BIG cohort feature distribution analysis (19 tokens vs full-big cohort).
+4. γ-relaxed n=20 floor watch (4 more needed).
+5. **H_HUPHEY_TOP1_FLEX validation** — refit without top1 threshold, recall vs precision.
+6. PORTUGAL strict formal drop confirm.
+7. 75qsE3p5y2BF NOAR-wallet → 3rd named-alpha? (2b/2r).
+8. SNIPER_H2 Sol routing (won Poor + GENWEALTH).
+9. CARRIED: HUPHey Solscan; BSC volume; wallet leaderboard LIVE rebuild; BVfVe44Wj watch.
 
 ## Progress delta this cycle
-**POSITIVE (5)**: NEW BIG GENWEALTH = HUPHey #6 / γ-relaxed K=0.453 closest n-floor / Methodology #18 cleanly FALSIFIED / 2 near-bigs Luce HarambeX / Methodology #19 candidate raised.
-**NEGATIVE (3)**: C11 un-productive 15h+ / 0x85871 geom controversy / BSC drought 19.5h.
-**Net: POSITIVE**. 4 dimensions touched (wallet, shape, symbol-cluster, rug-clamp). Stuck NOT triggered (5 cycles new findings).
+**POSITIVE (4)**: HUPHey #5 ≥+100% / H_HUPHEY_TOP1_85 REJECTED / 0x85871 rug-clamp MOOT / NEW DIM near-big n=19.
+**NEGATIVE (3)**: 0x85871 n=7→4 rotation / PORTUGAL DOMINATED drop / γ-relaxed geom-fresh +1.55% gap.
+**Net: NET POSITIVE**. 5 dims (wallet, sub-filter, subsumption, rug-clamp, near-big). Stuck NOT triggered (6 consec).
 
 ## OPEN QUESTIONS to user
-1. **PAPER_SOL_HUPHEY deploy** — Brain leans **YES** (n=8 sub-floor but Er/K/geom 5-10× over gate).
-2. **PAPER_BSC_85871 deploy** — leans **DEFER pending rug-clamp policy**.
-3. **PAPER_SOL_GAMMA_RELAXED** — leans **NOT YET — watch 3rd big**.
-4. **Rug-clamp convention** — floor=0.001 conservative vs 0.05 stop-loss-adjusted as primary?
-5. **Methodology #19 formal adoption** — leans **YES**.
-6. **β-shape HarambeX exploration** — leans **YES one cycle**.
-7. CARRIED: SNIPER_H2 routing; HUPHey identity; BSC volume.
+1. **PAPER_SOL_HUPHEY deploy** — STRONG YES (5-10× over gates, 16-cumul rugless).
+2. **PAPER_BSC_85871 deploy** — YES (rug-clamp MOOT, all-wins).
+3. **PAPER_SOL_GAMMA_RELAXED** — DEFER (geom-fresh borderline).
+4. **H_HUPHEY_TOP1_FLEX adoption** — drop top1≥85? Brain leans YES.
+5. **75qsE3p5y2BF promotion** — WAIT (20% rug > HUPHey 0%).
+6. **Methodology #19 status** — MOOT until next 85871 rug.
+7. CARRIED: SNIPER_H2; HUPHey identity; BSC volume.
