@@ -2360,3 +2360,48 @@ ULTRA_TRIPLE + SMART_TOP_AGE5 capture 42% of near-bigs vs <20% on full bigs. Hyp
 ### Stuck warning status
 **7 consecutive cycles with new findings** (since c1200 paradigm shift). This cycle: methodology #20 + top1-flex formal adoption + #17 retirement = methodology progress even with FLAT n-progress.
 **Status**: NOT TRIGGERED.
+
+## NEW (proposed cycle 20260526_1800)
+
+### H_NOAR_WALLET — 3rd named-wallet entity (statistical-tier)
+**Idea**: Buy when `top1_owner.startsWith('75qsE3p5y2')` (NOAR launcher wallet — `75qsE3p5y2BFSLnfS9MUMqSAw...`).
+**Evidence (this cycle recount post Methodology #21 fix)**:
+- n=11 (was c0000 n=10 — Maple was unrecognized α-borderline c1200 because brain matched by symbol not address)
+- bigs=2 (18.2%): Maple +163.8, NOAR +152.5 | near=1 (9.1%): NOAR +142.5 | rugs=2 (18.2%): NOAR -100, NOAR -99.5
+- avg=+16.1%  WR=45%  Er=+0.17  K*=0.23  geom@K=+1.92%/trade  (floor=-0.95, cap=+500%)
+- All 11 hits dex=meteora; 10 of 11 have top1%=99.9 (one outlier Maple top1=83.5 = BIG); bf is 8× SMART_TOP_AGE5, 1× H2 (Maple BIG), 1× H, 1× other
+- Distance-to-deploy: 9 from n=20 floor (same as HUPHey distance)
+**Why it might fail**:
+- 18% rug rate does NOT meet Methodology #14 clean-alpha criterion (HUPHey=0%, 0x85871=0%). NOAR is statistical-tier, not clean-alpha tier.
+- Methodology #13 SINGLE-WALLET INFLATION applies → 2× n penalty (effective floor n=40, distance 29).
+- Sub-filter attempts to find clean cohort within NOAR FAILED (top1%<99.9 → n=2; bf=H2 → n=1; smart≥3∩known≥12 → 0 bigs in n=4).
+**Status**: NEW — STATISTICAL deploy candidate pending user tier-decision. Different deployment class from HUPHey/0x85871 clean-alpha tier.
+
+### H_TOP2_HLNP — REJECTED (Methodology #15 SUBSUMPTION + #20 COHORT-SHAPE TRAP)
+**Idea (initial)**: HLnpSz9h2S4hiLQ43rnSd9XKCutHA7b8HqMkmdaitlCc as `top20_owners[rank=2].addr` — 4 bigs (5.7%) / 19% rug on n=70 Sol best-fire dedup vs base 1.2%/55% = apparent 4.75× big lift, 66% rug reduction.
+**Walk-forward (60/20/20 by entry_time)**:
+- TRAIN n=42 bigs=3 (7%) rugs=8 (19%) avg=+21.0% Er=+0.11 K=0.11 geom=+0.54%
+- VAL n=14 bigs=1 (7%) rugs=1 (7%) avg=+38.6% Er=+0.30 K=0.42 geom=+4.79%
+- **TEST n=14 bigs=0 (0%) rugs=4 (29%) avg=-16.1% Er=-0.15 K=0.01 geom=-0.15% — FAILS gate**
+**REJECTED**:
+1. Walk-forward TEST FAILS (Er<0, geom negative).
+2. The 4 bigs are: Maple (NOAR top1), Stake/Poor/GENWEALTH (HUPHey top1) → **100% subsumed** by HUPHey∪NOAR top1_owner cohort.
+3. Per-day distribution shows launchpad-drift pattern (05-24: 20 entries 3 bigs +51.6% → 05-25: 42 entries 1 big +3.9% → 05-26: 8 entries 0 bigs +0.1%), mirroring c1200 launchpad finding (Methodology #16 historical-vs-live drift) on a different dimension.
+**Lesson**: HLnp is launchpad infrastructure — its rank-2 presence is a CONSEQUENCE of HUPHey/NOAR-deployed tokens using HLnp tooling, NOT an independent alpha source. **Methodology #20 2nd confirmation** (cohort-shape trap on top2 dimension; base-rate check + walk-forward TEST caught it).
+**Status**: REJECTED.
+
+## Methodology Lesson #21 NEW CANDIDATE — SYMBOL-BLIND WALLET DRIFT
+**Lesson**: When tracking a named-wallet cohort, cohort membership MUST be determined by the wallet address field (`top1_owner`, `bc[0]`, `pool_creator`, `lp_provider`), NEVER by the token symbol or visual association with prior cohort members. Re-cohort all named-wallet candidates at every cycle by re-scanning the full closed_trades on the wallet address.
+**Evidence**: NOAR cohort c0000 reported n=10 by symbol-matching `NOAR` tokens; this cycle's address-based re-scan found n=11 (Maple top1=75qsE3p5y2 was an unrecognized NOAR token because its symbol was `Maple`, not `NOAR`). Hidden cohort member skipped one cycle of progress tracking.
+**Root cause**: symbol ≠ wallet. Maple was c1200-classified as "α-borderline new shape candidate" instead of being recognized as the same NOAR launcher.
+**Inverse mode of #18 SYMBOL-COPYCAT TRAP**: #18 = assuming same symbol = same wallet (false positive). #21 = assuming different symbol = different wallet (false negative). Both reduce to: symbol-keyed memo of wallets is unreliable.
+**Adopt**: proactive (logic airtight from single case, no need to await 2nd instance).
+
+## Methodology Lesson #22 NEW CANDIDATE — API SCHEMA VERIFICATION
+**Lesson**: Before reporting any field/dict as "empty" or "missing", verify the exact key name in raw JSON via direct introspection (e.g., Python `list(d.keys())`). Mistaken key names produce false-empty alarms that pollute brain reasoning.
+**Evidence**: c1200 brain reported `state.json positions dict EMPTY` as a 3rd operational anomaly. This cycle's introspection found the actual key is `open_positions` (not `positions`) — 22 raw rows / 5 unique Sol opens always existed. The "empty positions" anomaly was a wrong-key bug, not a sniper write issue.
+**Mitigation**: 1 line of code: `print(list(state_dict.keys())[:20])` before any inventory.
+**Status**: low-importance procedural lesson; auto-apply.
+
+## Methodology Lesson #20 — formal adoption (2nd confirmation this cycle)
+**Status update**: Was CANDIDATE c1200 from a single instance (H_PUMPSWAP_SMART_VELOCITY n=89 73% rug). This cycle's H_TOP2_HLNP is 2nd confirmation — base-rate check + walk-forward TEST caught the cohort-shape trap before promotion. **READY for formal METHODOLOGY_LESSONS.md adoption.**

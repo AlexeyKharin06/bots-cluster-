@@ -1,52 +1,51 @@
-# BRIEF — onchain AI brain (cycle 20260526_1200)
+# BRIEF — onchain AI brain (cycle 20260526_1800)
 
-## State (live, stale 4.5h)
-- closed=**4930** (-56 net rotation). 0 open (state.json `positions` empty — suspicious). Window: 05-23T22:32Z → 05-26T07:18Z (~57h).
-- **0 new bigs / 0 new near-bigs in +1h12min new flow** since c0600.
-- **STATE.JSON STALE 4.5h** (last write 07:30Z, now 12:02Z). Sniper proc (pid 79459) running but not flushing. INFRA CONCERN.
-- 2nd anomaly: state.json earliest entry moved BACKWARD 8h25min (de-rotation?).
-- 3rd anomaly: state.json `positions` empty despite c0600 reporting 33 open.
+## State (live, STALE 10.5h — Helius rate-limit infinite loop)
+- closed=**4930** (unchanged from c1200, sniper not flushing). open=22 raw rows = **5 unique** Sol opens (XVG/USDCx/HTX/grail/CHARTARD — none match deploy gates).
+- Window: 05-23T22:32Z → 05-26T07:18Z (~57h, unchanged).
+- **STATE.JSON FROZEN 10.5h** (last write 07:30Z, now 18:01Z). **Root cause: ALL 13 HELIUS KEYS EXHAUSTED, sniper proc in infinite rotation loop** (6.8M log entries since 20:07Z yesterday). Last real CHECK 07:31Z.
+- **Context-prep pipeline also stale**: brain-context healthcheck dated 2026-05-20T18:06Z (6 days old).
+- **Operational anomaly resolved**: c1200's "positions empty" was a wrong-key bug → Methodology #22 candidate (key is `open_positions` not `positions`).
 
 ## Goal & gate
-**+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%. **0 paper streams deployed**.
+**+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%/trade. **0 paper streams deployed**. 4-cycle pending user authorization for HUPHey+85871.
 
-## Regime (chain-asymmetric 4th consec — extrapolating, can't recompute on stale data)
-- **Sol** Cond A likely still clear (was -44.5 c0600, GENWEALTH 18h before stale snapshot). **Guard OFF Sol.**
-- **BSC** Cond A still triggered (was -62.0), drought 30h+. **Guard ON BSC.**
+## Regime (5th cycle chain-asymmetric — extrapolating, can't recompute on stale data)
+- **Sol** Cond A likely still clear (was -44.5 c0600). **Guard OFF Sol.**
+- **BSC** Cond A still triggered (was -62.0). **Guard ON BSC.**
 
 ## Last validated (this cycle)
-**H_HUPHEY_TOP1_FLEX FORMALLY ADOPTED** via walk-forward sensitivity table (top1≥0/60/65 all give n=9 geom=+117%; top1≥85 drops to n=4 geom=+110.6%; drop threshold = no recall loss); **Methodology #20 NEW CANDIDATE: COHORT-SHAPE TRAP** — H_PUMPSWAP_SMART_VELOCITY (the SHAPE of 19 near-bigs) walk-forward REJECTED HARD n=89 73% rug K=-1.14 geom=-88% TRAIN/TEST both <-1; **Methodology #17 NEAR-BIG REGIME RETIRED** (near-bigs are survivor-noise in high-rug base, not discriminable cohort); **Sol BIGS vs NEAR-BIGS feature dist** OPPOSITE profile (BIGS meteora+H2+top1=83.5+smart=6+buys=81 vs NEAR-BIGS pumpswap+ULTRA_TRIPLE/SMART_TOP_AGE5+top1=66+smart=11+buys=198) — selection-bias illusion; state.json stale infra concern; n-distance UNCHANGED for all 3 deploy candidates. See [cycle_20260526_1200.md](insights/cycle_20260526_1200.md).
+**NOAR wallet RECOUNT via Methodology #21 fix: Maple +163.8 LINKED as 3rd big** (was c1200 unrecognized α-borderline because brain matched by symbol not address); NOAR cohort n=10→**11** (2 bigs/1 near/2 rugs, avg=+16.1%, **Er=+0.17 K=0.23 geom=+1.92%/trade — gate-passing Er/K/geom, only n<20 blocks, distance 9**). **3rd named-wallet entity** (HUPHey/0x85871/NOAR). NOAR 18% rug does NOT meet Methodology #14 clean-alpha (HUPHey 0% / 0x85871 0%) — statistical-tier only. **H_TOP2_HLNP NEW exploration → REJECTED** (walk-forward TEST n=14 0 bigs Er=-0.15; 100% subsumed by HUPHey∪NOAR via Methodology #15). **Methodology #21 NEW candidate: SYMBOL-BLIND WALLET DRIFT**; **#22 NEW candidate: API SCHEMA VERIFICATION**. See [cycle_20260526_1800.md](insights/cycle_20260526_1800.md).
 
-## Top candidates (n-progress FLAT due to stale state)
-- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready, top1-flex spec)**: n=9 4b/0r WR=78% avg=+258% geom=+117%/trade Er=+2.58 K~0.24. Gate: `top1_owner.startsWith("HUPHey")` (NO top1 threshold).
-- **PAPER_BSC_85871_WATCH (HEADLINE — rug-clamp MOOT, deploy-ready)**: n=4 2b/0r avg=+197% geom=+135%/trade. Gate: bc[0].addr=0x85871...
-- **PAPER_SOL_GAMMA_RELAXED**: top1<22 ∩ smart∈[2,8] ∩ pumpswap ∩ age≤25 ∩ lp_unlocked=False ∩ buys_m5≥250. n=16 geom=+1.55% (borderline).
-- PORTUGAL strict / β-shape / near-big shape — **all DROPPED / REJECTED**.
+## Top candidates (distance-to-deploy ranking)
+- **PAPER_SOL_HUPHEY_WATCH (HEADLINE — deploy-ready 4 cycles)**: n=9 (4 bigs/0 rugs) Er=+2.58 K~0.24 geom=+117%/trade. Gate: `top1_owner.startsWith("HUPHey")` (top1-flex spec, no top1 threshold). **#14 clean-alpha qualified.**
+- **PAPER_BSC_85871_WATCH (HEADLINE — deploy-ready 4 cycles)**: n=4 (2 bigs/0 rugs) geom=+135%/trade. Gate: `bc[0].addr.startsWith("0x85871")`. **#14 clean-alpha qualified.**
+- **PAPER_SOL_NOAR_WATCH (NEW candidate this cycle)**: n=11 (2 bigs/1 near/2 rugs) Er=+0.17 K=0.23 geom=+1.92%/trade. Gate: `top1_owner.startsWith("75qsE3p5y2")`. **Statistical-tier — #14 NOT met (18% rug).**
+- **PAPER_SOL_GAMMA_RELAXED**: n=16 geom=+1.55% (borderline). Feature-shape filter.
+- PORTUGAL strict / β-shape / near-big shape / TOP2_HLNP — **all DROPPED / REJECTED**.
 
-## Methodology — 20 forms
-**11.SINGLE-BLOCK**. **12.ROTATION-K 8th**. **13.SINGLE-WALLET**. **14.NAMED-ALPHA**. **15.SUBSUMPTION 75%**. **16.HIST-vs-LIVE DRIFT**. **17.NEAR-BIG REGIME — RETIRED this cycle**. **18.SYMBOL-COPYCAT REJECTED**. **19.RUG-CLAMP — MOOT for 85871 deferred**. **20.COHORT-SHAPE TRAP NEW CANDIDATE** — top-N% outcome cohorts yield survivor-biased filters; always validate against full base population.
+## Methodology — 22 forms catalogued
+**11-19** as prior. **20.COHORT-SHAPE TRAP** (now 2 confirmations: c1200 PUMPSWAP_SMART_VELOCITY + c1800 TOP2_HLNP) → **READY FOR FORMAL ADOPTION**. **21.SYMBOL-BLIND WALLET DRIFT NEW CANDIDATE** (re-cohort by address every cycle, not symbol). **22.API SCHEMA VERIFICATION NEW CANDIDATE** (verify dict keys before reporting empty).
 
-## Planned next cycle (18:00Z 05-26)
-1. **VERIFY state.json freshness** — first task. If still stale, escalate to CRITICAL_FINDINGS + healthcheck.
-2. **Investigate state.json earliest-backward anomaly** (8h25min de-rotation).
-3. **Investigate state.json `positions` empty** — migration / partial-write?
-4. **HUPHey 10th-token watch** (needs fresh data).
-5. **0x85871 forward-fire watch** (needs fresh data).
-6. **γ-relaxed n=20 floor watch** (4 more entries).
-7. **Methodology #20 formalize** — update brain reasoning template (base-rate check BEFORE feature-extraction).
-8. **Apply #20 retrospectively** to "Sol BIGS shape" emerging signal (n=8 meteora+H2+top1≥80+buys≤200) — base-rate check first.
-9. CARRIED: SNIPER_H2 Sol routing (5/8 Sol bigs BF=H2); HUPHey Solscan identity; BSC volume fetcher; Wallet leaderboard rebuild; 75qsE3p5y2BF 11th-token watch; Pool_creator BVfVe44Wj 3rd-token.
+## Planned next cycle (00:00Z 05-27)
+1. **VERIFY HELIUS KEY STATUS** — escalate to CRITICAL_FINDINGS if still rate-limited. User-side fix needed (refresh keys / quota / cooldown patch).
+2. **VERIFY context-prep pipeline** — healthcheck regeneration.
+3. If state freshens: HUPHey 10th / 0x85871 5th / NOAR 12th / γ-relaxed n=20 watch.
+4. NOAR sub-cohort dive (top1%<99.9 + bf=H2 + meteora∩smart≥3) if 2 more entries land.
+5. **Methodology #21 PROACTIVE adoption** (logic airtight from single case).
+6. CARRIED: SNIPER_H2 Sol routing; HUPHey Solscan identity; BSC volume; wallet leaderboard rebuild; state.json earliest-backward anomaly; pool_creator BVfVe44Wj 3rd-token watch; Sol bigs n=8 shape base-rate check (per #20 — wait for n>8).
 
 ## Progress delta this cycle
-**POSITIVE (3)**: H_HUPHEY_TOP1_FLEX walk-forward validated / Methodology #20 NEW CANDIDATE / Methodology #17 cleanly RETIRED.
-**NEGATIVE (3)**: state.json STALE 4.5h / n-distance FLAT / 2 more operational anomalies (earliest-backward + positions-empty).
-**Net: NET POSITIVE on methodology, FLAT on n-progress.** Stuck NOT triggered (7th consec).
+**POSITIVE (4)**: NOAR recount adds Maple (3rd named-wallet) / TOP2 dimension explored end-to-end / Methodology #21 candidate / #22 candidate.
+**NEGATIVE (3)**: State.json frozen 10.5h (root-caused but not fixed) / NOAR 18% rug = statistical-tier not deploy-ready / infra emergency persists 22h.
+**Net: NET POSITIVE on methodology + 3rd named-wallet, FLAT on n-progress (3rd consec stale cycle), NEGATIVE on infra.**
+**Stuck warning**: NOT triggered (8th consec cycle with new findings).
 
 ## OPEN QUESTIONS to user
-1. **STATE.JSON STALE 4.5h** — sniper proc running but file not flushing. Verify write-cadence / disk-flush / state-rotation logic.
-2. **STATE.JSON earliest backward 8h25min** — intended state-rebuild or anomaly?
-3. **STATE.JSON `positions` empty** — c0600 had 33 open, now 0. Migration or write-partial?
-4. **PAPER_SOL_HUPHEY deploy** — STRONG YES (n=9 Er=+2.58 5-100× over gates, top1-flex spec finalized).
-5. **PAPER_BSC_85871 deploy** — YES (rug-clamp MOOT n=4 all-wins).
-6. **Methodology #20 formal adoption** — add to METHODOLOGY_LESSONS.md.
-7. CARRIED: SNIPER_H2 Sol routing; HUPHey identity; BSC volume; wallet leaderboard rebuild.
+1. **HELIUS KEY EXHAUSTION (CRITICAL)** — sniper non-functional 22h, all 13 keys rate-limited. Need refresh/quota/cooldown patch. ★★★
+2. **Context-prep pipeline stale** — healthcheck 6 days old in brain-context bundles.
+3. **PAPER_SOL_HUPHEY deploy** — STRONG YES (n=9 Er=+2.58, 5-100× gate, 4-cycle pending).
+4. **PAPER_BSC_85871 deploy** — YES (n=4 all-wins, 4-cycle pending).
+5. **PAPER_SOL_NOAR_WATCH deploy as STATISTICAL-tier** (NEW, n=11 K=0.23 geom=+1.92%/trade) — different tier from clean-alpha HUPHey/0x85871; user decision required.
+6. **Methodology #20 formal adoption** (2 confirmations now); **#21 proactive adoption** (logic airtight); **#22 trivial adoption**.
+7. CARRIED: SNIPER_H2 Sol routing; HUPHey identity; BSC volume; wallet leaderboard rebuild; state.json earliest-backward anomaly.
