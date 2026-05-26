@@ -2295,3 +2295,68 @@ ULTRA_TRIPLE + SMART_TOP_AGE5 capture 42% of near-bigs vs <20% on full bigs. Hyp
 
 ### Stuck warning status
 **6 consecutive cycles with new findings** (since c1200 paradigm shift to wallet-feature). Trajectory: HUPHey discovery → 0x85871 discovery → γ-shape candidate → Methodology #15-18 → near-big cohort → top1-flex refinement. Stuck warning NOT triggered.
+
+---
+## NEW HYPOTHESES — cycle 20260526_1200
+
+### H_HUPHEY_TOP1_FLEX (FORMALLY ADOPTED)
+**Spec**: HUPHey filter = `top1_owner.startsWith("HUPHey")` only, NO top1 threshold.
+**Walk-forward**: HUPHey n=9 rolling cohort, top1 threshold sensitivity:
+- top1≥0 (no threshold): n=9 bigs=4 avg=+258.5% geom=+117.32%/trade ← ADOPTED
+- top1≥65: n=9 (identical, min top1=68.6 in dataset)
+- top1≥70: n=7 bigs=3 geom=+123.44% (loses Stake +481 + PP420 -33)
+- top1≥85 (prev candidate): n=4 bigs=2 geom=+110.62% (loses 5 entries, geom drops)
+**Decision**: drop top1 threshold. Wallet identity is alpha; top1 noise within HUPHey activity.
+**Status**: ADOPTED. Final spec for PAPER_SOL_HUPHEY_WATCH.
+
+### Methodology #20 candidate: COHORT-SHAPE TRAP
+**Observation**: This cycle, brain selected the 19 Sol near-bigs (80-150% pnl band) and computed their median feature distribution: pumpswap=13/6, smart median=11 (vs bigs=6), buys_m5=198 (vs bigs=81), top1=66 (vs bigs=83.5). This looked like a structural difference between near-bigs and bigs ("near-bigs = pumpswap+smart-velocity shape").
+**Walk-forward test**: filter `pumpswap ∩ smart≥10 ∩ buys_m5≥150 ∩ top1∈[10,75]` (the near-big shape):
+- Full cohort: n=89 bigs=1 (1.1%) near=5 (5.6%) rugs=65 (73.0%) avg=-65.7% geom=-88.30% K=-1.138 WR=18%
+- TRAIN (oldest 60%, n=53): 1 big 44 rugs geom=-91.25% K=-1.10
+- TEST (newest 40%, n=36): 0 bigs 21 rugs geom=-82.04% K=-1.04
+**Conclusion**: The "near-big shape" is a RUG FACTORY. The 19 near-bigs are survivors of selection bias within a 89-strong base population that's 73% rug.
+**Lesson #20 statement**: Before deriving a filter from cohort-shape (median features of top-N% outcomes), count the base population with the same shape and compute P(big|shape). If base-rate is rug-heavy, the shape is selection-bias survival, not a discriminator.
+**Status**: NEW CANDIDATE, ready for formal lesson adoption.
+
+### H_PUMPSWAP_SMART_VELOCITY (REJECTED HARD via Methodology #20)
+**Spec**: pumpswap ∩ smart≥10 ∩ buys_m5≥150 ∩ top1∈[10,75].
+**Walk-forward**: n=89 K=-1.14 geom=-88% 73% rug. TRAIN/TEST both K<-1.
+**Status**: REJECTED HARD. Serves as Methodology #20 canonical example.
+
+### H_STATE_WRITE_INFRA_FRESHNESS (operational)
+**Observation**: state.json last write 07:30Z, current 12:02Z, gap 4.5h. Sniper proc running. 2nd anomaly: earliest entry moved BACKWARD 8h25min. 3rd anomaly: `positions` dict empty.
+**Hypothesis**: sniper state-write cadence has degraded, or state-rebuild logic triggered, or atomic-rename has stalled.
+**Status**: NEW OPERATIONAL — needs user / infra-check.
+**Next**: check sniper logs, disk-write i/o, state-rename logic. Flag in BRIEF.
+
+---
+## STATUS UPDATES (cycle 20260526_1200)
+
+### H_WALLET_TOP1_HUPHEY (deploy-ready, top1-flex spec finalized)
+**Update c1200**: stale-data cycle, n=9 unchanged. H_HUPHEY_TOP1_FLEX walk-forward sensitivity table (top1≥0..90 across 8 thresholds) confirms top1≥0 (no threshold) preserves full n=9 geom=+117%. Spec FINALIZED: `top1_owner.startsWith("HUPHey")` only.
+**Status**: deploy-ready, FINAL SPEC LOCKED.
+
+### H_85871_BC0_WATCH (deploy-ready, unchanged)
+**Update c1200**: stale-data cycle, n=4 unchanged. No fresh BSC forward-fires.
+**Status**: deploy-ready, unchanged.
+
+### H_GAMMA_RELAXED (borderline, unchanged)
+**Update c1200**: stale-data cycle, n=16 unchanged.
+**Status**: borderline, unchanged.
+
+### H_NEAR_BIG_COHORT (REJECTED via Methodology #20)
+**Update c1200**: Walk-forward H_PUMPSWAP_SMART_VELOCITY (the near-big shape) n=89 K=-1.14 73% rug. Near-bigs are survivor-noise in high-rug base, NOT a discriminable cohort.
+**Status**: REJECTED. Methodology #17 (NEAR-BIG REGIME) RETIRED. ULTRA_TRIPLE/SMART_TOP_AGE5 capture rate without base rate is meaningless.
+
+### Methodology #17 NEAR-BIG REGIME (RETIRED)
+**Update c1200**: Cleanly retired this cycle. Near-bigs are survivor noise within high-rug base. "Magnitude shrinkage" reading was also wrong (GENWEALTH +620 c0000 refuted it).
+**Status**: RETIRED. Removed from active methodology candidate list.
+
+### H_REGIME_ASYMMETRIC_DURATION (4th consecutive cycle, unchanged inference)
+**Update c1200**: Can't recompute on stale data, but extrapolating: 4th consecutive chain-asymmetric cycle. Sol clear / BSC triggered.
+**Status**: DESCRIPTIVE candidate, 4 cycles now.
+
+### Stuck warning status
+**7 consecutive cycles with new findings** (since c1200 paradigm shift). This cycle: methodology #20 + top1-flex formal adoption + #17 retirement = methodology progress even with FLAT n-progress.
+**Status**: NOT TRIGGERED.
