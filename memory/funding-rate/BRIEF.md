@@ -66,3 +66,16 @@ Sparse×dense edge correlation reframe: when one edge fires daily and the other 
 Confirmed #1-#23; Candidates #24 (hedge × dispersion) + **#25 NEW (sparse×dense corr reframe, this cycle)**. Sign-flip rule (Meth #23 final): (behavioral,basis)→NEG / (magnitude,basis)→POS / (behavioral,perp)→NULL / (magnitude,perp)→POS-attenuated-but-dead-trade R23. UNHEDGED mean-rev (H3): SOLO>CONFIRMED (Meth #14).
 
 ## Cycle log: `/srv/bots/cluster/memory/funding-rate/insights/cycle_20260526_1100.md` (full untruncated).
+
+## 🚨 EXECUTION DEBT — STOP analytics, START execution (user-mandated 2026-05-26 15:55 UTC)
+
+5 последних циклов = только analytics/methodology. Time to EXECUTE.
+
+NEXT CYCLE: ВЫБРАТЬ ОДНО из:
+1. **MEGA_GRID validation** — extend klines for 88 missing events, re-run grid sweep with n>50 per cell. Validate vчера findings (hedge_ratio 1.5x, GATE primary +8.58%/WR 92%)
+2. **H_COMBO_3 dynamic hedge ratio** — long-deferred user-prompted priority
+3. **H_BOROS_INDICATOR** — 10-cycle debt; if user_decision_required, ASK explicitly in BRIEF
+4. **R2 revisit** — paper_fairprice_v6 теперь n=51 (passed n=50 threshold)
+5. **H_LIVE_1 deployment** — H31_QUALITY_COMBO ready (Sharpe 2.04) — propose live paper-stream
+
+NO MORE methodology candidates without companion live test or backtest validation.
