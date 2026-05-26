@@ -482,3 +482,57 @@ H_BOROS_INDICATOR UPDATED 2026-05-26_1100 | DEFERRED 10 CYCLES. **USER DECISION 
 H_COMBO_3 NEW 2026-05-26_1100 | next-cycle priority #1 | dynamic hedge ratio per pre-event basis trajectory (~30-45 min). Variants: (a) fixed h=1.0 baseline (current H31 spec), (b) h scaled by |pre_basis| (assumes basis convergence stronger when initial divergence larger), (c) h scaled by ex-rank pre-funding magnitude. Inputs: /tmp/h34_results.parquet (101 events × per-ex pre-rate) + /tmp/c2_wide.parquet (basis trajectories). Would also corroborate Meth #24 candidate (hedge × dispersion) on H31 LONG sample. Predicted: monotone-positive Sharpe lift up to h~1.2-1.5; cliff past h=1.5 (over-hedge reverses sign in synchronized regimes). NEXT-CYCLE PRIORITY #1.
 
 (CROSS-EDGE CO-OCCURRENCE AXIS — CLOSED FOR H3×H38) 2026-05-26_1100 | H3 and H38 confirmed orthogonal (Pearson +0.04). No further sub-tests planned for this pair. Future H_COMBO_* in this axis should pursue: H3×H34 (untested, probable orthogonal by H34's smaller event-density), or H31×H3 weekly aggregation (cycle 1100 noted weekly washes corr — would confirm if weekly H31×H3 also collapses to zero, predicted yes). Low priority — current 3-edge portfolio thesis stands.
+
+## ─────────────────────────────────────────────────────────────────────────────
+## CYCLE 20260526_1700 — BRIEF triple resolution + Meth #26 candidate
+## ─────────────────────────────────────────────────────────────────────────────
+
+### R24 — SIGN-FLIP SHORT primary (REJECTED this cycle)
+- BRIEF asked: SHORT primary perp + LONG spot on gate+okx H31 events, n=52, target +5%/WR60%
+- Tested unhedged version as upper bound (spot hedge can only add basis pickup, not multiply price)
+- gate+okx 8h NET +0.80% / WR 61.5% / median +1.90% — FAILS +5% mean gate by 4x
+- Walk-fwd UNSTABLE: gate+okx TRAIN +0.11% / TEST +3.55% n=13 pocket; full sample TRAIN -0.56 / TEST -9.65 pocket-failure pattern
+- Per-ex Sharpe (-0.31 to +0.12) — no decisive ex
+- Mechanism: shorting an already-discounted perp means betting on further divergence the pre-event funding already paid you to NOT do
+- DO-NOT-RETEST unless: (a) different hedge structure (SHORT primary + LONG OTHER-ex perp); (b) different trigger (funding-spike not interval-shortening)
+
+### NANO-CAP FILTER on basis-hedged H31 — REJECTED as recommendation transfer
+- BRIEF recommended fp<$0.01 exclude after MEGA_GRID downgrade tail (PIPPIN -47%, LYN -40% in unhedged single-leg)
+- Tested in validated basis-hedged variant: ALL 9 nano-cap events (F/ZIL/PIXEL/TURBO/DOOD/NOM×3/XCN) POSITIVE basis_4h (+1.78% to +8.60%)
+- baseline n=116 mean +3.52%/Sh 1.84 → filter n=107 +3.52%/Sh 1.85 = ΔSharpe +0.01 noise
+- Throughput cost -7.8% for zero edge improvement
+- Mechanism: basis hedge fully absorbs the -25% NOM-class price falls that motivated the filter
+- BRIEF's named killers (PIPPIN, LYN) not in our 116 LONG events — actual nano-caps behave fine
+
+### H_COMBO_3 variant (b) intensity-scaling — FALSIFIED pre-test
+- Cycle 1100 predicted "monotone-positive Sharpe lift up to h~1.2-1.5" for hedge ratio scaled by |pre_rate|
+- Quartile sweep this cycle: basis_4h Sharpe FLAT across pre_abs quartiles (q1_low 1.75, q2 1.97, q3 1.73, q4_high 1.98); pre_abs_p50 from 0.03% to 1.64%
+- Falsifies (b) — basis convergence is post-event-funding driven, NOT pre_rate magnitude driven
+- Next cycle redirect H_COMBO_3 to variant (c) ex-rank pre-funding magnitude (more plausible: captures cross-ex coverage breadth not magnitude)
+- Saves ~15 min vs running both variants
+
+### METHODOLOGY #26 CANDIDATE — Filter-from-rejected-variant doesn't auto-transfer to validated variant
+- Statement: when sub-strategy is rejected, the diagnostic features identified as "cause of failure" are properties of THAT rejected trade structure, not of the underlying market
+- Before importing those features as filters into a different validated deployment, re-derive whether the same features are still problematic in the new structure
+- The mechanism causing the failure may already be neutralized by the validated structure's different trade construction (often: the hedge IS the neutralizing mechanism)
+- Evidence (this cycle): MEGA_GRID identified `fp<$0.01` as nano-cap risk in unhedged; basis-hedged variant proves it's a non-issue (Sharpe unchanged)
+- Generalizable table: price-direction loss (applies unhedged, not delta-neutral); funding-cost loss (applies pay-side, not collect-side); cross-ex divergence (applies single-ex, not cross-ex multi-leg); liquidity wick (applies HF, not low-freq longer-hold)
+- Operational rule: default expectation ~50% of "filter from rejected variant" won't transfer
+- Generalizes Meth #17 (CONFIRMED-vs-SOLO sign-flips by structure), #23v2 (4-cell trigger×hedge grid), #25 (sparse×dense reframe)
+- Promotion gate: one more corroborating retro-test on another rejected-variant feature transfer
+
+### H_COMBO_3 — REDIRECTED (was next-cycle #1)
+- Variant (a) fixed h=1.0 baseline — already validated
+- Variant (b) scale by |pre_rate| — FALSIFIED this cycle (Sharpe flat across quartiles)
+- Variant (c) scale by ex-rank pre-funding magnitude — UNTESTED, more plausible; next cycle priority #1 (~25 min)
+
+### H_BOROS_INDICATOR — DEFERRED 11 CYCLES (USER DECISION REQUIRED)
+- Pendle Boros YU implied APR via Arbitrum RPC as leading indicator for H34 entries
+- ~2h infra, read-only, no execution risk
+- Blocking since cycle 24_1700
+- User: please OK or explicitly defer-with-end-date
+
+### H31_QUALITY_COMBO — REMOVED from STOP list
+- Prior BRIEF STOP-list entry "needs sign-flip retest" was an over-inclusion
+- H31_QUALITY_COMBO sits on net_4h_basis (validated edge), NOT on the unhedged variant that was downgraded
+- Sign-flip retest this cycle confirms basis is unaffected; H31_QUALITY_COMBO remains operational tier
