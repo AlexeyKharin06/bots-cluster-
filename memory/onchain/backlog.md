@@ -2171,3 +2171,59 @@ SKIP IF (
 ### Methodology #15 SUBSUMPTION-OVERLAP (claimed 100% c1200)
 **Update c1800**: WALK-BACK. Actual 6/7 = 85.7% (STAKE bc0=0x26f6ebd1 NOT 85871; c1200 brain miscounted). Re-frame: NEAR-COMPLETE OVERLAP not perfect. 0x85871 ALSO catches tokens PORTUGAL misses (Poor bc=1) so they are MUTUALLY ENRICHING not strict containment.
 **Status**: revised from "100% subsumption" to "near-complete asymmetric overlap".
+
+---
+## NEW HYPOTHESES — cycle 20260526_0000
+
+### H_GAMMA_AGE_RELAXED (NEW — closest-by-n deploy candidate)
+**Spec**: γ-shape RELAXED — top1<22 ∩ smart∈[2,8] ∩ pumpswap ∩ age≤25 (was ≤15) ∩ lp_unlocked=False ∩ buys_m5≥250.
+**Walk-forward this cycle**: n=16 K=0.453 geom=+6.60%/trade Er=+0.216 bigs=2 (Popus 13:49Z +220 + Luce 20:56Z +136) rugs=0. ALL gates PASS except n<20 floor (4 entries away).
+**Cross-instance**: 2 bigs 7h apart different mints — single-block risk Methodology #11 partially mitigated. Add 3rd big spanning >24h → fully clears #11.
+**Status**: PROMOTED over γ-strict. Watch for 3rd big.
+**Next**: monitor next 12-24h; if Sol Cond A holds clear, ~4-6h cadence expected.
+
+### H_RUG_CLAMP_POLICY (Methodology #19 candidate)
+**Observation**: 0x85871 BSC n=7 geometric mean varies 70+pp depending on rug-clamp:
+- floor=0.001 (worst-case 0% recovery): geom = -4.67%/trade → FAILS geom gate ≥1%
+- floor=0.05 (typical -95% stop-loss exit): geom = +66.5%/trade → PASSES
+- c1800 reported +42% (likely -0.90 clamp)
+**Why important**: 0x85871 deploy decision pivots on this. Same for any filter with CAP-style -100% rugs in small samples.
+**Status**: NEW Methodology #19 candidate — formalize policy.
+**Next**: brain to standardize conservative floor=0.001 as primary; document floor=0.05 as "stop-loss-adjusted" alternative metric.
+
+### H_BETA_HARAMBEX_SUBFILTER (n=1 candidate)
+**Observation**: HarambeX +132 Sol fits broad β-shape (top1∈[50,75] ∩ pumpswap ∩ smart≥10) which fails K=-1.59 over n=83 (82% rug). HarambeX specifics: top1=73 smart=12 known=18 age=21 buys_m5=136 liq=$16,980 lp_unlocked=True dex=pumpswap.
+**Hypothesis**: tighter sub-filter (known≥18 ∩ liq<$20K ∩ buys_m5<200) might isolate fat-tail.
+**Status**: n=1 single observation, needs 2nd to test.
+**Next**: scan β-cohort with proposed sub-filter; if n≥3 and ≥1 big → promote candidate.
+
+---
+## STATUS UPDATES (cycle 20260526_0000)
+
+### H_WALLET_TOP1 HUPHey (deploy-ready)
+**Update c0000**: GENWEALTH hit #6 +620.4% (top1=99.9 smart=6 meteora — sub-filter top1≥85∩meteora PERFECT). Rolling n=8 (3 oldest rotated since c1800), bigs=4 (50%), rugs=0, avg=+278%, K=0.242, geom=+140%/trade WR=75% Er=+2.78. ALL gates PASS by 5-10× except n<20 floor. Consecutive bigs Popus→GENWEALTH (within 24h).
+**Status**: deploy-ready unchanged; brain leans YES DEPLOY this cycle. Note symdup<3 overlay REJECTED (would exclude 3/4 bigs).
+
+### H_85871_BC0_WATCH (deploy-ready PENDING RUG-CLAMP POLICY)
+**Update c0000**: n=7 unchanged, K=0.223. Geom controversial (Methodology #19 candidate). C11 onset DICKMAXX/PTAI 15h+ no big — C11 confirmed un-productive.
+**Status**: deploy-ready PENDING rug-clamp policy decision (#19).
+
+### H_PORTUGAL_C11_ONSET (descriptive monitor)
+**Update c0000**: C11 at 15h+ still 0 bigs — > C7 max productive lag 6h40min. **CONFIRMED UN-PRODUCTIVE** = 1st failure of H_CLUSTER_PORTUGAL_PRESENCE precision. Productive-cluster big-rate 6/7=86% → 6/8=75%. Methodology hold but precision regression.
+**Status**: CONFIRMED UN-PRODUCTIVE; flag for backlog as precedent.
+
+### H_NEAR_BIG_REGIME (Methodology #17 candidate)
+**Update c0000**: Sol +620 GENWEALTH conclusively REFUTES magnitude-shrinkage hypothesis. +620 is solidly fat-tail. Sol big-magnitude pipeline healthy.
+**Status**: REFUTED on Sol.
+
+### H_3RD_NAMED_WALLET_HUNT (FAILED c1200, c1800)
+**Update c0000**: GENWEALTH lp_provider=D4Bgpf, pool_creator=DtBTU46JaHVFjFZoFP6yc2542L2mEVNXTXAjh8BcLWcU (1-token unique). No new named-wallet candidate emerged. Class size still 2 (HUPHey + 0x85871).
+**Status**: FAILED, retry deferred.
+
+### H_SYMBOL_COPYCAT_TRAP (Methodology #18 candidate from c1800)
+**Update c0000**: FALSIFIED on aggregate. Full 66-cluster scan: orig big-rate 1.5% vs copy big-rate 2.9% (copies SLIGHTLY MORE big-prone, not less). Counter-examples NOAR/BELIEF/GYATT/Stake (orig fail + copy bigged). Popus/Luce orig-pumps are LOCAL not general.
+**Status**: REJECTED on aggregate. Methodology #18 demoted from candidate. Symdup<3 overlay for HUPHey also REJECTED.
+
+### H_GAMMA_STRICT (c1800 candidate)
+**Update c0000**: Rolling n=10 K=0.370 geom=+4.43% — slight weakening from c1800 (n=11 K=0.34, Luce -18 dilution + CBSt rotation). Superseded by H_GAMMA_AGE_RELAXED.
+**Status**: SUPERSEDED by relaxed variant.
