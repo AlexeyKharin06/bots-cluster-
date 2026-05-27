@@ -2405,3 +2405,46 @@ ULTRA_TRIPLE + SMART_TOP_AGE5 capture 42% of near-bigs vs <20% on full bigs. Hyp
 
 ## Methodology Lesson #20 — formal adoption (2nd confirmation this cycle)
 **Status update**: Was CANDIDATE c1200 from a single instance (H_PUMPSWAP_SMART_VELOCITY n=89 73% rug). This cycle's H_TOP2_HLNP is 2nd confirmation — base-rate check + walk-forward TEST caught the cohort-shape trap before promotion. **READY for formal METHODOLOGY_LESSONS.md adoption.**
+
+---
+
+## Cycle 20260527_0000 additions
+
+### H_SELF_LP — weak-alone, file for COMBO
+**Idea**: `top1_owner == pair_address` (i.e., top-1 owner is the pair contract itself, characteristic of pump.fun pre-graduation bonding-curve tokens) as a rug-modulating feature.
+**Backtest (n=4930 closed_trades, full corpus)**:
+- ALL: n=4930 big=127 (2.58%) rug=2668 (54.12%) avgPnL=-49.4%
+- Self-LP (top1==pair): n=2245 (45.5% pop coverage) big=53 (2.4%) rug=1327 (59.1%) avgPnL=-56.3%
+- Non-self-LP: n=2685 big=74 (2.8%) rug=1341 (49.9%) avgPnL=-43.7%
+**Effect**: rug% +5.0pp, avgPnL -6.9pp vs population. Modest but real.
+**Methodology #20-aware concern**: This is likely a "pump.fun pre-graduation" proxy and may be SUBSUMED by existing `bc<30` field already used in HUPHey/85871 gates. Walk-forward + bc combo test required before any promotion.
+**Status**: WEAK ALONE — keep as COMBO modifier candidate. Test for orthogonality with bc-stage next cycle when state freshens.
+**Note**: 4 of 5 our current Sol open positions are self-LP (XVG/USDCx/grail/CHARTARD; HTX excepted) → empirically observable rug-risk concentration in current opens.
+
+### H_GECKO_FEED — new data source / source coverage gap
+**Idea**: Add a poller that ingests `/srv/bots/.shared/data/pumps_24h.jsonl` (geckoterminal_trending) into sniper signals_pool. Currently 100% of pumps_24h corpus (23 unique tokens last ~3 days) is gecko-trending sourced — a feed our sniper does NOT directly tap.
+**Quantification**: ~7-8 unique pumped tokens/day from gecko-trending. At 2.6% population big-rate ≈ 0.2 expected bigs/day from this source.
+**Implementation gate**: Requires (a) infra fix (Helius), (b) user OK to add new entry source. NOT actionable this cycle.
+**Caveats**:
+- Risk of duplicate entries (already captured in serial streams); needs dedup against seen_tokens.
+- Gecko-trending lags raw mint creation by minutes-hours (it's a trending feed, not realtime mint feed) — entries via this source may be Phase 3 hype rather than Phase 1-2 alpha. Phase classification per HOLISTIC_STRATEGY_MANDATE required.
+- Likely subsumed by existing DexScreener boost/profile filter for the same tokens after some lag. Empirical overlap measurement needed.
+**Status**: NEW candidate, await infra fix + user OK to design.
+
+## Methodology Lesson #21 — graduation from CANDIDATE to READY (2nd confirmation this cycle)
+**Real-time confirmation evidence**:
+- Our open `grail`: token mint `Ga3dqNJDMtKNUXromL2zFemWyKrUdqJ1w6AracjVWRia`, pair_addr `3FUCCrjN…`, top1_owner = pair_addr (self-LP), entry 05-26T06:15Z, flat price action.
+- pumps_24h `grail`: pair_addr `UvN1ZVZJom7D4CPuhjJrbD6y82k5TSefRQMZHHXjjfM`, pair_created 05-26T02:49Z (3.5h earlier), peaked +2188% — unrelated mint.
+- Two unrelated Sol mints share the symbol `grail` on the same day. Symbol-only matching would attribute the wrong outcome.
+- Combined with c1800 historic Maple/NOAR linking case = 2 confirmations.
+**Adopt status**: PROMOTED from CANDIDATE to READY FOR FORMAL ADOPTION (parity with #20).
+
+## Methodology Lesson #23 NEW CANDIDATE — INFRA-CRISIS OPPORTUNITY COST QUANTIFICATION
+**Lesson**: When sniper non-functional for X hours, quantify missed-pump count from `pumps_24h.jsonl` to give user a concrete cost figure for the outage. Helps prioritize infra fixes vs other engineering work.
+**Evidence (this cycle)**:
+- Sniper frozen 16.5h (28h since infinite-loop onset).
+- pumps_24h corpus shows 23 unique pumped Sol tokens in ~3-day window.
+- At population big-rate 2.6%: ≈ 0.6 expected bigs MISSED during outage.
+- At population rug-rate 54%: ~12 rugs AVOIDED (silver lining of being offline).
+- Net expected: -0.6 bigs (positive value missed) is the actionable cost figure.
+**Status**: SINGLE case (this cycle). Promote to CONFIRMED on next infra outage application.
