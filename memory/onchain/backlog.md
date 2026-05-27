@@ -2523,3 +2523,63 @@ ULTRA_TRIPLE + SMART_TOP_AGE5 capture 42% of near-bigs vs <20% on full bigs. Hyp
 ## Methodology Lesson #4 — REAFFIRMED STRONGLY
 **Re-evidence this cycle**: c0000 H_SELF_LP backtest on raw 4930 rows reported -6.9pp avgPnL drag (weak veto). This cycle best-fire dedup 802 unique mints reports -28.4pp drag (4× stronger). Stream duplication INFLATES both subsets unevenly; only best-fire dedup gives valid cohort statistics.
 **Rule**: any population-level cohort statistic MUST use best-fire dedup. Never report raw-row statistics for cohort comparison.
+
+## Cycle 20260527_1200 additions
+
+### H_BSC_85871 STATUS UPGRADE → Methodology #14a-VALIDATED (TRUE clean-alpha)
+Matched-shape baseline retrofit completed this cycle. ALPHA n=3 best-fire (BELIEF +235%, PTAI +52.9%, DICKMAXX -1.0%) avg=+95.6% geom=+71.8%/tr big%=33% rug=0% vs MATCHED-SHAPE EXCL same liq_mcap/age/mcap regime n=85 avg=-60.7% big%=1.2% rug=71.8% = +156.3pp avg lift, 27.7× big-rate, 100% rug elimination. Differential survives even excluding BELIEF (remaining n=2 ≈+26% vs -60.7% matched = still ~+87pp). Joins HUPHey as 2nd Methodology #14a worked example. **Status: DEPLOY-READY (12 cycles pending user auth)**.
+
+### H_9CCPC_WATCH (NEW alpha candidate, weak)
+- Cohort: top1_owner.startsWith("9ccPCxxE") — n=3 best-fire (SHIBA +34.4%, ISOR +12.2%, ISOR +31.9%).
+- Stats: avg=+26.2% geom=+25.76%/tr WR=100% rugs=0 bigs=0.
+- Shape: top1_pct=99, liq_mcap=1-2, mcap 1.4-1.6M, age 19-23 min, holders=20 (cap).
+- Matched-shape EXCL n=20: avg=-7.6% rug=15% WR=55% bigs=0 → +33.8pp lift, +45pp WR, +25.8% vs -100% geom.
+- **CAVEAT (Methodology #24)**: 2 of 3 entries same symbol (ISOR) → effective n=2 distinct projects.
+- **Verdict**: weak alpha candidate. No bigs (limited explosive upside). Modest differential vs matched-shape. NOT deploy-ready. **WATCH only — n=3 → effective 2; need 5+ more distinct symbols before re-evaluation.**
+
+### H_RUG_WALLET_VETO_RUG6 (UPGRADE from RUG_4)
+New rug-wallet additions discovered this cycle via SOL top1_owner scan (n≥3 buckets, sorted worst avg):
+- **43wpYdVB**: n=7, avg=-72.1%, rug=5/7 (71%), bigs=0, wins=1 (small +17). Cohort: Popus/HOPPY/SOLWHEEL/JOIAI/GOONC/BRUME/COLLECTOOR.
+- **3xbyiLME**: n=5, avg=-66.3%, rug=3/5 (60%), bigs=0, wins=1 (small +9). Cohort: F1/Popus/Chauvin/GOONC/GOONC.
+
+Combined RUG_6 set (8M88XUne, 2QioJBwK, Ent9nhnZ, 88Md1AAE, **43wpYdVB**, **3xbyiLME**):
+- Walk-forward 50/50 split (SOL best-fire n=657 → TRAIN 328 / TEST 329):
+  - TRAIN: n=27 hits, avg=-89.2%, rug=25 (92.6%), bigs=0
+  - TEST: n=29 hits, avg=-73.7%, rug=23 (79.3%), bigs=0
+- vs RUG_4 walk-forward: TEST n=18 rug=88.9% → RUG_6 catches +11 trades (+61% expansion) at slightly lower precision (79.3% vs 88.9%).
+- **0 bigs caught across all 56 train+test hits** → veto applies losslessly to known-alpha edge.
+
+**Status**: RUG_6 spec ready for sniper entry filter. Pseudo-code:
+```
+if (entry_signal.top1_owner) {
+  const top1 = entry_signal.top1_owner;
+  const RUG_PREFIXES_SOL = ['8M88XUne','2QioJBwK','Ent9nhnZ','88Md1AAE','43wpYdVB','3xbyiLME'];
+  if (RUG_PREFIXES_SOL.some(p => top1.startsWith(p))) return SKIP;
+}
+```
+Pending user adoption decision.
+
+### H_RUG_SYMBOL_DUPLICATE (NEW hypothesis, deferred test)
+- **Observation**: symbol `Popus` appears under different rug-wallet top1_owners (43wpYdVB AND 3xbyiLME) at different pair_addresses. Symbol `GOONC` appears in both 43wpYdVB and 3xbyiLME cohorts.
+- **Hypothesis**: When a token symbol appears in multiple known rug-wallet cohorts with same/similar pair-creation timing, this is elevated rug-risk signal (rug-wallet cluster coordinated copy-rug).
+- **Test plan (next cycle)**: scan all symbols with ≥2 rug-wallet hits; compute conditional rug% and compare to single-rug-wallet rug%.
+- **Status**: DEFER — small n (only ~3 such symbol cases visible). Re-evaluate when more data.
+
+### H_META_TOP99_PURE_SHAPE (carry forward — unchanged)
+Last cycle stats: n=35 Er+0.099 K=0.067 geom=+0.27%/tr (3/4 gates passed, fails geom by 0.73pp). No state change — carry. Re-test when fresh data arrives.
+
+### Methodology Lesson #24 — NEW CANDIDATE — SAME-SYMBOL DUP-PAIR INFLATION
+**Trigger**: H_9CCPC_WATCH cohort n=3 (best-fire unique pairs) but only 2 distinct symbols (SHIBA, ISOR×2). HUPHey precedent: n=9 pairs / 7 distinct symbols (3× MTFR).
+**Rule**: When grouping cohorts by a wallet identifier, ALWAYS report unique-symbol count alongside unique-pair count. If `unique_symbols < 0.6 * unique_pairs`, downgrade effective-n to `unique_symbols * 1.2` (or similar penalty) when assessing statistical strength.
+**Why it matters**: same-symbol re-pair (e.g., same project re-launched at different pair_addresses, or symbol-collision attacks) inflates apparent independence. Two pairs of "ISOR" are NOT two independent observations.
+**Promotion criteria**: needs 2nd confirmation. Currently 1st confirmation = 9ccPCxxE. Watch for 2nd occurrence in upcoming cohort scans.
+
+### Methodology Lesson #14a — UPGRADE to FORMAL ADOPTION READY
+**2 worked examples now in record**:
+- HUPHey (cycle 20260527_0600): TRUE clean-alpha, matched-shape EXCL Er=-0.41 vs direct Er=+2.59 = +3.00 differential.
+- 0x85871 (this cycle): TRUE clean-alpha, matched-shape EXCL n=85 avg=-60.7% vs direct n=3 avg=+95.6% = +156.3pp differential.
+**Counter-example also confirmed**: NOAR (cycle 20260527_0600) APPARENT alpha, matched-shape decomposed to shape-coincidence.
+**Status**: ready for formal adoption next cycle (3rd confirmation if needed via another candidate).
+
+### Methodology Lesson #4 — REAFFIRMED YET AGAIN
+3rd reaffirmation: 0x85871 raw-row n=4 → best-fire n=3 (1× duplicate row of same pair). All this cycle's cohort statistics used best-fire dedup. Going forward MANDATORY for any cohort-level claim.
