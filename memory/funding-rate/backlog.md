@@ -613,3 +613,31 @@ METHODOLOGY COUNT 2026-05-27_1700: #21 ✓ #22 ✓ #25 ✓ #26 candidate 1.5/2 (
 4. paper_fairprice_v6 60s-cutoff USER OK ASK — now backed by 2 corroborations.
 5. paper_new_symbol TP-rule inspection — TP fire 7% suggests mis-tuned threshold (~10 min).
 6. H_BOROS_INDICATOR DEFERRED 15 cycles, USER DECISION REQUIRED.
+
+## ─────────────────────────────────────────────────────────────────────────────
+## CYCLE 20260527_2300 — Meth #28 cross-class test → BOUNDARY discovered (Meth #29 candidate)
+## ─────────────────────────────────────────────────────────────────────────────
+
+METHODOLOGY #29 CANDIDATE NEW 2026-05-27_2300 | META-#28 BOUNDARY — applies to scalp/drift-dominated TARGET-or-TIMEOUT strategies but NOT to mean-reversion-to-anchor strategies (1/2 corroborations). H3_DEPEG cross-class test: 50bp paper-vetted (n=129) TARGET n=111 mean +0.880%/WR 100% / TIMEOUT n=18 mean +0.338%/WR 72% (gap +0.542pp, BOTH POSITIVE); 75bp tier (n=39) TIMEOUT (n=3) +1.881% OUTPERFORMS TARGET +1.749%. Walk-fwd both halves TIMEOUT positive. Hold-cutoff sweep 12..144h: zero negative SLOW buckets. MECHANISM: 72.2% of TIMEOUT trades show ANY peg-ward movement; median entry dev -54bp → median exit dev -23bp (mean 34bp partial reversion across 7-day hold). Even slow-reverting pegs leak PnL because $1 anchor is attractive force; this contrasts with scalp where TIMEOUT = adverse drift (selection: favorable movers exit early via TARGET, leaving bad ones). DIAGNOSTIC for future strategy specs: TARGET = "X% from entry" → scalp-class, Meth#28 applies; TARGET = "restore to fixed anchor" → mean-rev-to-anchor class, Meth#28 does NOT apply. CYCLE 1700 GATE MODIFIED: "TARGET-or-TIMEOUT spec must show hold-time bimodality before n=30 promotion" must be SCOPED to scalp-class only; mean-rev specs exempt. CORROBORATION #2 needed: find a 2nd mean-rev-to-anchor strategy and confirm unimodality (candidate: H3 PYUSD subset n=24 cycle 1132).
+
+H_H3_DEPEG_BIMODALITY UPDATED 2026-05-27_2300 → **RESOLVED: NO BIMODALITY** (was "pending" cycle 1700). H3_DEPEG does NOT corroborate Meth #28. Instead became the discovery vehicle for Meth #29 boundary candidate. Operational consequence: H3_DEPEG_PAPER_FULL and H3_DEPEG_PAPER_SOLOFLAG specs (cycle 2300) need NO hold-time cutoff layer; any such cutoff destroys edge (P75 cut crushes mean +0.805%→+0.618% and WR 96.1%→64.3%). Spec writeup verified — current spec already omits cutoff layer, so no action needed beyond methodological annotation.
+
+NEW_GATE_SCOPED 2026-05-27_2300 | UPDATE TO cycle 1700 gate definition. The cycle 1700 gate "any TARGET-or-TIMEOUT spec must report hold-time bimodality before n=30 promotion" → now SCOPED to scalp/drift-dominated strategies (Meth #29 boundary). Mean-rev-to-anchor specs exempt. Diagnostic check: is the TARGET defined relative to entry (scalp) or relative to a fixed structural anchor (mean-rev)?
+
+OBS_FAIRPRICE_V6 UPDATED 2026-05-27_2300 | n=61 → 62 (+1 trade since cycle 1700: GUA SHORT 0s target_hit +$0.43, sub-60s wing). Updated: TOTAL n=62 sum $+11.92 mean ROI +0.192% WR 83.9%; sub-60s n=43 sum $+21.31 mean +0.496% WR 97.7%; ≥60s n=19 sum $-9.39 mean -0.494% WR 52.6%. exit_reasons: target_hit 54, timeout 7, hard_sl_net 1. Bimodality unchanged-clean; sub-60s wing extends, drag wing static. Probability assessment unchanged from cycle 1700 (survivor 35% / micro-edge-with-tail-drag 45% / sub-60s sub-resolution-alpha 10% / noise 10%). Single new event doesn't shift priors meaningfully.
+
+OBS_PAPER_NEW_SYMBOL UPDATED 2026-05-27_2300 | unchanged at n=14 (no new trades since cycle 1700). TP-rule inspection (BRIEF priority #5) carried to next cycle.
+
+TG_FEED_STATUS UPDATED 2026-05-27_2300 | feed_funding.jsonl 5 → 7 entries (+2 since cycle 1700). Both new entries: cryptokitta 2026-05-27 10:31 "$1M с небольшой должности в крипто-проекте" (perp-dex onboarding narrative, Russian text, duplicated entry — same content twice). Not actionable as trade signal. Routes via existing keyword filter ("perp"). H_TG_ROUTING_PATCH still pending USER OK — 16-cycle deferral.
+
+METHODOLOGY #26 PROGRESS 2026-05-27_2300 | corroboration count UNCHANGED at 1.5/2 (R13→H34 transfer test DEFERRED 4 cycles; cycle 2300 had higher-information-value task in Meth #28 boundary investigation). Next cycle FINAL attempt; if deferred again, downgrade from candidate-tracked to "informally noted".
+
+METHODOLOGY #27 PROGRESS 2026-05-27_2300 | H34 ex-rank filter test DEFERRED 4 cycles. Same rationale as Meth #26. Next cycle.
+
+(NEXT-CYCLE PRIORITIES 2026-05-27_2300)
+1. Meth #26 promotion — R13 SHORT-side → H34 transfer (deferred 4 cycles, ~20 min). FINAL attempt; if deferred again next cycle, downgrade to "informally noted".
+2. H34 ex-rank filter test — apply rank=1 ∧ n_neg_50≥3 to H34_PERP_PERP universe (deferred 4 cycles, ~25 min).
+3. paper_new_symbol TP-rule inspection — read bot code, check TP threshold (~10 min).
+4. Meth #29 corroboration #2 — H3 PYUSD subset (cycle 1132 n=24) or other mean-rev-to-anchor candidate (~15 min).
+5. paper_fairprice_v6 60s-cutoff USER OK ASK — now backed by 2 corroborations + Meth #29 boundary clarification.
+6. H_BOROS_INDICATOR DEFERRED 16 cycles, USER DECISION REQUIRED.
