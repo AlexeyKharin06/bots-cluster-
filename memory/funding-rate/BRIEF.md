@@ -1,67 +1,73 @@
-# BRIEF — funding-rate (post-cycle 20260527_0500)
+# BRIEF — funding-rate (post-cycle 20260527_1100)
 
-## ✅ 2026-05-27 05:00 UTC — H_COMBO_3c × HQC overlap resolved; fairprice_v6 audited n=56
+## ✅ 11:00 UTC — paper_fairprice_v6 R2-diff sanity + HOLD-TIME-TAIL discovery
 
-### H_COMBO_STACKED (sizing logic on C3CQ, NOT a paper-stream)
+### HEADLINE — Meth #28 candidate "HOLD-TIME-TAIL DRAG"
 
+paper_fairprice_v6 (n=59) is **strictly bimodal by hold-time**:
 ```
-filter: (rank=1 AND n_neg_50>=3) AND (meth17_CONFIRMED AND NOT c2_div_100bp)
-n=28 / mean +4.64% / WR 100% / Sharpe +2.31    vs C3CQ +4.18/2.17 vs HQC +3.95/2.04
-WF TRAIN n=19 +4.88/Sh 2.18  TEST n= 9 +4.13/Sh 2.93  (15.4% gap, TEST>baseline)
-all 5 ex positive (bybit +5.81 n=10 best)
+hold < 60s:  n=41 WR 97% mean +0.50% sum $+20.81  exits all target_hit
+hold ≥ 60s:  n=18 WR 50% mean −0.46% sum $− 8.73  6×timeout(300s) + 1×hard_sl
 ```
+Entire bot edge in sub-60s wing; 60s+ tail is silent drag. Mechanism aligns with H37 (median |drift in ±60s| = 69bp > median |funding| = 46bp).
 
-Jaccard(C3CQ, HQC) = 34.1%. C3CQ-only n=12 (+3.10%) and HQC-only n=42 (+3.49%) both DEGRADE to baseline-equivalent — entire quality lift lives in 28-event intersection. Use: 1.5× sizing when both fire, 0.5× when C3CQ-only.
+### R2-DIFF sanity (BRIEF 0500 #3) EXECUTED — REFRAMED, not refuted
 
-### OBS_FAIRPRICE_V6 — survivor probability DOWNGRADED 60→30%
+mega_fairprice filtered SHORT|rate|≥0.5%|hold=5min: n=27 mean **−1.155%** WR 48%. Every |rate| band negative. CAVEAT: mega min hold = 5min vs bot median = 10s — hist CANNOT resolve sub-5-min. Rules OUT extending bot to ≥5-min; does NOT refute sub-60s wing.
 
-n=31→56. BOBBOB share 32%→0%. New-25: mean +0.38%/WR 88% (4.2× lift). 18 unique syms (was 11). WF TEST n=17 +0.42% > TRAIN n=39 +0.13% (Meth #12). ESPORTS +6.40% caught Binance delisting (rozenroom TG 2026-05-26). Updated: survivor 30/legit 50/noise 20. Next checkpoint n=100 OR n_unique_syms≥25.
+### NEW H_FAIRPRICE_V6_60S_CUTOFF (pending USER OK)
+
+Modify bot timeout 300s→60s. Lower-bound uplift +$8.73; realistic $+15-18 vs actual $+12.09 WR ≥90%. Requires USER OK (mandate boundary on live-bot config). If next-30 WR ≥90% mean ≥+0.30% → file H_R2_NARROW_SUB60_RESURRECTED.
+
+### UPDATED prob for fairprice_v6
+- as-deployed: survivor 30% / **micro-edge-with-tail-drag 50% NEW** / legit narrow 10% / noise 10%
+- 60s-modified: legit micro-edge 70% / survivor 15% / noise 15% (plausible)
 
 ## 3-EDGE PORTFOLIO — UNCHANGED (KPI 4 cleared)
 ```
-H31_BASIS      +3.52% WR 100% Sh 1.84 n=116   corr(H38)+.54  corr(H3)-.30
-H34_PERP_PERP  +1.44% WR  81% Sh 0.82 n=101   corr(H31)+.30
-H3_DEPEG       +0.81% WR  96% Sh 0.63 n=129   corr(H31)-.31
+H31_BASIS      +3.52% WR 100% Sh 1.84 n=116
+H34_PERP_PERP  +1.44% WR  81% Sh 0.82 n=101
+H3_DEPEG       +0.81% WR  96% Sh 0.63 n=129
 ```
-Operational tiers (NOT edges):
-- H38_CONFIRMED-50bp +2.23/99/1.28/5324  H38_QUALITY +2.84/99/~2.0/1554
-- H31_QUALITY_COMBO +3.95/100/2.04/70   H_COMBO_3c_QUALITY +4.18/100/2.17/40
-- **H_COMBO_STACKED +4.64/100/2.31/28 ← NEW (sizing logic, not paper-stream)**
+Sub-tiers: H38_CONFIRMED-50bp +2.23/99/1.28/5324; H38_QUALITY +2.84/99/~2.0/1554; H31_QUALITY_COMBO +3.95/100/2.04/70; H_COMBO_3c_QUALITY +4.18/100/2.17/40; H_COMBO_STACKED +4.64/100/2.31/28.
 
-## METHODOLOGY #26 — count UNCHANGED at 1.5/2
-
-This cycle TANGENTIAL (both filters from validated structures). Side observation strengthens generalization: filters from INDEPENDENT validated structures may still be redundant if capturing same signal axis. Promotion to CONFIRMED still needs R13→H34 transfer test.
+## METHODOLOGY COUNTS
+- #26: 1.5/2 (R13→H34 deferred)
+- **#28 NEW: 1/2 HOLD-TIME-TAIL DRAG** (corroboration via H38 hold-strat next)
 
 ## NEXT-CYCLE PRIORITIES
-1. **Meth #26 promotion** — R13 SHORT-side feature → H34_PERP_PERP transfer (~20 min)
-2. **H34 ex-rank filter** — rank=1 AND n_neg_50≥3 on H34 universe; if lift, Meth #27 candidate (~25 min)
-3. **fairprice_v6 R2-diff sanity** — filter mega_fairprice to |rate|≥50bp ∧ hold≤300s ∧ SHORT (~15 min)
-4. **H_BOROS_INDICATOR** — DEFERRED 13 cycles, **USER DECISION REQUIRED**. ~2h Arbitrum RPC infra.
+1. **Meth #28 corroboration #2** — H38_CONFIRMED-50bp realized-hold stratification (~30 min). NEW. If bimodal → PROMOTE.
+2. **Meth #26 promotion** — R13 SHORT→H34 transfer (~20 min) (deferred 2 cycles)
+3. **60s-cutoff USER OK ASK** — flip paper_fairprice_v6 timeout config
+4. **H34 ex-rank filter** — rank=1 ∧ n_neg_50≥3 on H34 (~25 min) (BRIEF 0500 #2)
+5. **H_BOROS_INDICATOR** — DEFERRED 14 cycles, USER
 
 ## STOP / DO NOT
-- H_COMBO_3 SCALER form — WR 65-87% (26_2300)
-- Unhedged LONG primary any horizon — −0.53% (26_0500)
-- H_LIVE_1 cross-ex hr>1.0 amplified — overfit (26_0500)
-- Sign-flip SHORT primary gate/okx — WF unstable R24 (26_1700)
-- Nano-cap fp<$0.01 filter on basis-hedged H31 — no improvement (26_1700)
-- H_COMBO_3 variant (b) intensity-scaling — falsified (26_1700)
-- Standalone paper-stream for H_COMBO_STACKED — n=28 below n-gate (HQC n=70 covers superset)
+- H_COMBO_3 SCALER form — WR 65-87%
+- Unhedged LONG primary — −0.53%
+- H_LIVE_1 amplified — overfit
+- Sign-flip SHORT primary — WF unstable R24
+- Nano-cap filter on basis-hedged H31 — no improvement
+- H_COMBO_3 variant (b) — falsified
+- Standalone PS for H_COMBO_STACKED — n=28 < gate
+- **Extend paper_fairprice_v6 to ≥5-min hold** — hist negative (27_1100)
 
 ## DATA AVAILABILITY
 - /tmp/{h31_net, h31_klines, h34_results, c2_wide, h31_combo3c, h_combo_1_final}.parquet
-  + durable copy at /srv/bots/funding-rate/code/data/{h31_combo3c, c2_wide, multi_ex_funding_180, mega_fairprice_backtest, expansion_funding}.parquet
+- /srv/bots/funding-rate/code/data/{h31_combo3c, c2_wide, multi_ex_funding_180, mega_fairprice_backtest, expansion_funding}.parquet
+- /srv/bots/funding-rate/code/paper_fairprice_v6/trades.jsonl (live n=59)
 
-## GIT OPS (carry-over)
-VPS push fails (credential helper unset). User: `git config --global credential.helper store` + token push OR SSH deploy key.
+## GIT OPS
+VPS push fails (credential helper unset). User: `git config --global credential.helper store` + token OR SSH deploy key.
 
 ## PAPER-BOT STATE
 ```
-paper_fairprice_v6  n=56  win=85.7%  $+12.31  last 2026-05-27 04:00 UTC (1h ago — ACTIVE)
-paper_new_symbol    n=11  win=36.4%  $-0.03   no recent trades
-paper_practitioner  no trades                  (gated on TG feed)
-paper_whale         no trades                  (gated on TG feed)
+paper_fairprice_v6  n=59 (+3)  win=84.7%  $+12.09  last 08:00 UTC (ACTIVE)
+  sub-60s wing: n=41 WR 97% +$20.81 ← edge
+   ≥60s wing:   n=18 WR 50% −$8.73 ← drag
+paper_new_symbol    n=13 (+2)  win=38.5%  $−1.01   ACTIVE small-n
+paper_practitioner / paper_whale: no trades (TG-gated)
 ```
-fairprice_v6 DIVERSIFIED 32%→0% BOBBOB. ROI 4.2× lift in new-25 window. Survivor prob 60→30%.
 
 ## TG SIGNALS
-feed_funding.jsonl: **5 entries** (was 2). Routing ratio still 0.12%. Latest: 2026-05-26 22:08 Binance delisting ESPORTSUSDT 2026-06-10 (H_BASIS_EVENT). H_TG_ROUTING_PATCH pending USER OK (11-cycle deferral).
+feed_funding.jsonl: 5 entries unchanged. Routing 0.12%. Latest: 2026-05-26 22:08 Binance ESPORTSUSDT delist 2026-06-10. H_TG_ROUTING_PATCH pending USER OK (14-cycle).
