@@ -2583,3 +2583,50 @@ Last cycle stats: n=35 Er+0.099 K=0.067 geom=+0.27%/tr (3/4 gates passed, fails 
 
 ### Methodology Lesson #4 — REAFFIRMED YET AGAIN
 3rd reaffirmation: 0x85871 raw-row n=4 → best-fire n=3 (1× duplicate row of same pair). All this cycle's cohort statistics used best-fire dedup. Going forward MANDATORY for any cohort-level claim.
+
+## NEW HYPOTHESES — cycle 20260527_1800 (LMR family)
+
+### H_LMR_VETO_175 ★★★★★ — UNIVERSAL FEATURE-SPACE RUG FILTER (highest-confidence finding to date)
+- **Filter**: `entry_signal.liq_mcap_ratio >= 175` → VETO entry
+- **Walk-forward validation** (Sol corpus n=4468, 4-way per-quarter):
+  - Q0: VETO n=75 (13 unique pairs) rug=100.0% big=0.0% lost_bigs=0
+  - Q1: VETO n=100 (18 pairs) rug=100.0% big=0.0% lost_bigs=0
+  - Q2: VETO n=77 (13 pairs) rug=89.6% big=0.0% lost_bigs=0
+  - Q3: VETO n=123 (24 pairs) rug=100.0% big=0.0% lost_bigs=0
+  - TOTAL: 375 trades / 68 unique pairs, 96-100% rug precision, ZERO unique big pairs lost across all 4 windows.
+- **Cross-chain validation**: BSC (n=479) — bucket lmr>=150 also shows 83% rug, 0% big. Filter universal.
+- **Independence**: HUPHey n=81 trades, ZERO have lmr>=150. Filter doesn't kill alpha.
+- **Fresh data confirmation**: 17 new closures this cycle — CHARTARD lmr=180 (-100%), grail lmr=196 (-100%) both confirm.
+- **Mechanism**: high lmr means liquidity dwarfs market cap → unmigrated/stuck pump.fun curves → dead tokens that rug.
+- **Status**: PROPOSED for immediate Sniper deployment. AWAITING USER AUTH.
+- **Risk**: 1 historical big (Horatio +138% lmr=163) is BELOW 175 threshold — preserved. Distribution-shift risk requires recalibration every ~2-3 days.
+
+### H_LMR_VETO_150 ★★★★ — BROADER VARIANT
+- **Filter**: `entry_signal.liq_mcap_ratio >= 150` → VETO
+- **Walk-forward**: 676 trades / 124 unique pairs across 4 quarters, ~87% rug rate.
+- **Big lost**: 1 unique pair (Horatio +138%, lmr=163).
+- **Trade-off**: ~2× more coverage than _175, but accepts 1 big-pair loss.
+- **Status**: SECOND-CHOICE if user prefers more aggressive defense.
+
+### H_LMR_ALPHA_LOW ★★ — ALPHA-SIDE LMR (deferred, needs investigation next cycle)
+- **Filter**: `entry_signal.liq_mcap_ratio < 0.1` → PASS-priority?
+- **Observation (full Sol corpus)**: bucket <0.1 has big%=7.3% (TOP big rate among all lmr buckets), avgPnL=-14.0% (best), WR=32.3%.
+- **Hypothesis**: very low lmr = small liquidity relative to mcap = post-migration token with healthy mcap = potential fast mover.
+- **Next cycle**: walk-forward backtest this as a positive alpha candidate.
+
+### H_TOP1_PCT_BIMODAL — NOT A PRIMARY FILTER (concluded this cycle)
+- **Observation**: top1_pct buckets are bimodal. 85-95% is worst (72-89% rug, 0-1.7% big). 95-100% is actually OK (39% WR, 33% rug).
+- **Mechanism**: 100% top1 likely means single LP-locked or burned holders (can't rug). 85-95% = highly centralized active holders (rugs).
+- **Walk-forward** (top1>=90 alone): TEST VETO n=430 rug=53.5% PASS n=1804 rug=47.1%. Only 6.4pp lift — too weak.
+- **Status**: REJECTED as standalone filter. Could pair with other features in combo.
+
+### H_SYMBOL_DUP_HIGH — backlog (not tested this cycle)
+- **Observation**: grail (the 7-trade rug this cycle) had `symbol_dup_count = 11`. CHARTARD had dup=1.
+- **Hypothesis**: high symbol_dup_count (≥5?) may correlate with rug — fake/copycat symbol patterns.
+- **Next cycle**: backtest dup>=N veto vs lmr veto for independence/overlap.
+
+## STATUS UPDATES (cycle 20260527_1800)
+- **Methodology #25 NEW CANDIDATE — FEATURE-SPACE FILTERS BEAT WALLET-SPACE FILTERS FOR HIGH-RECALL VETOS**. 12 cycles of wallet-prefix RUG_N gave n=27-29 walk-forward; one feature filter (lmr>=175) gave 375 trades / 68 pairs at ~100% precision. Rule: each cycle, prefer at least one feature-space hypothesis alongside wallet-prefix scanning. Graduation requires 1 more independent confirmation.
+- **H_RUG_WALLET_VETO_RUG6** (carry from c1200): STILL AWAITING USER AUTH. Note: LMR_VETO_175 is now a higher-priority safety filter.
+- **PAPER_SOL_HUPHEY** & **PAPER_BSC_85871**: 13 cycles pending. NO change in n-counts.
+
