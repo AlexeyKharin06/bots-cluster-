@@ -1,29 +1,44 @@
-# BRIEF — funding-rate (post-cycle 20260527_1100)
+# BRIEF — funding-rate (post-cycle 20260527_1700)
 
-## ✅ 11:00 UTC — paper_fairprice_v6 R2-diff sanity + HOLD-TIME-TAIL discovery
+## ✅ 17:00 UTC — Meth #28 PROMOTED → CONFIRMED (HOLD-TIME-TAIL DRAG)
 
-### HEADLINE — Meth #28 candidate "HOLD-TIME-TAIL DRAG"
+Plan A (H38 hold-stratification) ABANDONED — H38 fixed-hold, structurally incompatible.
+Plan B (mega_fairprice exit_reason × hold_min grid) — **overwhelming corroboration**:
 
-paper_fairprice_v6 (n=59) is **strictly bimodal by hold-time**:
 ```
-hold < 60s:  n=41 WR 97% mean +0.50% sum $+20.81  exits all target_hit
-hold ≥ 60s:  n=18 WR 50% mean −0.46% sum $− 8.73  6×timeout(300s) + 1×hard_sl
+Across full grid {side × hold_min × SL × Y} = 240 configurations:
+  TARGET cells with mean > 0:  240/240  (100.0%)
+  TIMEOUT cells with mean < 0: 240/240  (100.0%)
+  Gap (TARGET - TIMEOUT): mean +1.617%, median +1.457%, min +0.737%
 ```
-Entire bot edge in sub-60s wing; 60s+ tail is silent drag. Mechanism aligns with H37 (median |drift in ±60s| = 69bp > median |funding| = 46bp).
 
-### R2-DIFF sanity (BRIEF 0500 #3) EXECUTED — REFRAMED, not refuted
+Mechanism confirmed: LONG gap grows monotonic with hold_min (1.61→2.14 over hold=5→60), driven by TIMEOUT worsening (−1.33→−1.83) while TARGET stays flat (~+0.29%). Realized-hold (LONG SL=−0.10 hold_min=5, n=6,556): ≤1m WR 95% +0.10%; 4-5m TIMEOUT WR 8.5% −1.69% (half sample, 100% of loss). Hypothetical cut-at-1m flips strategy −0.81% → +0.034%.
 
-mega_fairprice filtered SHORT|rate|≥0.5%|hold=5min: n=27 mean **−1.155%** WR 48%. Every |rate| band negative. CAVEAT: mega min hold = 5min vs bot median = 10s — hist CANNOT resolve sub-5-min. Rules OUT extending bot to ≥5-min; does NOT refute sub-60s wing.
+**Meth #28 PROMOTED → CONFIRMED.** Corroborations: paper_fairprice_v6 (live n=61) + mega_fairprice (240 cells).
+Scope: TARGET-or-TIMEOUT exits with TARGET fire ≥30-40% only.
 
-### NEW H_FAIRPRICE_V6_60S_CUTOFF (pending USER OK)
+### SHORT-side complication
+mega SHORT hold=5: ≤1m n=141 mean **−0.69%** WR 87% (NEGATIVE). Contradicts paper-bot sub-60s +0.50%. Reconciliations: (a) granularity (mega 1-min vs paper 10s), (b) regime (Apr hist vs May paper), (c) survivor (|rate|≥50bp filter). DOWNGRADES H_FAIRPRICE_V6_60S_CUTOFF uplift: "modest loss reduction" not "convert losing→winning" — still ship-worthy (zero downside).
 
-Modify bot timeout 300s→60s. Lower-bound uplift +$8.73; realistic $+15-18 vs actual $+12.09 WR ≥90%. Requires USER OK (mandate boundary on live-bot config). If next-30 WR ≥90% mean ≥+0.30% → file H_R2_NARROW_SUB60_RESURRECTED.
+## paper_fairprice_v6 n=59 → 61 (+2)
+```
+Total:    n=61  sum $+11.49  WR 83.6%
+sub-60s:  n=42  WR 97.6%  sum $+20.88
+≥60s:     n=19  WR 52.6%  sum $− 9.39  ← drag growing (REQ today −$0.67)
+```
+ONG sub-60s target_hit +$0.068 (+ wing); REQ ≥60s 300s timeout −$0.672 (+ drag).
 
-### UPDATED prob for fairprice_v6
-- as-deployed: survivor 30% / **micro-edge-with-tail-drag 50% NEW** / legit narrow 10% / noise 10%
-- 60s-modified: legit micro-edge 70% / survivor 15% / noise 15% (plausible)
+## CROSS-STRATEGY Meth #28 MAP
+| Strategy | Exit | Meth #28? |
+|---|---|---|
+| paper_fairprice_v6 | TARGET/TIMEOUT/SL | YES (corrob #1) |
+| paper_new_symbol | TP/TIMEOUT/SL | YES-principle, TP fire 7% untestable |
+| H31, H34, H38, H_COMBO* | Fixed-hold | NO (immune) |
+| H3_DEPEG | Peg-target | yes-principle, untested |
 
-## 3-EDGE PORTFOLIO — UNCHANGED (KPI 4 cleared)
+**NEW GATE**: any TARGET-or-TIMEOUT spec must report hold-time bimodality before n=30 promotion.
+
+## 3-EDGE PORTFOLIO — UNCHANGED
 ```
 H31_BASIS      +3.52% WR 100% Sh 1.84 n=116
 H34_PERP_PERP  +1.44% WR  81% Sh 0.82 n=101
@@ -32,42 +47,25 @@ H3_DEPEG       +0.81% WR  96% Sh 0.63 n=129
 Sub-tiers: H38_CONFIRMED-50bp +2.23/99/1.28/5324; H38_QUALITY +2.84/99/~2.0/1554; H31_QUALITY_COMBO +3.95/100/2.04/70; H_COMBO_3c_QUALITY +4.18/100/2.17/40; H_COMBO_STACKED +4.64/100/2.31/28.
 
 ## METHODOLOGY COUNTS
-- #26: 1.5/2 (R13→H34 deferred)
-- **#28 NEW: 1/2 HOLD-TIME-TAIL DRAG** (corroboration via H38 hold-strat next)
+#21✓ #22✓ #25✓ #26 1.5/2 (R13→H34 def 3) #27 candidate (H34 ex-rank def 3) **#28 ✓ NEW**
 
 ## NEXT-CYCLE PRIORITIES
-1. **Meth #28 corroboration #2** — H38_CONFIRMED-50bp realized-hold stratification (~30 min). NEW. If bimodal → PROMOTE.
-2. **Meth #26 promotion** — R13 SHORT→H34 transfer (~20 min) (deferred 2 cycles)
-3. **60s-cutoff USER OK ASK** — flip paper_fairprice_v6 timeout config
-4. **H34 ex-rank filter** — rank=1 ∧ n_neg_50≥3 on H34 (~25 min) (BRIEF 0500 #2)
-5. **H_BOROS_INDICATOR** — DEFERRED 14 cycles, USER
+1. **Meth #26 promotion** — R13 SHORT → H34 transfer (~20 min, def 3)
+2. **H3_DEPEG bimodality check** — first cross-class Meth #28 corrob (~25 min) NEW
+3. **H34 ex-rank filter** — rank=1 ∧ n_neg_50≥3 (~25 min, def 3)
+4. **paper_fairprice_v6 60s-cutoff USER OK ASK** — now 2 corroborations backing
+5. **paper_new_symbol TP-rule inspection** — TP fire 7% mis-tuned (~10 min) NEW
+6. **H_BOROS_INDICATOR** — DEFERRED 15 cycles, USER
 
 ## STOP / DO NOT
-- H_COMBO_3 SCALER form — WR 65-87%
-- Unhedged LONG primary — −0.53%
-- H_LIVE_1 amplified — overfit
-- Sign-flip SHORT primary — WF unstable R24
-- Nano-cap filter on basis-hedged H31 — no improvement
-- H_COMBO_3 variant (b) — falsified
-- Standalone PS for H_COMBO_STACKED — n=28 < gate
-- **Extend paper_fairprice_v6 to ≥5-min hold** — hist negative (27_1100)
+- H_COMBO_3 SCALER form, Unhedged LONG primary, H_LIVE_1 amplified, Sign-flip SHORT primary
+- Nano-cap on H31, H_COMBO_3 variant (b), Standalone PS for H_COMBO_STACKED (n=28 < gate)
+- Extend paper_fairprice_v6 to ≥5-min hold (hist negative)
+- **Promote any TARGET-or-TIMEOUT spec without hold-time bimodality report** (NEW gate)
 
-## DATA AVAILABILITY
-- /tmp/{h31_net, h31_klines, h34_results, c2_wide, h31_combo3c, h_combo_1_final}.parquet
-- /srv/bots/funding-rate/code/data/{h31_combo3c, c2_wide, multi_ex_funding_180, mega_fairprice_backtest, expansion_funding}.parquet
-- /srv/bots/funding-rate/code/paper_fairprice_v6/trades.jsonl (live n=59)
-
-## GIT OPS
-VPS push fails (credential helper unset). User: `git config --global credential.helper store` + token OR SSH deploy key.
-
-## PAPER-BOT STATE
-```
-paper_fairprice_v6  n=59 (+3)  win=84.7%  $+12.09  last 08:00 UTC (ACTIVE)
-  sub-60s wing: n=41 WR 97% +$20.81 ← edge
-   ≥60s wing:   n=18 WR 50% −$8.73 ← drag
-paper_new_symbol    n=13 (+2)  win=38.5%  $−1.01   ACTIVE small-n
-paper_practitioner / paper_whale: no trades (TG-gated)
-```
-
-## TG SIGNALS
-feed_funding.jsonl: 5 entries unchanged. Routing 0.12%. Latest: 2026-05-26 22:08 Binance ESPORTSUSDT delist 2026-06-10. H_TG_ROUTING_PATCH pending USER OK (14-cycle).
+## DATA / TG / GIT
+- /tmp/{h31_net, h34_results, c2_wide, h31_combo3c, h_combo_1_final, h38_trades, meth22_h38_*}.parquet
+- code/data/{h31_combo3c, c2_wide, multi_ex_funding_180, mega_fairprice_backtest, expansion_funding}.parquet
+- paper_fairprice_v6/trades.jsonl (n=61), paper_new_symbol/trades.jsonl (n=14)
+- feed_funding 5 entries (15-cycle stale). H_TG_ROUTING_PATCH pending USER OK (15-cycle).
+- VPS git push fails (credential helper unset).
