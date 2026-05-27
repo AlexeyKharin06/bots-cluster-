@@ -2448,3 +2448,78 @@ ULTRA_TRIPLE + SMART_TOP_AGE5 capture 42% of near-bigs vs <20% on full bigs. Hyp
 - At population rug-rate 54%: ~12 rugs AVOIDED (silver lining of being offline).
 - Net expected: -0.6 bigs (positive value missed) is the actionable cost figure.
 **Status**: SINGLE case (this cycle). Promote to CONFIRMED on next infra outage application.
+
+---
+
+## Cycle 20260527_0600 additions
+
+### H_SELF_LP — STRENGTHENED 4× (best-fire dedup vs c0000 raw-row)
+**Idea**: top1_owner == pair_address fingerprint (pump.fun pre-graduation bonding curve). Apply as VETO COMBO modifier.
+**Best-fire backtest (n=657 Sol unique mints)**:
+- SOL SELF-LP n=389 big=2 (0.5%) rug=246 (63.2%) avg=-60.9% Er=-0.609
+- SOL NON-SELF n=268 big=6 (2.2%) rug=116 (43.3%) avg=-32.5% Er=-0.325
+- Differential: +28.4pp avgPnL lift on NON-SELF; 6/8 of all Sol bigs in 41% of population (1.83× big-rate concentration).
+**Walk-forward (60/20/20 chronological)**:
+- TRAIN NON-SELF Er=-0.32 vs SELF-LP Er=-0.65 (Δ=33pp)
+- VAL NON-SELF Er=-0.19 vs SELF-LP Er=-0.54 (Δ=35pp)
+- TEST NON-SELF Er=-0.48 vs SELF-LP Er=-0.57 (Δ=9pp; TEST big-rate 0 — regime artifact)
+**Status**: VETO-COMBO confirmed. Genuinely stronger than c0000 weak-alone report; correction due to Methodology #4 best-fire dedup. Walk-forward consistency holds for veto direction; not standalone deploy gate (Er still negative on NON-SELF).
+**Top1-band variant**: SELF-LP ∩ top1≥85 → n=77 big=0 rug=93.5% = mathematical-veto candidate.
+
+### H_RUG_WALLET_VETO — NEW (4 Sol wallet blacklist candidates)
+**Idea**: blacklist these 4 prefixes (Sol top1_owner):
+- ent9nhnz1f7e... n=13 rugs=11 (85%) avg=-77.5%
+- 2qiojbwkbvts... n=11 rugs=10 (91%) avg=-83.0%
+- 8m88xunebwlz... n=11 rugs=11 (100%) avg=-100.0%
+- 88md1aaefdr2... n=9 rugs=8 (89%) avg=-76.4%
+- AGG n=44 big=0 rug=40 (91%) avg=-84.3%
+**Walk-forward (TRAIN n>=5 rug>=70% bigs=0 identifies 4 wallets; VETO applied to all splits)**:
+- TRAIN VETO-hits n=31 rug=29 (93.5%) avg=-90.6%
+- VAL VETO-hits n=6 rug=4 (66.7%) avg=-33.4%
+- TEST VETO-hits n=7 rug=7 (100%) avg=-100.0%
+**Status**: NEW — REAL filter, walk-forward TEST 100% rug-capture out-of-sample. Population coverage small (~7% of Sol). Standalone veto, not entry signal. Likely these are launchpad-like wallet clusters analog to HLnpSz9h (Methodology #16 historical-vs-live).
+
+### H_META_TOP99_PURE_SHAPE — NEW shape-only candidate
+**Idea**: meteora dex ∩ top1_pct ≥ 99 (regardless of wallet identity).
+**Backtest (n=657 Sol best-fire dedup)**:
+- meta_top99 ALL: n=35 big=2 (5.7%) rug=7 (20%) avg=+9.9% Er=+0.099 K=0.067 geom=+0.27%/trade
+- meta_top99 EXCL NOAR: n=25 big=1 (4%) rug=5 (20%) avg=+13.4% Er=+0.134 K=0.075 geom=+0.40%/trade
+- meta_top99 ∩ smart≥3: n=15 big=1 (6.7%) rug=4 (27%) avg=+12.8% Er=+0.128 K=0.029 geom=+0.09%/trade
+**Gate analysis**: passes n≥20, Er>0, K≥0.05 (3 of 4). FAILS geom≥1% by 0.73pp. Closest pure-shape filter to gate-pass.
+**Status**: NEW WATCH candidate. If state thaws and new entries match shape, track Er evolution. Implication: a portion of HUPHey/NOAR apparent edge may be shape-driven (HUPHey clear outlier per matched-shape validation; NOAR mostly shape).
+
+### NOAR alpha — DECOMPOSED via matched-shape baseline (Methodology #20 confirmation #3)
+**Result**: apparent NOAR direct Er+0.16 K=0.21 (n=11) DECOMPOSES into:
+- NOAR-within-shape (meta_top99): n=10 big=1 Er=+0.013 K=0.034 (essentially zero)
+- Maple (Sol top1=83.5 = NOAR-deployed cross-cohort artifact, n=1 +163%) drives nearly all apparent edge
+**Matched-shape baseline EXCL NOAR (meta_top99 non-NOAR)**: n=25 Er=+0.134 K=0.075
+**Differential**: NOAR within matched shape adds essentially 0 over baseline.
+**Status**: DEPRIORITIZED for deploy. Either skip NOAR deploy (Er+0.01 within matched shape), OR deploy H_META_TOP99 instead (broader, n=35 already). Cohort-shape-trap confirmed.
+**Methodology #20 status**: TRIPLE-CONFIRMED (c1200 PUMPSWAP / c1800 TOP2_HLNP / c0600 NOAR). FORMAL ADOPTION ready.
+
+### HUPHey alpha — TRUE clean-alpha VALIDATED via matched-shape baseline
+**Matched shape**: meteora ∩ top1≥60 ∩ smart≥3 ∩ known≥5
+- WITH HUPHey: n=80 big=4 (5.0%) avg=-7.3% Er=-0.073
+- EXCL HUPHey: n=71 big=0 (0%) avg=-41.0% Er=-0.410 K=-1.103
+- HUPHey direct: n=9 big=4 (44%) rug=0% avg=+258.5% Er=+2.585 K=0.41 geom=+59.7%/trade
+**Differential**: HUPHey adds +3.00 Er over matched-shape baseline.
+**Status**: HUPHey is GENUINE wallet alpha (Methodology #14 + 14a TRUE clean-alpha classification). Deploy strongly recommended.
+
+## Methodology Lesson #14a — NEW SUB-LESSON CANDIDATE — MATCHED-SHAPE BASELINE SUBTYPE
+**Lesson**: When classifying a named-wallet/cohort candidate as "clean-alpha" per Methodology #14, ALWAYS construct a matched-shape baseline EXCLUDING the wallet and compare Er. Two sub-categories emerge:
+- **TRUE clean-alpha**: matched-shape baseline EXCL wallet Er ≪ wallet Er (large differential). Wallet identity is the edge source.
+- **APPARENT clean-alpha (shape-coincidence)**: matched-shape baseline EXCL wallet Er ≈ wallet Er (small differential). Shape is the edge source; wallet is incidental.
+**Evidence**:
+- HUPHey TRUE: matched-shape Er=-0.41 vs wallet Er=+2.59 (+3.00 differential)
+- NOAR APPARENT: matched-shape Er=+0.13 vs wallet Er=+0.16 (+0.03 differential)
+**Adopt**: proactive (logic airtight from 2 contrasting cases). Apply before promoting any wallet-based candidate to deploy-ready.
+
+## Methodology Lesson #20 — TRIPLE-CONFIRMED (FORMAL ADOPTION)
+**3rd confirmation this cycle**: NOAR alpha decomposition — apparent Er+0.16 → matched-shape EXCL NOAR Er+0.13 → NOAR-within-shape Er≈0. Cohort-shape trap: apparent wallet edge collapses to baseline when controlled for shape.
+**1st**: H_PUMPSWAP_SMART_VELOCITY (c1200) — broad-filter pumpswap∩smart∩buys cohort 73% rug, n=89.
+**2nd**: H_TOP2_HLNP (c1800) — top20[rank=2] cohort apparent 4.75× big lift collapses to TEST 0 bigs / n=14 Er=-0.15.
+**Adoption**: matched-shape baseline check is mandatory before promoting any cohort to deploy-ready.
+
+## Methodology Lesson #4 — REAFFIRMED STRONGLY
+**Re-evidence this cycle**: c0000 H_SELF_LP backtest on raw 4930 rows reported -6.9pp avgPnL drag (weak veto). This cycle best-fire dedup 802 unique mints reports -28.4pp drag (4× stronger). Stream duplication INFLATES both subsets unevenly; only best-fire dedup gives valid cohort statistics.
+**Rule**: any population-level cohort statistic MUST use best-fire dedup. Never report raw-row statistics for cohort comparison.
