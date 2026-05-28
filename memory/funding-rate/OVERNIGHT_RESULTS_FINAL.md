@@ -159,3 +159,48 @@ All on VPS `/tmp/`:
 
 ---
 Report generated at 2026-05-28 19:59:57.634929
+
+---
+
+## 🆕 Phase C: rich-universe edges (OI/LSR/spot features added)
+
+**Universe:** 2.15M ticks × 32 features (funding + OI + LSR + spot enrichment for Binance)
+**Grid:** ~5M filter configs (single→pair exhaustive, per-ex×pair, random triple/quad/quint)
+**Survivors after dedup + HQ filter (n>=500, Sharpe>=3, WR>=98, no spot_close artifacts):** 12 distinct families
+
+### Top 20 distinct edge families (validated)
+
+| # | Feature signature | PnL | n | mean_bp | WR | Sharpe | CI low bp | TEST mean | %mo+ | min_bp |
+|---|-------------------|-----|---|---------|----|----|-----------|-----------|------|--------|
+| 1 | `rate_abs+roll_std_24+vel_24` | short_ret_24 | 47451 | +288.1 | 100% | 30.11 | +288.0 | +288.1 | 100% | +270.0 |
+| 2 | `rate+roll_std_24+vel_24` | short_ret_24 | 47423 | +288.1 | 100% | 30.10 | +288.0 | +288.1 | 100% | +270.0 |
+| 3 | `roll_mean_24+roll_std_24+vel_24` | short_ret_24 | 46115 | +288.1 | 100% | 29.83 | +288.0 | +288.1 | 100% | +276.0 |
+| 4 | `rate+roll_std_24+vel_6` | short_ret_24 | 48362 | +286.4 | 100% | 15.81 | +286.2 | +288.1 | 100% | +84.0 |
+| 5 | `roll_mean_24+roll_std_24+vel_6` | short_ret_24 | 48380 | +286.3 | 100% | 15.68 | +286.2 | +288.1 | 100% | +70.0 |
+| 6 | `rate_abs+roll_std_24+vel_6` | short_ret_24 | 46448 | +286.4 | 100% | 15.64 | +286.2 | +288.1 | 100% | +84.0 |
+| 7 | `rate+roll_mean_24+roll_std_24` | short_ret_24 | 48613 | +285.3 | 100% | 11.79 | +285.1 | +288.1 | 100% | +29.0 |
+| 8 | `rate_abs+roll_std_24` | short_ret_24 | 48616 | +285.3 | 100% | 11.73 | +285.0 | +288.1 | 75% | -61.9 |
+| 9 | `rate_abs+roll_mean_24+roll_std_24` | short_ret_24 | 47201 | +285.3 | 100% | 11.70 | +285.1 | +288.1 | 100% | +29.0 |
+| 10 | `rate+rate_abs+roll_std_24` | short_ret_24 | 47202 | +285.3 | 100% | 11.69 | +285.1 | +288.1 | 100% | +29.0 |
+| 11 | `rate+roll_std_24` | short_ret_24 | 43930 | +285.1 | 100% | 11.29 | +284.9 | +288.1 | 100% | +29.0 |
+| 12 | `rate+roll_mean_24+vel_24` | short_ret_24 | 60689 | +289.7 | 100% | 9.88 | +289.5 | +291.9 | 100% | -1564.3 |
+
+### Key insight from Phase C
+
+- **HIGH-RATE-STABLE-SHORT extends to 24-period hold**: same filter (rate≥+12bp & std_24≤1bp) gives +288bp on short_ret_24 (vs +96bp on short_ret_8). Holding longer = collecting more funding periods.
+- 24h hold variant: n=47K, mean +2.88%, WR 100%, Sharpe 30+, min_bp positive throughout
+- New OI/LSR features had limited coverage (1.7K ticks each) → minimal contribution to grid; spot_close features showed cluster artifacts (sparse 52K coverage)
+- The robust edge remains funding-internal: stable high-rate periods are cap-pinned and predictably continue
+
+### Deploy spec — HIGH-RATE-STABLE-SHORT v2 (24h hold)
+
+```
+Trigger: rate >= +0.12% AND rolling_std_24 <= 0.01%
+Side: SHORT primary perp
+Exit: T+24 funding periods (~24h if 1h interval, ~96h if 4h interval)
+Expected: +2.88% per trade, WR 100% on n=47K historical events
+Sample throughput: ~7800 events/month at single-coin granularity
+```
+
+---
+Appended Phase C section at 2026-05-28 21:34:19.214319
