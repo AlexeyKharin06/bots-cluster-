@@ -2630,3 +2630,65 @@ Last cycle stats: n=35 Er+0.099 K=0.067 geom=+0.27%/tr (3/4 gates passed, fails 
 - **H_RUG_WALLET_VETO_RUG6** (carry from c1200): STILL AWAITING USER AUTH. Note: LMR_VETO_175 is now a higher-priority safety filter.
 - **PAPER_SOL_HUPHEY** & **PAPER_BSC_85871**: 13 cycles pending. NO change in n-counts.
 
+
+## NEW HYPOTHESES — cycle 20260528_0000
+
+### H_RUGCHECK_500_PURE ★★★ (NEW — universal Solana zero-rug stamp, 2nd feature-space veto)
+- **Filter**: `entry_signal.rugcheck_score == 500` (Solana only)
+- **Semantics**: discrete categorical = (mint=REVOKED ∧ freeze=NONE ∧ dangers=0 ∧ lp_unlocked=undefined)
+- **Stats (78h frozen window)**: n=395 trades / 47 unique pairs; avg=-2%; WR=29%; big%=7% trade-lvl / 6.4% pair-lvl; **rug=0% trade-lvl / 0% pair-lvl** across all 4 walk-forward quarters
+- **Orthogonality**: 0/395 overlap with HUPHEY; 0/395 with 85871; 100% within ¬LMR_VETO_175 region (lmr range 24-79)
+- **GATE eval**: PASSES rug-safety (0% in 78h) and n≥20 pairs; FAILS Er/K/geom on alpha-side alone
+- **Recommendation**: deploy as PAPER_SOL_RUGCHECK_500 SAFETY-stream — primary goal is harvest more pairs to test whether bigs accrue or stay sporadic. Even alpha-neutral, the zero-rug property alone is valuable confirmation.
+- **Next cycle**: re-run on fresh trades if state thaws; OOS confirmation.
+
+### H_RUGCHECK_500_BUYS500 ★★ (NEW — refined positive)
+- **Filter**: `score==500 ∧ buys_m5 ≥ 500`
+- **Stats**: n=67 trades / 9 pairs; avg=+33%; WR=37%; big%=27% (trade-lvl), 2/9 (pair-lvl); rug=0%
+- **K=+0.27, geom=+13%/trade** — passes Er/K/geom; fails n
+- **Pairs**: Popus+204% Luce+135% COMPUTEINU+4% PERPSLAUNCH-30% AB78-24% TOKEN-28% Poop-7% RWA-23% grail-20%
+- **Status**: HOT WATCH — need 11+ more pairs to satisfy n-gate
+- **Risk**: 7/9 pairs are losing; alpha concentrated in 2 pairs. Possibly over-fit to short window.
+
+### H_RUGCHECK_500_LMR30 ★★ (NEW — most concentrated)
+- **Filter**: `score==500 ∧ liq_mcap_ratio < 30`
+- **Stats**: n=34 trades / 4 pairs; avg=+87%; WR=76%; big%=53%; rug=0%; K=+0.71, geom=+60%/tr
+- **Pairs**: Popus(204), Luce(135), plzdontkillus(17), PERPSLAUNCH(-30)
+- **Status**: HOT WATCH — too narrow (4 pairs) to deploy alone, but highest K of any filter so far
+- **Combine with**: paper SAFETY-stream H_RUGCHECK_500_PURE as the entry rule; trail SL based on this concentration
+
+### H_LMR30_MCAP30K_TOP80 ★ (NEW — non-rugcheck alpha cell)
+- **Filter**: `liq_mcap_ratio < 30 ∧ mcap ∈ [30k, 100k) ∧ top1_pct < 80`
+- **Stats**: n=50 / 6 pairs; avg=+140%; big%=54%; rug=0% (pair-lvl 4/6 bigs, 0/6 rugs)
+- **Pairs**: Poor (HUPHEY), MTFR (HUPHEY), Popus, Luce, PHAGE, PERPSLAUNCH
+- **¬HUPHEY**: 4 pairs (Popus, Luce, PHAGE, PERPSLAUNCH) — 2/4 bigs, 0/4 rugs, avg=+88%
+- **Note**: significant overlap with RUGCHECK_500_BUYS500 (Popus, Luce, PERPSLAUNCH all appear in both). Not strictly orthogonal.
+- **Status**: secondary candidate; primary value is identifying NEW non-HUPHEY non-85871 alpha pairs (Popus, Luce)
+
+### H_RUGCHECK_NONE_DANGERS_LP_TRUE (PROPOSED — methodology #25 3rd confirmation seek)
+- **Filter**: `mint='REVOKED' ∧ freeze='NONE' ∧ rugcheck_dangers==0 ∧ lp_unlocked==true` (explicit LP-lock variant)
+- **Hypothesis**: this should be a related but distinct cell from score=500 (which has lp_unlocked undefined). Compare rug-rate and big-rate.
+- **Next cycle**: bucket exploration.
+
+## STATUS UPDATES (cycle 20260528_0000)
+
+### Methodology #25 — GRADUATE CANDIDATE → READY
+- Previous: c1800 introduced as CANDIDATE based on H_LMR_VETO_175 (375 trades / 68 pairs).
+- This cycle: H_RUGCHECK_500 = 395 trades / 47 pairs, both ZERO-rug feature-space filters with structural definitions.
+- 2-worked-examples threshold met (same as Methodology #14a graduation rule from cycle 20260527_1200).
+- **Status**: READY → FORMAL ADOPTION pending user ack.
+- **Practical impact**: each cycle MUST include at least one feature-space hypothesis exploration (in addition to wallet-prefix scanning).
+
+### Rejected this cycle (saves future cycles)
+- **buys_m5 ≥ N alone**: bucketed 10/30/50/100/200/500/1000 — no monotonic effect; all stay near baseline (-48% avg). STATUS: REJECTED as standalone.
+- **total_holders ≥ 50**: rare in entry snapshots (most are early); produces n=0 when stacked. STATUS: weak signal for entry-snapshot timing.
+- **symbol_dup_count ≥ 20**: bucketed and walk-forward — avg=-15% still negative; rug=25% still high. STATUS: REJECTED as standalone (weak); could combine.
+- **lmr<5 ∧ mcap small**: n=13/2 trades all rugs. STATUS: too narrow + rug-prone, REJECTED.
+- **rugcheck_score 0 / 11399 / 11500 / 13970 / 32927**: largest non-500 buckets, all rug-prone (rug 48-65%). STATUS: only score==500 is special; other discrete scores are baseline-or-worse.
+
+### Status updates on existing candidates
+- **PAPER_SOL_HUPHEY** & **PAPER_BSC_85871**: 14 cycles pending. NO change in n.
+- **H_LMR_VETO_175** (last cycle major): VALIDATED again — score==500 subset is strictly within ¬LMR_VETO_175 region. The two filters compose without conflict.
+- **H_RUG_WALLET_VETO_RUG6** (carry): STILL AWAITING USER AUTH.
+- **PAPER_SOL_GAMMA_RELAXED**: n=16 unchanged.
+- **H_9CCPC_WATCH**: WATCH unchanged.

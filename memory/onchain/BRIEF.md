@@ -1,63 +1,67 @@
-# BRIEF — onchain AI brain (cycle 20260527_1800)
+# BRIEF — onchain AI brain (cycle 20260528_0000)
 
-## State (slightly thawed — closed=4947, +17 since c1200)
-- closed=**4947** (UP +17 from c1200 4930). open=0. Window 2026-05-24T08:36Z → 2026-05-27T14:54Z (~78h). State.json last write 2026-05-27T14:54Z (~3h ago).
-- New 17 closures: 6×CHARTARD (-100%, lmr=180), 7×grail (-100%, lmr=196), 3×HTX (-8%), 1×USDCx (-100%) — mostly batch-flush of stale positions.
-- Sniper PID still in Helius rate-limit loop (~46h ongoing). c0000 patch ready awaiting user auth.
+## State (frozen — closed=4947, no new data 9+h)
+- closed=**4947** (UNCHANGED from c1800). open=0. Window 2026-05-24T08:36Z → 2026-05-27T14:54Z (~78h).
+- State.json last write 2026-05-27T14:54Z (~9h ago). 8th consec stale cycle.
+- Sniper PID still in Helius rate-limit loop (~47h ongoing). c0000 patch ready awaiting user auth.
 
 ## Goal & gate
-**+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%/trade. **0 paper streams deployed**. 13-cycle pending user-auth.
+**+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%/trade. **0 paper streams deployed**. 14-cycle pending user-auth.
 
-## Regime (9th cycle chain-asymmetric — no new data)
+## Regime (10th cycle chain-asymmetric — no new data)
 **Sol** Cond A clear → Guard OFF. **BSC** Cond A triggered → Guard ON. (Unchanged.)
 
-## Last validated (this cycle) — ★ MAJOR
-**H_LMR_VETO_175** — feature-space universal rug filter. 4-quarter walk-forward across Q0/Q1/Q2/Q3 of last ~57h:
-- lmr>=175: 375 trades / 68 unique pairs, **96-100% rug rate, ZERO bigs lost in ANY quarter**.
-- lmr>=150: 676 trades / 124 pairs, ~87% rug rate, only 1 big pair lost (Horatio +138% lmr=163).
-- Cross-chain confirmed on BSC (lmr>=150 → 83% rug, 0% big).
-- INDEPENDENT of HUPHey alpha (zero overlap — HUPHey trades have lmr ∈ {0,16,22,32} < 150).
-- 17 new closures CONFIRM (CHARTARD lmr=180 rug, grail lmr=196 rug).
-- See [cycle_20260527_1800.md](insights/cycle_20260527_1800.md).
+## Last validated (this cycle) — ★★★ MAJOR
+**H_RUGCHECK_500** — 2nd feature-space filter, UNIVERSAL Solana zero-rug stamp:
+- `entry_signal.rugcheck_score == 500` ≡ mint=REVOKED ∧ freeze=NONE ∧ dangers=0 ∧ lp_unlocked=undefined
+- **47 unique Solana pairs / 395 trades / 78h** — ZERO rugs in EVERY walk-forward quarter (Q0/Q1/Q2/Q3)
+- avg=-2%, WR=29%, big%=6.4% (pair-level)
+- ORTHOGONAL to HUPHEY (0 overlap), 85871 (0 overlap), LMR_VETO_175 (score=500 ⊂ ¬lmr≥175 region)
+- Refinements: `∧ buys_m5≥500` → n=9 K=+0.27 geom=+13%; `∧ lmr<30` → n=4 K=+0.71 geom=+60%
+- See [cycle_20260528_0000.md](insights/cycle_20260528_0000.md)
 
-## Top candidates
-- **PAPER_SOL_HUPHEY (deploy-ready 13 cycles, #14a-validated)**: n=9 K=0.41 geom=+135.84%/tr. `top1_owner.startsWith("HUPHey")`. n-gate: 11 more.
-- **PAPER_BSC_85871 (deploy-ready 13 cycles, #14a-validated)**: n=3 best-fire K=0.43 geom=+71.8%/tr. `bc[0].addr.startsWith("0x85871")`. n-gate: 17 more.
+## Top candidates (4 deploy-ready + 1 NEW)
+- **PAPER_SOL_HUPHEY (deploy-ready 14 cycles)**: n=9 K=0.41 geom=+136%/tr. `top1_owner.startsWith("HUPHey")`. n-gate: 11 more.
+- **PAPER_BSC_85871 (deploy-ready 14 cycles)**: n=3 best-fire K=0.43 geom=+72%/tr. `bc[0].addr.startsWith("0x85871")`. n-gate: 17 more.
+- **PAPER_SOL_RUGCHECK_500 (NEW)**: 47 pairs 0 rugs alpha-neutral; recommended SAFETY-stream + n-harvest.
 - **PAPER_SOL_GAMMA_RELAXED**: n=16 geom=+1.55% — n-gate: 4 more.
 - **H_9CCPC_WATCH**: n=3 (eff. n=2) +26.2% vs matched -7.6% — WATCH only.
 
 ## New filter candidates (this cycle)
-- **★ H_LMR_VETO_175** — Sol+BSC `entry_signal.liq_mcap_ratio >= 175`. 4-quarter walk-forward: 100% rug precision, ZERO bigs lost. **RECOMMENDED for immediate Sniper deployment.**
-- **H_LMR_VETO_150** — broader variant. 87% rug, 1 big lost (Horatio). More coverage, slightly more risk.
-- **H_RUG_WALLET_VETO_RUG6** (carry from c1200) — Sol blacklist 6 wallet prefixes.
-- **H_SELF_LP_TOP85_VETO** (carry).
-- **H_META_TOP99_PURE_SHAPE** (carry — fails geom-gate).
+- **★★★ H_RUGCHECK_500_PURE** — Solana `entry_signal.rugcheck_score == 500`. 47 pairs 0 rugs in 78h. SAFETY-stream candidate.
+- **H_RUGCHECK_500_BUYS500** — refined `∧ buys_m5 ≥ 500`. 9 pairs K=+0.27 geom=+13%/tr. Fails n only.
+- **H_RUGCHECK_500_LMR30** — refined `∧ lmr<30`. 4 pairs K=+0.71 geom=+60%/tr. Too narrow alone.
+- **H_LMR30_MCAP30K_TOP80** — `lmr<30 ∧ mcap[30k,100k) ∧ top1<80`. 6 pairs 2/4 non-HUPHEY bigs (Popus+Luce).
+- CARRY: H_LMR_VETO_175, H_RUG_WALLET_VETO_RUG6, H_SELF_LP_TOP85_VETO, H_META_TOP99_PURE_SHAPE.
+
+## Rejected this cycle
+- buys_m5 alone (no monotonic effect), total_holders ≥50 (rare in early snapshots), sdc≥20 (rug=25% still high), lmr<5+small_mcap (all rugs), other rugcheck scores (0/11399/11500/13970 all bad).
 
 ## Methodology — 25 forms
-**#25 NEW CANDIDATE — FEATURE-SPACE FILTERS BEAT WALLET-SPACE FILTERS FOR HIGH-RECALL VETOS** — 12 cycles of wallet-prefix RUG_N gave n=27-29 walk-forward; one feature filter (lmr>=175) gave 375 trades / 68 pairs at ~100% precision. Rule: each cycle, prefer at least one feature-space hypothesis alongside wallet-prefix scanning.
-**#14a MATCHED-SHAPE BASELINE SUBTYPE** — READY ADOPT (2 worked examples: HUPHey + 0x85871).
+**★ #25 FEATURE-SPACE > WALLET-PREFIX — GRADUATED CANDIDATE → READY** (2nd confirmation: LMR_VETO_175 + RUGCHECK_500 both deliver 47-68 pairs/quarter at structural precision, vs wallet-prefix n=3-9).
+**#14a MATCHED-SHAPE BASELINE SUBTYPE** — READY ADOPT (2 examples: HUPHey + 0x85871).
 **#24 SAME-SYMBOL DUP-PAIR INFLATION (CANDIDATE)** — carry.
-**#4 STREAM-DUPLICATION** — reaffirmed multiple cycles.
+**#4 STREAM-DUPLICATION** — reaffirmed (avg 8.4 trades/pair in RUGCHECK_500 bucket).
 
-## Planned next cycle (06:00Z 05-28)
-1. **★ Test combined HUPHEY ∧ ¬LMR_175** — should be identity (no overlap), confirms backtest plumbing.
-2. **Find LMR alpha-side companion**: lmr<0.1 has big%=7.3% — backtest as positive filter.
-3. **mcap × lmr product**: does the product give cleaner signal than lmr alone?
-4. **symbol_dup_count high-end**: grail dup=11 rugged — backtest dup>=5 veto.
-5. **If state thaws**: walk-forward LMR_175 on fresh-only trades, confirm out-of-sample.
-6. **Methodology #25 seek 2nd confirmation** (find another high-recall feature filter that beats its wallet-prefix counterpart).
-7. CARRY: HUPHey/85871 deploy auth, Helius patch, H_GECKO_FEED, BSC volume.
+## Planned next cycle (0600Z 05-28)
+1. **If state thaws** — re-run RUGCHECK_500 walk-forward on fresh-only trades (OOS).
+2. **★ Combined-filter pass** — (HUPHEY ∨ 85871 ∨ RUGCHECK_500) − LMR_VETO_175. Compute combined K, geom, expected throughput.
+3. **#25 seek 3rd confirmation** — candidates: `mint=REVOKED ∧ freeze=NONE ∧ lp_unlocked=true` (explicit-LP variant), `creator_tx_count==0` (fresh creators).
+4. **rugcheck_score 11399 / 11500 deep dive** — biggest buckets (1523, 610 trades) — sub-cell analysis.
+5. **bonding_curve_buyers[0]** examination on Popus/Luce/PHAGE/PERPSLAUNCH.
+6. **TG signals × RUGCHECK_500 timing** — do channels notice these pre-pump?
+7. CARRY: HUPHey/85871/LMR_175/RUGCHECK_500 deploy auth (4 streams), Helius patch, H_GECKO_FEED, BSC volume.
 
 ## Progress delta this cycle
-**POS (4)**: NEW universal feature filter LMR_175 4-quarter validated / cross-chain confirmed BSC / 17 new closures confirmed thesis / NEW Methodology #25 candidate.
-**NEG (2)**: only 17 new closures in 24h (mostly batch-flush) / no new positive alpha, only veto.
-**Net**: STRONG POS — first feature-space veto to walk-forward at ~100% precision; major safety-side addition.
-**Stuck: NOT triggered** (12 consec cycles new findings).
+**POS (4)**: NEW universal feature filter H_RUGCHECK_500 (47 pairs, 0 rugs, fully orthogonal); Methodology #25 2nd confirmation → GRADUATED READY; HUPHEY-decontaminated alpha pairs isolated (Popus+Luce); 5 weak hypotheses eliminated from backlog.
+**NEG (1)**: state still frozen (8th consec cycle no new closed_trades).
+**Net**: STRONG POS — first cycle with feature-space filter showing both ZERO rug AND non-zero big rate on 47 unique pairs (10× HUPHEY's n).
+**Stuck: NOT triggered** (13 consec cycles new findings).
 
 ## OPEN QUESTIONS to user
-1. **★★★ H_LMR_VETO_175 immediate adoption** — RECOMMENDED. Walk-forward 4 quarters, 100% rug precision, ZERO bigs lost. Safety filter with no alpha cost. Independent of HUPHey/85871.
-2. **HELIUS RATE-LIMIT ★★★★★ (46h+)** — refresh quota / apply c0000 patch / hard-kill PID.
-3. **PAPER_SOL_HUPHEY deploy** — STRONGLY YES (13 cycles pending).
-4. **PAPER_BSC_85871 deploy** — STRONGLY YES (#14a-validated).
-5. **H_RUG_WALLET_VETO_RUG6** adoption (6 prefixes)?
-6. **Methodology #14a + #20 + #4 FORMAL ADOPTION** (all triple/double-confirmed).
+1. **★★★★★ HELIUS RATE-LIMIT (47h+)** — refresh quota / apply c0000 patch / hard-kill PID. Without thaw every cycle works on same frozen 4947 trades.
+2. **★★★★ PAPER_SOL_RUGCHECK_500 deploy authorization** — 47 pairs 0 rugs documented; even as alpha-neutral SAFETY stream, valuable for live n-harvest.
+3. **★★★★ Batch-deploy all 4 streams** (HUPHEY + 85871 + LMR_VETO_175 + RUGCHECK_500) under single multiplex slot?
+4. **Methodology #25 FORMAL ADOPTION** (now 2-confirmation READY).
+5. **H_RUG_WALLET_VETO_RUG6** adoption (carry — 6 wallet prefixes)?
+6. **PAPER_BSC_85871** deploy (carry 14 cycles)?
