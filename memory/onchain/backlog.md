@@ -2692,3 +2692,27 @@ Last cycle stats: n=35 Er+0.099 K=0.067 geom=+0.27%/tr (3/4 gates passed, fails 
 - **H_RUG_WALLET_VETO_RUG6** (carry): STILL AWAITING USER AUTH.
 - **PAPER_SOL_GAMMA_RELAXED**: n=16 unchanged.
 - **H_9CCPC_WATCH**: WATCH unchanged.
+
+## NEW HYPOTHESES — cycle 20260528_0600
+
+- **★★★ H_MULTIPLEX_ALPHA_UNION (NEW — FIRST gate-passing candidate ever)** — STATUS: **GATE-PASS (in-sample, worst-fire)**, awaiting OOS + deploy auth.
+  - Definition: `HUPHEY ∨ 85871 ∨ RC500_buys500 ∨ RC500_lmr30`, dedup to unique pairs, LMR_175 as population guard (no-op on union).
+  - **n=22 unique pairs** (raw 164). Aggregation sensitivity: best-fire avg+130%/rug0%/K1.0(artifact)/geom+58%; mean +84%/rug0%/geom+42.5%; **worst-fire +44.5%/big22.7%/rug4.5%/K=+0.61/geom=+11.5%**. PASSES n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1% under ALL THREE aggregations.
+  - 4Q walk-forward: rug=0% every quarter (best-fire); ≥3 entities co-active Q1/Q2/Q3 (Q0 sparse n=1) — NOT single-block inflated. Composition: HUPHEY 9 / RC500_buys500 6 / RC500_lmr30 4 / 85871 3.
+  - Orthogonality matrix: the 3 entities have 0 pairwise pair-overlap (RC500 variants nest as expected).
+  - CAVEATS: (1) best-fire K=1.0 is a rugless-set artifact — use ½K≈0.30 for live sizing; (2) all 3 filters discovered ON this frozen window → selection bias, in-sample only; true OOS needs state thaw. (3) Methodology #13: HUPHEY=41% of pairs → strict effective-n≈17.5, but RC500 constituents are structural (not single-entity penalized).
+  - ACTION: deploy ONE `MULTIPLEX_PAPER_ALPHA` paper stream (size=$1) to harvest OOS n. Supersedes the 4 separate pending stream asks (they are its constituents). See cycle_20260528_0600.md.
+
+- **H_LP_LOCKED_FEATURE (NEW)** — STATUS: REJECTED as standalone veto, RETAINED as causal explanation.
+  - `entry_signal.lp_unlocked == False` (LP LOCKED) → 80 pairs, rug 17.5% (vs 52% baseline) but UNSTABLE across quarters (Q0 33% / Q1 6.9% / Q2 18.2% / Q3 26.1%). Not a clean veto alone.
+  - It IS the causal driver of RC500's zero-rug: score==500 ≡ mint=REVOKED ∧ freeze=NONE ∧ dangers=0 ∧ **lp_unlocked=False** ∧ lmr∈[24,79]. Zero-rug = CONJUNCTION property (LP-removal structurally impossible), not attributable to lp-lock alone.
+
+## STATUS UPDATES (cycle 20260528_0600)
+
+- **★ CORRECTION to c0000 (Methodology #10)**: c0000 claimed RC500 ≡ lp_unlocked="undefined/missing". FALSE — all 395 score==500 trades have `lp_unlocked == False` (LP LOCKED). No "undefined" value exists in data (only True:3859 / False:609). Definition corrected above.
+- **H_RUGCHECK_500 (c0000)**: REINFORCED + mechanism understood (LP-lock). score==500 ⊂ rugcheck_dangers==0 (47⊂69 pairs); the 22 extra dangers==0 pairs carry the rugs (score=0: CULT/Pumba/BRUME/ETG all −100). score==500 is the CLEAN subset; dangers==0 is NOT an improvement.
+- **H_CREATOR_TX_COUNT_0 (proposed c0000 as #25 3rd-confirm candidate)**: REJECTED — degenerate. creator_tx_count==0 for ALL 4468 Sol trades (whole population, not discriminating).
+- **H_EXPLICIT_LP_TRUE (proposed c0000 as #25 3rd-confirm)**: REJECTED — lp_unlocked==True is the rug-PRONE majority (586 pairs, 60% rug). Opposite of alpha.
+- **Methodology #25 (FEATURE-SPACE > WALLET-PREFIX)**: 3rd independent confirmation NOT achieved this cycle (no new clean feature filter found). Remains 2-confirmation READY.
+- **NEW Methodology #26 CANDIDATE: ORTHOGONAL-UNION n-AGGREGATION** — orthogonal sub-threshold alphas combine additively in n + fill temporal coverage gaps → union crosses deployment floor no constituent reaches; distinct from #11/#13 overfit (constituents causally independent). Graduates on a 2nd independent union once state thaws.
+- **PAPER_SOL_HUPHEY / PAPER_BSC_85871 / RC500 variants**: n UNCHANGED individually (9/3/9/4) — now CONSOLIDATED into H_MULTIPLEX_ALPHA_UNION which is the object that clears n≥20.

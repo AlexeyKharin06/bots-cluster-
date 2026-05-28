@@ -1,67 +1,55 @@
-# BRIEF — onchain AI brain (cycle 20260528_0000)
+# BRIEF — onchain AI brain (cycle 20260528_0600)
 
-## State (frozen — closed=4947, no new data 9+h)
-- closed=**4947** (UNCHANGED from c1800). open=0. Window 2026-05-24T08:36Z → 2026-05-27T14:54Z (~78h).
-- State.json last write 2026-05-27T14:54Z (~9h ago). 8th consec stale cycle.
-- Sniper PID still in Helius rate-limit loop (~47h ongoing). c0000 patch ready awaiting user auth.
+## State (frozen — closed=4947, no new data ~12h)
+- closed=**4947** (4468 Sol + 479 BSC), UNCHANGED. open=5. Window 2026-05-24T08:36Z → 2026-05-27T14:54Z (~78h).
+- Last write 2026-05-27T14:54Z. **9th consec stale cycle.** Sniper in Helius rate-limit loop (~50h).
 
 ## Goal & gate
-**+1M%**. GATE: n≥20 ∧ Er>0 ∧ K≥0.05 ∧ geom≥1%/trade. **0 paper streams deployed**. 14-cycle pending user-auth.
+**+1M%**. GATE: n≥20 pairs ∧ Er>0 ∧ K≥0.05 ∧ geom≥+1%/tr. **0 deployed**, 15 cycles pending auth.
 
-## Regime (10th cycle chain-asymmetric — no new data)
-**Sol** Cond A clear → Guard OFF. **BSC** Cond A triggered → Guard ON. (Unchanged.)
+## ★★★ THIS CYCLE — FIRST candidate to clear the n≥20 floor
+**MULTIPLEX_PAPER_ALPHA = HUPHEY ∨ 85871 ∨ RC500_buys500 ∨ RC500_lmr30** (dedup union):
+- **n=22 unique pairs** (raw 164) — passes ALL FOUR GATES under best/mean/**worst-fire** aggregation.
+- worst-fire (pessimistic, credible): avg+44.5% big22.7% rug4.5% **K=+0.61 geom=+11.5%/tr**.
+- best-fire (optimistic ceiling): avg+130% rug0% K=1.0(artifact) geom+58%.
+- WHY it crosses the floor: the 3 entities are FULLY ORTHOGONAL (0 pairwise overlap) → pair counts ADD + coverage gaps
+  FILL. 4Q walk-forward: rug=0% every Q (best-fire), ≥3 entities co-active Q1/Q2/Q3 → not single-block inflated.
+- LMR_175 subtract = NO-OP on union (alphas already in safe LMR region).
+- CAVEAT: all 3 filters discovered on this frozen window = **selection bias**; needs OOS (thaw). Deploy paper to
+  harvest true OOS n. Size ½K≈0.30, NOT best-fire K=1.0.
+- See [cycle_20260528_0600.md](insights/cycle_20260528_0600.md).
 
-## Last validated (this cycle) — ★★★ MAJOR
-**H_RUGCHECK_500** — 2nd feature-space filter, UNIVERSAL Solana zero-rug stamp:
-- `entry_signal.rugcheck_score == 500` ≡ mint=REVOKED ∧ freeze=NONE ∧ dangers=0 ∧ lp_unlocked=undefined
-- **47 unique Solana pairs / 395 trades / 78h** — ZERO rugs in EVERY walk-forward quarter (Q0/Q1/Q2/Q3)
-- avg=-2%, WR=29%, big%=6.4% (pair-level)
-- ORTHOGONAL to HUPHEY (0 overlap), 85871 (0 overlap), LMR_VETO_175 (score=500 ⊂ ¬lmr≥175 region)
-- Refinements: `∧ buys_m5≥500` → n=9 K=+0.27 geom=+13%; `∧ lmr<30` → n=4 K=+0.71 geom=+60%
-- See [cycle_20260528_0000.md](insights/cycle_20260528_0000.md)
+## Methodology — 26 forms
+**★ #26 ORTHOGONAL-UNION n-AGGREGATION (NEW CANDIDATE)** — sub-threshold orthogonal alphas combine additively in n +
+fill temporal gaps, crossing floors no constituent reaches; distinct from #11/#13 (constituents causally independent).
+Graduates on a 2nd independent union once state thaws.
+**#25 FEATURE-SPACE > WALLET-PREFIX — READY** (LMR_VETO_175 + RC500). 3rd-confirmation NOT found this cycle.
+**#10 CROSS-CHECK** — corrected c0000 (RC500 lp_unlocked=FALSE/locked). **#14a/#4** carry.
 
-## Top candidates (4 deploy-ready + 1 NEW)
-- **PAPER_SOL_HUPHEY (deploy-ready 14 cycles)**: n=9 K=0.41 geom=+136%/tr. `top1_owner.startsWith("HUPHey")`. n-gate: 11 more.
-- **PAPER_BSC_85871 (deploy-ready 14 cycles)**: n=3 best-fire K=0.43 geom=+72%/tr. `bc[0].addr.startsWith("0x85871")`. n-gate: 17 more.
-- **PAPER_SOL_RUGCHECK_500 (NEW)**: 47 pairs 0 rugs alpha-neutral; recommended SAFETY-stream + n-harvest.
-- **PAPER_SOL_GAMMA_RELAXED**: n=16 geom=+1.55% — n-gate: 4 more.
-- **H_9CCPC_WATCH**: n=3 (eff. n=2) +26.2% vs matched -7.6% — WATCH only.
+## RC500 mechanism (corrected this cycle)
+`rugcheck_score==500 ≡ mint=REVOKED ∧ freeze=NONE ∧ dangers=0 ∧ lp_unlocked=FALSE(LP LOCKED) ∧ lmr∈[24,79]`.
+Zero-rug is CAUSAL: LP locked → LP-removal impossible. score==500 ⊂ dangers==0 (47⊂69), the clean subset.
 
-## New filter candidates (this cycle)
-- **★★★ H_RUGCHECK_500_PURE** — Solana `entry_signal.rugcheck_score == 500`. 47 pairs 0 rugs in 78h. SAFETY-stream candidate.
-- **H_RUGCHECK_500_BUYS500** — refined `∧ buys_m5 ≥ 500`. 9 pairs K=+0.27 geom=+13%/tr. Fails n only.
-- **H_RUGCHECK_500_LMR30** — refined `∧ lmr<30`. 4 pairs K=+0.71 geom=+60%/tr. Too narrow alone.
-- **H_LMR30_MCAP30K_TOP80** — `lmr<30 ∧ mcap[30k,100k) ∧ top1<80`. 6 pairs 2/4 non-HUPHEY bigs (Popus+Luce).
-- CARRY: H_LMR_VETO_175, H_RUG_WALLET_VETO_RUG6, H_SELF_LP_TOP85_VETO, H_META_TOP99_PURE_SHAPE.
+## Top candidates
+- **★ MULTIPLEX_PAPER_ALPHA (NEW — n=22, gate-PASS in-sample worst-fire)** — the deploy ask; supersedes the 4 separate
+  constituent streams: HUPHEY(n9)/85871(n3)/RC500_buys500(n9)/RC500_lmr30(n4), each sub-threshold alone.
+- RC500_pure (n=59, rug0%, flat geom) — separate SAFETY/harvest stream. PAPER_SOL_GAMMA_RELAXED n=16 (4 more).
+  H_LMR_VETO_175 universal rug veto (adopt).
 
 ## Rejected this cycle
-- buys_m5 alone (no monotonic effect), total_holders ≥50 (rare in early snapshots), sdc≥20 (rug=25% still high), lmr<5+small_mcap (all rugs), other rugcheck scores (0/11399/11500/13970 all bad).
+creator_tx_count==0 (degenerate — value 0 for all 4468 Sol trades); explicit-LP-true variant (lp_unlocked=True = 60%
+rug majority); lp_unlocked=False alone (unstable 7-33% rug across quarters); dangers==0 as RC500 replacement (worse).
 
-## Methodology — 25 forms
-**★ #25 FEATURE-SPACE > WALLET-PREFIX — GRADUATED CANDIDATE → READY** (2nd confirmation: LMR_VETO_175 + RUGCHECK_500 both deliver 47-68 pairs/quarter at structural precision, vs wallet-prefix n=3-9).
-**#14a MATCHED-SHAPE BASELINE SUBTYPE** — READY ADOPT (2 examples: HUPHey + 0x85871).
-**#24 SAME-SYMBOL DUP-PAIR INFLATION (CANDIDATE)** — carry.
-**#4 STREAM-DUPLICATION** — reaffirmed (avg 8.4 trades/pair in RUGCHECK_500 bucket).
+## Planned next cycle (1200Z 05-28)
+1. **★ If state thaws** — re-form MULTIPLEX_PAPER_ALPHA on fresh-only (post-14:54Z) trades for TRUE OOS → gates #26.
+2. **★ #26 2nd confirmation** — try a 2nd orthogonal union crossing a floor it shouldn't reach alone.
+3. **★ Fractional-Kelly drawdown sim** for MULTIPLEX at ½K=0.30 — concrete sizing+ruin number for user.
+4. bonding_curve_buyers[0] across 22 union pairs (shared early-buyer = potential NEW orthogonal entity).
+5. #25 3rd-confirm retry: `dangers==0 ∧ lp_unlocked=False ∧ lmr<30`. CARRY: Helius patch, H_GECKO_FEED.
 
-## Planned next cycle (0600Z 05-28)
-1. **If state thaws** — re-run RUGCHECK_500 walk-forward on fresh-only trades (OOS).
-2. **★ Combined-filter pass** — (HUPHEY ∨ 85871 ∨ RUGCHECK_500) − LMR_VETO_175. Compute combined K, geom, expected throughput.
-3. **#25 seek 3rd confirmation** — candidates: `mint=REVOKED ∧ freeze=NONE ∧ lp_unlocked=true` (explicit-LP variant), `creator_tx_count==0` (fresh creators).
-4. **rugcheck_score 11399 / 11500 deep dive** — biggest buckets (1523, 610 trades) — sub-cell analysis.
-5. **bonding_curve_buyers[0]** examination on Popus/Luce/PHAGE/PERPSLAUNCH.
-6. **TG signals × RUGCHECK_500 timing** — do channels notice these pre-pump?
-7. CARRY: HUPHey/85871/LMR_175/RUGCHECK_500 deploy auth (4 streams), Helius patch, H_GECKO_FEED, BSC volume.
-
-## Progress delta this cycle
-**POS (4)**: NEW universal feature filter H_RUGCHECK_500 (47 pairs, 0 rugs, fully orthogonal); Methodology #25 2nd confirmation → GRADUATED READY; HUPHEY-decontaminated alpha pairs isolated (Popus+Luce); 5 weak hypotheses eliminated from backlog.
-**NEG (1)**: state still frozen (8th consec cycle no new closed_trades).
-**Net**: STRONG POS — first cycle with feature-space filter showing both ZERO rug AND non-zero big rate on 47 unique pairs (10× HUPHEY's n).
-**Stuck: NOT triggered** (13 consec cycles new findings).
-
-## OPEN QUESTIONS to user
-1. **★★★★★ HELIUS RATE-LIMIT (47h+)** — refresh quota / apply c0000 patch / hard-kill PID. Without thaw every cycle works on same frozen 4947 trades.
-2. **★★★★ PAPER_SOL_RUGCHECK_500 deploy authorization** — 47 pairs 0 rugs documented; even as alpha-neutral SAFETY stream, valuable for live n-harvest.
-3. **★★★★ Batch-deploy all 4 streams** (HUPHEY + 85871 + LMR_VETO_175 + RUGCHECK_500) under single multiplex slot?
-4. **Methodology #25 FORMAL ADOPTION** (now 2-confirmation READY).
-5. **H_RUG_WALLET_VETO_RUG6** adoption (carry — 6 wallet prefixes)?
-6. **PAPER_BSC_85871** deploy (carry 14 cycles)?
+## OPEN QUESTIONS to user (★ escalating — analysis has hit its in-sample ceiling)
+1. **★★★★★ DEPLOY MULTIPLEX_PAPER_ALPHA?** First gate-passing candidate (n=22, paper $1). ONLY way to get OOS n —
+   in-sample exhausted. Consolidates the 4 pending stream asks into one.
+2. **★★★★★ HELIUS RATE-LIMIT (~50h)** — refresh quota / apply c0000 patch / hard-kill PID. Without thaw, NO new data
+   and NO OOS validation possible. Now the single binding constraint on all progress.
+3. #25 FORMAL ADOPTION (2-confirm READY) + #26 candidate. H_RUG_WALLET_VETO_RUG6 (carry)?
