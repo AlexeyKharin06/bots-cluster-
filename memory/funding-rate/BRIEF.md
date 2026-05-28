@@ -16,12 +16,10 @@ DECOMPOSITION (perp-perp): lift is ENTIRELY from rank==1
   Spearman(n_neg_50, perp)=-0.075 vs (n_neg_50, basis)=+0.197  (OPPOSITE)
 ```
 
-**Mechanism:** rank==1 = primary-ex outlier = cross-ex DISPERSION → perp-perp captures wide spread. n_neg_50≥3 = SYNCHRONIZED deep-discount → perp-perp spread collapses (R23) but basis externalizes funding so breadth helps it. Maps onto **(basis ← magnitude/breadth | perp-perp ← dispersion)** duality.
+**Mechanism:** rank==1 = primary-ex outlier = cross-ex DISPERSION → perp-perp captures wide spread. n_neg_50≥3 = SYNCHRONIZED deep-discount → perp-perp spread collapses (R23), basis externalizes funding so breadth helps it. Maps onto **(basis ← magnitude/breadth | perp-perp ← dispersion)** duality.
 
-- **Meth #24 PROMOTED candidate→CONFIRMED** (hedge effectiveness conditional on cross-ex dispersion; 2 independent demos: H_COMBO_8/R23 + this rank/n_neg split).
-- **Meth #26 corroboration #3** on NEW axis = cross-HEDGE-TYPE (prior were cross-variant). Filter derived on basis loses ~80% Sharpe value on perp-perp.
-- **Meth #27 candidate REJECTED as stated** → folds into #24/#26 (not standalone).
-- **H34 spec UNCHANGED** — do NOT import the n_neg_50 filter. NEW DRAFT sub-tier `H34_QUALITY_RANK1` (rank==1, n=63, +1.76/85.7/Sh0.94) filed FORWARD-OBS ONLY (modest lift + ex-concentration: gate/bybit/okx strong, binance/bitget weak).
+- **Meth #24 candidate→CONFIRMED** (hedge effect conditional on cross-ex dispersion; demos: H_COMBO_8/R23 + this rank/n_neg split). **Meth #26 corroboration #3** = NEW cross-HEDGE-TYPE axis. **Meth #27 REJECTED as stated** → folds into #24/#26.
+- **H34 spec UNCHANGED** — do NOT import the n_neg_50 filter. DRAFT sub-tier `H34_QUALITY_RANK1` (rank==1, n=63, +1.76/85.7/Sh0.94) FORWARD-OBS ONLY (modest lift + ex-concentration).
 
 ## 3-EDGE PORTFOLIO — UNCHANGED
 ```
@@ -60,6 +58,5 @@ paper_new_symbol n=14→17 (+3 ALL LOSERS) sum -$8.75 WR 23.5% TP-fire 1/17
 - Import a rejected variant's discriminator as a filter on a validated variant (Meth #26)
 
 ## DATA / TG / GIT
-- /tmp/meth27_h34_exrank.py + /tmp/meth27_followup.py (this cycle); /tmp/{h34_results,h31_combo3c,h31_net}.parquet
-- code/data/{c2_wide,mega_fairprice_*,multi_ex_funding_180,expansion_funding,h31_combo3c,h37_results}.parquet
+- /tmp/meth27_h34_exrank.py + /tmp/meth27_followup.py (this cycle); /tmp/{h34_results,h31_combo3c}.parquet; code/data/* parquets present.
 - paper_fairprice_v6 n=65, paper_new_symbol n=17. feed_funding 7 (unchanged). H_TG_ROUTING_PATCH pending USER OK (18-cycle). VPS git push fails (credential helper unset).
