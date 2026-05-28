@@ -1,62 +1,59 @@
-# BRIEF — funding-rate (post-cycle 20260527_2300)
+# BRIEF — funding-rate (post-cycle 20260528_0500)
 
-## ✅ 23:00 UTC — Meth #28 cross-class TEST → REFUTED on H3_DEPEG → **Meth #29 CANDIDATE filed** (BOUNDARY discovered)
+## ✅ 05:00 UTC — Meth #26 PROMOTED candidate(1.5/2) → **CONFIRMED (2/2)** via R13→H34 transfer (FINAL gate attempt)
 
-H3 first cross-class corroboration attempt (cycle 1700 plan #2). Both prior Meth #28 corroborations were fairprice-family.
+Took the REJECTED R13 variant's distinguishing feature and applied it as a filter to the VALIDATED H34 perp-perp edge. Meth #26 prediction (rejected-variant features don't transfer) CONFIRMED on both components.
 
 ```
-H3 50bp (n=129):  TARGET n=111 mean +0.880% WR 100%   TIMEOUT n=18 mean +0.338% WR 72%
-H3 75bp (n=39):   TARGET n=36  mean +1.749% WR 100%   TIMEOUT n=3  mean +1.881% WR 100% (TIMEOUT outperforms)
-Hold-cutoff sweep 12..144h: zero negative SLOW buckets
-Walk-fwd TRAIN/TEST: both halves TIMEOUT positive (+0.18 / +0.75)
+R13 re-derived: H31 SHORT n=38 pre>0, post fund_cum4 mean -2.942% (=cycle2300 -2.94% sign-flip); LONG +3.751% no flip
+H34 baseline (Rule A, n=101): +1.436% / WR 81.2% / Sharpe 0.82
+
+TEST A sign-flip mechanism:  VACUOUS — 0/101 events meet reversal cond (primary_fund_cum4<=0); pre<0 filter already excludes the R13 population
+TEST B |pre_rate| magnitude:  NULL — corr 0.032; HIGH +1.443%/80.4% vs LOW +1.428%/82.0% indistinguishable; quartiles non-monotone
+Naive R13-danger filter (drop top-|pre_rate| Q): HURTS — n→76, Δmean -0.005pp, Sharpe 0.82→0.762, throughput -25%
+Walk-forward both halves agree (TRAIN 0.962→0.909, TEST 0.716→0.651)
 ```
 
-**Mechanism:** 72.2% of TIMEOUT trades partially-revert (median entry dev −54bp → median exit dev −23bp = 34bp gain). H3 anchor ($1 peg) is an attractive force; TIMEOUT = slow-but-still-favorable partial reversion, NOT adverse drift.
+**Combined statement (3 data points): filter provenance determines transferability.** cycle1700 nano-cap (rejected-tail, no transfer #1) + cycle2300 H_COMBO_3c (validated-derived, DOES transfer = opposite complement) + this R13→H34 (rejected-discriminator, vacuous+null #2). **Derive filters from the structure you intend to filter; never import a rejected variant's discriminator.** Corollary: classify any cross-variant filter as derived-from-validated (re-validate) vs diagnostic-of-rejected (don't transfer).
 
-**Meth #29 (candidate, 1/2):** Meth #28 applies to **scalp/drift-dominated** TARGET-or-TIMEOUT only, NOT to **mean-rev-to-anchor** strategies. Diagnostic: is TARGET "X% from entry" (scalp, Meth#28) or "restore to fixed anchor" (mean-rev, NOT)? The cycle 1700 "NEW GATE" (TARGET-or-TIMEOUT spec must show bimodality pre n=30) must be conditioned on strategy class — would wrongly block valid mean-rev streams like H3_DEPEG.
+**Operational:** H34 spec UNCHANGED — do NOT add an |pre_rate| magnitude gate (neutral-to-harmful). Full-universe Rule-A stays.
 
-**Operational:** do NOT apply hold-time cutoff to H3 paper-stream spec. P75-cut (27h) drops mean +0.805→+0.618%, WR 96.1→64.3%; P90-cut (67h) still costs 8.5bp + 19pp WR.
-
-## paper_fairprice_v6 n=61 → 62 (+1)
+## paper_fairprice_v6 n=62 → 64 (+2, both sub-60s target_hit)
 ```
-Total:    n=62  sum $+11.92  mean ROI +0.192%  WR 83.9%
-sub-60s:  n=43  WR 97.7%  sum $+21.31  (+GUA SHORT 0s target_hit +$0.43)
-≥60s:     n=19  WR 52.6%  sum $− 9.39  (no new timeouts since cycle 1700)
-exits:    target_hit 54, timeout 7, hard_sl_net 1
+Total:    n=64  sum $+12.92  mean ROI +0.202%  WR 84.4%  22 unique syms
+sub-60s:  n=45  WR 97.8%  sum $+22.31  mean +0.496%
+≥60s:     n=19  WR 52.6%  sum $− 9.39  mean −0.494%  (static — no new drag trades)
+exits:    target_hit 56, timeout 7, hard_sl_net 1
 ```
-Bimodality clean. Sub-60s wing extends; drag wing static (the 7th timeout was REQ pre-cycle 1700).
+Meth #28 bimodality persists clean — sub-60s wing extends, drag wing static.
 
 ## 3-EDGE PORTFOLIO — UNCHANGED
 ```
 H31_BASIS      +3.52% WR 100% Sh 1.84 n=116
-H34_PERP_PERP  +1.44% WR  81% Sh 0.82 n=101
+H34_PERP_PERP  +1.44% WR  81% Sh 0.82 n=101   (this cycle's test variant; edge intact)
 H3_DEPEG       +0.81% WR  96% Sh 0.63 n=129
 ```
 Sub-tiers: H38_CONFIRMED-50bp +2.23/99/1.28/5324; H38_QUALITY +2.84/99/~2.0/1554; H31_QUALITY_COMBO +3.95/100/2.04/70; H_COMBO_3c_QUALITY +4.18/100/2.17/40; H_COMBO_STACKED +4.64/100/2.31/28.
 
 ## METHODOLOGY COUNTS
-#21✓ #22✓ #25✓ #26 1.5/2 (R13→H34 def 4 cycles) #27 candidate (H34 ex-rank def 4) #28✓ CONFIRMED **#29 candidate NEW (1/2)**
+#21✓ #22✓ #25✓ **#26✓ CONFIRMED (NEW this cycle)** #27 candidate (H34 ex-rank, deferred 5 cycles — now top open candidate) #28✓ #29 candidate (1/2, mean-rev-to-anchor boundary)
 
 ## NEXT-CYCLE PRIORITIES
-1. **Meth #26 promotion** — R13 SHORT-side → H34 transfer (~20 min, def 4 cycles, final attempt next cycle then downgrade)
-2. **H34 ex-rank filter** — rank=1 ∧ n_neg_50≥3 (~25 min, def 4 cycles)
+1. **H34 ex-rank filter (Meth #27)** — rank=1 ∧ n_neg_50≥3 on H34 n=101 (~25 min, def 5 cycles; top open methodology candidate now #26 is closed)
+2. **Meth #29 corroboration #2** — 2nd mean-rev-to-anchor strategy unimodality; H3 PYUSD subset (cycle 1132 n=24) natural candidate (~15 min)
 3. **paper_new_symbol TP-rule inspection** — TP fire 7% mis-tuned (~10 min)
-4. **Meth #29 corroboration #2** — find 2nd mean-rev-to-anchor strategy and confirm unimodality; PYUSD H3 subset (cycle 1132 n=24) is natural candidate (~15 min)
-5. **paper_fairprice_v6 60s-cutoff USER OK ASK** — now backed by 2 corroborations + boundary clarification
-6. **H_BOROS_INDICATOR** — DEFERRED 16 cycles, USER DECISION REQUIRED
+4. **paper_fairprice_v6 60s-cutoff USER OK ASK** — backed by 3 confirmed methodologies (#26/#28 + #29 boundary)
+5. **H_BOROS_INDICATOR** — DEFERRED 17 cycles, USER DECISION REQUIRED
 
 ## STOP / DO NOT
-- H_COMBO_3 SCALER form, Unhedged LONG primary, H_LIVE_1 amplified, Sign-flip SHORT primary
-- Nano-cap on H31, H_COMBO_3 variant (b), Standalone PS for H_COMBO_STACKED (n=28 < gate)
+- H_COMBO_3 SCALER form, Unhedged LONG primary, H_LIVE_1 amplified, Sign-flip SHORT primary (R13/R24)
+- Nano-cap on H31; **NEW: |pre_rate| magnitude gate on H34 (confirmed neutral-to-harmful this cycle)**
 - Extend paper_fairprice_v6 to ≥5-min hold (hist negative)
-- Promote any TARGET-or-TIMEOUT spec without hold-time bimodality report (cycle 1700 gate)
-- **NEW: Apply Meth #28 hold-cutoff to mean-rev-to-anchor strategies (e.g. H3) — provably destroys edge** (Meth #29)
-- **NEW: Block mean-rev-to-anchor paper-stream specs on the cycle-1700 bimodality gate — gate should be scoped to scalp-class only**
+- Apply Meth #28 hold-cutoff to mean-rev-to-anchor strategies e.g. H3 (Meth #29 — destroys edge)
+- Block mean-rev-to-anchor paper-stream specs on the cycle-1700 bimodality gate (scope to scalp-class only)
+- **NEW: import a rejected variant's discriminator as a filter on a validated variant (Meth #26 — vacuous or null)**
 
 ## DATA / TG / GIT
-- /tmp/{h31_net, h34_results, c2_wide, h31_combo3c, h_combo_1_final, h38_trades, meth22_h38_*, h3_*}.parquet
-- /tmp/h3_bimodality.py, /tmp/h3_bimod_boundary.py (this cycle)
-- code/data/{h31_combo3c, c2_wide, multi_ex_funding_180, mega_fairprice_backtest, expansion_funding}.parquet
-- paper_fairprice_v6/trades.jsonl (n=62), paper_new_symbol/trades.jsonl (n=14)
-- feed_funding 7 entries (+2 cryptokitta perp-dex stories since cycle 1700). H_TG_ROUTING_PATCH pending USER OK (16-cycle).
-- VPS git push fails (credential helper unset).
+- /tmp/meth26_r13_h34.py (this cycle); /tmp/{h34_results,h31_net,h31_results,c2_wide,mega_fairprice_*,h3_*}.parquet
+- code/data/{c2_wide,mega_fairprice_*,multi_ex_funding_180,expansion_funding,h31_combo3c,h37_results}.parquet
+- paper_fairprice_v6 n=64, paper_new_symbol n=14. feed_funding 7 (unchanged). H_TG_ROUTING_PATCH pending USER OK (17-cycle). VPS git push fails (credential helper unset).

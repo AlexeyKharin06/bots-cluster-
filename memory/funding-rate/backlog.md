@@ -641,3 +641,26 @@ METHODOLOGY #27 PROGRESS 2026-05-27_2300 | H34 ex-rank filter test DEFERRED 4 cy
 4. Meth #29 corroboration #2 — H3 PYUSD subset (cycle 1132 n=24) or other mean-rev-to-anchor candidate (~15 min).
 5. paper_fairprice_v6 60s-cutoff USER OK ASK — now backed by 2 corroborations + Meth #29 boundary clarification.
 6. H_BOROS_INDICATOR DEFERRED 16 cycles, USER DECISION REQUIRED.
+
+## ─────────────────────────────────────────────────────────────────────────────
+## CYCLE 20260528_0500 — Meth #26 PROMOTION (R13→H34 transfer) → CONFIRMED 2/2
+## ─────────────────────────────────────────────────────────────────────────────
+
+METHODOLOGY #26 UPDATED 2026-05-28_0500 → **PROMOTED candidate(1.5/2) → CONFIRMED (2/2)**. FINAL gate attempt (deferred 4 cycles, downgrade-if-deferred-again rule). Test: apply the REJECTED R13 variant's distinguishing feature as a filter to the VALIDATED H34 perp-perp variant. R13 (H31 SHORT-side, cycle 2300) re-derived EXACTLY: n=38, pre_rate>0 all, post-event fund_cum4periods mean -2.942% (matches cycle 2300 headline -2.94% sign-flip), LONG side +3.751% (no flip). H34 validated baseline (Rule A, n=101) +1.436%/WR 81.2%/Sharpe 0.82. **TWO feature components, BOTH fail to transfer:** (A) SIGN-FLIP mechanism (R13's actual killer) is VACUOUS in H34 — primary_fund_cum4 ∈ [0.0080,0.1000] all>0, so 0/101 events meet the reversal condition (primary_fund_cum4≤0); reproduces cycle 2300 "0/116 LONG-only had fund_cum4≤0". The structural condition that defined R13's failure is excluded by the validated filter's own pre<0 selection. (B) |pre_rate| MAGNITUDE proxy = NULL transfer — corr(|pre_rate|,A_net_h34)=0.032; HIGH-half +1.443%/80.4%/0.926 vs LOW-half +1.428%/82.0%/0.734 indistinguishable; quartiles non-monotone (Q1 0.986/Q2 1.903/Q3 1.420/Q4 1.451, no gradient). Naive R13-danger transfer (drop top-|pre_rate| quartile) HURTS: n=101→76, Δmean -0.005pp, Sharpe 0.82→0.762, throughput -25%; walk-forward both halves agree (TRAIN 0.962→0.909, TEST 0.716→0.651). CONCLUSION: rejected-variant discriminator carries zero signal into validated variant; in R13's domain high |pre_rate| = danger (bigger flip), in H34's domain same number is meaningless (hedge neutralizes, funding capture magnitude-agnostic). COMBINED STATEMENT (3 data points): cycle 1700 nano-cap (rejected-tail filter, no transfer to basis-hedged H31, corroboration #1) + cycle 2300 H_COMBO_3c (validated-derived filter DOES transfer, opposite-direction complement) + THIS R13→H34 (corroboration #2). **Filter provenance determines transferability — derive from the structure you intend to filter; never import a rejected variant's discriminator (vacuous if its population is already excluded, null/inverted otherwise).** Corollary filed: before importing ANY cross-variant filter, classify as derived-from-validated (re-validate) vs diagnostic-of-rejected (do not transfer). Artifacts: /tmp/meth26_r13_h34.py (read-only on /tmp/h34_results.parquet + /tmp/h31_net.parquet). See insights/cycle_20260528_0500.md.
+
+H34_PERP_PERP SPEC NOTE 2026-05-28_0500 | UNCHANGED — confirmed do NOT add an |pre_rate| magnitude gate to H34 (neutral-to-harmful: -25% throughput, -0.06 Sharpe, ~0 mean). H34 stays full-universe Rule-A (max-positive pre-rate hedge ex). Validated edge intact; this cycle's test was a methodology-promotion exercise on H34, not an edge revision.
+
+METHODOLOGY #27 PROGRESS 2026-05-28_0500 | H34 ex-rank filter (rank=1 ∧ n_neg_50≥3 on H34 n=101) DEFERRED 5 cycles. Now the highest-priority OPEN methodology candidate (Meth #26 closed this cycle). Next-cycle #1.
+
+OBS_FAIRPRICE_V6 UPDATED 2026-05-28_0500 | n=62→64 (+2 trades, both sub-60s target_hit). TOTAL sum $+12.92, mean ROI +0.202%, WR 84.4%, 22 unique syms. sub-60s n=45 WR 97.8% sum $+22.31 mean +0.496%; ≥60s n=19 WR 52.6% sum $−9.39 mean −0.494%. exit_reasons target_hit 56/timeout 7/hard_sl_net 1. Meth #28 bimodality persists clean — sub-60s wing extends (+2 wins), drag wing static (no new ≥60s). Probability assessment unchanged (survivor 35%/micro-edge-with-tail-drag 45%/sub-resolution-alpha 10%/noise 10%). 60s-cutoff USER OK ask remains open, now backed by Meth #26+#28 CONFIRMED + #29 boundary.
+
+OBS_PAPER_NEW_SYMBOL UPDATED 2026-05-28_0500 | unchanged n=14 (no new trades since cycle 1700). TP-rule inspection still deferred.
+
+TG_FEED_STATUS UPDATED 2026-05-28_0500 | feed_funding.jsonl 7 entries unchanged since cycle 2300. H_TG_ROUTING_PATCH pending USER OK — 17-cycle deferral.
+
+(NEXT-CYCLE PRIORITIES 2026-05-28_0500)
+1. H34 ex-rank filter test (Meth #27 candidate) — rank=1 ∧ n_neg_50≥3 on H34 n=101 (~25 min, deferred 5 cycles; now top open methodology candidate).
+2. Meth #29 corroboration #2 — 2nd mean-rev-to-anchor strategy unimodality check (H3 PYUSD subset cycle 1132 n=24, ~15 min).
+3. paper_new_symbol TP-rule inspection — read bot code, check TP threshold (~10 min).
+4. paper_fairprice_v6 60s-cutoff USER OK ASK — backed by 3 confirmed methodologies.
+5. H_BOROS_INDICATOR DEFERRED 17 cycles, USER DECISION REQUIRED.
