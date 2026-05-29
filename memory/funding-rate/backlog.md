@@ -735,3 +735,13 @@ TG_FEED_STATUS 2026-05-28_2300 | feed_funding.jsonl 7 entries unchanged. H_TG_RO
 3. paper_fairprice_v6 60s-cutoff USER OK ASK — backed by Meth #26+#28 CONFIRMED + #29 boundary.
 4. (optional) Meth #31/#30 corroboration #2 — attach a price series to any overnight tick-grid "edge" and confirm collapse; OR never-touched-holdout on H34 mega-grid.
 5. H_BOROS_INDICATOR DEFERRED 20 cycles, USER DECISION REQUIRED.
+
+## UPDATE 2026-05-29_1100
+
+H_FAIRPRICE_V6_60S_CUTOFF UPDATED 2026-05-29_1100 → **ANALYTICALLY QUANTIFIED, AWAITS LIVE A/B** | User wrote paper_bot_fairprice_v6_cut60.py (root, May28, EARLY_TIMEOUT_SEC=60, separate dir — impl reviewed CORRECT). NOT yet started (no process/dir → A/B collecting zero data). Decomposed cut60 effect on n=70 live v6 trades: Meth #28 split sub-60s n=47 WR 97.9% +$23.64 / ≥60s n=23 WR 52.2% −$13.07. cut60 realistic uplift = +$3 to +$7 (total ~$14-17 vs v6 $10.57), NOT the naive +$13 "drag recovery" (=best-case $25.68): cut60 sacrifices +$2.04 of 12 late target_hit winners (60-300s, most adv≫fav → likely at a loss by 60s) AND only PARTIALLY caps −$15.11 late losses (8×300s timeouts exit at 60s=partial drift −$8.24; 2 hard_sl already stop-capped −$6.85). 60s-mark price unobservable in trades.jsonl → only live A/B settles magnitude. Bounds WORST $8.53 / MID $17.10 / BEST $25.68. VERDICT: +EV, worth running; expect cut60 WR↑ and sum modestly higher (NOT doubled). Artifact /tmp/cut60_analysis.py.
+
+paper_new_symbol DECISION UPDATED 2026-05-29_1100 → **PAUSE re-confirmed, queue cmd B unexecuted** | n=18→19 (+1 LOSER), sum −$17.37, WR 21.1%, TP-fire 1/19 (13 timeout, 5 stop_loss, 1 take_profit). Clean R3 listing-momentum replay; still running PIDs 166499/166500. User staged `kill -STOP 166499 166500` 2026-05-28 but did not run it. Loses ~$1/cycle while live. Recommend freeze.
+
+OPS NOTE 2026-05-29_1100 | VPS git push to GitHub broken (no credential helper, per user 2026-05-28 session note). Cycle commits stay LOCAL on VPS; GitHub bots-cluster- repo stale until one-time PAT login. Future cycles still read local commits fine.
+
+H_BOROS_INDICATOR | DEFERRED 21 cycles (USER DECISION REQUIRED, multi-cycle Arbitrum-RPC allocation).
