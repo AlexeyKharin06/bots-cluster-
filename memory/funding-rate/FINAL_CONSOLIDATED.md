@@ -1,6 +1,6 @@
 # 🎯 ФИНАЛЬНЫЙ КАТАЛОГ — ИТОГОВЫЙ ОТЧЁТ FUNDING-ARB
 
-_Generated: 2026-05-29 16:38 UTC_
+_Generated: 2026-05-29 18:32 UTC_
 
 ## 📊 МАСШТАБ ИССЛЕДОВАНИЯ
 
@@ -97,6 +97,36 @@ _Generated: 2026-05-29 16:38 UTC_
 - Naked LONG primary unhedged (-0.53% inversion finding)
 - Cross-ex basis trade с SHORT spot мемов (НЕВЫПОЛНИМО — нет inventory)
 
+## 🏛 PER-EXCHANGE EDGES (D1)
+
+Per-exchange survivors: 67
+
+Top-3 edge per exchange (Sharpe ≥ 2, n ≥ 100):
+
+| Exchange | Best filter | n | mean_bp | WR | Sharpe |
+|----------|-------------|---|---------|-----|--------|
+| mexc | `roll_mean_24le-0.000134&roll_std_24le0.000082` | 210 | 42.4 | 100% | 7.40 |
+| binance | `roll_std_24le0.000004` | 17969 | 12.2 | 99% | 3.89 |
+| bybit | `roll_mean_24le-0.000035&roll_std_24le0.000074` | 465 | 10.9 | 100% | 3.84 |
+| bitget | `roll_std_24le0.000000` | 10606 | 12.2 | 100% | 3.36 |
+| hyperliquid | `roll_mean_24le-0.000042&roll_std_24le0.000022` | 2048 | 13.6 | 100% | 3.11 |
+| okx | `roll_std_24le0.000007` | 10330 | 10.9 | 100% | 3.07 |
+| aster | `roll_mean_24le-0.000045&roll_std_24le0.000041` | 5425 | 16.2 | 100% | 2.98 |
+
+## 🌊 HYPERLIQUID-SPECIFIC EDGES (D7)
+
+HL universe: 814K ticks, dedicated grid: 74 survivors
+
+Top 5 HL edges:
+
+| Filter | n | mean_bp | WR | Sharpe |
+|--------|---|---------|-----|--------|
+| `hl:roll_mean_24le-0.000083&roll_std_24le0.000043` | 2587 | 25.0 | 100% | 3.90 |
+| `hl:ratele-0.000091&roll_std_24le0.000022` | 220 | 3.9 | 100% | 3.44 |
+| `hl:roll_mean_24le-0.000083&roll_std_24le0.000043` | 2587 | 8.2 | 100% | 3.15 |
+| `hl:roll_mean_24le-0.000042&roll_std_24le0.000022` | 2048 | 13.6 | 100% | 3.11 |
+| `hl:roll_mean_24le-0.000042&roll_std_24le0.000043` | 21665 | 14.6 | 100% | 2.88 |
+
 ---
 
 ## 📁 ARTIFACTS
@@ -110,4 +140,4 @@ _Generated: 2026-05-29 16:38 UTC_
 
 **ВСЕ ДАННЫЕ ПРОАНАЛИЗИРОВАНЫ. БОЛЬШЕ ПРОВЕРЯТЬ НЕЧЕГО.** Следующий шаг — paper deploy одной/нескольких strategies на 1-2 недели для live validation.
 
-_Report finalized 2026-05-29 16:38:02.077996_
+_Report finalized 2026-05-29 18:32:24.361382_
