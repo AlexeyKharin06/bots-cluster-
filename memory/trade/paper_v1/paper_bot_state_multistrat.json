@@ -1,0 +1,1203 @@
+{
+  "strategies": {
+    "CANDLE_HAMMER_LONG": {
+      "capital_start": 2000,
+      "capital": 1800,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BSB",
+        "COLLECT",
+        "TRADOOR",
+        "AGT",
+        "\u5e01\u5b89\u4eba\u751f",
+        "DEXE",
+        "TA",
+        "AKE",
+        "GUA",
+        "GRASS"
+      ],
+      "positions": {
+        "TRADOOR": {
+          "entry_ts": "2026-05-31T20:58:32.455818+00:00",
+          "entry_price": 0.4578,
+          "direction": 1,
+          "bars_held": 0
+        }
+      }
+    },
+    "CANDLE_BULL_ENGULF_LONG": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "SIREN",
+        "BSB",
+        "BAS",
+        "DEXE",
+        "UB",
+        "GUA",
+        "ZEREBRO",
+        "PLAY",
+        "LAB",
+        "\u5e01\u5b89\u4eba\u751f"
+      ],
+      "positions": {}
+    },
+    "CANDLE_MARUBOZU_LONG": {
+      "capital_start": 2000,
+      "capital": 1800,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GUA",
+        "UB",
+        "LAB",
+        "M",
+        "DEXE",
+        "TRADOOR",
+        "BEAT",
+        "SIREN",
+        "IRYS",
+        "DODOX"
+      ],
+      "positions": {
+        "M": {
+          "entry_ts": "2026-05-31T20:58:32.652744+00:00",
+          "entry_price": 2.9906,
+          "direction": 1,
+          "bars_held": 0
+        }
+      }
+    },
+    "WICKS_LONG_LOWER": {
+      "capital_start": 2000,
+      "capital": 1600,
+      "realized_pnl": 0.0,
+      "universe": [
+        "SIREN",
+        "BAS",
+        "UB",
+        "TRADOOR",
+        "COLLECT",
+        "\u5e01\u5b89\u4eba\u751f",
+        "AKE",
+        "PLAY",
+        "DEXE",
+        "ZEREBRO"
+      ],
+      "positions": {
+        "UB": {
+          "entry_ts": "2026-05-31T20:58:32.654708+00:00",
+          "entry_price": 0.19643,
+          "direction": 1,
+          "bars_held": 0
+        },
+        "TRADOOR": {
+          "entry_ts": "2026-05-31T20:58:32.656147+00:00",
+          "entry_price": 0.4578,
+          "direction": 1,
+          "bars_held": 0
+        }
+      }
+    },
+    "WICKS_SHORT_UPPER": {
+      "capital_start": 2000,
+      "capital": 1400,
+      "realized_pnl": 0.0,
+      "universe": [
+        "PIPPIN",
+        "AIGENSYN",
+        "BARD",
+        "\u9f99\u867e",
+        "BASED",
+        "RESOLV",
+        "HIGH",
+        "GUN",
+        "AIA",
+        "RIVER"
+      ],
+      "positions": {
+        "PIPPIN": {
+          "entry_ts": "2026-05-31T20:58:32.953453+00:00",
+          "entry_price": 0.0189,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "BASED": {
+          "entry_ts": "2026-05-31T20:58:32.955149+00:00",
+          "entry_price": 0.07055,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "GUN": {
+          "entry_ts": "2026-05-31T20:58:32.956467+00:00",
+          "entry_price": 0.00809,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "VOL_SPIKE_FOLLOW": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "RAVE",
+        "BSB",
+        "BR",
+        "LAB",
+        "PTB",
+        "US",
+        "PLAY",
+        "SIREN",
+        "DRIFT",
+        "D"
+      ],
+      "positions": {}
+    },
+    "VOL_SPIKE_FADE": {
+      "capital_start": 2000,
+      "capital": 1800,
+      "realized_pnl": 0.0,
+      "universe": [
+        "DYDX",
+        "XNY",
+        "TRADOOR",
+        "COLLECT",
+        "AIN",
+        "\u9f99\u867e",
+        "BAS",
+        "SPORTFUN",
+        "IRYS",
+        "TRIA"
+      ],
+      "positions": {
+        "TRIA": {
+          "entry_ts": "2026-05-31T20:58:33.851924+00:00",
+          "entry_price": 0.03771,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "VWAP_REVERT": {
+      "capital_start": 2000,
+      "capital": 1000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GTC",
+        "DYDX",
+        "CELO",
+        "1000SATS",
+        "ALICE",
+        "Q",
+        "BAS",
+        "M",
+        "FOLKS",
+        "UB"
+      ],
+      "positions": {
+        "DYDX": {
+          "entry_ts": "2026-05-31T20:58:33.956238+00:00",
+          "entry_price": 0.1862,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "1000SATS": {
+          "entry_ts": "2026-05-31T20:58:34.353028+00:00",
+          "entry_price": 1.142e-05,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "Q": {
+          "entry_ts": "2026-05-31T20:58:34.355013+00:00",
+          "entry_price": 0.019805,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "M": {
+          "entry_ts": "2026-05-31T20:58:34.754629+00:00",
+          "entry_price": 2.9906,
+          "direction": 1,
+          "bars_held": 0
+        },
+        "UB": {
+          "entry_ts": "2026-05-31T20:58:34.852727+00:00",
+          "entry_price": 0.19643,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "RSI_EXTREME": {
+      "capital_start": 3000,
+      "capital": 3000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BAS",
+        "Q",
+        "PIPPIN",
+        "\u9f99\u867e",
+        "KGEN",
+        "ICNT",
+        "KAT",
+        "HOT",
+        "GENIUS",
+        "EDU"
+      ],
+      "positions": {}
+    },
+    "BB_PURE_REVERT": {
+      "capital_start": 3000,
+      "capital": 900,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GTC",
+        "CELO",
+        "DYDX",
+        "1000SATS",
+        "ALICE",
+        "BAS",
+        "C98",
+        "COLLECT",
+        "Q",
+        "OGN"
+      ],
+      "positions": {
+        "GTC": {
+          "entry_ts": "2026-05-31T20:58:35.256209+00:00",
+          "entry_price": 0.09409,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "CELO": {
+          "entry_ts": "2026-05-31T20:58:36.251815+00:00",
+          "entry_price": 0.07591,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "DYDX": {
+          "entry_ts": "2026-05-31T20:58:36.253362+00:00",
+          "entry_price": 0.1862,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "1000SATS": {
+          "entry_ts": "2026-05-31T20:58:36.254340+00:00",
+          "entry_price": 1.142e-05,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "ALICE": {
+          "entry_ts": "2026-05-31T20:58:36.255257+00:00",
+          "entry_price": 0.1233,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "C98": {
+          "entry_ts": "2026-05-31T20:58:36.256086+00:00",
+          "entry_price": 0.01932,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "OGN": {
+          "entry_ts": "2026-05-31T20:58:36.352754+00:00",
+          "entry_price": 0.0214,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "ZSCORE_SLOW_REVERT": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "DYDX",
+        "CELO",
+        "TRIA",
+        "BEAT",
+        "UB",
+        "COLLECT",
+        "GTC",
+        "NAORIS",
+        "BAS",
+        "XPIN"
+      ],
+      "positions": {}
+    },
+    "MA_CROSS_TREND": {
+      "capital_start": 3000,
+      "capital": 2700,
+      "realized_pnl": 0.0,
+      "universe": [
+        "PLAY",
+        "SIREN",
+        "THE",
+        "AXL",
+        "MBOX",
+        "EPIC",
+        "DYDX",
+        "BROCCOLIF3B",
+        "PHA",
+        "ORDI"
+      ],
+      "positions": {
+        "MBOX": {
+          "entry_ts": "2026-05-31T20:58:36.354749+00:00",
+          "entry_price": 0.0117,
+          "direction": 1,
+          "bars_held": 0
+        }
+      }
+    },
+    "ATR_BREAKOUT_FOLLOW": {
+      "capital_start": 3000,
+      "capital": 3000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BSB",
+        "RAVE",
+        "STO",
+        "BLESS",
+        "INX",
+        "ARIA",
+        "TAC",
+        "CYS",
+        "MAGMA",
+        "AKT"
+      ],
+      "positions": {}
+    },
+    "DONCHIAN_BREAKOUT": {
+      "capital_start": 3000,
+      "capital": 3000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "ESPORTS",
+        "SAGA",
+        "ALLO",
+        "NIL",
+        "BSB",
+        "DOGS",
+        "NAORIS",
+        "FHE",
+        "TRUTH",
+        "GUA"
+      ],
+      "positions": {}
+    },
+    "MEAN_REVERT_BB_RSI": {
+      "capital_start": 5000,
+      "capital": 4500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "B",
+        "APR",
+        "KGEN",
+        "BR",
+        "TRIA",
+        "BLESS",
+        "FORM",
+        "STBL",
+        "EDU",
+        "LYN"
+      ],
+      "positions": {
+        "TRIA": {
+          "entry_ts": "2026-05-31T20:58:36.552921+00:00",
+          "entry_price": 0.03771,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "MTF_MOMENTUM": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "RAVE",
+        "SIREN",
+        "STO",
+        "BLESS",
+        "NOM",
+        "AIOT",
+        "BSB",
+        "LYN",
+        "LAB",
+        "RIVER"
+      ],
+      "positions": {}
+    },
+    "CANDLE_DOJI_LONG": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [],
+      "positions": {}
+    },
+    "CANDLE_PIERCING_LONG": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "SIREN",
+        "APR",
+        "GUA",
+        "BAS",
+        "DEXE",
+        "M",
+        "BLUAI",
+        "H",
+        "TRADOOR",
+        "PRL"
+      ],
+      "positions": {}
+    },
+    "CANDLE_MORNING_STAR_LONG": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GUA",
+        "TRADOOR",
+        "AIN",
+        "BSB",
+        "BANANAS31",
+        "COLLECT",
+        "UB",
+        "HUMA",
+        "D",
+        "BAS"
+      ],
+      "positions": {}
+    },
+    "CANDLE_THREE_SOLDIERS": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BSB",
+        "GUA",
+        "LAB",
+        "PLAY",
+        "AIOT",
+        "CYS",
+        "JCT",
+        "DEXE",
+        "UB",
+        "BAS"
+      ],
+      "positions": {}
+    },
+    "CANDLE_THREE_CROWS_SHORT": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "PIPPIN",
+        "GUN",
+        "BARD",
+        "AIGENSYN",
+        "DRIFT",
+        "NOM",
+        "RESOLV",
+        "RAVE",
+        "FOGO",
+        "MANTRA"
+      ],
+      "positions": {}
+    },
+    "CANDLE_EVENING_STAR_SHORT": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "NOM",
+        "PIPPIN",
+        "MEGA",
+        "GUN",
+        "DRIFT",
+        "HIGH",
+        "MYX",
+        "RIVER",
+        "PROVE",
+        "BARD"
+      ],
+      "positions": {}
+    },
+    "CANDLE_HAMMER_SHORT": {
+      "capital_start": 1500,
+      "capital": 1200,
+      "realized_pnl": 0.0,
+      "universe": [
+        "PIPPIN",
+        "NOM",
+        "BASED",
+        "HIGH",
+        "BEAT",
+        "POWER",
+        "COS",
+        "BARD",
+        "MANTRA",
+        "ENSO"
+      ],
+      "positions": {
+        "PIPPIN": {
+          "entry_ts": "2026-05-31T20:58:36.654576+00:00",
+          "entry_price": 0.0189,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "BASED": {
+          "entry_ts": "2026-05-31T20:58:36.655691+00:00",
+          "entry_price": 0.07055,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "CANDLE_DARK_CLOUD_SHORT": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "RAVE",
+        "POWER",
+        "XNY",
+        "DYM",
+        "PTB",
+        "PIPPIN",
+        "GUN",
+        "NOM",
+        "AIA",
+        "BLESS"
+      ],
+      "positions": {}
+    },
+    "CANDLE_BEAR_MARUBOZU": {
+      "capital_start": 1500,
+      "capital": 1350,
+      "realized_pnl": 0.0,
+      "universe": [
+        "PIPPIN",
+        "BARD",
+        "NOM",
+        "GUN",
+        "ORDI",
+        "ENSO",
+        "POWER",
+        "EDU",
+        "HIGH",
+        "NIGHT"
+      ],
+      "positions": {
+        "POWER": {
+          "entry_ts": "2026-05-31T20:58:36.751159+00:00",
+          "entry_price": 0.07992,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "CANDLE_BEAR_ENGULF": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BARD",
+        "PIPPIN",
+        "IP",
+        "NOM",
+        "XNY",
+        "KITE",
+        "DYM",
+        "SKR",
+        "RESOLV",
+        "COOKIE"
+      ],
+      "positions": {}
+    },
+    "RSI_TIGHT": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "SIREN",
+        "BR",
+        "COLLECT",
+        "AKE",
+        "1000RATS",
+        "PRL",
+        "ON",
+        "B",
+        "BULLA",
+        "PNUT"
+      ],
+      "positions": {}
+    },
+    "RSI_LOOSE": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BAS",
+        "BEAT",
+        "KAT",
+        "TAG",
+        "APR",
+        "GWEI",
+        "Q",
+        "FOLKS",
+        "AGT",
+        "COLLECT"
+      ],
+      "positions": {}
+    },
+    "BB_TIGHT": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "DYDX",
+        "BAS",
+        "BEAT",
+        "Q",
+        "COLLECT",
+        "GTC",
+        "UB",
+        "AIN",
+        "CTSI",
+        "GWEI"
+      ],
+      "positions": {}
+    },
+    "BB_WIDE": {
+      "capital_start": 2000,
+      "capital": 1800,
+      "realized_pnl": 0.0,
+      "universe": [
+        "Q",
+        "DYDX",
+        "GTC",
+        "CELO",
+        "BAS",
+        "NAORIS",
+        "UB",
+        "COLLECT",
+        "ATH",
+        "CYS"
+      ],
+      "positions": {
+        "UB": {
+          "entry_ts": "2026-05-31T20:58:37.757046+00:00",
+          "entry_price": 0.19643,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "BB_LONG_WIN": {
+      "capital_start": 2000,
+      "capital": 1800,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GTC",
+        "DYDX",
+        "CELO",
+        "Q",
+        "COLLECT",
+        "UB",
+        "BAS",
+        "NAORIS",
+        "BSB",
+        "BEAT"
+      ],
+      "positions": {
+        "Q": {
+          "entry_ts": "2026-05-31T20:58:37.855987+00:00",
+          "entry_price": 0.019805,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "ZSCORE_TIGHT": {
+      "capital_start": 1500,
+      "capital": 1200,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GTC",
+        "CELO",
+        "DYDX",
+        "Q",
+        "BAS",
+        "CYS",
+        "ALICE",
+        "COLLECT",
+        "XNY",
+        "1000SATS"
+      ],
+      "positions": {
+        "DYDX": {
+          "entry_ts": "2026-05-31T20:58:38.652900+00:00",
+          "entry_price": 0.1862,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "Q": {
+          "entry_ts": "2026-05-31T20:58:38.654353+00:00",
+          "entry_price": 0.019805,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "ZSCORE_WIDE": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "Q",
+        "BSB",
+        "COLLECT",
+        "UB",
+        "NAORIS",
+        "LIGHT",
+        "XNY",
+        "ARIA",
+        "USTC",
+        "TOWNS"
+      ],
+      "positions": {}
+    },
+    "MA_CROSS_FAST": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BAS",
+        "AIN",
+        "AIOT",
+        "APR",
+        "\u5e01\u5b89\u4eba\u751f",
+        "AKE",
+        "CYS",
+        "BSB",
+        "4",
+        "GWEI"
+      ],
+      "positions": {}
+    },
+    "MA_CROSS_SLOW": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "SIREN",
+        "STO",
+        "FOLKS",
+        "AIN",
+        "RIVER",
+        "MMT",
+        "PHA",
+        "ZEREBRO",
+        "ARIA",
+        "COLLECT"
+      ],
+      "positions": {}
+    },
+    "DONCHIAN_SHORT_WIN": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BSB",
+        "SIREN",
+        "MAGMA",
+        "RAVE",
+        "PLAY",
+        "BULLA",
+        "LAB",
+        "ARIA",
+        "US",
+        "STO"
+      ],
+      "positions": {}
+    },
+    "DONCHIAN_LONG_WIN": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "ESPORTS",
+        "SAGA",
+        "ALLO",
+        "NIL",
+        "BSB",
+        "DOGS",
+        "NAORIS",
+        "PLAY",
+        "GUA",
+        "AGT"
+      ],
+      "positions": {}
+    },
+    "ATR_HIGH_MULT": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "US",
+        "B",
+        "PLAY",
+        "LAB",
+        "D",
+        "SWARMS",
+        "STO",
+        "BEAT",
+        "BSB",
+        "MAGMA"
+      ],
+      "positions": {}
+    },
+    "VOL_SPIKE_BIG": {
+      "capital_start": 1500,
+      "capital": 1500,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BULLA",
+        "PLAY",
+        "SIREN",
+        "LAB",
+        "D",
+        "B",
+        "AIOT",
+        "APR",
+        "AGT",
+        "NAORIS"
+      ],
+      "positions": {}
+    },
+    "VWAP_TIGHT": {
+      "capital_start": 1500,
+      "capital": 450,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GTC",
+        "DYDX",
+        "CELO",
+        "1000SATS",
+        "ALICE",
+        "Q",
+        "AIOT",
+        "M",
+        "FOLKS",
+        "\u9f99\u867e"
+      ],
+      "positions": {
+        "GTC": {
+          "entry_ts": "2026-05-31T20:58:38.656005+00:00",
+          "entry_price": 0.09409,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "DYDX": {
+          "entry_ts": "2026-05-31T20:58:38.752170+00:00",
+          "entry_price": 0.1862,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "CELO": {
+          "entry_ts": "2026-05-31T20:58:38.753249+00:00",
+          "entry_price": 0.07591,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "1000SATS": {
+          "entry_ts": "2026-05-31T20:58:38.754089+00:00",
+          "entry_price": 1.142e-05,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "ALICE": {
+          "entry_ts": "2026-05-31T20:58:38.754945+00:00",
+          "entry_price": 0.1233,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "FOLKS": {
+          "entry_ts": "2026-05-31T20:58:38.755858+00:00",
+          "entry_price": 1.407,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "\u9f99\u867e": {
+          "entry_ts": "2026-05-31T20:58:38.853384+00:00",
+          "entry_price": 0.0064,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "VWAP_WIDE": {
+      "capital_start": 1500,
+      "capital": 1050,
+      "realized_pnl": 0.0,
+      "universe": [
+        "GTC",
+        "DYDX",
+        "CELO",
+        "AIOT",
+        "UB",
+        "BAS",
+        "Q",
+        "M",
+        "FOLKS",
+        "AIN"
+      ],
+      "positions": {
+        "UB": {
+          "entry_ts": "2026-05-31T20:58:38.854957+00:00",
+          "entry_price": 0.19643,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "BAS": {
+          "entry_ts": "2026-05-31T20:58:38.855868+00:00",
+          "entry_price": 0.026928,
+          "direction": 1,
+          "bars_held": 0
+        },
+        "Q": {
+          "entry_ts": "2026-05-31T20:58:39.051713+00:00",
+          "entry_price": 0.019805,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "MEAN_REVERT_TIGHT": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [],
+      "positions": {}
+    },
+    "MEAN_REVERT_WIDE": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "AIA",
+        "B",
+        "AIXBT",
+        "BR",
+        "ZEREBRO",
+        "BSB",
+        "STBL",
+        "PNUT",
+        "FF",
+        "UB"
+      ],
+      "positions": {}
+    },
+    "MACD_CROSS": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "CYS",
+        "BAS",
+        "AIN",
+        "BSB",
+        "AIOT",
+        "COLLECT",
+        "LAB",
+        "APR",
+        "BOME",
+        "\u5e01\u5b89\u4eba\u751f"
+      ],
+      "positions": {}
+    },
+    "STOCHASTIC_EXTREME": {
+      "capital_start": 2000,
+      "capital": 1600,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BAS",
+        "BULLA",
+        "DEXE",
+        "BEAT",
+        "TAG",
+        "UB",
+        "TRIA",
+        "KAT",
+        "Q",
+        "NAORIS"
+      ],
+      "positions": {
+        "KAT": {
+          "entry_ts": "2026-05-31T20:58:41.052017+00:00",
+          "entry_price": 0.00721,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "NAORIS": {
+          "entry_ts": "2026-05-31T20:58:41.053937+00:00",
+          "entry_price": 0.03426,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "WILLIAMS_R": {
+      "capital_start": 2000,
+      "capital": 1400,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BAS",
+        "BULLA",
+        "DEXE",
+        "BEAT",
+        "TAG",
+        "UB",
+        "TRIA",
+        "KAT",
+        "Q",
+        "NAORIS"
+      ],
+      "positions": {
+        "TRIA": {
+          "entry_ts": "2026-05-31T20:58:41.254279+00:00",
+          "entry_price": 0.03771,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "KAT": {
+          "entry_ts": "2026-05-31T20:58:41.852955+00:00",
+          "entry_price": 0.00721,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "NAORIS": {
+          "entry_ts": "2026-05-31T20:58:41.854180+00:00",
+          "entry_price": 0.03426,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "CCI_EXTREME": {
+      "capital_start": 2000,
+      "capital": 1400,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BAS",
+        "BULLA",
+        "DEXE",
+        "BEAT",
+        "TAG",
+        "UB",
+        "TRIA",
+        "KAT",
+        "Q",
+        "NAORIS"
+      ],
+      "positions": {
+        "BEAT": {
+          "entry_ts": "2026-05-31T20:58:41.855438+00:00",
+          "entry_price": 1.1683,
+          "direction": 1,
+          "bars_held": 0
+        },
+        "TRIA": {
+          "entry_ts": "2026-05-31T20:58:41.856482+00:00",
+          "entry_price": 0.03771,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "NAORIS": {
+          "entry_ts": "2026-05-31T20:58:42.452928+00:00",
+          "entry_price": 0.03426,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "HEIKIN_ASHI_TREND": {
+      "capital_start": 2000,
+      "capital": 1600,
+      "realized_pnl": 0.0,
+      "universe": [
+        "CYS",
+        "BAS",
+        "AIN",
+        "BSB",
+        "AIOT",
+        "COLLECT",
+        "LAB",
+        "APR",
+        "BOME",
+        "\u5e01\u5b89\u4eba\u751f"
+      ],
+      "positions": {
+        "BSB": {
+          "entry_ts": "2026-05-31T20:58:42.553596+00:00",
+          "entry_price": 0.34169,
+          "direction": -1,
+          "bars_held": 0
+        },
+        "COLLECT": {
+          "entry_ts": "2026-05-31T20:58:42.555089+00:00",
+          "entry_price": 0.05641,
+          "direction": -1,
+          "bars_held": 0
+        }
+      }
+    },
+    "OBV_DIVERGENCE": {
+      "capital_start": 2000,
+      "capital": 2000,
+      "realized_pnl": 0.0,
+      "universe": [
+        "RAVE",
+        "SIREN",
+        "LAB",
+        "BSB",
+        "BULLA",
+        "BR",
+        "ARIA",
+        "PTB",
+        "US",
+        "STO"
+      ],
+      "positions": {}
+    },
+    "KELTNER_BREAKOUT": {
+      "capital_start": 2000,
+      "capital": 1800,
+      "realized_pnl": 0.0,
+      "universe": [
+        "BSB",
+        "SIREN",
+        "MAGMA",
+        "RAVE",
+        "PLAY",
+        "BULLA",
+        "LAB",
+        "ARIA",
+        "US",
+        "STO"
+      ],
+      "positions": {
+        "STO": {
+          "entry_ts": "2026-05-31T20:58:43.151779+00:00",
+          "entry_price": 0.06069,
+          "direction": 1,
+          "bars_held": 0
+        }
+      }
+    }
+  }
+}
