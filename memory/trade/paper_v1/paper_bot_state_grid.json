@@ -1,12 +1,12 @@
 {
-  "capital": 0.6626666666666666,
-  "realized_pnl": 0.6626666666666666,
+  "capital": 0.994,
+  "realized_pnl": 0.994,
   "grids": {
     "PLAY": {
       "anchor": 0.12567,
       "inventory_buy": [
-        0.0,
-        0.0,
+        5.833333333333333,
+        5.833333333333333,
         0.0,
         0.0,
         0.0,
@@ -69,8 +69,8 @@
         0.0
       ],
       "buy_active": [
-        true,
-        true,
+        false,
+        false,
         true,
         true,
         true,
@@ -132,7 +132,7 @@
         true,
         true
       ],
-      "n_fills": 0,
+      "n_fills": 2,
       "realized_pnl_pct": 0.0
     },
     "UB": {
@@ -140,8 +140,8 @@
       "inventory_buy": [
         5.833333333333333,
         5.833333333333333,
-        5.833333333333333,
-        5.833333333333333,
+        0,
+        0,
         0,
         0.0,
         0.0,
@@ -204,8 +204,8 @@
       "buy_active": [
         false,
         false,
-        false,
-        false,
+        true,
+        true,
         true,
         true,
         true,
@@ -265,8 +265,8 @@
         true,
         true
       ],
-      "n_fills": 6,
-      "realized_pnl_pct": 0.04733333333333333
+      "n_fills": 8,
+      "realized_pnl_pct": 0.142
     },
     "LAB": {
       "anchor": 8.5994,
@@ -331,8 +331,8 @@
         5.833333333333333,
         5.833333333333333,
         5.833333333333333,
-        0.0,
-        0.0
+        5.833333333333333,
+        5.833333333333333
       ],
       "buy_active": [
         true,
@@ -395,10 +395,10 @@
         false,
         false,
         false,
-        true,
-        true
+        false,
+        false
       ],
-      "n_fills": 28,
+      "n_fills": 30,
       "realized_pnl_pct": 0.0
     },
     "DYM": {
@@ -937,7 +937,7 @@
       "anchor": 0.00954,
       "inventory_buy": [
         5.833333333333333,
-        0.0,
+        5.833333333333333,
         0.0,
         0.0,
         0.0,
@@ -1001,7 +1001,7 @@
       ],
       "buy_active": [
         false,
-        true,
+        false,
         true,
         true,
         true,
@@ -1063,7 +1063,7 @@
         true,
         true
       ],
-      "n_fills": 3,
+      "n_fills": 4,
       "realized_pnl_pct": 0.04733333333333333
     },
     "GENIUS": {
@@ -1238,7 +1238,7 @@
         5.833333333333333,
         5.833333333333333,
         5.833333333333333,
-        0.0,
+        5.833333333333333,
         0.0,
         0.0,
         0.0,
@@ -1302,7 +1302,7 @@
         false,
         false,
         false,
-        true,
+        false,
         true,
         true,
         true,
@@ -1329,7 +1329,7 @@
         true,
         true
       ],
-      "n_fills": 4,
+      "n_fills": 5,
       "realized_pnl_pct": 0.0
     },
     "TAG": {
@@ -2032,7 +2032,7 @@
         0.0
       ],
       "inventory_short": [
-        0.0,
+        5.833333333333333,
         0.0,
         0.0,
         0.0,
@@ -2096,7 +2096,7 @@
         true
       ],
       "sell_active": [
-        true,
+        false,
         true,
         true,
         true,
@@ -2127,7 +2127,7 @@
         true,
         true
       ],
-      "n_fills": 0,
+      "n_fills": 1,
       "realized_pnl_pct": 0.0
     },
     "GUA": {
@@ -2431,9 +2431,9 @@
         0.0
       ],
       "inventory_short": [
-        0.0,
-        0.0,
-        0.0,
+        5.833333333333333,
+        5.833333333333333,
+        5.833333333333333,
         0.0,
         0.0,
         0.0,
@@ -2495,9 +2495,9 @@
         true
       ],
       "sell_active": [
-        true,
-        true,
-        true,
+        false,
+        false,
+        false,
         true,
         true,
         true,
@@ -2526,7 +2526,7 @@
         true,
         true
       ],
-      "n_fills": 0,
+      "n_fills": 3,
       "realized_pnl_pct": 0.0
     },
     "SIREN": {
