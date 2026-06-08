@@ -1,5 +1,5 @@
 {
-  "capital": 100.0,
+  "capital": 0.0,
   "realized_pnl": 0.0,
   "positions": {
     "GUA": {
@@ -48,25 +48,25 @@
       "entry_ts": "2026-05-31T20:04:03.235588+00:00",
       "entry_price": 0.019792,
       "neg_streak": 0,
-      "accumulated_funding": 0.00010416666666666666
+      "accumulated_funding": 0.00015624999999999998
     },
     "US": {
       "entry_ts": "2026-05-31T20:04:03.935758+00:00",
       "entry_price": 0.007053,
       "neg_streak": 0,
-      "accumulated_funding": 0.0008496145833333333
+      "accumulated_funding": 0.0010166354166666666
     },
     "SWARMS": {
       "entry_ts": "2026-05-31T20:04:04.535547+00:00",
       "entry_price": 0.007224,
       "neg_streak": 0,
-      "accumulated_funding": 0.0003415
+      "accumulated_funding": 0.00039358333333333335
     },
     "1000000BOB": {
       "entry_ts": "2026-05-31T20:30:03.155905+00:00",
       "entry_price": 0.01509,
       "neg_streak": 0,
-      "accumulated_funding": 0.0010027395833333333
+      "accumulated_funding": 0.0010548229166666666
     },
     "ARC": {
       "entry_ts": "2026-05-31T20:30:23.755328+00:00",
@@ -150,7 +150,7 @@
       "entry_ts": "2026-06-01T06:38:31.349172+00:00",
       "entry_price": 0.07329,
       "neg_streak": 0,
-      "accumulated_funding": 5.208333333333333e-05
+      "accumulated_funding": 0.00010416666666666666
     },
     "TA": {
       "entry_ts": "2026-06-01T06:38:32.251311+00:00",
@@ -162,7 +162,7 @@
       "entry_ts": "2026-06-01T06:38:43.953320+00:00",
       "entry_price": 0.2292,
       "neg_streak": 0,
-      "accumulated_funding": 0.00029053125
+      "accumulated_funding": 0.00054159375
     },
     "4": {
       "entry_ts": "2026-06-02T06:16:34.492746+00:00",
@@ -175,6 +175,12 @@
       "entry_price": 0.006233,
       "neg_streak": 0,
       "accumulated_funding": 5.208333333333333e-05
+    },
+    "LAB": {
+      "entry_ts": "2026-06-07T20:54:17.296019+00:00",
+      "entry_price": 13.037,
+      "neg_streak": 0,
+      "accumulated_funding": 0
     }
   },
   "universe": [
@@ -209,6 +215,6 @@
     "US",
     "SWARMS"
   ],
-  "universe_picked_ts": 1780257760.132262,
+  "universe_picked_ts": 1780865575.400725,
   "last_funding_check_ts": null
 }
