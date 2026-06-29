@@ -58,8 +58,8 @@
     },
     "RSI_EXTREME": {
       "capital_start": 3000,
-      "capital": 2378.275034792738,
-      "realized_pnl": -141.72496520726398,
+      "capital": 2493.6571037582553,
+      "realized_pnl": -146.34289624174676,
       "universe": [
         "SAND",
         "FET",
@@ -67,22 +67,11 @@
         "AAVE"
       ],
       "positions": {
-        "FET": {
-          "entry_ts": "2026-06-28T08:40:10.829254+00:00",
-          "entry_price": 0.174,
-          "direction": -1,
-          "bars_held": 259,
-          "entry_bid": 0.0,
-          "entry_ask": 0.0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": -0.07732183454521542,
-          "peak_pnl_pct": 1.6666666666666587
-        },
         "AAVE": {
           "entry_ts": "2026-06-28T18:05:17.556008+00:00",
           "entry_price": 90.0,
           "direction": -1,
-          "bars_held": 146,
+          "bars_held": 218,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -110,7 +99,63 @@
             "sl": 7.5,
             "to_b": 576
           },
-          "peak_pnl_pct": 0.7444444444444464
+          "peak_pnl_pct": 1.583170678811531
+        },
+        "TIA": {
+          "entry_ts": "2026-06-29T06:35:11.505131+00:00",
+          "entry_price": 0.3847,
+          "direction": -1,
+          "bars_held": 68,
+          "entry_bid": 0.0,
+          "entry_ask": 0.0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": -0.05680759415045168,
+          "entries": [
+            {
+              "price": 0.3847,
+              "size": 60.0
+            },
+            {
+              "price": 0.3945,
+              "size": 60.0
+            }
+          ],
+          "avg_price": 0.3896,
+          "total_size": 120.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 2.0,
+            "sl": 7.5,
+            "to_b": 576
+          },
+          "peak_pnl_pct": 1.5596568754873943
+        },
+        "FET": {
+          "entry_ts": "2026-06-29T12:10:11.758949+00:00",
+          "entry_price": 0.1794,
+          "direction": -1,
+          "bars_held": 1,
+          "entry_bid": 0.0,
+          "entry_ask": 0.0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": -0.000706909523848895,
+          "entries": [
+            {
+              "price": 0.1794,
+              "size": 60.0
+            }
+          ],
+          "avg_price": 0.1794,
+          "total_size": 60.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 2.0,
+            "sl": 7.5,
+            "to_b": 576
+          },
+          "peak_pnl_pct": 0
         }
       }
     },
@@ -152,18 +197,18 @@
           "entry_ts": "2026-06-21T11:55:54.190855+00:00",
           "entry_price": 0.6864,
           "direction": -1,
-          "bars_held": 441,
+          "bars_held": 513,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
           "entry_imbalance": 0.9275956284153005,
-          "peak_pnl_pct": 69.82808857808858
+          "peak_pnl_pct": 72.53787878787878
         },
         "ESPORTS": {
           "entry_ts": "2026-06-23T14:45:53.753399+00:00",
           "entry_price": 0.0362,
           "direction": 1,
-          "bars_held": 296,
+          "bars_held": 368,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -174,7 +219,7 @@
           "entry_ts": "2026-06-27T02:55:18.414637+00:00",
           "entry_price": 0.006312,
           "direction": 1,
-          "bars_held": 305,
+          "bars_held": 377,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -185,46 +230,57 @@
     },
     "MEAN_REVERT_BB_RSI": {
       "capital_start": 5000,
-      "capital": 3585.154513777659,
-      "realized_pnl": 85.15451377766045,
+      "capital": 4487.924824313478,
+      "realized_pnl": 87.92482431347973,
       "universe": [
         "LDO",
         "ENA",
         "APT"
       ],
       "positions": {
-        "EDU": {
-          "entry_ts": "2026-06-23T18:25:51.482703+00:00",
-          "entry_price": 0.03127,
+        "APT": {
+          "entry_ts": "2026-06-29T12:15:16.680573+00:00",
+          "entry_price": 0.5894,
           "direction": -1,
-          "bars_held": 265,
-          "entry_bid": 0,
-          "entry_ask": 0,
+          "bars_held": 0,
+          "entry_bid": 0.0,
+          "entry_ask": 0.0,
           "entry_spread_pct": 0,
-          "entry_imbalance": 0,
-          "peak_pnl_pct": 4.285257435241449
+          "entry_imbalance": -0.5106729298874251,
+          "entries": [
+            {
+              "price": 0.5894,
+              "size": 100.0
+            }
+          ],
+          "avg_price": 0.5894,
+          "total_size": 100.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 5.0,
+            "sl": 7.5,
+            "to_b": 576
+          }
         },
         "LDO": {
-          "entry_ts": "2026-06-28T08:40:11.755179+00:00",
-          "entry_price": 0.2495,
+          "entry_ts": "2026-06-29T12:15:17.613640+00:00",
+          "entry_price": 0.2558,
           "direction": -1,
-          "bars_held": 259,
+          "bars_held": 0,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
-          "entry_imbalance": 0.08760523075899244,
-          "peak_pnl_pct": 3.1663326653306574
-        },
-        "APT": {
-          "entry_ts": "2026-06-28T08:40:12.681428+00:00",
-          "entry_price": 0.5902,
-          "direction": -1,
-          "bars_held": 259,
-          "entry_bid": 0.0,
-          "entry_ask": 0.0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0.18860633023545154,
-          "peak_pnl_pct": 4.083361572348339
+          "entry_imbalance": 0.16079264348525377,
+          "entries": [
+            {
+              "price": 0.2558,
+              "size": 500
+            }
+          ],
+          "avg_price": 0.2558,
+          "total_size": 500,
+          "avg_cfg": null
         }
       }
     },
@@ -320,40 +376,18 @@
     },
     "RSI_LOOSE": {
       "capital_start": 2000,
-      "capital": 1302.2538366881533,
-      "realized_pnl": -257.7461633118468,
+      "capital": 1661.5840192853052,
+      "realized_pnl": -258.41598071469497,
       "universe": [
         "OP",
         "GMX"
       ],
       "positions": {
-        "SAND": {
-          "entry_ts": "2026-06-27T09:30:18.995949+00:00",
-          "entry_price": 0.04721,
-          "direction": 1,
-          "bars_held": 226,
-          "entry_bid": 0.0,
-          "entry_ask": 0.0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0.2465756279535046,
-          "peak_pnl_pct": 0.08472781190425412
-        },
-        "GMX": {
-          "entry_ts": "2026-06-28T08:45:10.904402+00:00",
-          "entry_price": 5.443,
-          "direction": -1,
-          "bars_held": 258,
-          "entry_bid": 0.0,
-          "entry_ask": 0.0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0.5727798798130425,
-          "peak_pnl_pct": 2.149549880580562
-        },
         "OP": {
           "entry_ts": "2026-06-29T03:35:13.992392+00:00",
           "entry_price": 0.1021,
           "direction": -1,
-          "bars_held": 32,
+          "bars_held": 104,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -374,6 +408,32 @@
             "to_b": 576
           },
           "peak_pnl_pct": 1.3712047012732602
+        },
+        "GMX": {
+          "entry_ts": "2026-06-29T09:00:14.756841+00:00",
+          "entry_price": 5.378,
+          "direction": 1,
+          "bars_held": 39,
+          "entry_bid": 0.0,
+          "entry_ask": 0.0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": -0.5487502994490138,
+          "entries": [
+            {
+              "price": 5.378,
+              "size": 40.0
+            }
+          ],
+          "avg_price": 5.378,
+          "total_size": 40.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 3.0,
+            "sl": 12.0,
+            "to_b": 576
+          },
+          "peak_pnl_pct": 1.9152101152844876
         }
       }
     },
@@ -449,44 +509,13 @@
     },
     "VOL_SPIKE_BIG": {
       "capital_start": 1500,
-      "capital": 1358.7307017864175,
-      "realized_pnl": -81.26929821358277,
+      "capital": 1418.2264690937827,
+      "realized_pnl": -81.77353090621756,
       "universe": [
         "TRUMP",
         "XAG"
       ],
-      "positions": {
-        "XAG": {
-          "entry_ts": "2026-06-28T22:00:17.514992+00:00",
-          "entry_price": 59.12,
-          "direction": 1,
-          "bars_held": 99,
-          "entry_bid": 0.0,
-          "entry_ask": 0.0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": -0.19370592226371003,
-          "entries": [
-            {
-              "price": 59.12,
-              "size": 30.0
-            },
-            {
-              "price": 58.46,
-              "size": 30.0
-            }
-          ],
-          "avg_price": 58.78999999999999,
-          "total_size": 60.0,
-          "avg_cfg": {
-            "step_pct": 1.0,
-            "n_max": 5,
-            "tp": 3.0,
-            "sl": 7.5,
-            "to_b": 120
-          },
-          "peak_pnl_pct": 0.4082326926348173
-        }
-      }
+      "positions": {}
     },
     "VWAP_TIGHT": {
       "capital_start": 1500,
@@ -529,7 +558,7 @@
           "entry_ts": "2026-06-28T15:50:21.681573+00:00",
           "entry_price": 6.322,
           "direction": -1,
-          "bars_held": 173,
+          "bars_held": 245,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -567,7 +596,7 @@
           "entry_ts": "2026-06-28T17:50:18.492980+00:00",
           "entry_price": 551.47,
           "direction": 1,
-          "bars_held": 149,
+          "bars_held": 221,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -587,7 +616,7 @@
             "sl": 4.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.9229876511868131
+          "peak_pnl_pct": 1.2004279471231445
         }
       }
     },
@@ -612,7 +641,7 @@
           "entry_ts": "2026-06-28T20:25:18.757963+00:00",
           "entry_price": 206.35,
           "direction": -1,
-          "bars_held": 117,
+          "bars_held": 189,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -638,7 +667,7 @@
           "entry_ts": "2026-06-28T22:05:21.170092+00:00",
           "entry_price": 42.56,
           "direction": -1,
-          "bars_held": 98,
+          "bars_held": 170,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -662,13 +691,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.2218045112782028
+          "peak_pnl_pct": 1.5972950915238477
         },
         "NEAR": {
           "entry_ts": "2026-06-29T01:55:14.588361+00:00",
           "entry_price": 1.846,
           "direction": -1,
-          "bars_held": 52,
+          "bars_held": 124,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
