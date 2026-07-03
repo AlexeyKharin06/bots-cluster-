@@ -1,76 +1,68 @@
 {
-  "balance": 4999.296,
+  "balance": 4999.030776485427,
   "reserve": 500.0,
-  "realized_pnl": 0.0,
-  "total_fees": 0.7040000000000001,
-  "n_trades": 0,
-  "n_wins": 0,
+  "realized_pnl": 0.37477648542566333,
+  "total_fees": 1.6640000000000001,
+  "n_trades": 1,
+  "n_wins": 1,
   "n_losses": 0,
   "positions": {
-    "LINK/XRP": {
-      "direction": -1,
-      "avg_spread": 1.9672992104012494,
-      "entry_spread": 1.9672992104012494,
-      "entry_z": 3.0643326859388345,
-      "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
-      "beta": 0.9751525152315763,
-      "sym_a": "LINK",
-      "sym_b": "XRP",
-      "position_size": 200.0,
-      "kelly_weight": 0.4
-    },
     "SUSHI/WIF": {
       "direction": -1,
-      "avg_spread": -1.5044104251466308,
+      "avg_spread": -1.419188042083955,
       "entry_spread": -1.5044104251466308,
       "entry_z": 2.3849561187664254,
       "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 0.19486370315651982,
       "sym_a": "SUSHI",
       "sym_b": "WIF",
       "position_size": 200.0,
-      "kelly_weight": 0.4
+      "kelly_weight": 0.4,
+      "last_z": 2.248722276517949
     },
     "1000FLOKI/1INCH": {
       "direction": 1,
-      "avg_spread": 1.38845592770604,
+      "avg_spread": 1.2851204465048032,
       "entry_spread": 1.38845592770604,
       "entry_z": -2.3814430169383503,
       "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 1.9629919959311235,
       "sym_a": "1000FLOKI",
       "sym_b": "1INCH",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "mfe_pct": 1.376907983334652,
+      "last_z": -1.4788797653152013
     },
     "LINK/SOL": {
       "direction": -1,
-      "avg_spread": 1.7580482736298544,
+      "avg_spread": 1.552920807611367,
       "entry_spread": 1.7580482736298544,
       "entry_z": 2.3450122844432615,
       "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 0.06521101220274952,
       "sym_a": "LINK",
       "sym_b": "SOL",
       "position_size": 200.0,
-      "kelly_weight": 0.4
+      "kelly_weight": 0.4,
+      "last_z": 2.146773724604953
     },
     "1000SHIB/1INCH": {
       "direction": 1,
-      "avg_spread": -2.023024129199788,
+      "avg_spread": -2.0671489177667572,
       "entry_spread": -2.023024129199788,
       "entry_z": -2.253621814952962,
       "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 1.293398690132837,
       "sym_a": "1000SHIB",
       "sym_b": "1INCH",
       "position_size": 200.0,
-      "kelly_weight": 0.4
+      "kelly_weight": 0.4,
+      "last_z": -2.230949980234456
     },
     "NEAR/SAND": {
       "direction": -1,
@@ -83,7 +75,9 @@
       "sym_a": "NEAR",
       "sym_b": "SAND",
       "position_size": 200.0,
-      "kelly_weight": 0.4
+      "kelly_weight": 0.4,
+      "mfe_pct": 0.8770163229245842,
+      "last_z": 1.2213984396506103
     },
     "ONDO/SAND": {
       "direction": -1,
@@ -96,33 +90,37 @@
       "sym_a": "ONDO",
       "sym_b": "SAND",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "mfe_pct": 0.9949393602067369,
+      "last_z": 1.2353928063314363
     },
     "JUP/PENGU": {
       "direction": -1,
-      "avg_spread": -3.7278906492844235,
+      "avg_spread": -3.526015120207087,
       "entry_spread": -3.7278906492844235,
       "entry_z": 1.8669301299628795,
       "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": -0.4567801965545119,
       "sym_a": "JUP",
       "sym_b": "PENGU",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "last_z": 1.6651924291439788
     },
     "SOL/XRP": {
       "direction": -1,
-      "avg_spread": 4.392150508061118,
+      "avg_spread": 4.389973878601605,
       "entry_spread": 4.392150508061118,
       "entry_z": 1.8426579146255584,
       "entry_time": "2026-07-02 20:26",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": -0.025719065899035207,
       "sym_a": "SOL",
       "sym_b": "XRP",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "last_z": 1.6749946340654804
     },
     "1000FLOKI/1000PEPE": {
       "direction": 1,
@@ -135,7 +133,22 @@
       "sym_a": "1000FLOKI",
       "sym_b": "1000PEPE",
       "position_size": 200.0,
-      "kelly_weight": 0.4
+      "kelly_weight": 0.4,
+      "mfe_pct": 0.4031850169625262,
+      "last_z": -1.0318483919545405
+    },
+    "1000BONK/1000SHIB": {
+      "direction": -1,
+      "avg_spread": -0.8852174948223004,
+      "entry_spread": -0.8852174948223004,
+      "entry_z": 2.3585294231281133,
+      "entry_time": "2026-07-03 06:04",
+      "n_entries": 1,
+      "beta": 0.8324454923816629,
+      "sym_a": "1000BONK",
+      "sym_b": "1000SHIB",
+      "position_size": 500.0,
+      "kelly_weight": 1.0
     }
   },
   "last_universe_scan": null,
