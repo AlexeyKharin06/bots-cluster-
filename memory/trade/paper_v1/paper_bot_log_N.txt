@@ -46,3 +46,19 @@
 [2026-07-03 06:04:10]   ВЫХОД  LINK/XRP        z=+1.47  P&L=+0.347%  net=$+0.37 [WIN] reason=swap hold=9.6h
 [2026-07-03 06:04:10]   ВХОД   1000BONK/1000SHIB SHORT  z=+2.36  sp=-0.88522  β=0.8324  kelly=1.00x ($500)
 [2026-07-03 06:04:10] Cycle end. Balance: $4999.03  Realized: $+0.37  Trades: 1 (W:1/L:0)  Open: 10/10
+[2026-07-05 06:01:33] ============================================================
+[2026-07-05 06:01:33] PAPER BOT N — dynamic universe scan, optimal params
+[2026-07-05 06:01:33] Cycle start. Universe size: 62 pairs. Open positions: 10
+[2026-07-05 06:01:33]   fetching prices for 32 symbols...
+[2026-07-05 06:02:01]   computed z-score for 62 pairs
+[2026-07-05 06:02:01]   ВЫХОД  NEAR/SAND       z=-0.32  P&L=+2.390%  net=$+4.46 [WIN] reason=MEAN hold=57.6h
+[2026-07-05 06:02:01]   ВЫХОД  ONDO/SAND       z=+0.15  P&L=+2.610%  net=$+19.60 [WIN] reason=MEAN hold=57.6h
+[2026-07-05 06:02:01]   ВЫХОД  JUP/PENGU       z=+0.43  P&L=+21.529%  net=$+170.95 [WIN] reason=MEAN hold=57.6h
+[2026-07-05 06:02:01]   ВЫХОД  SOL/XRP         z=+0.28  P&L=-0.042%  net=$-1.62 [LOSS] reason=MEAN hold=57.6h
+[2026-07-05 06:02:01]   УСРЕД  1000BONK/1000SHIB  вход #2/10  z=+2.07  avg_sp=-0.78677
+[2026-07-05 06:02:01]   4 slots available
+[2026-07-05 06:02:01]   ВХОД   GALA/SAND      LONG  z=-2.93  sp=-3.89236  β=0.7293  kelly=1.60x ($800)
+[2026-07-05 06:02:01]   ВХОД   BNB/DOGE       SHORT  z=+2.77  sp=7.65607  β=0.5069  kelly=0.40x ($200)
+[2026-07-05 06:02:01]   ВХОД   ETH/SUI        SHORT  z=+2.52  sp=7.74988  β=0.9212  kelly=0.40x ($200)
+[2026-07-05 06:02:01]   ВХОД   ETHFI/PENGU    SHORT  z=+2.42  sp=2.78001  β=0.7271  kelly=0.40x ($200)
+[2026-07-05 06:02:01] Cycle end. Balance: $5192.12  Realized: $+193.77  Trades: 5 (W:4/L:1)  Open: 10/10
