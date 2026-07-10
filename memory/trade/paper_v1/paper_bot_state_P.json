@@ -1,10 +1,10 @@
 {
-  "balance": 4999.6,
+  "balance": 5017.23880326383,
   "reserve": 500.0,
-  "realized_pnl": 0.0,
-  "total_fees": 0.39999999999999997,
-  "n_trades": 0,
-  "n_wins": 0,
+  "realized_pnl": 21.638803263825967,
+  "total_fees": 5.2,
+  "n_trades": 1,
+  "n_wins": 1,
   "n_losses": 0,
   "positions": {
     "SOPH": {
@@ -12,7 +12,77 @@
       "entry_price": 0.004859,
       "entry_time": "2026-07-10 06:10",
       "position_size": 500.0,
+      "mfe_pct": 1.2759827124922962
+    },
+    "DASH": {
+      "direction": 1,
+      "entry_price": 35.3,
+      "entry_time": "2026-07-10 07:00",
+      "position_size": 500.0,
+      "mfe_pct": 0.36827195467423746
+    },
+    "MIRA": {
+      "direction": 1,
+      "entry_price": 0.04479,
+      "entry_time": "2026-07-10 08:10",
+      "position_size": 500.0,
+      "mfe_pct": 0.11163206072783982
+    },
+    "FIL": {
+      "direction": 1,
+      "entry_price": 0.7951,
+      "entry_time": "2026-07-10 08:15",
+      "position_size": 500.0,
+      "mfe_pct": 2.0752106653251
+    },
+    "STO": {
+      "direction": 1,
+      "entry_price": 0.04517,
+      "entry_time": "2026-07-10 08:20",
+      "position_size": 500.0,
+      "mfe_pct": 0.06641576267432114
+    },
+    "BULLA": {
+      "direction": 1,
+      "entry_price": 0.00635,
+      "entry_time": "2026-07-10 09:10",
+      "position_size": 500.0,
       "mfe_pct": 0.0
+    },
+    "METIS": {
+      "direction": 1,
+      "entry_price": 2.949,
+      "entry_time": "2026-07-10 09:10",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "MYX": {
+      "direction": 1,
+      "entry_price": 0.07947,
+      "entry_time": "2026-07-10 09:25",
+      "position_size": 500.0,
+      "mfe_pct": 3.0074241852271255
+    },
+    "ZEN": {
+      "direction": 1,
+      "entry_price": 4.173,
+      "entry_time": "2026-07-10 10:25",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "DEEP": {
+      "direction": 1,
+      "entry_price": 0.01859,
+      "entry_time": "2026-07-10 10:25",
+      "position_size": 500.0,
+      "mfe_pct": 0.5379236148466804
+    }
+  },
+  "cooldown": {
+    "GUN": {
+      "exit_time": "2026-07-10 10:10",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     }
   }
 }
