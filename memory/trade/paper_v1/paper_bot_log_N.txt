@@ -62,3 +62,81 @@
 [2026-07-05 06:02:01]   ВХОД   ETH/SUI        SHORT  z=+2.52  sp=7.74988  β=0.9212  kelly=0.40x ($200)
 [2026-07-05 06:02:01]   ВХОД   ETHFI/PENGU    SHORT  z=+2.42  sp=2.78001  β=0.7271  kelly=0.40x ($200)
 [2026-07-05 06:02:01] Cycle end. Balance: $5192.12  Realized: $+193.77  Trades: 5 (W:4/L:1)  Open: 10/10
+[2026-07-10 06:05:03] ============================================================
+[2026-07-10 06:05:03] PAPER BOT N — dynamic universe scan, optimal params
+[2026-07-10 06:05:03] Cycle start. Universe size: 62 pairs. Open positions: 10
+[2026-07-10 06:05:03]   fetching prices for 32 symbols...
+[2026-07-10 06:05:05] ============================================================
+[2026-07-10 06:05:05] PAPER BOT N — dynamic universe scan, optimal params
+[2026-07-10 06:05:05] 🔒 lock exists, skip cycle
+[2026-07-10 06:05:31]   computed z-score for 62 pairs
+[2026-07-10 06:05:31]   ВЫХОД  SUSHI/WIF       z=+1.84  P&L=+2.540%  net=$+4.76 [WIN] reason=profit_lock hold=177.7h
+[2026-07-10 06:05:31]   ВЫХОД  1000FLOKI/1INCH  z=-1.41  P&L=+8.780%  net=$+68.96 [WIN] reason=profit_lock hold=177.7h
+[2026-07-10 06:05:31]   ВЫХОД  LINK/SOL        z=+1.92  P&L=-23.060%  net=$-46.44 [LOSS] reason=TIMEOUT hold=177.7h
+[2026-07-10 06:05:31]   ВЫХОД  1000SHIB/1INCH  z=-0.78  P&L=+2.323%  net=$+4.33 [WIN] reason=profit_lock hold=177.7h
+[2026-07-10 06:05:31]   ВЫХОД  1000FLOKI/1000PEPE  z=-0.88  P&L=-4.615%  net=$-9.55 [LOSS] reason=TIMEOUT hold=177.7h
+[2026-07-10 06:05:31]   ВЫХОД  1000BONK/1000SHIB  z=-1.43  P&L=+19.789%  net=$+98.15 [WIN] reason=TIMEOUT hold=168.0h
+[2026-07-10 06:05:31]   ВЫХОД  GALA/SAND       z=-0.90  P&L=-5.149%  net=$-42.47 [LOSS] reason=TIMEOUT hold=120.1h
+[2026-07-10 06:05:31]   ВЫХОД  BNB/DOGE        z=+1.04  P&L=-2.130%  net=$-4.58 [LOSS] reason=TIMEOUT hold=120.1h
+[2026-07-10 06:05:31]   ВЫХОД  ETH/SUI         z=+1.07  P&L=-2.786%  net=$-5.89 [LOSS] reason=TIMEOUT hold=120.1h
+[2026-07-10 06:05:31]   ВЫХОД  ETHFI/PENGU     z=+0.43  P&L=+2.295%  net=$+4.27 [WIN] reason=MEAN hold=120.1h
+[2026-07-10 06:05:31]   10 slots available
+[2026-07-10 06:05:31]   ВХОД   LINK/SOL       SHORT  z=+1.92  sp=-0.54263  β=0.5975  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   RENDER/RUNE    LONG  z=-1.84  sp=1.03500  β=0.6496  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   SUSHI/WIF      SHORT  z=+1.84  sp=-1.58859  β=0.1163  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   ONDO/RUNE      LONG  z=-1.83  sp=-0.41177  β=0.7968  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   JUP/PENGU      LONG  z=-1.71  sp=3.72126  β=1.0416  kelly=1.60x ($800)
+[2026-07-10 06:05:31]   ВХОД   JUP/SAND       LONG  z=-1.53  sp=1.50632  β=1.0145  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   LINK/XRP       SHORT  z=+1.52  sp=1.96218  β=1.0305  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   SAND/TIA       LONG  z=-1.48  sp=-2.61936  β=0.4531  kelly=0.40x ($200)
+[2026-07-10 06:05:31]   ВХОД   LTC/XRP        SHORT  z=+1.44  sp=3.72959  β=0.6103  kelly=1.60x ($800)
+[2026-07-10 06:05:31]   ВХОД   1000BONK/1000SHIB LONG  z=-1.43  sp=5.95944  β=2.1096  kelly=1.60x ($800)
+[2026-07-10 06:05:31] Cycle end. Balance: $5263.03  Realized: $+265.29  Trades: 15 (W:9/L:6)  Open: 10/10
+[2026-07-10 06:10:03] ============================================================
+[2026-07-10 06:10:03] PAPER BOT N — dynamic universe scan, optimal params
+[2026-07-10 06:10:03] Cycle start. Universe size: 62 pairs. Open positions: 10
+[2026-07-10 06:10:03]   fetching prices for 32 symbols...
+[2026-07-10 06:10:03]   WARN fetch 1000BONK: binanceusdm 418 Unknown {"code":-1003,"msg":"Way too many re
+[2026-07-10 06:10:04]   WARN fetch 1000CAT: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:05]   WARN fetch 1000PEPE: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:06]   WARN fetch 1INCH: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:09]   WARN fetch ENA: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:09]   WARN fetch ETH: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:10]   WARN fetch ETHFI: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:10]   WARN fetch GALA: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:14]   WARN fetch LINK: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:14]   WARN fetch LTC: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:14]   WARN fetch NEAR: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:20]   WARN fetch RUNE: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:22]   WARN fetch SOL: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:25]   WARN fetch TIA: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:26]   WARN fetch XRP: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:10:26]   computed z-score for 18 pairs
+[2026-07-10 06:10:26]   УСРЕД  SUSHI/WIF       вход #2/10  z=+1.81  avg_sp=-1.59007
+[2026-07-10 06:10:26]   УСРЕД  JUP/PENGU       вход #2/10  z=-1.70  avg_sp=3.72507
+[2026-07-10 06:10:26]   УСРЕД  JUP/SAND        вход #2/10  z=-1.56  avg_sp=1.50544
+[2026-07-10 06:10:26]   0 slots available
+[2026-07-10 06:10:26] Cycle end. Balance: $5262.79  Realized: $+265.29  Trades: 15 (W:9/L:6)  Open: 10/10
+[2026-07-10 06:15:03] ============================================================
+[2026-07-10 06:15:03] PAPER BOT N — dynamic universe scan, optimal params
+[2026-07-10 06:15:03] Cycle start. Universe size: 62 pairs. Open positions: 10
+[2026-07-10 06:15:03]   fetching prices for 32 symbols...
+[2026-07-10 06:15:04]   WARN fetch 1000BONK: binanceusdm 418 Unknown {"code":-1003,"msg":"Way too many re
+[2026-07-10 06:15:04]   WARN fetch 1000CAT: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:05]   WARN fetch 1000FLOKI: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:05]   WARN fetch 1000PEPE: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:05]   WARN fetch 1000SHIB: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:06]   WARN fetch 1INCH: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:08]   WARN fetch DOGE: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:15]   WARN fetch JUP: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:15]   WARN fetch LDO: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:20]   WARN fetch ONDO: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:25]   WARN fetch SOL: binanceusdm 418 I'm a teapot {"code":-1003,"msg":"Way too ma
+[2026-07-10 06:15:29]   computed z-score for 33 pairs
+[2026-07-10 06:15:29]   УСРЕД  RENDER/RUNE     вход #2/10  z=-1.90  avg_sp=1.03383
+[2026-07-10 06:15:29]   УСРЕД  SUSHI/WIF       вход #3/10  z=+1.80  avg_sp=-1.59142
+[2026-07-10 06:15:29]   УСРЕД  LINK/XRP        вход #2/10  z=+1.60  avg_sp=1.96259
+[2026-07-10 06:15:29]   УСРЕД  SAND/TIA        вход #2/10  z=-1.47  avg_sp=-2.61967
+[2026-07-10 06:15:29]   УСРЕД  LTC/XRP         вход #2/10  z=+1.52  avg_sp=3.72993
+[2026-07-10 06:15:29]   0 slots available
+[2026-07-10 06:15:29] Cycle end. Balance: $5262.39  Realized: $+265.29  Trades: 15 (W:9/L:6)  Open: 10/10
