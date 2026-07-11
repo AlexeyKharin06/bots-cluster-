@@ -1,11 +1,11 @@
 {
-  "balance": 4973.31446750996,
+  "balance": 4949.83730215563,
   "reserve": 500.0,
-  "realized_pnl": -21.485532490044857,
-  "total_fees": 7.6000000000000005,
-  "n_trades": 3,
+  "realized_pnl": -44.96269784437559,
+  "total_fees": 8.4,
+  "n_trades": 4,
   "n_wins": 1,
-  "n_losses": 2,
+  "n_losses": 3,
   "positions": {
     "SOPH": {
       "direction": 1,
@@ -42,13 +42,6 @@
       "position_size": 500.0,
       "mfe_pct": 1.1069293779056855
     },
-    "BULLA": {
-      "direction": 1,
-      "entry_price": 0.00635,
-      "entry_time": "2026-07-10 09:10",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
     "ZEN": {
       "direction": 1,
       "entry_price": 4.173,
@@ -75,7 +68,7 @@
       "entry_price": 0.07711,
       "entry_time": "2026-07-10 17:00",
       "position_size": 500.0,
-      "mfe_pct": 3.4755544028012064
+      "mfe_pct": 3.631176241732592
     }
   },
   "cooldown": {
@@ -91,6 +84,11 @@
     },
     "MYX": {
       "exit_time": "2026-07-10 15:10",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "BULLA": {
+      "exit_time": "2026-07-11 11:05",
       "outcome": "LOSS",
       "reason": "SL"
     }
