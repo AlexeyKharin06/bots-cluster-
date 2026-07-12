@@ -1,10 +1,10 @@
 {
-  "balance": 4440.372190759756,
+  "balance": 4452.8025552118215,
   "reserve": 500.0,
-  "realized_pnl": -556.4027047460728,
-  "total_fees": 13.384588223138367,
-  "n_trades": 13,
-  "n_wins": 4,
+  "realized_pnl": -543.7611228735049,
+  "total_fees": 14.269498962659993,
+  "n_trades": 14,
+  "n_wins": 5,
   "n_losses": 9,
   "n_swaps": 0,
   "n_profit_locks": 0,
@@ -56,15 +56,15 @@
       "mfe_pct": 0.2097498970586073,
       "half_life_h": 7.405146090567274,
       "timeout_h": 24.0,
-      "last_z": 2.186901033527138
+      "last_z": 1.3553278782232003
     },
     "ENA/OP": {
       "direction": -1,
-      "avg_spread": 0.03748246994126869,
+      "avg_spread": 0.03800903422695518,
       "entry_spread": 0.03736070528255375,
       "entry_z": 2.2896789953414145,
       "entry_time": "2026-07-11 06:08",
-      "n_entries": 8,
+      "n_entries": 9,
       "beta": 1.1260411671923896,
       "sym_a": "ENA",
       "sym_b": "OP",
@@ -73,7 +73,7 @@
       "mfe_pct": 0.4363985970884464,
       "half_life_h": 8.378590385364214,
       "timeout_h": 24.0,
-      "last_z": 2.1811184268790846
+      "last_z": 2.0593397552775454
     },
     "ACU/BB": {
       "direction": 1,
@@ -94,11 +94,11 @@
     },
     "SOL/LTC": {
       "direction": 1,
-      "avg_spread": -0.027821199488710313,
+      "avg_spread": -0.02718360621670955,
       "entry_spread": -0.02839977392280879,
       "entry_z": -1.888963714865151,
       "entry_time": "2026-07-11 06:08",
-      "n_entries": 6,
+      "n_entries": 7,
       "beta": 1.1518201888257769,
       "sym_a": "SOL",
       "sym_b": "LTC",
@@ -107,7 +107,7 @@
       "mfe_pct": 0.20407149840184768,
       "half_life_h": 33.94530416504612,
       "timeout_h": 67.89060833009223,
-      "last_z": -2.024378419569156
+      "last_z": -1.8097348458241087
     },
     "PORTAL/SAPIEN": {
       "direction": 1,
@@ -125,23 +125,6 @@
       "half_life_h": 8.515696087066289,
       "timeout_h": 24.0,
       "last_z": -2.175924388167272
-    },
-    "CARV/DIA": {
-      "direction": 1,
-      "avg_spread": -0.0338848372250535,
-      "entry_spread": -0.03682048774449331,
-      "entry_z": -1.6286284037434542,
-      "entry_time": "2026-07-11 06:11",
-      "n_entries": 7,
-      "beta": 1.5000909052484839,
-      "sym_a": "CARV",
-      "sym_b": "DIA",
-      "position_size": 421.0583243863945,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.4880211865310624,
-      "half_life_h": 22.154270211926107,
-      "timeout_h": 44.308540423852214,
-      "last_z": -1.4238511602546464
     },
     "PYTH/SAPIEN": {
       "direction": -1,
@@ -162,19 +145,20 @@
     },
     "VIRTUAL/WLD": {
       "direction": -1,
-      "avg_spread": -0.1257203316466421,
+      "avg_spread": -0.17138856683659012,
       "entry_spread": -0.1257203316466421,
       "entry_z": 3.4909047721831494,
       "entry_time": "2026-07-11 06:16",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 0.35471998024502727,
       "sym_a": "VIRTUAL",
       "sym_b": "WLD",
       "position_size": 596.4124015764894,
       "kelly_weight": 1.5,
-      "mfe_pct": 0.0,
+      "mfe_pct": 6.435262347782928,
       "half_life_h": 1570.0514234109899,
-      "timeout_h": 240.0
+      "timeout_h": 240.0,
+      "last_z": 1.206482269499434
     },
     "PENGU/SUSHI": {
       "direction": 1,
@@ -205,18 +189,18 @@
       "sym_b": "FOGO",
       "position_size": 397.59872517648995,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.28734824396716707,
+      "mfe_pct": 0.6333838613372889,
       "half_life_h": 12.50057192045051,
       "timeout_h": 25.00114384090102,
-      "last_z": -1.0665596429474324
+      "last_z": -1.1394607376849464
     },
     "DYM/ELSA": {
       "direction": 1,
-      "avg_spread": -1.7894534453549298,
+      "avg_spread": -1.7940060683054508,
       "entry_spread": -1.779736100833667,
       "entry_z": -1.3388406700899427,
       "entry_time": "2026-07-11 06:21",
-      "n_entries": 5,
+      "n_entries": 6,
       "beta": 0.8016141825495774,
       "sym_a": "DYM",
       "sym_b": "ELSA",
@@ -225,24 +209,24 @@
       "mfe_pct": 0.0,
       "half_life_h": 27.451532002133224,
       "timeout_h": 54.90306400426645,
-      "last_z": -1.6224872110408162
+      "last_z": -2.1543149497144642
     },
     "SSV/VANA": {
       "direction": 1,
-      "avg_spread": 0.24718696235391516,
+      "avg_spread": 0.25210754622264314,
       "entry_spread": 0.24532419949738127,
       "entry_z": -1.962791351999185,
       "entry_time": "2026-07-11 06:31",
-      "n_entries": 2,
+      "n_entries": 3,
       "beta": 2.444845886838577,
       "sym_a": "SSV",
       "sym_b": "VANA",
       "position_size": 443.8650487381697,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.3451874170808167,
+      "mfe_pct": 2.262181493038884,
       "half_life_h": 18.123994667354932,
       "timeout_h": 36.247989334709864,
-      "last_z": -1.8925314018784998
+      "last_z": -1.0396444347037763
     },
     "PENGU/SEI": {
       "direction": 1,

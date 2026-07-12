@@ -1,11 +1,11 @@
 {
-  "balance": 4949.83730215563,
+  "balance": 4925.906586717222,
   "reserve": 500.0,
-  "realized_pnl": -44.96269784437559,
-  "total_fees": 8.4,
-  "n_trades": 4,
+  "realized_pnl": -68.89341328278331,
+  "total_fees": 9.200000000000001,
+  "n_trades": 5,
   "n_wins": 1,
-  "n_losses": 3,
+  "n_losses": 4,
   "positions": {
     "SOPH": {
       "direction": 1,
@@ -49,13 +49,6 @@
       "position_size": 500.0,
       "mfe_pct": 1.581595974119332
     },
-    "DEEP": {
-      "direction": 1,
-      "entry_price": 0.01859,
-      "entry_time": "2026-07-10 10:25",
-      "position_size": 500.0,
-      "mfe_pct": 0.5379236148466804
-    },
     "RONIN": {
       "direction": 1,
       "entry_price": 0.05744,
@@ -89,6 +82,11 @@
     },
     "BULLA": {
       "exit_time": "2026-07-11 11:05",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "DEEP": {
+      "exit_time": "2026-07-12 02:50",
       "outcome": "LOSS",
       "reason": "SL"
     }
