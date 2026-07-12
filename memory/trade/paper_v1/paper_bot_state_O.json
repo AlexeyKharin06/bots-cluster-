@@ -1,11 +1,11 @@
 {
-  "balance": 4452.8025552118215,
+  "balance": 4426.394126968163,
   "reserve": 500.0,
-  "realized_pnl": -543.7611228735049,
-  "total_fees": 14.269498962659993,
-  "n_trades": 14,
-  "n_wins": 5,
-  "n_losses": 9,
+  "realized_pnl": -569.938258172714,
+  "total_fees": 17.438747084417553,
+  "n_trades": 17,
+  "n_wins": 6,
+  "n_losses": 11,
   "n_swaps": 0,
   "n_profit_locks": 0,
   "positions": {
@@ -41,40 +41,6 @@
       "half_life_h": 23.74512215041588,
       "timeout_h": 47.49024430083176
     },
-    "ENA/SEI": {
-      "direction": -1,
-      "avg_spread": 0.03421463582550627,
-      "entry_spread": 0.036441593664037875,
-      "entry_z": 2.5470366980674313,
-      "entry_time": "2026-07-11 06:08",
-      "n_entries": 8,
-      "beta": 0.8473993732493197,
-      "sym_a": "ENA",
-      "sym_b": "SEI",
-      "position_size": 719.3159462167312,
-      "kelly_weight": 1.5,
-      "mfe_pct": 0.2097498970586073,
-      "half_life_h": 7.405146090567274,
-      "timeout_h": 24.0,
-      "last_z": 1.3553278782232003
-    },
-    "ENA/OP": {
-      "direction": -1,
-      "avg_spread": 0.03800903422695518,
-      "entry_spread": 0.03736070528255375,
-      "entry_z": 2.2896789953414145,
-      "entry_time": "2026-07-11 06:08",
-      "n_entries": 9,
-      "beta": 1.1260411671923896,
-      "sym_a": "ENA",
-      "sym_b": "OP",
-      "position_size": 719.3073144253766,
-      "kelly_weight": 1.5,
-      "mfe_pct": 0.4363985970884464,
-      "half_life_h": 8.378590385364214,
-      "timeout_h": 24.0,
-      "last_z": 2.0593397552775454
-    },
     "ACU/BB": {
       "direction": 1,
       "avg_spread": -0.829524380668495,
@@ -90,7 +56,7 @@
       "mfe_pct": 0.06204345949012424,
       "half_life_h": 18.206721300702835,
       "timeout_h": 36.41344260140567,
-      "last_z": -1.8505256843790023
+      "last_z": -0.6695582500718987
     },
     "SOL/LTC": {
       "direction": 1,
@@ -107,7 +73,7 @@
       "mfe_pct": 0.20407149840184768,
       "half_life_h": 33.94530416504612,
       "timeout_h": 67.89060833009223,
-      "last_z": -1.8097348458241087
+      "last_z": -1.6756563348688889
     },
     "PORTAL/SAPIEN": {
       "direction": 1,
@@ -177,30 +143,13 @@
       "timeout_h": 53.83285571354091,
       "last_z": -1.396459347629108
     },
-    "DYM/FOGO": {
-      "direction": 1,
-      "avg_spread": -1.7748615916700892,
-      "entry_spread": -1.7814761776311405,
-      "entry_z": -1.3689315995425242,
-      "entry_time": "2026-07-11 06:16",
-      "n_entries": 3,
-      "beta": 0.5152485983554695,
-      "sym_a": "DYM",
-      "sym_b": "FOGO",
-      "position_size": 397.59872517648995,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.6333838613372889,
-      "half_life_h": 12.50057192045051,
-      "timeout_h": 25.00114384090102,
-      "last_z": -1.1394607376849464
-    },
     "DYM/ELSA": {
       "direction": 1,
-      "avg_spread": -1.7940060683054508,
+      "avg_spread": -1.8016244638251275,
       "entry_spread": -1.779736100833667,
       "entry_z": -1.3388406700899427,
       "entry_time": "2026-07-11 06:21",
-      "n_entries": 6,
+      "n_entries": 8,
       "beta": 0.8016141825495774,
       "sym_a": "DYM",
       "sym_b": "ELSA",
@@ -209,7 +158,7 @@
       "mfe_pct": 0.0,
       "half_life_h": 27.451532002133224,
       "timeout_h": 54.90306400426645,
-      "last_z": -2.1543149497144642
+      "last_z": -1.7671704333686753
     },
     "SSV/VANA": {
       "direction": 1,
@@ -243,6 +192,71 @@
       "mfe_pct": 0.0,
       "half_life_h": 28.127293020394934,
       "timeout_h": 56.25458604078987
+    },
+    "NEIRO/PNUT": {
+      "direction": -1,
+      "avg_spread": -3.3922252458840045,
+      "entry_spread": -3.3922252458840045,
+      "entry_z": 0.9454676958706131,
+      "entry_time": "2026-07-12 06:25",
+      "n_entries": 1,
+      "beta": 1.996948816524616,
+      "sym_a": "NEIRO",
+      "sym_b": "PNUT",
+      "position_size": 311.6961788648275,
+      "kelly_weight": 0.7,
+      "mfe_pct": 0.44971197774783533,
+      "half_life_h": 8.36259990228323,
+      "timeout_h": 24.0,
+      "last_z": 0.727579801329077
+    },
+    "ENA/SEI": {
+      "direction": -1,
+      "avg_spread": 0.019130215453508903,
+      "entry_spread": 0.019130215453508903,
+      "entry_z": 1.2483637834385009,
+      "entry_time": "2026-07-12 06:50",
+      "n_entries": 1,
+      "beta": 0.8427994109917004,
+      "sym_a": "ENA",
+      "sym_b": "SEI",
+      "position_size": 667.8740878974112,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 15.502377134715543,
+      "timeout_h": 31.004754269431086
+    },
+    "CHR/ERA": {
+      "direction": -1,
+      "avg_spread": 0.08855612337992991,
+      "entry_spread": 0.08855612337992991,
+      "entry_z": 2.7787895254255077,
+      "entry_time": "2026-07-12 09:25",
+      "n_entries": 1,
+      "beta": 1.6734831828154912,
+      "sym_a": "CHR",
+      "sym_b": "ERA",
+      "position_size": 445.4157068777147,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 10.420836427722445,
+      "timeout_h": 24.0
+    },
+    "ENA/OP": {
+      "direction": -1,
+      "avg_spread": 0.05881457489660891,
+      "entry_spread": 0.05881457489660891,
+      "entry_z": 2.4261718314363203,
+      "entry_time": "2026-07-12 10:10",
+      "n_entries": 1,
+      "beta": 1.1190175738307824,
+      "sym_a": "ENA",
+      "sym_b": "OP",
+      "position_size": 663.9670866502643,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 14.335679130458145,
+      "timeout_h": 28.67135826091629
     }
   }
 }

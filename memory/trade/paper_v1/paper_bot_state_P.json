@@ -1,11 +1,11 @@
 {
-  "balance": 4925.906586717222,
+  "balance": 4903.031795630872,
   "reserve": 500.0,
-  "realized_pnl": -68.89341328278331,
-  "total_fees": 9.200000000000001,
-  "n_trades": 5,
+  "realized_pnl": -91.36820436913428,
+  "total_fees": 10.400000000000002,
+  "n_trades": 6,
   "n_wins": 1,
-  "n_losses": 4,
+  "n_losses": 5,
   "positions": {
     "SOPH": {
       "direction": 1,
@@ -49,19 +49,19 @@
       "position_size": 500.0,
       "mfe_pct": 1.581595974119332
     },
-    "RONIN": {
-      "direction": 1,
-      "entry_price": 0.05744,
-      "entry_time": "2026-07-10 16:15",
-      "position_size": 500.0,
-      "mfe_pct": 0.6789693593314716
-    },
     "YB": {
       "direction": 1,
       "entry_price": 0.07711,
       "entry_time": "2026-07-10 17:00",
       "position_size": 500.0,
       "mfe_pct": 3.631176241732592
+    },
+    "TNSR": {
+      "direction": -1,
+      "entry_price": 0.03135,
+      "entry_time": "2026-07-12 09:25",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -87,6 +87,11 @@
     },
     "DEEP": {
       "exit_time": "2026-07-12 02:50",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "RONIN": {
+      "exit_time": "2026-07-12 09:25",
       "outcome": "LOSS",
       "reason": "SL"
     }
