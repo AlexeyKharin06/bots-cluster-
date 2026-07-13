@@ -1,11 +1,11 @@
 {
-  "balance": 4903.031795630872,
+  "balance": 4857.689327827187,
   "reserve": 500.0,
-  "realized_pnl": -91.36820436913428,
-  "total_fees": 10.400000000000002,
-  "n_trades": 6,
+  "realized_pnl": -136.7106721728179,
+  "total_fees": 12.000000000000004,
+  "n_trades": 8,
   "n_wins": 1,
-  "n_losses": 5,
+  "n_losses": 7,
   "positions": {
     "SOPH": {
       "direction": 1,
@@ -20,13 +20,6 @@
       "entry_time": "2026-07-10 07:00",
       "position_size": 500.0,
       "mfe_pct": 0.36827195467423746
-    },
-    "MIRA": {
-      "direction": 1,
-      "entry_price": 0.04479,
-      "entry_time": "2026-07-10 08:10",
-      "position_size": 500.0,
-      "mfe_pct": 2.8354543424871537
     },
     "FIL": {
       "direction": 1,
@@ -49,19 +42,12 @@
       "position_size": 500.0,
       "mfe_pct": 2.1087946321591167
     },
-    "YB": {
-      "direction": 1,
-      "entry_price": 0.07711,
-      "entry_time": "2026-07-10 17:00",
-      "position_size": 500.0,
-      "mfe_pct": 3.631176241732592
-    },
     "TNSR": {
       "direction": -1,
       "entry_price": 0.03135,
       "entry_time": "2026-07-12 09:25",
       "position_size": 500.0,
-      "mfe_pct": 0.60606060606061
+      "mfe_pct": 1.5311004784689053
     }
   },
   "cooldown": {
@@ -92,6 +78,16 @@
     },
     "RONIN": {
       "exit_time": "2026-07-12 09:25",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "MIRA": {
+      "exit_time": "2026-07-12 23:00",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "YB": {
+      "exit_time": "2026-07-12 23:05",
       "outcome": "LOSS",
       "reason": "SL"
     }

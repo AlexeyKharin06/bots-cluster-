@@ -1,11 +1,11 @@
 {
-  "balance": 5546.339498657081,
+  "balance": 5168.2160164544375,
   "reserve": 500.0,
-  "realized_pnl": 563.1074986570693,
-  "total_fees": 45.56799999999975,
-  "n_trades": 39,
-  "n_wins": 26,
-  "n_losses": 13,
+  "realized_pnl": 185.30401645442598,
+  "total_fees": 48.447999999999745,
+  "n_trades": 41,
+  "n_wins": 27,
+  "n_losses": 14,
   "positions": {
     "LINK/SOL": {
       "direction": -1,
@@ -20,22 +20,7 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "mfe_pct": 0.05095767538361162,
-      "last_z": 1.7760900635575356
-    },
-    "JUP/PENGU": {
-      "direction": 1,
-      "avg_spread": 4.201716073353417,
-      "entry_spread": 3.7212595206345878,
-      "entry_z": -1.7147246245825125,
-      "entry_time": "2026-07-10 06:05",
-      "n_entries": 8,
-      "beta": 1.0415809080513732,
-      "sym_a": "JUP",
-      "sym_b": "PENGU",
-      "position_size": 800.0,
-      "kelly_weight": 1.6,
-      "mfe_pct": 0.20054814516559105,
-      "last_z": -0.7681485127352754
+      "last_z": 1.4162292508411563
     },
     "JUP/SAND": {
       "direction": 1,
@@ -49,7 +34,7 @@
       "sym_b": "SAND",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": -0.7986190661810124,
+      "last_z": -0.8749294710728532,
       "mfe_pct": 0.142383745664576
     },
     "LINK/XRP": {
@@ -64,7 +49,7 @@
       "sym_b": "XRP",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 1.8907000142345105,
+      "last_z": 1.8519109683201342,
       "mfe_pct": 0.07452940675320985
     },
     "1000BONK/1000SHIB": {
@@ -94,7 +79,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.5776884629398626,
-      "last_z": 1.67575444869415
+      "last_z": 1.3356831182092364
     },
     "LTC/XRP": {
       "direction": -1,
@@ -108,8 +93,8 @@
       "sym_b": "XRP",
       "position_size": 800.0,
       "kelly_weight": 1.6,
-      "mfe_pct": 0.10240011505460167,
-      "last_z": 1.0570967060741925
+      "mfe_pct": 0.10474894893355291,
+      "last_z": 0.5960313285257405
     },
     "ONDO/PENGU": {
       "direction": -1,
@@ -126,21 +111,6 @@
       "mfe_pct": 0.21646790660936333,
       "last_z": 1.487338487329144
     },
-    "LTC/SOL": {
-      "direction": -1,
-      "avg_spread": 1.6585850825781643,
-      "entry_spread": 1.6597312676319973,
-      "entry_z": 1.152423952085039,
-      "entry_time": "2026-07-12 16:00",
-      "n_entries": 2,
-      "beta": 0.4924769853904935,
-      "sym_a": "LTC",
-      "sym_b": "SOL",
-      "position_size": 800.0,
-      "kelly_weight": 1.6,
-      "mfe_pct": 0.14043728700978697,
-      "last_z": 1.0405061488471035
-    },
     "1000SHIB/1INCH": {
       "direction": 1,
       "avg_spread": -4.313684450191605,
@@ -153,6 +123,35 @@
       "sym_b": "1INCH",
       "position_size": 500.0,
       "kelly_weight": 1.0
+    },
+    "SAND/SEI": {
+      "direction": 1,
+      "avg_spread": -0.7993089671125595,
+      "entry_spread": -0.8479780338973457,
+      "entry_z": -1.3308685569608292,
+      "entry_time": "2026-07-12 20:35",
+      "n_entries": 2,
+      "beta": 0.7245278585506595,
+      "sym_a": "SAND",
+      "sym_b": "SEI",
+      "position_size": 800.0,
+      "kelly_weight": 1.6,
+      "mfe_pct": 0.17246590649917515,
+      "last_z": -1.1229228628565706
+    },
+    "SUSHI/WIF": {
+      "direction": 1,
+      "avg_spread": -2.413754551136102,
+      "entry_spread": -2.4132440708698604,
+      "entry_z": -2.1836033758137323,
+      "entry_time": "2026-07-12 23:05",
+      "n_entries": 2,
+      "beta": -0.3079466130392428,
+      "sym_a": "SUSHI",
+      "sym_b": "WIF",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "last_z": -2.2867675699545162
     }
   },
   "last_universe_scan": null,
