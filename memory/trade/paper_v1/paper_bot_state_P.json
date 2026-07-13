@@ -1,39 +1,18 @@
 {
-  "balance": 4807.395154066477,
+  "balance": 4775.814374603027,
   "reserve": 500.0,
-  "realized_pnl": -186.60484593352973,
-  "total_fees": 14.000000000000005,
-  "n_trades": 10,
-  "n_wins": 1,
-  "n_losses": 9,
+  "realized_pnl": -217.3856253969794,
+  "total_fees": 18.000000000000007,
+  "n_trades": 14,
+  "n_wins": 2,
+  "n_losses": 12,
   "positions": {
-    "DASH": {
-      "direction": 1,
-      "entry_price": 35.3,
-      "entry_time": "2026-07-10 07:00",
-      "position_size": 500.0,
-      "mfe_pct": 0.36827195467423746
-    },
-    "FIL": {
-      "direction": 1,
-      "entry_price": 0.7951,
-      "entry_time": "2026-07-10 08:15",
-      "position_size": 500.0,
-      "mfe_pct": 2.0752106653251
-    },
-    "ZEN": {
-      "direction": 1,
-      "entry_price": 4.173,
-      "entry_time": "2026-07-10 10:25",
-      "position_size": 500.0,
-      "mfe_pct": 2.1087946321591167
-    },
     "TNSR": {
       "direction": -1,
       "entry_price": 0.03135,
       "entry_time": "2026-07-12 09:25",
       "position_size": 500.0,
-      "mfe_pct": 1.5311004784689053
+      "mfe_pct": 1.7224880382775143
     },
     "STRK": {
       "direction": -1,
@@ -41,6 +20,13 @@
       "entry_time": "2026-07-13 03:35",
       "position_size": 500.0,
       "mfe_pct": 0.0
+    },
+    "TAC": {
+      "direction": -1,
+      "entry_price": 0.002873,
+      "entry_time": "2026-07-13 08:10",
+      "position_size": 500.0,
+      "mfe_pct": 2.8889662373825287
     }
   },
   "cooldown": {
@@ -93,6 +79,26 @@
       "exit_time": "2026-07-13 05:45",
       "outcome": "LOSS",
       "reason": "SL"
+    },
+    "DASH": {
+      "exit_time": "2026-07-13 07:05",
+      "outcome": "LOSS",
+      "reason": "TIMEOUT"
+    },
+    "FIL": {
+      "exit_time": "2026-07-13 07:15",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "ZEN": {
+      "exit_time": "2026-07-13 10:25",
+      "outcome": "LOSS",
+      "reason": "TIMEOUT"
+    },
+    "LAB": {
+      "exit_time": "2026-07-13 11:00",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     }
   }
 }
