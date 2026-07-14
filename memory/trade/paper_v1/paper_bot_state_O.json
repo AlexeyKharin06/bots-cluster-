@@ -1,10 +1,10 @@
 {
-  "balance": 4577.282076524107,
+  "balance": 4662.969219464536,
   "reserve": 500.0,
-  "realized_pnl": -415.5363998275785,
-  "total_fees": 34.08404782719864,
-  "n_trades": 36,
-  "n_wins": 19,
+  "realized_pnl": -329.7383879009358,
+  "total_fees": 35.6596856799839,
+  "n_trades": 38,
+  "n_wins": 21,
   "n_losses": 17,
   "n_swaps": 3,
   "n_profit_locks": 5,
@@ -44,11 +44,11 @@
     },
     "1000PEPE/1000SHIB": {
       "direction": -1,
-      "avg_spread": 0.02894518832597335,
+      "avg_spread": 0.029377681345810796,
       "entry_spread": 0.038918797034702024,
       "entry_z": 2.5372833931091763,
       "entry_time": "2026-07-12 23:10",
-      "n_entries": 5,
+      "n_entries": 6,
       "beta": 1.085210329227001,
       "sym_a": "1000PEPE",
       "sym_b": "1000SHIB",
@@ -57,7 +57,7 @@
       "mfe_pct": 1.0764484182002043,
       "half_life_h": 89.13938083171098,
       "timeout_h": 178.27876166342196,
-      "last_z": 1.8384331590600347
+      "last_z": 1.7588081529654673
     },
     "SOL/SPX": {
       "direction": 1,
@@ -139,10 +139,10 @@
       "sym_b": "ARB",
       "position_size": 449.64346022876043,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.28442228753169374,
+      "mfe_pct": 3.2460380924455023,
       "half_life_h": 89.56971732708833,
       "timeout_h": 179.13943465417665,
-      "last_z": -1.3587432444517544
+      "last_z": -0.600722074476981
     },
     "MEW/MOODENG": {
       "direction": -1,
@@ -229,39 +229,37 @@
       "timeout_h": 38.38517774358796,
       "last_z": 2.042339276933466
     },
-    "ACE/ARPA": {
-      "direction": 1,
-      "avg_spread": -0.21298024378173927,
-      "entry_spread": -0.03137698683890289,
-      "entry_z": -2.151231339708449,
-      "entry_time": "2026-07-13 13:51",
-      "n_entries": 5,
-      "beta": 0.5495747830247105,
-      "sym_a": "ACE",
-      "sym_b": "ARPA",
-      "position_size": 457.6786709222041,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.5816423163775397,
-      "half_life_h": 12.081052947542792,
-      "timeout_h": 24.162105895085585,
-      "last_z": -2.018788150753459
-    },
     "ACH/BB": {
       "direction": -1,
-      "avg_spread": 0.0373662306939635,
-      "entry_spread": 0.0421909176399744,
-      "entry_z": 2.3075279248788085,
-      "entry_time": "2026-07-13 14:01",
-      "n_entries": 4,
-      "beta": 1.3719014954523288,
+      "avg_spread": -1.8313840883956476,
+      "entry_spread": -1.8313840883956476,
+      "entry_z": 1.280711726249517,
+      "entry_time": "2026-07-14 17:40",
+      "n_entries": 1,
+      "beta": 0.9018679394563582,
       "sym_a": "ACH",
       "sym_b": "BB",
-      "position_size": 457.80187068537253,
+      "position_size": 466.30624802664875,
       "kelly_weight": 1.0,
-      "mfe_pct": 1.387216364874888,
-      "half_life_h": 11.496966513025443,
-      "timeout_h": 24.0,
-      "last_z": 1.7881437391570933
+      "mfe_pct": 0.0,
+      "half_life_h": 15.4833772993916,
+      "timeout_h": 30.9667545987832
+    },
+    "1000SHIB/1MBABYDOGE": {
+      "direction": 1,
+      "avg_spread": -2.1168160050057723,
+      "entry_spread": -2.1168160050057723,
+      "entry_z": -0.9074454810740192,
+      "entry_time": "2026-07-14 17:40",
+      "n_entries": 1,
+      "beta": 0.4151697731457895,
+      "sym_a": "1000SHIB",
+      "sym_b": "1MBABYDOGE",
+      "position_size": 699.4537763649967,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 27.089418341163427,
+      "timeout_h": 54.17883668232685
     }
   }
 }
