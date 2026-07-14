@@ -1,11 +1,11 @@
 {
-  "balance": 5173.088486712752,
+  "balance": 5159.345779506531,
   "reserve": 500.0,
-  "realized_pnl": 194.14448671273686,
-  "total_fees": 60.41599999999965,
-  "n_trades": 54,
+  "realized_pnl": 180.8337795065157,
+  "total_fees": 61.647999999999634,
+  "n_trades": 55,
   "n_wins": 32,
-  "n_losses": 22,
+  "n_losses": 23,
   "positions": {
     "1000BONK/1000SHIB": {
       "direction": 1,
@@ -21,34 +21,19 @@
       "kelly_weight": 1.6,
       "last_z": -1.192179564713568
     },
-    "ENA/OP": {
-      "direction": -1,
-      "avg_spread": -1.4067027609280878,
-      "entry_spread": -1.403264383710067,
-      "entry_z": 1.730985226743738,
-      "entry_time": "2026-07-10 15:40",
-      "n_entries": 10,
-      "beta": 0.5021016824575382,
-      "sym_a": "ENA",
-      "sym_b": "OP",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.5776884629398626,
-      "last_z": 1.0875751673349123
-    },
     "SUSHI/WIF": {
       "direction": 1,
-      "avg_spread": -2.393974859550182,
+      "avg_spread": -2.3728519647070923,
       "entry_spread": -2.4132440708698604,
       "entry_z": -2.1836033758137323,
       "entry_time": "2026-07-12 23:05",
-      "n_entries": 5,
+      "n_entries": 6,
       "beta": -0.3079466130392428,
       "sym_a": "SUSHI",
       "sym_b": "WIF",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": -1.3548107132489655,
+      "last_z": -2.2018108288072913,
       "mfe_pct": 0.3607522257190521
     },
     "1000PEPE/1000SHIB": {
@@ -78,8 +63,8 @@
       "sym_b": "LTC",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 2.7488272623752037,
-      "mfe_pct": 0.9034098104010457
+      "last_z": 1.5151262638700231,
+      "mfe_pct": 3.566533097072
     },
     "SEI/SUSHI": {
       "direction": 1,
@@ -94,63 +79,77 @@
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.0828157397228857,
-      "last_z": -1.2387668701052916
+      "last_z": -1.5864266695859057
     },
     "SAND/WIF": {
       "direction": 1,
-      "avg_spread": -3.011355710468271,
+      "avg_spread": -2.9917208550967844,
       "entry_spread": -3.0140392350413636,
       "entry_z": -2.0016607698825553,
       "entry_time": "2026-07-13 13:05",
-      "n_entries": 4,
+      "n_entries": 5,
       "beta": 0.017159655456945217,
       "sym_a": "SAND",
       "sym_b": "WIF",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": -1.7366909649502595,
+      "last_z": -2.164377437337485,
       "mfe_pct": 0.42442714033885665
     },
     "ONDO/RUNE": {
       "direction": 1,
-      "avg_spread": -0.6043713284098048,
+      "avg_spread": -0.6118674886948141,
       "entry_spread": -0.6055731059129368,
       "entry_z": -2.1915483233946373,
       "entry_time": "2026-07-13 14:15",
-      "n_entries": 4,
+      "n_entries": 5,
       "beta": 0.6027059261468718,
       "sym_a": "ONDO",
       "sym_b": "RUNE",
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.29933654282884303,
-      "last_z": -2.0145177987288183
+      "last_z": -2.6582875652628672
     },
     "ONDO/TIA": {
       "direction": 1,
-      "avg_spread": -0.9960380847117168,
+      "avg_spread": -1.0034153081139048,
       "entry_spread": -0.9969545128372952,
       "entry_z": -2.1246355562934784,
       "entry_time": "2026-07-13 14:30",
-      "n_entries": 3,
+      "n_entries": 4,
       "beta": 0.16807187729115705,
       "sym_a": "ONDO",
       "sym_b": "TIA",
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.1701283499906614,
-      "last_z": -2.001546433083904
+      "last_z": -2.6234667318527523
     },
     "RENDER/RUNE": {
       "direction": 1,
-      "avg_spread": 0.8735503410468988,
+      "avg_spread": 0.8592989712551165,
       "entry_spread": 0.8735503410468988,
       "entry_z": -2.088923599455816,
       "entry_time": "2026-07-13 14:35",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 0.5075149525288146,
       "sym_a": "RENDER",
       "sym_b": "RUNE",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "last_z": -2.4925385734045915
+    },
+    "RENDER/TIA": {
+      "direction": 1,
+      "avg_spread": 0.4901602974245557,
+      "entry_spread": 0.4901602974245557,
+      "entry_z": -2.2532844412324318,
+      "entry_time": "2026-07-13 23:05",
+      "n_entries": 1,
+      "beta": 0.10557429142300698,
+      "sym_a": "RENDER",
+      "sym_b": "TIA",
       "position_size": 200.0,
       "kelly_weight": 0.4
     }

@@ -1,10 +1,10 @@
 {
-  "balance": 4773.814374603029,
+  "balance": 4804.880855633312,
   "reserve": 500.0,
-  "realized_pnl": -217.3856253969794,
-  "total_fees": 20.0,
-  "n_trades": 14,
-  "n_wins": 2,
+  "realized_pnl": -185.11914436669747,
+  "total_fees": 21.999999999999996,
+  "n_trades": 15,
+  "n_wins": 3,
   "n_losses": 12,
   "positions": {
     "TNSR": {
@@ -19,49 +19,63 @@
       "entry_price": 0.0295,
       "entry_time": "2026-07-13 03:35",
       "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
-    "TAC": {
-      "direction": -1,
-      "entry_price": 0.002873,
-      "entry_time": "2026-07-13 08:10",
-      "position_size": 500.0,
-      "mfe_pct": 8.249216846501916
+      "mfe_pct": 3.08474576271186
     },
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004321,
       "entry_time": "2026-07-13 13:15",
       "position_size": 500.0,
-      "mfe_pct": 0.7405693126591006
+      "mfe_pct": 2.1985651469567324
     },
     "METIS": {
       "direction": -1,
       "entry_price": 2.783,
       "entry_time": "2026-07-13 13:45",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 1.6528925619834656
     },
     "DASH": {
       "direction": -1,
       "entry_price": 33.42,
       "entry_time": "2026-07-13 13:55",
       "position_size": 500.0,
-      "mfe_pct": 1.6457211250748172
+      "mfe_pct": 2.333931777378817
     },
     "BANANAS31": {
       "direction": -1,
       "entry_price": 0.007524,
       "entry_time": "2026-07-13 14:10",
       "position_size": 500.0,
-      "mfe_pct": 0.3987240829346206
+      "mfe_pct": 1.8075491759702356
     },
     "SOON": {
       "direction": 1,
       "entry_price": 0.1721,
       "entry_time": "2026-07-13 16:10",
       "position_size": 500.0,
-      "mfe_pct": 0.05810575246949501
+      "mfe_pct": 2.149912841371293
+    },
+    "BLESS": {
+      "direction": -1,
+      "entry_price": 0.007333,
+      "entry_time": "2026-07-13 18:20",
+      "position_size": 500.0,
+      "mfe_pct": 0.13636983499251132
+    },
+    "GUN": {
+      "direction": -1,
+      "entry_price": 0.003777,
+      "entry_time": "2026-07-13 18:20",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "PIPPIN": {
+      "direction": -1,
+      "entry_price": 0.01567,
+      "entry_time": "2026-07-13 21:45",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -132,6 +146,11 @@
     },
     "LAB": {
       "exit_time": "2026-07-13 11:00",
+      "outcome": "WIN",
+      "reason": "TRAIL"
+    },
+    "TAC": {
+      "exit_time": "2026-07-13 19:45",
       "outcome": "WIN",
       "reason": "TRAIL"
     }
