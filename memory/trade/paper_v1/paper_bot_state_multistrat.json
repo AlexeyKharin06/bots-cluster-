@@ -2,89 +2,39 @@
   "strategies": {
     "CANDLE_HAMMER_LONG": {
       "capital_start": 2000,
-      "capital": 2016.7817499226435,
-      "realized_pnl": 336.78174992264337,
+      "capital": 2240.1464472265875,
+      "realized_pnl": 280.1464472265871,
       "universe": [
         "AERO",
         "INJ",
         "TAO"
       ],
       "positions": {
-        "AERO": {
-          "entry_ts": "2026-07-11T16:55:20.685304+00:00",
-          "entry_price": 0.5343,
+        "INJ": {
+          "entry_ts": "2026-07-14T19:50:18.999881+00:00",
+          "entry_price": 5.001,
           "direction": 1,
-          "bars_held": 282,
+          "bars_held": 19,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
           "entry_imbalance": 0,
           "entries": [
             {
-              "price": 0.5343,
-              "size": 40.0
-            },
-            {
-              "price": 0.5235,
-              "size": 40.0
-            },
-            {
-              "price": 0.5124,
-              "size": 40.0
-            },
-            {
-              "price": 0.4988,
-              "size": 40.0
-            },
-            {
-              "price": 0.4876,
+              "price": 5.001,
               "size": 40.0
             }
           ],
-          "avg_price": 0.51132,
-          "total_size": 200.0,
+          "avg_price": 5.001,
+          "total_size": 40.0,
           "avg_cfg": {
-            "step_pct": 2.0,
+            "step_pct": 1.5,
             "n_max": 5,
             "tp": 3,
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.2673081436282643
-        },
-        "TAO": {
-          "entry_ts": "2026-07-11T22:50:19.049824+00:00",
-          "entry_price": 211.81,
-          "direction": 1,
-          "bars_held": 269,
-          "entry_bid": 0,
-          "entry_ask": 0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0,
-          "entries": [
-            {
-              "price": 211.81,
-              "size": 40.0
-            },
-            {
-              "price": 205.37,
-              "size": 40.0
-            },
-            {
-              "price": 198.4,
-              "size": 40.0
-            }
-          ],
-          "avg_price": 205.1933333333333,
-          "total_size": 120.0,
-          "avg_cfg": {
-            "step_pct": 2.0,
-            "n_max": 5,
-            "tp": 3,
-            "sl": 7.5,
-            "to_b": 288
-          },
-          "peak_pnl_pct": 2.550457835946125
+          "peak_pnl_pct": 1.1397720455908718
         }
       }
     },
@@ -117,7 +67,7 @@
           "entry_ts": "2026-07-12T09:05:19.116680+00:00",
           "entry_price": 0.1017,
           "direction": 1,
-          "bars_held": 217,
+          "bars_held": 245,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -151,7 +101,7 @@
           "entry_ts": "2026-07-12T11:35:19.307848+00:00",
           "entry_price": 0.7858,
           "direction": 1,
-          "bars_held": 223,
+          "bars_held": 251,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -179,13 +129,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.492407809110638
+          "peak_pnl_pct": 2.377440347071582
         },
         "WIF": {
           "entry_ts": "2026-07-14T09:35:18.522216+00:00",
           "entry_price": 0.1519,
           "direction": 1,
-          "bars_held": 14,
+          "bars_held": 40,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -205,13 +155,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.1191573403554833
+          "peak_pnl_pct": 1.250822909809075
         },
         "INJ": {
           "entry_ts": "2026-07-14T09:55:18.586682+00:00",
           "entry_price": 4.993,
           "direction": 1,
-          "bars_held": 12,
+          "bars_held": 38,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -231,13 +181,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.0815141197676623
+          "peak_pnl_pct": 1.301822551572191
         },
         "AAVE": {
           "entry_ts": "2026-07-14T13:00:24.368682+00:00",
           "entry_price": 98.27,
           "direction": 1,
-          "bars_held": 10,
+          "bars_held": 31,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -284,7 +234,7 @@
           "entry_ts": "2026-07-13T03:00:25.867724+00:00",
           "entry_price": 1.541,
           "direction": -1,
-          "bars_held": 142,
+          "bars_held": 165,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -310,7 +260,7 @@
           "entry_ts": "2026-07-13T19:35:18.694655+00:00",
           "entry_price": 0.591,
           "direction": -1,
-          "bars_held": 48,
+          "bars_held": 75,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -344,7 +294,7 @@
           "entry_ts": "2026-07-13T22:35:19.660746+00:00",
           "entry_price": 0.1565,
           "direction": -1,
-          "bars_held": 38,
+          "bars_held": 67,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -382,7 +332,7 @@
           "entry_ts": "2026-07-13T23:05:21.830544+00:00",
           "entry_price": 0.002002,
           "direction": -1,
-          "bars_held": 27,
+          "bars_held": 59,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -406,13 +356,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.07358351729211506
+          "peak_pnl_pct": 0.5150846210448905
         },
         "AVAX": {
           "entry_ts": "2026-07-13T23:05:22.756516+00:00",
           "entry_price": 6.384,
           "direction": -1,
-          "bars_held": 37,
+          "bars_held": 64,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -475,7 +425,7 @@
     },
     "RSI_EXTREME": {
       "capital_start": 3000,
-      "capital": 2890.774646590382,
+      "capital": 2830.774646590382,
       "realized_pnl": 190.77464659037958,
       "universe": [
         "SAND",
@@ -489,7 +439,7 @@
           "entry_ts": "2026-07-11T23:25:20.980426+00:00",
           "entry_price": 0.854,
           "direction": 1,
-          "bars_held": 289,
+          "bars_held": 317,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -513,13 +463,13 @@
             "sl": 7.5,
             "to_b": 576
           },
-          "peak_pnl_pct": 1.1834319526627097
+          "peak_pnl_pct": 1.3017751479289819
         },
         "FET": {
           "entry_ts": "2026-07-14T12:35:19.375667+00:00",
           "entry_price": 0.1617,
           "direction": -1,
-          "bars_held": 15,
+          "bars_held": 50,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -545,7 +495,7 @@
           "entry_ts": "2026-07-14T13:30:19.851979+00:00",
           "entry_price": 0.6204,
           "direction": -1,
-          "bars_held": 11,
+          "bars_held": 38,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -565,13 +515,13 @@
             "sl": 7.5,
             "to_b": 576
           },
-          "peak_pnl_pct": 0.3707285622179189
+          "peak_pnl_pct": 1.0477111540941249
         },
         "SAND": {
           "entry_ts": "2026-07-14T15:05:18.062864+00:00",
           "entry_price": 0.04881,
           "direction": -1,
-          "bars_held": 8,
+          "bars_held": 29,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -591,7 +541,33 @@
             "sl": 7.5,
             "to_b": 576
           },
-          "peak_pnl_pct": 0.49170251997540904
+          "peak_pnl_pct": 0.6146281499692721
+        },
+        "TIA": {
+          "entry_ts": "2026-07-14T21:50:21.768034+00:00",
+          "entry_price": 0.4061,
+          "direction": -1,
+          "bars_held": 15,
+          "entry_bid": 0.0,
+          "entry_ask": 0.0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": 0.19938778097773913,
+          "entries": [
+            {
+              "price": 0.4061,
+              "size": 60.0
+            }
+          ],
+          "avg_price": 0.4061,
+          "total_size": 60.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 2,
+            "sl": 7.5,
+            "to_b": 576
+          },
+          "peak_pnl_pct": 0.3693671509480427
         }
       }
     },
@@ -611,14 +587,41 @@
     },
     "MA_CROSS_TREND": {
       "capital_start": 3000,
-      "capital": 2906.557979168585,
+      "capital": 2846.557979168585,
       "realized_pnl": -93.44202083141677,
       "universe": [
         "SUSHI",
         "OP",
         "ETHFI"
       ],
-      "positions": {}
+      "positions": {
+        "ETHFI": {
+          "entry_ts": "2026-07-14T21:05:17.562564+00:00",
+          "entry_price": 0.3942,
+          "direction": -1,
+          "bars_held": 20,
+          "entry_bid": 0,
+          "entry_ask": 0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": 0,
+          "entries": [
+            {
+              "price": 0.3942,
+              "size": 60.0
+            }
+          ],
+          "avg_price": 0.3942,
+          "total_size": 60.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 1,
+            "sl": 7.5,
+            "to_b": 576
+          },
+          "peak_pnl_pct": 0.5073566717402339
+        }
+      }
     },
     "ATR_BREAKOUT_FOLLOW": {
       "capital_start": 3000,
@@ -636,7 +639,7 @@
           "entry_ts": "2026-07-12T22:00:22.147244+00:00",
           "entry_price": 0.04181,
           "direction": -1,
-          "bars_held": 159,
+          "bars_held": 187,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -666,7 +669,7 @@
           "entry_ts": "2026-07-14T12:30:20.810855+00:00",
           "entry_price": 1.494,
           "direction": 1,
-          "bars_held": 11,
+          "bars_held": 44,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -686,13 +689,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.673360107095041
+          "peak_pnl_pct": 2.5435073627844735
         },
         "APT": {
           "entry_ts": "2026-07-14T12:30:22.040686+00:00",
           "entry_price": 0.6088,
           "direction": 1,
-          "bars_held": 12,
+          "bars_held": 39,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -718,7 +721,7 @@
           "entry_ts": "2026-07-14T12:30:22.283464+00:00",
           "entry_price": 0.3112,
           "direction": 1,
-          "bars_held": 7,
+          "bars_held": 39,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -758,7 +761,7 @@
           "entry_ts": "2026-07-08T13:25:21.656630+00:00",
           "entry_price": 201.9,
           "direction": -1,
-          "bars_held": 1063,
+          "bars_held": 1099,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -796,7 +799,7 @@
           "entry_ts": "2026-07-12T22:20:20.126337+00:00",
           "entry_price": 0.1569,
           "direction": -1,
-          "bars_held": 167,
+          "bars_held": 202,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -838,7 +841,7 @@
           "entry_ts": "2026-07-11T23:35:18.889622+00:00",
           "entry_price": 1.578,
           "direction": 1,
-          "bars_held": 263,
+          "bars_held": 284,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -868,7 +871,7 @@
           "entry_ts": "2026-07-12T22:20:20.366788+00:00",
           "entry_price": 0.04168,
           "direction": 1,
-          "bars_held": 156,
+          "bars_held": 184,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -894,7 +897,7 @@
           "entry_ts": "2026-07-13T15:00:24.891445+00:00",
           "entry_price": 0.6049,
           "direction": -1,
-          "bars_held": 65,
+          "bars_held": 92,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -924,7 +927,7 @@
     },
     "MTF_MOMENTUM": {
       "capital_start": 2000,
-      "capital": 1747.2858798614561,
+      "capital": 1707.2858798614561,
       "realized_pnl": -212.71412013854317,
       "universe": [
         "AERO",
@@ -938,7 +941,7 @@
           "entry_ts": "2026-07-14T13:25:23.447304+00:00",
           "entry_price": 77.46,
           "direction": 1,
-          "bars_held": 11,
+          "bars_held": 43,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -958,7 +961,33 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.051639555899827334
+          "peak_pnl_pct": 0.4905757810482955
+        },
+        "ETH": {
+          "entry_ts": "2026-07-14T22:35:21.398226+00:00",
+          "entry_price": 1892.71,
+          "direction": 1,
+          "bars_held": 6,
+          "entry_bid": 0,
+          "entry_ask": 0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": 0,
+          "entries": [
+            {
+              "price": 1892.71,
+              "size": 40.0
+            }
+          ],
+          "avg_price": 1892.71,
+          "total_size": 40.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 3,
+            "sl": 7.5,
+            "to_b": 288
+          },
+          "peak_pnl_pct": 0
         }
       }
     },
@@ -997,7 +1026,7 @@
           "entry_ts": "2026-07-14T07:55:21.940829+00:00",
           "entry_price": 1.992,
           "direction": 1,
-          "bars_held": 20,
+          "bars_held": 52,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1023,7 +1052,7 @@
           "entry_ts": "2026-07-14T14:25:20.038296+00:00",
           "entry_price": 0.6429,
           "direction": 1,
-          "bars_held": 9,
+          "bars_held": 42,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1043,7 +1072,7 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.5755171877430277
+          "peak_pnl_pct": 1.3376885985378661
         }
       }
     },
@@ -1070,7 +1099,7 @@
           "entry_ts": "2026-07-13T07:25:21.539741+00:00",
           "entry_price": 1.545,
           "direction": -1,
-          "bars_held": 122,
+          "bars_held": 145,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1096,7 +1125,7 @@
           "entry_ts": "2026-07-13T17:50:23.958868+00:00",
           "entry_price": 0.7179,
           "direction": -1,
-          "bars_held": 52,
+          "bars_held": 83,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -1130,7 +1159,7 @@
           "entry_ts": "2026-07-13T23:00:17.901749+00:00",
           "entry_price": 0.5862,
           "direction": -1,
-          "bars_held": 35,
+          "bars_held": 62,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1164,7 +1193,7 @@
           "entry_ts": "2026-07-14T01:15:18.533008+00:00",
           "entry_price": 0.0795,
           "direction": -1,
-          "bars_held": 34,
+          "bars_held": 56,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1212,7 +1241,7 @@
           "entry_ts": "2026-07-13T07:45:18.464392+00:00",
           "entry_price": 0.835,
           "direction": -1,
-          "bars_held": 132,
+          "bars_held": 160,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1242,7 +1271,7 @@
           "entry_ts": "2026-07-14T14:15:22.069381+00:00",
           "entry_price": 0.08364,
           "direction": -1,
-          "bars_held": 7,
+          "bars_held": 29,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1282,7 +1311,7 @@
           "entry_ts": "2026-07-13T07:45:18.950146+00:00",
           "entry_price": 94.55,
           "direction": -1,
-          "bars_held": 125,
+          "bars_held": 146,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1316,7 +1345,7 @@
     },
     "CANDLE_DARK_CLOUD_SHORT": {
       "capital_start": 1500,
-      "capital": 1534.5629201083214,
+      "capital": 1504.5629201083214,
       "realized_pnl": 34.56292010832034,
       "universe": [
         "OP",
@@ -1325,7 +1354,34 @@
         "ADA",
         "SEI"
       ],
-      "positions": {}
+      "positions": {
+        "XRP": {
+          "entry_ts": "2026-07-14T23:55:19.737668+00:00",
+          "entry_price": 1.1115,
+          "direction": -1,
+          "bars_held": 1,
+          "entry_bid": 0,
+          "entry_ask": 0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": 0,
+          "entries": [
+            {
+              "price": 1.1115,
+              "size": 30.0
+            }
+          ],
+          "avg_price": 1.1115,
+          "total_size": 30.0,
+          "avg_cfg": {
+            "step_pct": 1.5,
+            "n_max": 5,
+            "tp": 2,
+            "sl": 7.5,
+            "to_b": 288
+          },
+          "peak_pnl_pct": 0.026990553306339808
+        }
+      }
     },
     "CANDLE_BEAR_MARUBOZU": {
       "capital_start": 1500,
@@ -1339,7 +1395,7 @@
           "entry_ts": "2026-07-13T19:25:17.910038+00:00",
           "entry_price": 0.6233,
           "direction": -1,
-          "bars_held": 56,
+          "bars_held": 89,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1393,7 +1449,7 @@
     },
     "RSI_LOOSE": {
       "capital_start": 2000,
-      "capital": 1547.485339448875,
+      "capital": 1507.485339448875,
       "realized_pnl": -172.5146605511251,
       "universe": [
         "OP",
@@ -1407,7 +1463,7 @@
           "entry_ts": "2026-07-11T22:25:22.637217+00:00",
           "entry_price": 0.04935,
           "direction": 1,
-          "bars_held": 270,
+          "bars_held": 291,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -1435,13 +1491,13 @@
             "sl": 12.0,
             "to_b": 576
           },
-          "peak_pnl_pct": 0.97924281084063
+          "peak_pnl_pct": 1.4136956071995057
         },
         "DOT": {
           "entry_ts": "2026-07-11T23:10:22.743859+00:00",
           "entry_price": 0.861,
           "direction": 1,
-          "bars_held": 291,
+          "bars_held": 319,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1469,13 +1525,13 @@
             "sl": 12.0,
             "to_b": 576
           },
-          "peak_pnl_pct": 1.3833992094861718
+          "peak_pnl_pct": 1.5019762845849862
         },
         "GMX": {
           "entry_ts": "2026-07-14T15:05:18.573717+00:00",
           "entry_price": 5.957,
           "direction": -1,
-          "bars_held": 6,
+          "bars_held": 39,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1495,7 +1551,33 @@
             "sl": 12.0,
             "to_b": 576
           },
-          "peak_pnl_pct": 0.8393486654356189
+          "peak_pnl_pct": 2.0647977169716336
+        },
+        "TIA": {
+          "entry_ts": "2026-07-14T21:40:20.765021+00:00",
+          "entry_price": 0.4067,
+          "direction": -1,
+          "bars_held": 16,
+          "entry_bid": 0,
+          "entry_ask": 0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": 0,
+          "entries": [
+            {
+              "price": 0.4067,
+              "size": 40.0
+            }
+          ],
+          "avg_price": 0.4067,
+          "total_size": 40.0,
+          "avg_cfg": {
+            "step_pct": 2.0,
+            "n_max": 5,
+            "tp": 3,
+            "sl": 12.0,
+            "to_b": 576
+          },
+          "peak_pnl_pct": 0.516351118760755
         }
       }
     },
@@ -1508,8 +1590,8 @@
     },
     "BB_WIDE": {
       "capital_start": 2000,
-      "capital": 1965.0107545219125,
-      "realized_pnl": 125.01075452191239,
+      "capital": 2012.755411464106,
+      "realized_pnl": 132.75541146410578,
       "universe": [
         "LINK",
         "APT",
@@ -1522,7 +1604,7 @@
           "entry_ts": "2026-07-14T13:30:20.810895+00:00",
           "entry_price": 8.294,
           "direction": -1,
-          "bars_held": 12,
+          "bars_held": 40,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1548,7 +1630,7 @@
           "entry_ts": "2026-07-14T15:10:19.668534+00:00",
           "entry_price": 0.6256,
           "direction": -1,
-          "bars_held": 10,
+          "bars_held": 37,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1568,39 +1650,13 @@
             "sl": 7.5,
             "to_b": 576
           },
-          "peak_pnl_pct": 1.1988491048593448
-        },
-        "ARB": {
-          "entry_ts": "2026-07-14T15:35:17.856172+00:00",
-          "entry_price": 0.09255,
-          "direction": -1,
-          "bars_held": 7,
-          "entry_bid": 0,
-          "entry_ask": 0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0,
-          "entries": [
-            {
-              "price": 0.09255,
-              "size": 40.0
-            }
-          ],
-          "avg_price": 0.09255,
-          "total_size": 40.0,
-          "avg_cfg": {
-            "step_pct": 2.0,
-            "n_max": 5,
-            "tp": 2,
-            "sl": 7.5,
-            "to_b": 576
-          },
-          "peak_pnl_pct": 1.5775256618044182
+          "peak_pnl_pct": 1.8702046035805695
         },
         "DOT": {
           "entry_ts": "2026-07-14T16:10:17.994279+00:00",
           "entry_price": 0.855,
           "direction": -1,
-          "bars_held": 7,
+          "bars_held": 35,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1620,7 +1676,7 @@
             "sl": 7.5,
             "to_b": 576
           },
-          "peak_pnl_pct": 0.35087719298245645
+          "peak_pnl_pct": 1.2865497076023402
         }
       }
     },
@@ -1667,7 +1723,7 @@
           "entry_ts": "2026-07-09T14:10:20.156448+00:00",
           "entry_price": 60.25,
           "direction": 1,
-          "bars_held": 766,
+          "bars_held": 801,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -1736,7 +1792,7 @@
           "entry_ts": "2026-07-14T09:40:18.304933+00:00",
           "entry_price": 0.2022,
           "direction": -1,
-          "bars_held": 17,
+          "bars_held": 47,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1764,7 +1820,7 @@
             "sl": 7.5,
             "to_b": 120
           },
-          "peak_pnl_pct": 0.09891196834815924
+          "peak_pnl_pct": 0.4974326059050184
         }
       }
     },
@@ -1777,8 +1833,8 @@
     },
     "VWAP_WIDE": {
       "capital_start": 1500,
-      "capital": 1097.194215983291,
-      "realized_pnl": -42.80578401670982,
+      "capital": 1132.9310834531707,
+      "realized_pnl": -37.068916546830295,
       "universe": [
         "PENGU",
         "ARB",
@@ -1791,7 +1847,7 @@
           "entry_ts": "2026-07-11T23:40:21.030490+00:00",
           "entry_price": 0.006061,
           "direction": 1,
-          "bars_held": 258,
+          "bars_held": 286,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1825,7 +1881,7 @@
           "entry_ts": "2026-07-12T10:45:18.792959+00:00",
           "entry_price": 0.09501,
           "direction": 1,
-          "bars_held": 235,
+          "bars_held": 269,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -1867,7 +1923,7 @@
           "entry_ts": "2026-07-13T03:45:19.314763+00:00",
           "entry_price": 205.65,
           "direction": 1,
-          "bars_held": 142,
+          "bars_held": 178,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1893,37 +1949,11 @@
           },
           "peak_pnl_pct": 1.5025528811086815
         },
-        "GALA": {
-          "entry_ts": "2026-07-14T10:50:21.722451+00:00",
-          "entry_price": 0.002075,
-          "direction": -1,
-          "bars_held": 16,
-          "entry_bid": 0,
-          "entry_ask": 0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0,
-          "entries": [
-            {
-              "price": 0.002075,
-              "size": 30.0
-            }
-          ],
-          "avg_price": 0.002075,
-          "total_size": 30.0,
-          "avg_cfg": {
-            "step_pct": 2.0,
-            "n_max": 5,
-            "tp": 2,
-            "sl": 7.5,
-            "to_b": 288
-          },
-          "peak_pnl_pct": 1.8313253012048114
-        },
         "APT": {
           "entry_ts": "2026-07-14T15:10:20.607023+00:00",
           "entry_price": 0.6256,
           "direction": -1,
-          "bars_held": 10,
+          "bars_held": 37,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1943,7 +1973,7 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.1988491048593448
+          "peak_pnl_pct": 1.8702046035805695
         }
       }
     },
@@ -1969,7 +1999,7 @@
     },
     "MACD_CROSS": {
       "capital_start": 2000,
-      "capital": 1972.4490145669192,
+      "capital": 1892.4490145669192,
       "realized_pnl": 142.4490145669194,
       "universe": [
         "AVAX",
@@ -1982,7 +2012,7 @@
           "entry_ts": "2026-07-13T06:35:20.821464+00:00",
           "entry_price": 1776.43,
           "direction": -1,
-          "bars_held": 152,
+          "bars_held": 175,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -1995,10 +2025,14 @@
             {
               "price": 1863.89,
               "size": 40.0
+            },
+            {
+              "price": 1892.71,
+              "size": 40.0
             }
           ],
-          "avg_price": 1820.1599999999999,
-          "total_size": 80.0,
+          "avg_price": 1844.3433333333335,
+          "total_size": 120.0,
           "avg_cfg": {
             "step_pct": 1.5,
             "n_max": 5,
@@ -2012,7 +2046,7 @@
           "entry_ts": "2026-07-14T18:05:21.805667+00:00",
           "entry_price": 581.28,
           "direction": 1,
-          "bars_held": 2,
+          "bars_held": 17,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2032,13 +2066,13 @@
             "sl": 4.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0
+          "peak_pnl_pct": 0.21160198183319884
         },
         "AVAX": {
           "entry_ts": "2026-07-14T18:10:19.720235+00:00",
           "entry_price": 6.64,
           "direction": -1,
-          "bars_held": 0,
+          "bars_held": 27,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2057,7 +2091,34 @@
             "tp": 2,
             "sl": 4.5,
             "to_b": 288
-          }
+          },
+          "peak_pnl_pct": 0.10542168674698303
+        },
+        "GMX": {
+          "entry_ts": "2026-07-14T19:45:23.164571+00:00",
+          "entry_price": 5.877,
+          "direction": 1,
+          "bars_held": 23,
+          "entry_bid": 0,
+          "entry_ask": 0,
+          "entry_spread_pct": 0,
+          "entry_imbalance": 0,
+          "entries": [
+            {
+              "price": 5.877,
+              "size": 40.0
+            }
+          ],
+          "avg_price": 5.877,
+          "total_size": 40.0,
+          "avg_cfg": {
+            "step_pct": 1.5,
+            "n_max": 5,
+            "tp": 2,
+            "sl": 4.5,
+            "to_b": 288
+          },
+          "peak_pnl_pct": 0.6295729113493266
         }
       }
     },
@@ -2077,7 +2138,7 @@
           "entry_ts": "2026-07-12T03:10:22.024145+00:00",
           "entry_price": 1.574,
           "direction": 1,
-          "bars_held": 249,
+          "bars_held": 270,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -2107,7 +2168,7 @@
           "entry_ts": "2026-07-13T01:25:18.204625+00:00",
           "entry_price": 209.84,
           "direction": 1,
-          "bars_held": 151,
+          "bars_held": 187,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -2145,7 +2206,7 @@
           "entry_ts": "2026-07-13T22:05:22.283631+00:00",
           "entry_price": 0.002005,
           "direction": -1,
-          "bars_held": 33,
+          "bars_held": 65,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2169,13 +2230,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.149625935162093
+          "peak_pnl_pct": 0.5882352941176613
         },
         "NEAR": {
           "entry_ts": "2026-07-14T01:30:20.880094+00:00",
           "entry_price": 1.949,
           "direction": -1,
-          "bars_held": 34,
+          "bars_held": 66,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2205,7 +2266,7 @@
     },
     "WILLIAMS_R": {
       "capital_start": 2000,
-      "capital": 1661.312522098953,
+      "capital": 1621.312522098953,
       "realized_pnl": 21.312522098952815,
       "universe": [
         "NEAR",
@@ -2219,7 +2280,7 @@
           "entry_ts": "2026-07-12T16:35:18.742741+00:00",
           "entry_price": 212.3,
           "direction": 1,
-          "bars_held": 199,
+          "bars_held": 235,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2261,7 +2322,7 @@
           "entry_ts": "2026-07-13T03:10:16.940627+00:00",
           "entry_price": 1.539,
           "direction": 1,
-          "bars_held": 138,
+          "bars_held": 159,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2281,13 +2342,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 1.3645224171540045
+          "peak_pnl_pct": 1.6894087069525683
         },
         "NEAR": {
           "entry_ts": "2026-07-14T01:30:21.360709+00:00",
           "entry_price": 1.949,
           "direction": -1,
-          "bars_held": 34,
+          "bars_held": 66,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2317,7 +2378,7 @@
           "entry_ts": "2026-07-14T13:30:21.312232+00:00",
           "entry_price": 44.72,
           "direction": -1,
-          "bars_held": 8,
+          "bars_held": 34,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2326,10 +2387,14 @@
             {
               "price": 44.72,
               "size": 40.0
+            },
+            {
+              "price": 45.43,
+              "size": 40.0
             }
           ],
-          "avg_price": 44.72,
-          "total_size": 40.0,
+          "avg_price": 45.075,
+          "total_size": 80.0,
           "avg_cfg": {
             "step_pct": 1.5,
             "n_max": 5,
@@ -2337,7 +2402,7 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.4919499105545592
+          "peak_pnl_pct": 0.53667262969589
         }
       }
     },
@@ -2357,7 +2422,7 @@
           "entry_ts": "2026-07-13T05:25:18.696799+00:00",
           "entry_price": 205.86,
           "direction": 1,
-          "bars_held": 136,
+          "bars_held": 172,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2391,7 +2456,7 @@
           "entry_ts": "2026-07-13T06:05:18.582791+00:00",
           "entry_price": 0.3081,
           "direction": -1,
-          "bars_held": 140,
+          "bars_held": 165,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -2429,7 +2494,7 @@
           "entry_ts": "2026-07-14T01:30:21.846160+00:00",
           "entry_price": 1.949,
           "direction": -1,
-          "bars_held": 34,
+          "bars_held": 66,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2459,7 +2524,7 @@
           "entry_ts": "2026-07-14T17:30:21.494802+00:00",
           "entry_price": 99.34,
           "direction": 1,
-          "bars_held": 4,
+          "bars_held": 25,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2479,13 +2544,13 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0
+          "peak_pnl_pct": 0.15099657741090344
         },
         "SEI": {
           "entry_ts": "2026-07-14T17:35:22.453558+00:00",
           "entry_price": 0.04821,
           "direction": 1,
-          "bars_held": 6,
+          "bars_held": 33,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -2505,7 +2570,7 @@
             "sl": 7.5,
             "to_b": 288
           },
-          "peak_pnl_pct": 0.47707944409872244
+          "peak_pnl_pct": 0.518564613150799
         }
       }
     },
@@ -2525,7 +2590,7 @@
           "entry_ts": "2026-07-12T05:30:20.056727+00:00",
           "entry_price": 0.1594,
           "direction": -1,
-          "bars_held": 248,
+          "bars_held": 283,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2555,7 +2620,7 @@
           "entry_ts": "2026-07-12T06:20:19.587744+00:00",
           "entry_price": 0.4019,
           "direction": -1,
-          "bars_held": 222,
+          "bars_held": 251,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2589,7 +2654,7 @@
           "entry_ts": "2026-07-13T02:10:20.664101+00:00",
           "entry_price": 0.0479,
           "direction": -1,
-          "bars_held": 170,
+          "bars_held": 197,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2619,7 +2684,7 @@
           "entry_ts": "2026-07-13T18:00:21.797680+00:00",
           "entry_price": 0.1569,
           "direction": -1,
-          "bars_held": 66,
+          "bars_held": 93,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2653,7 +2718,7 @@
           "entry_ts": "2026-07-13T21:40:19.855374+00:00",
           "entry_price": 199.17,
           "direction": -1,
-          "bars_held": 34,
+          "bars_held": 70,
           "entry_bid": 0,
           "entry_ask": 0,
           "entry_spread_pct": 0,
@@ -2695,8 +2760,8 @@
     },
     "KELTNER_BREAKOUT": {
       "capital_start": 2000,
-      "capital": 1274.226032927839,
-      "realized_pnl": -45.77396707216139,
+      "capital": 1495.5304036953987,
+      "realized_pnl": -104.46959630460171,
       "universe": [
         "NEAR",
         "JTO",
@@ -2705,83 +2770,11 @@
         "JUP"
       ],
       "positions": {
-        "WIF": {
-          "entry_ts": "2026-07-11T21:05:22.270814+00:00",
-          "entry_price": 0.1545,
-          "direction": 1,
-          "bars_held": 285,
-          "entry_bid": 0,
-          "entry_ask": 0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0,
-          "entries": [
-            {
-              "price": 0.1545,
-              "size": 40.0
-            },
-            {
-              "price": 0.1504,
-              "size": 40.0
-            }
-          ],
-          "avg_price": 0.15245,
-          "total_size": 80.0,
-          "avg_cfg": {
-            "step_pct": 2.0,
-            "n_max": 5,
-            "tp": 3,
-            "sl": 7.5,
-            "to_b": 288
-          },
-          "peak_pnl_pct": 1.4758937356510344
-        },
-        "JTO": {
-          "entry_ts": "2026-07-11T23:30:20.513947+00:00",
-          "entry_price": 0.6002,
-          "direction": -1,
-          "bars_held": 258,
-          "entry_bid": 0,
-          "entry_ask": 0,
-          "entry_spread_pct": 0,
-          "entry_imbalance": 0,
-          "entries": [
-            {
-              "price": 0.6002,
-              "size": 40.0
-            },
-            {
-              "price": 0.613,
-              "size": 40.0
-            },
-            {
-              "price": 0.6307,
-              "size": 40.0
-            },
-            {
-              "price": 0.6453,
-              "size": 40.0
-            },
-            {
-              "price": 0.6612,
-              "size": 40.0
-            }
-          ],
-          "avg_price": 0.63008,
-          "total_size": 200.0,
-          "avg_cfg": {
-            "step_pct": 2.0,
-            "n_max": 5,
-            "tp": 3,
-            "sl": 7.5,
-            "to_b": 288
-          },
-          "peak_pnl_pct": 2.901218892838999
-        },
         "JUP": {
           "entry_ts": "2026-07-13T15:05:20.098400+00:00",
           "entry_price": 0.2147,
           "direction": 1,
-          "bars_held": 75,
+          "bars_held": 105,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -2819,7 +2812,7 @@
           "entry_ts": "2026-07-13T17:50:24.707218+00:00",
           "entry_price": 74.89,
           "direction": -1,
-          "bars_held": 62,
+          "bars_held": 94,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
@@ -2849,7 +2842,7 @@
           "entry_ts": "2026-07-13T21:50:24.371741+00:00",
           "entry_price": 1.88,
           "direction": -1,
-          "bars_held": 44,
+          "bars_held": 76,
           "entry_bid": 0.0,
           "entry_ask": 0.0,
           "entry_spread_pct": 0,
