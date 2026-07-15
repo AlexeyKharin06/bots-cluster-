@@ -1,11 +1,11 @@
 {
-  "balance": 4686.651921596024,
+  "balance": 4662.817767505477,
   "reserve": 500.0,
-  "realized_pnl": -301.74807840398705,
-  "total_fees": 26.799999999999994,
-  "n_trades": 19,
+  "realized_pnl": -325.58223249453505,
+  "total_fees": 27.599999999999994,
+  "n_trades": 20,
   "n_wins": 3,
-  "n_losses": 16,
+  "n_losses": 17,
   "positions": {
     "TNSR": {
       "direction": -1,
@@ -42,26 +42,19 @@
       "position_size": 500.0,
       "mfe_pct": 2.511961722488032
     },
-    "GUN": {
-      "direction": -1,
-      "entry_price": 0.003777,
-      "entry_time": "2026-07-13 18:20",
-      "position_size": 500.0,
-      "mfe_pct": 0.1588562351072298
-    },
     "G": {
       "direction": 1,
       "entry_price": 0.003612,
       "entry_time": "2026-07-14 17:40",
       "position_size": 500.0,
-      "mfe_pct": 0.8859357696566983
+      "mfe_pct": 1.4119601328903553
     },
     "BULLA": {
       "direction": 1,
       "entry_price": 0.006705,
       "entry_time": "2026-07-14 18:05",
       "position_size": 500.0,
-      "mfe_pct": 0.9545115585384067
+      "mfe_pct": 1.6703952274422118
     },
     "GIGGLE": {
       "direction": 1,
@@ -75,14 +68,14 @@
       "entry_price": 0.01862,
       "entry_time": "2026-07-14 22:50",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 0.6981740064446962
     }
   },
   "cooldown": {
     "GUN": {
-      "exit_time": "2026-07-10 10:10",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-07-15 01:55",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "METIS": {
       "exit_time": "2026-07-10 14:35",
