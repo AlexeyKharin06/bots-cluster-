@@ -1,19 +1,12 @@
 {
-  "balance": 4503.326266091339,
+  "balance": 4523.543215243881,
   "reserve": 500.0,
-  "realized_pnl": -481.4737339086769,
-  "total_fees": 37.59999999999998,
-  "n_trades": 28,
-  "n_wins": 4,
+  "realized_pnl": -461.25678475613455,
+  "total_fees": 38.39999999999998,
+  "n_trades": 29,
+  "n_wins": 5,
   "n_losses": 24,
   "positions": {
-    "STRK": {
-      "direction": -1,
-      "entry_price": 0.0295,
-      "entry_time": "2026-07-13 03:35",
-      "position_size": 500.0,
-      "mfe_pct": 3.08474576271186
-    },
     "BANANAS31": {
       "direction": -1,
       "entry_price": 0.007524,
@@ -188,6 +181,11 @@
       "exit_time": "2026-07-15 14:25",
       "outcome": "LOSS",
       "reason": "SL"
+    },
+    "STRK": {
+      "exit_time": "2026-07-16 11:45",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
     }
   }
 }
