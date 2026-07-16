@@ -1,40 +1,12 @@
 {
-  "balance": 4523.543215243881,
+  "balance": 4484.118866917536,
   "reserve": 500.0,
-  "realized_pnl": -461.25678475613455,
-  "total_fees": 38.39999999999998,
-  "n_trades": 29,
-  "n_wins": 5,
-  "n_losses": 24,
+  "realized_pnl": -497.4811330824819,
+  "total_fees": 47.199999999999946,
+  "n_trades": 36,
+  "n_wins": 8,
+  "n_losses": 28,
   "positions": {
-    "BANANAS31": {
-      "direction": -1,
-      "entry_price": 0.007524,
-      "entry_time": "2026-07-13 14:10",
-      "position_size": 500.0,
-      "mfe_pct": 3.2828282828282873
-    },
-    "G": {
-      "direction": 1,
-      "entry_price": 0.003612,
-      "entry_time": "2026-07-14 17:40",
-      "position_size": 500.0,
-      "mfe_pct": 1.4119601328903553
-    },
-    "MYX": {
-      "direction": 1,
-      "entry_price": 0.07242,
-      "entry_time": "2026-07-15 14:50",
-      "position_size": 500.0,
-      "mfe_pct": 2.4440762220381274
-    },
-    "EUL": {
-      "direction": 1,
-      "entry_price": 1.0298,
-      "entry_time": "2026-07-15 18:10",
-      "position_size": 500.0,
-      "mfe_pct": 0.2621868323946286
-    },
     "TRUMP": {
       "direction": 1,
       "entry_price": 1.591,
@@ -47,14 +19,7 @@
       "entry_price": 0.0274,
       "entry_time": "2026-07-15 21:25",
       "position_size": 500.0,
-      "mfe_pct": 0.8759124087591275
-    },
-    "NOM": {
-      "direction": 1,
-      "entry_price": 0.001594,
-      "entry_time": "2026-07-16 00:00",
-      "position_size": 500.0,
-      "mfe_pct": 0.43914680050187727
+      "mfe_pct": 3.905109489051095
     },
     "MIRA": {
       "direction": 1,
@@ -63,10 +28,52 @@
       "position_size": 500.0,
       "mfe_pct": 0.0
     },
-    "COAI": {
+    "AVNT": {
+      "direction": -1,
+      "entry_price": 0.0924,
+      "entry_time": "2026-07-16 12:40",
+      "position_size": 500.0,
+      "mfe_pct": 0.21645021645020357
+    },
+    "STX": {
+      "direction": -1,
+      "entry_price": 0.1651,
+      "entry_time": "2026-07-16 12:50",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "PIPPIN": {
       "direction": 1,
-      "entry_price": 0.322,
-      "entry_time": "2026-07-16 01:00",
+      "entry_price": 0.0171,
+      "entry_time": "2026-07-16 13:20",
+      "position_size": 500.0,
+      "mfe_pct": 1.637426900584793
+    },
+    "YB": {
+      "direction": 1,
+      "entry_price": 0.0773,
+      "entry_time": "2026-07-16 15:30",
+      "position_size": 500.0,
+      "mfe_pct": 2.018111254851229
+    },
+    "HEMI": {
+      "direction": -1,
+      "entry_price": 0.004443,
+      "entry_time": "2026-07-16 17:15",
+      "position_size": 500.0,
+      "mfe_pct": 0.4951609273013746
+    },
+    "RESOLV": {
+      "direction": 1,
+      "entry_price": 0.02138,
+      "entry_time": "2026-07-16 17:25",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "STO": {
+      "direction": -1,
+      "entry_price": 0.04296,
+      "entry_time": "2026-07-16 17:55",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -83,9 +90,9 @@
       "reason": "SL"
     },
     "MYX": {
-      "exit_time": "2026-07-10 15:10",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-16 12:55",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "BULLA": {
       "exit_time": "2026-07-15 14:45",
@@ -143,9 +150,9 @@
       "reason": "SL"
     },
     "TAC": {
-      "exit_time": "2026-07-15 15:45",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-16 17:15",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "BLESS": {
       "exit_time": "2026-07-14 08:00",
@@ -186,6 +193,31 @@
       "exit_time": "2026-07-16 11:45",
       "outcome": "WIN",
       "reason": "TIMEOUT"
+    },
+    "COAI": {
+      "exit_time": "2026-07-16 12:20",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "EUL": {
+      "exit_time": "2026-07-16 12:50",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "BANANAS31": {
+      "exit_time": "2026-07-16 14:35",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
+    },
+    "G": {
+      "exit_time": "2026-07-16 17:05",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "NOM": {
+      "exit_time": "2026-07-16 17:25",
+      "outcome": "LOSS",
+      "reason": "SL"
     }
   }
 }

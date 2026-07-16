@@ -1,27 +1,12 @@
 {
-  "balance": 5511.35611023437,
+  "balance": 4535.981513039215,
   "reserve": 500.0,
-  "realized_pnl": 541.3721102343485,
-  "total_fees": 84.41599999999939,
-  "n_trades": 74,
-  "n_wins": 46,
-  "n_losses": 28,
+  "realized_pnl": -432.93048696080746,
+  "total_fees": 87.72799999999934,
+  "n_trades": 78,
+  "n_wins": 47,
+  "n_losses": 31,
   "positions": {
-    "1000PEPE/1000SHIB": {
-      "direction": -1,
-      "avg_spread": 9.105613435687479,
-      "entry_spread": 9.95150346842258,
-      "entry_z": 2.6547848744467184,
-      "entry_time": "2026-07-13 06:55",
-      "n_entries": 7,
-      "beta": 2.897602954042368,
-      "sym_a": "1000PEPE",
-      "sym_b": "1000SHIB",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.3280003321744829,
-      "last_z": 0.8484652706533471
-    },
     "ENA/SEI": {
       "direction": -1,
       "avg_spread": 0.7422925566094573,
@@ -34,7 +19,7 @@
       "sym_b": "SEI",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 1.1463712163120463,
+      "last_z": 1.5410871257397067,
       "mfe_pct": 0.5528319340568189
     },
     "ETH/SUI": {
@@ -49,21 +34,7 @@
       "sym_b": "SUI",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 1.4609713367000614
-    },
-    "GALA/SAND": {
-      "direction": 1,
-      "avg_spread": -0.895382702774875,
-      "entry_spread": -1.9784723027161757,
-      "entry_z": -1.9975415412244384,
-      "entry_time": "2026-07-15 03:40",
-      "n_entries": 5,
-      "beta": 1.3982739645935596,
-      "sym_a": "GALA",
-      "sym_b": "SAND",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "last_z": -1.0113655720827954
+      "last_z": 0.9914679138552784
     },
     "ETHFI/PENGU": {
       "direction": -1,
@@ -77,7 +48,7 @@
       "sym_b": "PENGU",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 2.493168073244718
+      "last_z": 1.3065721401669084
     },
     "BNB/LINK": {
       "direction": 1,
@@ -92,7 +63,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.04760709541571373,
-      "last_z": -1.5249701306578944
+      "last_z": -1.5027206712019765
     },
     "NEAR/SAND": {
       "direction": -1,
@@ -106,7 +77,7 @@
       "sym_b": "SAND",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 1.9242471577838856
+      "last_z": 1.2406393749071063
     },
     "ONDO/PENGU": {
       "direction": -1,
@@ -121,7 +92,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.00714851800525107,
-      "last_z": 3.981762901008142
+      "last_z": 2.75742413261863
     },
     "ONDO/TIA": {
       "direction": -1,
@@ -135,7 +106,7 @@
       "sym_b": "TIA",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 3.758985673066982,
+      "last_z": 2.745007611015644,
       "mfe_pct": 1.0424432460264699
     },
     "LDO/RUNE": {
@@ -150,8 +121,38 @@
       "sym_b": "RUNE",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 3.3166071113005975,
+      "last_z": 2.4159614937439957,
       "mfe_pct": 0.4321287116803463
+    },
+    "SOL/XRP": {
+      "direction": 1,
+      "avg_spread": 4.235529801733152,
+      "entry_spread": 4.2362086871897855,
+      "entry_z": -2.260162736347727,
+      "entry_time": "2026-07-16 12:50",
+      "n_entries": 5,
+      "beta": 0.9623212219035105,
+      "sym_a": "SOL",
+      "sym_b": "XRP",
+      "position_size": 800.0,
+      "kelly_weight": 1.6,
+      "mfe_pct": 0.0529783253798044,
+      "last_z": -2.2256476401457146
+    },
+    "NEAR/TIA": {
+      "direction": -1,
+      "avg_spread": 1.0226915099263265,
+      "entry_spread": 1.0235235601902528,
+      "entry_z": 1.9241216518694602,
+      "entry_time": "2026-07-16 17:40",
+      "n_entries": 2,
+      "beta": 0.3216890714474246,
+      "sym_a": "NEAR",
+      "sym_b": "TIA",
+      "position_size": 500.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 2.2205048698370256,
+      "last_z": 1.1758467150578833
     }
   },
   "last_universe_scan": null,
