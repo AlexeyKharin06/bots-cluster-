@@ -1,11 +1,11 @@
 {
-  "balance": 4536.425070139175,
+  "balance": 4503.726266091338,
   "reserve": 500.0,
-  "realized_pnl": -450.7749298608388,
-  "total_fees": 34.39999999999999,
-  "n_trades": 27,
+  "realized_pnl": -481.4737339086769,
+  "total_fees": 37.19999999999998,
+  "n_trades": 28,
   "n_wins": 4,
-  "n_losses": 23,
+  "n_losses": 24,
   "positions": {
     "STRK": {
       "direction": -1,
@@ -33,7 +33,7 @@
       "entry_price": 0.07242,
       "entry_time": "2026-07-15 14:50",
       "position_size": 500.0,
-      "mfe_pct": 0.09665838166252883
+      "mfe_pct": 2.4440762220381274
     },
     "EUL": {
       "direction": 1,
@@ -41,6 +41,34 @@
       "entry_time": "2026-07-15 18:10",
       "position_size": 500.0,
       "mfe_pct": 0.2621868323946286
+    },
+    "TRUMP": {
+      "direction": 1,
+      "entry_price": 1.591,
+      "entry_time": "2026-07-15 18:35",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "SIREN": {
+      "direction": 1,
+      "entry_price": 0.0274,
+      "entry_time": "2026-07-15 21:25",
+      "position_size": 500.0,
+      "mfe_pct": 0.8759124087591275
+    },
+    "NOM": {
+      "direction": 1,
+      "entry_price": 0.001594,
+      "entry_time": "2026-07-16 00:00",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "MIRA": {
+      "direction": 1,
+      "entry_price": 0.04346,
+      "entry_time": "2026-07-16 00:00",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -110,9 +138,9 @@
       "reason": "TIMEOUT"
     },
     "LAB": {
-      "exit_time": "2026-07-13 11:00",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-07-15 23:45",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "TAC": {
       "exit_time": "2026-07-15 15:45",
