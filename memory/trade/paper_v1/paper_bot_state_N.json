@@ -1,11 +1,11 @@
 {
-  "balance": 4551.379579125648,
+  "balance": 4544.926567087387,
   "reserve": 500.0,
-  "realized_pnl": -415.7244208743765,
-  "total_fees": 94.81599999999929,
-  "n_trades": 84,
+  "realized_pnl": -422.06543291263665,
+  "total_fees": 95.24799999999928,
+  "n_trades": 85,
   "n_wins": 51,
-  "n_losses": 33,
+  "n_losses": 34,
   "positions": {
     "ENA/SEI": {
       "direction": -1,
@@ -21,20 +21,6 @@
       "kelly_weight": 1.0,
       "last_z": 0.7493215787476312,
       "mfe_pct": 0.5528319340568189
-    },
-    "ETH/SUI": {
-      "direction": -1,
-      "avg_spread": 7.74824137672078,
-      "entry_spread": 7.776967599401824,
-      "entry_z": 2.28746771026648,
-      "entry_time": "2026-07-15 03:35",
-      "n_entries": 10,
-      "beta": 0.855603437758405,
-      "sym_a": "ETH",
-      "sym_b": "SUI",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "last_z": 1.0048003805552033
     },
     "ETHFI/PENGU": {
       "direction": -1,
@@ -52,18 +38,18 @@
     },
     "BNB/LINK": {
       "direction": 1,
-      "avg_spread": 5.530805773424224,
+      "avg_spread": 5.612638454644853,
       "entry_spread": 5.526897566781663,
       "entry_z": -2.074625016528592,
       "entry_time": "2026-07-15 16:25",
-      "n_entries": 5,
+      "n_entries": 6,
       "beta": 0.39071427182821444,
       "sym_a": "BNB",
       "sym_b": "LINK",
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.04760709541571373,
-      "last_z": -2.191126262473254
+      "last_z": -3.315820623073314
     },
     "ONDO/PENGU": {
       "direction": -1,
@@ -78,7 +64,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.00714851800525107,
-      "last_z": 1.7282782915027126
+      "last_z": 2.0326459932418164
     },
     "ONDO/TIA": {
       "direction": -1,
@@ -123,7 +109,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.034815415605393696,
-      "last_z": -2.5934632180662613
+      "last_z": -2.3613008224586247
     },
     "SOL/XRP": {
       "direction": 1,
@@ -152,6 +138,19 @@
       "sym_b": "RUNE",
       "position_size": 500.0,
       "kelly_weight": 1.0
+    },
+    "RENDER/TIA": {
+      "direction": 1,
+      "avg_spread": 0.22149748411551642,
+      "entry_spread": 0.22149748411551642,
+      "entry_z": -2.0367736131284135,
+      "entry_time": "2026-07-17 12:10",
+      "n_entries": 1,
+      "beta": -0.17210167091732834,
+      "sym_a": "RENDER",
+      "sym_b": "TIA",
+      "position_size": 200.0,
+      "kelly_weight": 0.4
     }
   },
   "last_universe_scan": null,
