@@ -1,11 +1,11 @@
 {
-  "balance": 4484.118866917536,
+  "balance": 4441.157467787081,
   "reserve": 500.0,
-  "realized_pnl": -497.4811330824819,
-  "total_fees": 47.199999999999946,
-  "n_trades": 36,
+  "realized_pnl": -540.0425322129369,
+  "total_fees": 49.19999999999994,
+  "n_trades": 38,
   "n_wins": 8,
-  "n_losses": 28,
+  "n_losses": 30,
   "positions": {
     "TRUMP": {
       "direction": 1,
@@ -21,19 +21,12 @@
       "position_size": 500.0,
       "mfe_pct": 3.905109489051095
     },
-    "MIRA": {
-      "direction": 1,
-      "entry_price": 0.04346,
-      "entry_time": "2026-07-16 00:00",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
     "AVNT": {
       "direction": -1,
       "entry_price": 0.0924,
       "entry_time": "2026-07-16 12:40",
       "position_size": 500.0,
-      "mfe_pct": 0.21645021645020357
+      "mfe_pct": 2.164502164502169
     },
     "STX": {
       "direction": -1,
@@ -49,31 +42,31 @@
       "position_size": 500.0,
       "mfe_pct": 1.637426900584793
     },
-    "YB": {
-      "direction": 1,
-      "entry_price": 0.0773,
-      "entry_time": "2026-07-16 15:30",
-      "position_size": 500.0,
-      "mfe_pct": 2.018111254851229
-    },
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004443,
       "entry_time": "2026-07-16 17:15",
       "position_size": 500.0,
-      "mfe_pct": 0.4951609273013746
+      "mfe_pct": 2.048165653837497
     },
     "RESOLV": {
       "direction": 1,
       "entry_price": 0.02138,
       "entry_time": "2026-07-16 17:25",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 2.478952291861547
     },
     "STO": {
       "direction": -1,
       "entry_price": 0.04296,
       "entry_time": "2026-07-16 17:55",
+      "position_size": 500.0,
+      "mfe_pct": 1.140595903165731
+    },
+    "BERA": {
+      "direction": -1,
+      "entry_price": 0.1832,
+      "entry_time": "2026-07-16 23:25",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -110,12 +103,12 @@
       "reason": "SL"
     },
     "MIRA": {
-      "exit_time": "2026-07-12 23:00",
+      "exit_time": "2026-07-16 23:55",
       "outcome": "LOSS",
       "reason": "SL"
     },
     "YB": {
-      "exit_time": "2026-07-12 23:05",
+      "exit_time": "2026-07-16 23:25",
       "outcome": "LOSS",
       "reason": "SL"
     },

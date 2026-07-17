@@ -1,11 +1,11 @@
 {
-  "balance": 4535.981513039215,
+  "balance": 4551.379579125648,
   "reserve": 500.0,
-  "realized_pnl": -432.93048696080746,
-  "total_fees": 87.72799999999934,
-  "n_trades": 78,
-  "n_wins": 47,
-  "n_losses": 31,
+  "realized_pnl": -415.7244208743765,
+  "total_fees": 94.81599999999929,
+  "n_trades": 84,
+  "n_wins": 51,
+  "n_losses": 33,
   "positions": {
     "ENA/SEI": {
       "direction": -1,
@@ -19,7 +19,7 @@
       "sym_b": "SEI",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 1.5410871257397067,
+      "last_z": 0.7493215787476312,
       "mfe_pct": 0.5528319340568189
     },
     "ETH/SUI": {
@@ -34,7 +34,7 @@
       "sym_b": "SUI",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 0.9914679138552784
+      "last_z": 1.0048003805552033
     },
     "ETHFI/PENGU": {
       "direction": -1,
@@ -48,7 +48,7 @@
       "sym_b": "PENGU",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 1.3065721401669084
+      "last_z": 0.5816282253798878
     },
     "BNB/LINK": {
       "direction": 1,
@@ -63,21 +63,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.04760709541571373,
-      "last_z": -1.5027206712019765
-    },
-    "NEAR/SAND": {
-      "direction": -1,
-      "avg_spread": 2.906040341735657,
-      "entry_spread": 2.938221655307857,
-      "entry_z": 1.9833264992801212,
-      "entry_time": "2026-07-15 16:35",
-      "n_entries": 6,
-      "beta": 0.7323170584205768,
-      "sym_a": "NEAR",
-      "sym_b": "SAND",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "last_z": 1.2406393749071063
+      "last_z": -2.191126262473254
     },
     "ONDO/PENGU": {
       "direction": -1,
@@ -92,7 +78,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.00714851800525107,
-      "last_z": 2.75742413261863
+      "last_z": 1.7282782915027126
     },
     "ONDO/TIA": {
       "direction": -1,
@@ -106,7 +92,7 @@
       "sym_b": "TIA",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 2.745007611015644,
+      "last_z": 1.6916389521434185,
       "mfe_pct": 1.0424432460264699
     },
     "LDO/RUNE": {
@@ -121,38 +107,51 @@
       "sym_b": "RUNE",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 2.4159614937439957,
+      "last_z": 1.738657155032504,
       "mfe_pct": 0.4321287116803463
+    },
+    "BNB/LTC": {
+      "direction": 1,
+      "avg_spread": 3.8364370192493786,
+      "entry_spread": 3.8270032513725605,
+      "entry_z": -2.3407887308079283,
+      "entry_time": "2026-07-16 21:10",
+      "n_entries": 7,
+      "beta": 0.6637952526649201,
+      "sym_a": "BNB",
+      "sym_b": "LTC",
+      "position_size": 500.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.034815415605393696,
+      "last_z": -2.5934632180662613
     },
     "SOL/XRP": {
       "direction": 1,
-      "avg_spread": 4.235529801733152,
-      "entry_spread": 4.2362086871897855,
-      "entry_z": -2.260162736347727,
-      "entry_time": "2026-07-16 12:50",
-      "n_entries": 5,
-      "beta": 0.9623212219035105,
+      "avg_spread": 4.234363452932632,
+      "entry_spread": 4.233648098200801,
+      "entry_z": -1.3776337880276386,
+      "entry_time": "2026-07-16 23:35",
+      "n_entries": 2,
+      "beta": 1.0376742872008962,
       "sym_a": "SOL",
       "sym_b": "XRP",
       "position_size": 800.0,
       "kelly_weight": 1.6,
-      "mfe_pct": 0.0529783253798044,
-      "last_z": -2.2256476401457146
+      "mfe_pct": 0.1765918208414874,
+      "last_z": -1.205504206174406
     },
-    "NEAR/TIA": {
-      "direction": -1,
-      "avg_spread": 1.0226915099263265,
-      "entry_spread": 1.0235235601902528,
-      "entry_z": 1.9241216518694602,
-      "entry_time": "2026-07-16 17:40",
-      "n_entries": 2,
-      "beta": 0.3216890714474246,
-      "sym_a": "NEAR",
-      "sym_b": "TIA",
+    "RENDER/RUNE": {
+      "direction": 1,
+      "avg_spread": 0.4297582545773419,
+      "entry_spread": 0.4297582545773419,
+      "entry_z": -1.9834405824624917,
+      "entry_time": "2026-07-16 23:55",
+      "n_entries": 1,
+      "beta": 0.04838487793851857,
+      "sym_a": "RENDER",
+      "sym_b": "RUNE",
       "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 2.2205048698370256,
-      "last_z": 1.1758467150578833
+      "kelly_weight": 1.0
     }
   },
   "last_universe_scan": null,
