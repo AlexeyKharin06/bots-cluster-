@@ -1,11 +1,11 @@
 {
-  "balance": 4266.342340491576,
+  "balance": 4232.542205630938,
   "reserve": 500.0,
-  "realized_pnl": -709.3681835570544,
-  "total_fees": 97.28043086813685,
-  "n_trades": 102,
+  "realized_pnl": -743.1175273017312,
+  "total_fees": 98.33635322044212,
+  "n_trades": 103,
   "n_wins": 73,
-  "n_losses": 29,
+  "n_losses": 30,
   "n_swaps": 16,
   "n_profit_locks": 33,
   "positions": {
@@ -25,23 +25,6 @@
       "half_life_h": 24.440610561637286,
       "timeout_h": 48.88122112327457,
       "last_z": 1.4273606049701897
-    },
-    "POPCAT/PUMP": {
-      "direction": 1,
-      "avg_spread": -0.04425015412139862,
-      "entry_spread": -0.04289824481658222,
-      "entry_z": -2.3832928064199206,
-      "entry_time": "2026-07-15 16:17",
-      "n_entries": 13,
-      "beta": 0.477691131114312,
-      "sym_a": "POPCAT",
-      "sym_b": "PUMP",
-      "position_size": 628.2070227151942,
-      "kelly_weight": 1.5,
-      "mfe_pct": 0.6888161605927645,
-      "half_life_h": 17.975257244509024,
-      "timeout_h": 35.95051448901805,
-      "last_z": -1.6237211696026577
     },
     "LDO/LTC": {
       "direction": -1,
@@ -263,6 +246,22 @@
       "half_life_h": 20.761690797668248,
       "timeout_h": 41.523381595336495,
       "last_z": -2.292539759015397
+    },
+    "POPCAT/PUMP": {
+      "direction": 1,
+      "avg_spread": -1.4764729542161412,
+      "entry_spread": -1.4764729542161412,
+      "entry_z": -1.7738813812415009,
+      "entry_time": "2026-07-18 12:10",
+      "n_entries": 1,
+      "beta": 0.26216340439323765,
+      "sym_a": "POPCAT",
+      "sym_b": "PUMP",
+      "position_size": 634.8889495120349,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 102.6008464079638,
+      "timeout_h": 205.2016928159276
     }
   }
 }
