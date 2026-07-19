@@ -1,11 +1,11 @@
 {
-  "balance": 4345.443335262657,
+  "balance": 4337.999363319761,
   "reserve": 500.0,
-  "realized_pnl": -618.1886647373703,
-  "total_fees": 103.56799999999917,
-  "n_trades": 93,
-  "n_wins": 53,
-  "n_losses": 40,
+  "realized_pnl": -624.6086366802667,
+  "total_fees": 107.47199999999914,
+  "n_trades": 96,
+  "n_wins": 54,
+  "n_losses": 42,
   "positions": {
     "BNB/LTC": {
       "direction": 1,
@@ -20,50 +20,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.034815415605393696,
-      "last_z": -1.3712092261031605
-    },
-    "SOL/XRP": {
-      "direction": 1,
-      "avg_spread": 4.234363452932632,
-      "entry_spread": 4.233648098200801,
-      "entry_z": -1.3776337880276386,
-      "entry_time": "2026-07-16 23:35",
-      "n_entries": 2,
-      "beta": 1.0376742872008962,
-      "sym_a": "SOL",
-      "sym_b": "XRP",
-      "position_size": 800.0,
-      "kelly_weight": 1.6,
-      "mfe_pct": 0.1765918208414874,
-      "last_z": -0.6482870790393888
-    },
-    "ENA/OP": {
-      "direction": 1,
-      "avg_spread": -3.2016294065328075,
-      "entry_spread": -3.226405202396074,
-      "entry_z": -1.4385803067240455,
-      "entry_time": "2026-07-18 14:25",
-      "n_entries": 4,
-      "beta": -0.300310813460294,
-      "sym_a": "ENA",
-      "sym_b": "OP",
-      "position_size": 800.0,
-      "kelly_weight": 1.6,
-      "last_z": -0.7279311218813888
-    },
-    "RUNE/SUSHI": {
-      "direction": -1,
-      "avg_spread": -0.3216134465300144,
-      "entry_spread": -0.3186182397909302,
-      "entry_z": 1.4448422548793662,
-      "entry_time": "2026-07-18 14:30",
-      "n_entries": 4,
-      "beta": 0.293098259486186,
-      "sym_a": "RUNE",
-      "sym_b": "SUSHI",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "last_z": 1.881595659496658
+      "last_z": -1.5361662604551876
     },
     "LTC/XRP": {
       "direction": -1,
@@ -78,7 +35,7 @@
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.25687370405425014,
-      "last_z": 2.8824477817689353
+      "last_z": 2.3459372830035705
     },
     "ETHFI/PENGU": {
       "direction": -1,
@@ -93,7 +50,7 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "mfe_pct": 0.5706201332906224,
-      "last_z": 1.4563204401602032
+      "last_z": 1.1514292077928467
     },
     "ETHFI/SAND": {
       "direction": -1,
@@ -108,7 +65,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.6099941641678486,
-      "last_z": 1.5901449688794402
+      "last_z": 1.202860479178528
     },
     "PENGU/SAND": {
       "direction": -1,
@@ -122,20 +79,21 @@
       "sym_b": "SAND",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 1.6285737943584766
+      "last_z": 1.180666552022749
     },
     "1000CAT/1000FLOKI": {
       "direction": -1,
-      "avg_spread": -3.0418934135232334,
+      "avg_spread": -3.2173860114114587,
       "entry_spread": -3.0418934135232334,
       "entry_z": 2.0560341237526805,
       "entry_time": "2026-07-18 16:30",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 0.9403129855440365,
       "sym_a": "1000CAT",
       "sym_b": "1000FLOKI",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "last_z": 3.1238091081796306
     },
     "SUSHI/TIA": {
       "direction": -1,
@@ -150,7 +108,51 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "mfe_pct": 0.9305268246336595,
-      "last_z": 0.9061642735297235
+      "last_z": 1.1880769564614615
+    },
+    "RUNE/TIA": {
+      "direction": -1,
+      "avg_spread": -0.9696873547989228,
+      "entry_spread": -0.9622312817571009,
+      "entry_z": 1.5969667182649108,
+      "entry_time": "2026-07-19 00:40",
+      "n_entries": 5,
+      "beta": -0.1236571887238994,
+      "sym_a": "RUNE",
+      "sym_b": "TIA",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "mfe_pct": 0.0777774348572291,
+      "last_z": 1.7366236915786535
+    },
+    "1000FLOKI/1000SHIB": {
+      "direction": 1,
+      "avg_spread": 3.68657094010636,
+      "entry_spread": 3.6822017129056057,
+      "entry_z": -2.762687232315007,
+      "entry_time": "2026-07-19 01:55",
+      "n_entries": 2,
+      "beta": 1.3765127978427112,
+      "sym_a": "1000FLOKI",
+      "sym_b": "1000SHIB",
+      "position_size": 500.0,
+      "kelly_weight": 1.0,
+      "last_z": -2.7588338908691847
+    },
+    "RUNE/SUSHI": {
+      "direction": -1,
+      "avg_spread": 0.06080677981348479,
+      "entry_spread": 0.04917067522962637,
+      "entry_z": 2.2013716744700655,
+      "entry_time": "2026-07-19 02:15",
+      "n_entries": 5,
+      "beta": 0.48273750041680075,
+      "sym_a": "RUNE",
+      "sym_b": "SUSHI",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "mfe_pct": 1.611919557975259,
+      "last_z": 1.9769440781616037
     }
   },
   "last_universe_scan": null,
