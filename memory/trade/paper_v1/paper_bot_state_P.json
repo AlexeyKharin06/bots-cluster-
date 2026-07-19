@@ -1,11 +1,11 @@
 {
-  "balance": 4457.33167030751,
+  "balance": 4433.26870787324,
   "reserve": 500.0,
-  "realized_pnl": -521.868329692511,
-  "total_fees": 54.39999999999992,
-  "n_trades": 42,
-  "n_wins": 11,
-  "n_losses": 31,
+  "realized_pnl": -545.9312921267813,
+  "total_fees": 56.79999999999991,
+  "n_trades": 45,
+  "n_wins": 12,
+  "n_losses": 33,
   "positions": {
     "AVNT": {
       "direction": -1,
@@ -20,27 +20,6 @@
       "entry_time": "2026-07-16 12:50",
       "position_size": 500.0,
       "mfe_pct": 0.7874015748031482
-    },
-    "PIPPIN": {
-      "direction": 1,
-      "entry_price": 0.0171,
-      "entry_time": "2026-07-16 13:20",
-      "position_size": 500.0,
-      "mfe_pct": 1.637426900584793
-    },
-    "HEMI": {
-      "direction": -1,
-      "entry_price": 0.004443,
-      "entry_time": "2026-07-16 17:15",
-      "position_size": 500.0,
-      "mfe_pct": 3.848750844024307
-    },
-    "STO": {
-      "direction": -1,
-      "entry_price": 0.04296,
-      "entry_time": "2026-07-16 17:55",
-      "position_size": 500.0,
-      "mfe_pct": 4.5391061452513926
     },
     "BERA": {
       "direction": -1,
@@ -120,9 +99,9 @@
       "reason": "SL"
     },
     "STO": {
-      "exit_time": "2026-07-13 03:40",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-19 17:55",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
     },
     "SOPH": {
       "exit_time": "2026-07-13 05:45",
@@ -160,12 +139,12 @@
       "reason": "SL"
     },
     "PIPPIN": {
-      "exit_time": "2026-07-14 17:30",
+      "exit_time": "2026-07-19 18:00",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "HEMI": {
-      "exit_time": "2026-07-14 17:35",
+      "exit_time": "2026-07-19 17:50",
       "outcome": "LOSS",
       "reason": "SL"
     },
