@@ -1,26 +1,12 @@
 {
-  "balance": 4416.40498883479,
+  "balance": 4457.33167030751,
   "reserve": 500.0,
-  "realized_pnl": -563.9950111652288,
-  "total_fees": 50.79999999999993,
-  "n_trades": 39,
-  "n_wins": 8,
+  "realized_pnl": -521.868329692511,
+  "total_fees": 54.39999999999992,
+  "n_trades": 42,
+  "n_wins": 11,
   "n_losses": 31,
   "positions": {
-    "TRUMP": {
-      "direction": 1,
-      "entry_price": 1.591,
-      "entry_time": "2026-07-15 18:35",
-      "position_size": 500.0,
-      "mfe_pct": 4.2111879321181656
-    },
-    "SIREN": {
-      "direction": 1,
-      "entry_price": 0.0274,
-      "entry_time": "2026-07-15 21:25",
-      "position_size": 500.0,
-      "mfe_pct": 6.277372262773717
-    },
     "AVNT": {
       "direction": -1,
       "entry_price": 0.0924,
@@ -61,7 +47,7 @@
       "entry_price": 0.1832,
       "entry_time": "2026-07-16 23:25",
       "position_size": 500.0,
-      "mfe_pct": 0.3275109170305601
+      "mfe_pct": 0.3820960698689979
     },
     "JOE": {
       "direction": -1,
@@ -70,12 +56,26 @@
       "position_size": 500.0,
       "mfe_pct": 2.030269472129931
     },
-    "EVAA": {
-      "direction": -1,
-      "entry_price": 0.8335,
-      "entry_time": "2026-07-18 08:15",
+    "BLESS": {
+      "direction": 1,
+      "entry_price": 0.00862,
+      "entry_time": "2026-07-18 18:45",
       "position_size": 500.0,
-      "mfe_pct": 2.3875224955009045
+      "mfe_pct": 0.9396751740139431
+    },
+    "S": {
+      "direction": -1,
+      "entry_price": 0.02396,
+      "entry_time": "2026-07-18 19:30",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "STRK": {
+      "direction": 1,
+      "entry_price": 0.02863,
+      "entry_time": "2026-07-18 22:10",
+      "position_size": 500.0,
+      "mfe_pct": 2.270345791128192
     }
   },
   "cooldown": {
@@ -218,6 +218,21 @@
       "exit_time": "2026-07-16 17:25",
       "outcome": "LOSS",
       "reason": "SL"
+    },
+    "TRUMP": {
+      "exit_time": "2026-07-18 18:35",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
+    },
+    "SIREN": {
+      "exit_time": "2026-07-18 19:00",
+      "outcome": "WIN",
+      "reason": "TRAIL"
+    },
+    "EVAA": {
+      "exit_time": "2026-07-18 22:10",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     }
   }
 }
