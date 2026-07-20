@@ -1,10 +1,10 @@
 {
-  "balance": 4770.916886019666,
+  "balance": 4775.610345059923,
   "reserve": 500.0,
-  "realized_pnl": -194.7764404489388,
-  "total_fees": 140.49097546109792,
-  "n_trades": 152,
-  "n_wins": 106,
+  "realized_pnl": -189.95839166371573,
+  "total_fees": 140.9401167704977,
+  "n_trades": 153,
+  "n_wins": 107,
   "n_losses": 46,
   "n_swaps": 28,
   "n_profit_locks": 52,
@@ -59,23 +59,6 @@
       "half_life_h": 186.2924561185115,
       "timeout_h": 240.0
     },
-    "ETHFI/SUSHI": {
-      "direction": -1,
-      "avg_spread": 0.04589241825813921,
-      "entry_spread": 0.05468340495029578,
-      "entry_z": 2.1730442706130364,
-      "entry_time": "2026-07-18 20:06",
-      "n_entries": 8,
-      "beta": 0.4625413269565375,
-      "sym_a": "ETHFI",
-      "sym_b": "SUSHI",
-      "position_size": 202.8447277714863,
-      "kelly_weight": 0.5,
-      "mfe_pct": 0.8139681006725394,
-      "half_life_h": 12.085319539968646,
-      "timeout_h": 24.170639079937292,
-      "last_z": 1.363293465996087
-    },
     "MUBARAK/RECALL": {
       "direction": 1,
       "avg_spread": -2.3669775853145207,
@@ -91,7 +74,7 @@
       "mfe_pct": 3.2382560030518093,
       "half_life_h": 25.33677925267452,
       "timeout_h": 50.67355850534904,
-      "last_z": -1.7318941811273263
+      "last_z": -1.8801645641339304
     },
     "ACU/BB": {
       "direction": -1,
@@ -178,11 +161,11 @@
     },
     "TAKE/YFI": {
       "direction": -1,
-      "avg_spread": 0.01525029456370941,
+      "avg_spread": 0.027801078008612867,
       "entry_spread": 0.01525029456370941,
       "entry_z": 1.0932451600490003,
       "entry_time": "2026-07-20 04:45",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": -0.4988658369303474,
       "sym_a": "TAKE",
       "sym_b": "YFI",
@@ -190,7 +173,8 @@
       "kelly_weight": 0.8,
       "mfe_pct": 0.0,
       "half_life_h": 6.463328101156063,
-      "timeout_h": 24.0
+      "timeout_h": 24.0,
+      "last_z": 1.50769469300796
     },
     "ACE/BIGTIME": {
       "direction": -1,
@@ -239,6 +223,39 @@
       "mfe_pct": 0.0,
       "half_life_h": 14.607936813244335,
       "timeout_h": 29.21587362648867
+    },
+    "DYM/FLUID": {
+      "direction": 1,
+      "avg_spread": -4.101721193039972,
+      "entry_spread": -4.122031822250096,
+      "entry_z": -1.4199401765070796,
+      "entry_time": "2026-07-20 12:20",
+      "n_entries": 2,
+      "beta": -46.27047948389713,
+      "sym_a": "DYM",
+      "sym_b": "FLUID",
+      "position_size": 477.0916886019666,
+      "kelly_weight": 1.0,
+      "mfe_pct": 4.208729336227979,
+      "half_life_h": 5.587442994748078,
+      "timeout_h": 24.0,
+      "last_z": -1.3158000411678388
+    },
+    "ETHFI/SUSHI": {
+      "direction": -1,
+      "avg_spread": 0.004805571916349005,
+      "entry_spread": 0.004805571916349005,
+      "entry_z": 0.8241485101031132,
+      "entry_time": "2026-07-20 13:45",
+      "n_entries": 1,
+      "beta": 0.4537823033500419,
+      "sym_a": "ETHFI",
+      "sym_b": "SUSHI",
+      "position_size": 238.7833807532736,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 24.852670641327183,
+      "timeout_h": 49.705341282654366
     }
   }
 }

@@ -1,8 +1,8 @@
 {
-  "balance": 4315.864590871638,
+  "balance": 4315.736590871638,
   "reserve": 500.0,
   "realized_pnl": -646.4714091283897,
-  "total_fees": 109.18399999999912,
+  "total_fees": 109.31199999999912,
   "n_trades": 99,
   "n_wins": 56,
   "n_losses": 43,
@@ -136,6 +136,19 @@
       "sym_b": "LTC",
       "position_size": 200.0,
       "kelly_weight": 0.4
+    },
+    "PENGU/SEI": {
+      "direction": -1,
+      "avg_spread": -3.0829376620429425,
+      "entry_spread": -3.0829376620429425,
+      "entry_z": 2.154183716232805,
+      "entry_time": "2026-07-20 14:45",
+      "n_entries": 1,
+      "beta": 0.6442271392451041,
+      "sym_a": "PENGU",
+      "sym_b": "SEI",
+      "position_size": 800.0,
+      "kelly_weight": 1.6
     }
   },
   "last_universe_scan": null,

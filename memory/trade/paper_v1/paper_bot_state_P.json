@@ -1,11 +1,11 @@
 {
-  "balance": 4442.783096152894,
+  "balance": 4421.541631052687,
   "reserve": 500.0,
-  "realized_pnl": -534.8169038471285,
-  "total_fees": 63.999999999999886,
-  "n_trades": 52,
+  "realized_pnl": -555.6583689473358,
+  "total_fees": 65.19999999999989,
+  "n_trades": 53,
   "n_wins": 16,
-  "n_losses": 36,
+  "n_losses": 37,
   "positions": {
     "S": {
       "direction": -1,
@@ -28,12 +28,12 @@
       "position_size": 500.0,
       "mfe_pct": 4.1562966650074635
     },
-    "LAB": {
-      "direction": -1,
-      "entry_price": 0.1447,
-      "entry_time": "2026-07-20 10:20",
+    "COAI": {
+      "direction": 1,
+      "entry_price": 0.3251,
+      "entry_time": "2026-07-20 16:50",
       "position_size": 500.0,
-      "mfe_pct": 0.4837595024188013
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -103,7 +103,7 @@
       "reason": "TIMEOUT"
     },
     "LAB": {
-      "exit_time": "2026-07-15 23:45",
+      "exit_time": "2026-07-20 14:55",
       "outcome": "LOSS",
       "reason": "SL"
     },
