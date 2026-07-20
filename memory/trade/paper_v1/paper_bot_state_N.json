@@ -1,27 +1,12 @@
 {
-  "balance": 4341.530943672216,
+  "balance": 4313.436778401687,
   "reserve": 500.0,
-  "realized_pnl": -620.8370563278115,
-  "total_fees": 108.03199999999913,
-  "n_trades": 97,
+  "realized_pnl": -648.8992215983407,
+  "total_fees": 108.86399999999912,
+  "n_trades": 98,
   "n_wins": 55,
-  "n_losses": 42,
+  "n_losses": 43,
   "positions": {
-    "BNB/LTC": {
-      "direction": 1,
-      "avg_spread": 3.8364370192493786,
-      "entry_spread": 3.8270032513725605,
-      "entry_z": -2.3407887308079283,
-      "entry_time": "2026-07-16 21:10",
-      "n_entries": 7,
-      "beta": 0.6637952526649201,
-      "sym_a": "BNB",
-      "sym_b": "LTC",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.034815415605393696,
-      "last_z": -1.5361662604551876
-    },
     "LTC/XRP": {
       "direction": -1,
       "avg_spread": 3.832873222895322,
@@ -35,7 +20,7 @@
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.25687370405425014,
-      "last_z": 2.3459372830035705
+      "last_z": 1.6088744938701949
     },
     "ETHFI/PENGU": {
       "direction": -1,
@@ -150,7 +135,22 @@
       "sym_a": "ENA",
       "sym_b": "SUSHI",
       "position_size": 500.0,
-      "kelly_weight": 1.0
+      "kelly_weight": 1.0,
+      "mfe_pct": 2.559586803142677,
+      "last_z": -0.9093382863624399
+    },
+    "BNB/LTC": {
+      "direction": 1,
+      "avg_spread": 6.272705439464107,
+      "entry_spread": 6.272705439464107,
+      "entry_z": -1.22310276796336,
+      "entry_time": "2026-07-20 05:55",
+      "n_entries": 1,
+      "beta": 0.0169323772257884,
+      "sym_a": "BNB",
+      "sym_b": "LTC",
+      "position_size": 200.0,
+      "kelly_weight": 0.4
     }
   },
   "last_universe_scan": null,
