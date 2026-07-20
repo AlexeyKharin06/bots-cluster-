@@ -1,25 +1,18 @@
 {
-  "balance": 4465.049211949242,
+  "balance": 4442.783096152894,
   "reserve": 500.0,
-  "realized_pnl": -513.3507880507801,
-  "total_fees": 61.599999999999895,
-  "n_trades": 50,
-  "n_wins": 15,
-  "n_losses": 35,
+  "realized_pnl": -534.8169038471285,
+  "total_fees": 63.999999999999886,
+  "n_trades": 52,
+  "n_wins": 16,
+  "n_losses": 36,
   "positions": {
-    "JOE": {
-      "direction": -1,
-      "entry_price": 0.02709,
-      "entry_time": "2026-07-17 07:35",
-      "position_size": 500.0,
-      "mfe_pct": 2.473237356958291
-    },
     "S": {
       "direction": -1,
       "entry_price": 0.02396,
       "entry_time": "2026-07-18 19:30",
       "position_size": 500.0,
-      "mfe_pct": 1.7946577629382343
+      "mfe_pct": 2.6711185308847973
     },
     "STRK": {
       "direction": 1,
@@ -33,7 +26,14 @@
       "entry_price": 0.04018,
       "entry_time": "2026-07-19 21:40",
       "position_size": 500.0,
-      "mfe_pct": 1.2444001991040343
+      "mfe_pct": 4.1562966650074635
+    },
+    "LAB": {
+      "direction": -1,
+      "entry_price": 0.1447,
+      "entry_time": "2026-07-20 10:20",
+      "position_size": 500.0,
+      "mfe_pct": 0.4837595024188013
     }
   },
   "cooldown": {
@@ -183,9 +183,9 @@
       "reason": "TIMEOUT"
     },
     "SIREN": {
-      "exit_time": "2026-07-18 19:00",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-07-20 11:20",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "EVAA": {
       "exit_time": "2026-07-18 22:10",
@@ -205,6 +205,11 @@
     "BERA": {
       "exit_time": "2026-07-19 23:35",
       "outcome": "LOSS",
+      "reason": "TIMEOUT"
+    },
+    "JOE": {
+      "exit_time": "2026-07-20 08:30",
+      "outcome": "WIN",
       "reason": "TIMEOUT"
     }
   }

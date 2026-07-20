@@ -1,13 +1,13 @@
 {
-  "balance": 4554.9824210846855,
+  "balance": 4770.916886019666,
   "reserve": 500.0,
-  "realized_pnl": -410.802907109527,
-  "total_fees": 138.10731196468075,
-  "n_trades": 148,
-  "n_wins": 103,
-  "n_losses": 45,
+  "realized_pnl": -194.7764404489388,
+  "total_fees": 140.49097546109792,
+  "n_trades": 152,
+  "n_wins": 106,
+  "n_losses": 46,
   "n_swaps": 28,
-  "n_profit_locks": 50,
+  "n_profit_locks": 52,
   "positions": {
     "CHR/ERA": {
       "direction": -1,
@@ -76,23 +76,6 @@
       "timeout_h": 24.170639079937292,
       "last_z": 1.363293465996087
     },
-    "ACE/ATA": {
-      "direction": 1,
-      "avg_spread": -0.0931149945366955,
-      "entry_spread": -0.07973705140496268,
-      "entry_z": -2.9710113805113703,
-      "entry_time": "2026-07-18 23:11",
-      "n_entries": 16,
-      "beta": 0.4898958187952078,
-      "sym_a": "ACE",
-      "sym_b": "ATA",
-      "position_size": 411.9302899920922,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
-      "half_life_h": 22.883927194177215,
-      "timeout_h": 45.76785438835443,
-      "last_z": -3.091700040712619
-    },
     "MUBARAK/RECALL": {
       "direction": 1,
       "avg_spread": -2.3669775853145207,
@@ -109,23 +92,6 @@
       "half_life_h": 25.33677925267452,
       "timeout_h": 50.67355850534904,
       "last_z": -1.7318941811273263
-    },
-    "WOO/XLM": {
-      "direction": -1,
-      "avg_spread": -1.975674414999844,
-      "entry_spread": -1.9865236489871294,
-      "entry_z": 2.9350602133585877,
-      "entry_time": "2026-07-19 00:06",
-      "n_entries": 5,
-      "beta": 1.4159102569592388,
-      "sym_a": "WOO",
-      "sym_b": "XLM",
-      "position_size": 207.1309844417874,
-      "kelly_weight": 0.5,
-      "mfe_pct": 5.507133987996493,
-      "half_life_h": 29.78059034621076,
-      "timeout_h": 59.56118069242152,
-      "last_z": 0.7269783528923877
     },
     "ACU/BB": {
       "direction": -1,
@@ -161,23 +127,6 @@
       "timeout_h": 36.67810883452101,
       "last_z": 1.6745873146765151
     },
-    "BTC/CAKE": {
-      "direction": -1,
-      "avg_spread": 5.586464473162385,
-      "entry_spread": 5.5980389621438436,
-      "entry_z": 1.0253715545552464,
-      "entry_time": "2026-07-19 18:30",
-      "n_entries": 2,
-      "beta": 16.67492270962718,
-      "sym_a": "BTC",
-      "sym_b": "CAKE",
-      "position_size": 377.2404362188903,
-      "kelly_weight": 0.9,
-      "mfe_pct": 2.0677232849743987,
-      "half_life_h": 12.106865703275282,
-      "timeout_h": 24.213731406550565,
-      "last_z": 0.9015934943840305
-    },
     "ETHFI/SAND": {
       "direction": -1,
       "avg_spread": 0.024078640309955157,
@@ -211,23 +160,6 @@
       "half_life_h": 34.63422773435109,
       "timeout_h": 69.26845546870219
     },
-    "ACE/BIGTIME": {
-      "direction": -1,
-      "avg_spread": 0.33729213571092864,
-      "entry_spread": 0.3857767598729085,
-      "entry_z": 6.142981715812971,
-      "entry_time": "2026-07-20 02:20",
-      "n_entries": 2,
-      "beta": 0.5349779544971776,
-      "sym_a": "ACE",
-      "sym_b": "BIGTIME",
-      "position_size": 435.98689610321316,
-      "kelly_weight": 1.0,
-      "mfe_pct": 8.512269050942356,
-      "half_life_h": null,
-      "timeout_h": 48,
-      "last_z": 3.7036010313690975
-    },
     "ACE/ASTER": {
       "direction": -1,
       "avg_spread": 0.37376484456770775,
@@ -259,6 +191,54 @@
       "mfe_pct": 0.0,
       "half_life_h": 6.463328101156063,
       "timeout_h": 24.0
+    },
+    "ACE/BIGTIME": {
+      "direction": -1,
+      "avg_spread": 0.6467661249760863,
+      "entry_spread": 0.6467661249760863,
+      "entry_z": 5.801959350650072,
+      "entry_time": "2026-07-20 08:35",
+      "n_entries": 1,
+      "beta": 0.5281675712287204,
+      "sym_a": "ACE",
+      "sym_b": "BIGTIME",
+      "position_size": 440.44739304967675,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": null,
+      "timeout_h": 48
+    },
+    "ACE/BMT": {
+      "direction": -1,
+      "avg_spread": 0.6550222531393626,
+      "entry_spread": 0.6550222531393626,
+      "entry_z": 5.006628273039056,
+      "entry_time": "2026-07-20 10:15",
+      "n_entries": 1,
+      "beta": 0.589999457413506,
+      "sym_a": "ACE",
+      "sym_b": "BMT",
+      "position_size": 472.7497724915961,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": null,
+      "timeout_h": 48
+    },
+    "WOO/XLM": {
+      "direction": 1,
+      "avg_spread": -1.7200572946386328,
+      "entry_spread": -1.7200572946386328,
+      "entry_z": 0.5450807616196912,
+      "entry_time": "2026-07-20 11:00",
+      "n_entries": 1,
+      "beta": 1.5951295424255438,
+      "sym_a": "WOO",
+      "sym_b": "XLM",
+      "position_size": 236.82440455364926,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 14.607936813244335,
+      "timeout_h": 29.21587362648867
     }
   }
 }
