@@ -1,46 +1,18 @@
 {
-  "balance": 4433.26870787324,
+  "balance": 4465.049211949242,
   "reserve": 500.0,
-  "realized_pnl": -545.9312921267813,
-  "total_fees": 56.79999999999991,
-  "n_trades": 45,
-  "n_wins": 12,
-  "n_losses": 33,
+  "realized_pnl": -513.3507880507801,
+  "total_fees": 61.599999999999895,
+  "n_trades": 50,
+  "n_wins": 15,
+  "n_losses": 35,
   "positions": {
-    "AVNT": {
-      "direction": -1,
-      "entry_price": 0.0924,
-      "entry_time": "2026-07-16 12:40",
-      "position_size": 500.0,
-      "mfe_pct": 4.978354978354971
-    },
-    "STX": {
-      "direction": -1,
-      "entry_price": 0.1651,
-      "entry_time": "2026-07-16 12:50",
-      "position_size": 500.0,
-      "mfe_pct": 0.7874015748031482
-    },
-    "BERA": {
-      "direction": -1,
-      "entry_price": 0.1832,
-      "entry_time": "2026-07-16 23:25",
-      "position_size": 500.0,
-      "mfe_pct": 1.3646288209607005
-    },
     "JOE": {
       "direction": -1,
       "entry_price": 0.02709,
       "entry_time": "2026-07-17 07:35",
       "position_size": 500.0,
       "mfe_pct": 2.030269472129931
-    },
-    "BLESS": {
-      "direction": 1,
-      "entry_price": 0.00862,
-      "entry_time": "2026-07-18 18:45",
-      "position_size": 500.0,
-      "mfe_pct": 2.1461716937355213
     },
     "S": {
       "direction": -1,
@@ -55,6 +27,13 @@
       "entry_time": "2026-07-18 22:10",
       "position_size": 500.0,
       "mfe_pct": 3.353126091512415
+    },
+    "MIRA": {
+      "direction": -1,
+      "entry_price": 0.04018,
+      "entry_time": "2026-07-19 21:40",
+      "position_size": 500.0,
+      "mfe_pct": 0.6470881035341103
     }
   },
   "cooldown": {
@@ -94,7 +73,7 @@
       "reason": "SL"
     },
     "YB": {
-      "exit_time": "2026-07-16 23:25",
+      "exit_time": "2026-07-19 22:55",
       "outcome": "LOSS",
       "reason": "SL"
     },
@@ -134,9 +113,9 @@
       "reason": "TRAIL"
     },
     "BLESS": {
-      "exit_time": "2026-07-14 08:00",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-19 20:45",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "PIPPIN": {
       "exit_time": "2026-07-19 18:00",
@@ -212,6 +191,21 @@
       "exit_time": "2026-07-18 22:10",
       "outcome": "WIN",
       "reason": "TRAIL"
+    },
+    "STX": {
+      "exit_time": "2026-07-19 19:35",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
+    },
+    "AVNT": {
+      "exit_time": "2026-07-19 20:30",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
+    },
+    "BERA": {
+      "exit_time": "2026-07-19 23:35",
+      "outcome": "LOSS",
+      "reason": "TIMEOUT"
     }
   }
 }

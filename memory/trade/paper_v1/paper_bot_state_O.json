@@ -1,11 +1,11 @@
 {
-  "balance": 4190.259885228759,
+  "balance": 4170.175006960653,
   "reserve": 500.0,
-  "realized_pnl": -775.8215413864184,
-  "total_fees": 133.13489558874448,
-  "n_trades": 141,
-  "n_wins": 100,
-  "n_losses": 41,
+  "realized_pnl": -795.7624852435265,
+  "total_fees": 135.9315877871598,
+  "n_trades": 145,
+  "n_wins": 101,
+  "n_losses": 44,
   "n_swaps": 28,
   "n_profit_locks": 50,
   "positions": {
@@ -26,23 +26,6 @@
       "timeout_h": 141.04592418334772,
       "last_z": -1.3402562468434267
     },
-    "ETHFI/SAND": {
-      "direction": -1,
-      "avg_spread": -0.42863065279392004,
-      "entry_spread": -0.3592985574120571,
-      "entry_z": 2.3953673745946205,
-      "entry_time": "2026-07-18 14:21",
-      "n_entries": 9,
-      "beta": 0.1388329122217749,
-      "sym_a": "ETHFI",
-      "sym_b": "SAND",
-      "position_size": 208.07245916492698,
-      "kelly_weight": 0.5,
-      "mfe_pct": 0.0,
-      "half_life_h": 10.880783742554833,
-      "timeout_h": 24.0,
-      "last_z": 1.3900741062616686
-    },
     "CHR/ERA": {
       "direction": -1,
       "avg_spread": -1.9492011522450514,
@@ -59,23 +42,6 @@
       "half_life_h": 134.94714827151543,
       "timeout_h": 240.0,
       "last_z": 1.8998551752414858
-    },
-    "APE/API3": {
-      "direction": 1,
-      "avg_spread": -1.2345282740291592,
-      "entry_spread": -1.2793499252090281,
-      "entry_z": -1.9762427764961248,
-      "entry_time": "2026-07-18 14:56",
-      "n_entries": 11,
-      "beta": 0.43391039939176257,
-      "sym_a": "APE",
-      "sym_b": "API3",
-      "position_size": 403.64378939839554,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.04979390801758132,
-      "half_life_h": 23.406215303780456,
-      "timeout_h": 46.81243060756091,
-      "last_z": -1.454466710794418
     },
     "1000FLOKI/1000SHIB": {
       "direction": 1,
@@ -190,10 +156,10 @@
       "sym_b": "XLM",
       "position_size": 207.1309844417874,
       "kelly_weight": 0.5,
-      "mfe_pct": 1.5198820261493662,
+      "mfe_pct": 5.507133987996493,
       "half_life_h": 29.78059034621076,
       "timeout_h": 59.56118069242152,
-      "last_z": 2.4274925661803284
+      "last_z": 0.7269783528923877
     },
     "ACU/BB": {
       "direction": -1,
@@ -246,22 +212,54 @@
       "timeout_h": 24.0,
       "last_z": -2.4140636323064335
     },
-    "SONIC/WAL": {
+    "BTC/CAKE": {
       "direction": -1,
-      "avg_spread": 0.04414076755192801,
-      "entry_spread": 0.05098042153425153,
-      "entry_z": 2.271749752981969,
-      "entry_time": "2026-07-19 02:21",
-      "n_entries": 3,
-      "beta": 1.074671540615662,
-      "sym_a": "SONIC",
-      "sym_b": "WAL",
-      "position_size": 419.1168669580613,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.8353413004498211,
-      "half_life_h": 9.341674168269867,
-      "timeout_h": 24.0,
-      "last_z": 1.6810320203653277
+      "avg_spread": 5.586464473162385,
+      "entry_spread": 5.5980389621438436,
+      "entry_z": 1.0253715545552464,
+      "entry_time": "2026-07-19 18:30",
+      "n_entries": 2,
+      "beta": 16.67492270962718,
+      "sym_a": "BTC",
+      "sym_b": "CAKE",
+      "position_size": 377.2404362188903,
+      "kelly_weight": 0.9,
+      "mfe_pct": 2.0677232849743987,
+      "half_life_h": 12.106865703275282,
+      "timeout_h": 24.213731406550565,
+      "last_z": 0.9015934943840305
+    },
+    "ETHFI/SAND": {
+      "direction": -1,
+      "avg_spread": 0.02807607853047589,
+      "entry_spread": 0.02807607853047589,
+      "entry_z": 1.1977811612250633,
+      "entry_time": "2026-07-19 18:55",
+      "n_entries": 1,
+      "beta": 0.271644138961609,
+      "sym_a": "ETHFI",
+      "sym_b": "SAND",
+      "position_size": 209.04917903004466,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 20.32865768242277,
+      "timeout_h": 40.65731536484554
+    },
+    "SAND/SUSHI": {
+      "direction": 1,
+      "avg_spread": -1.5409353798349494,
+      "entry_spread": -1.5409353798349494,
+      "entry_z": -1.9771802895004102,
+      "entry_time": "2026-07-20 00:00",
+      "n_entries": 1,
+      "beta": 0.8568125916111506,
+      "sym_a": "SAND",
+      "sym_b": "SUSHI",
+      "position_size": 208.50958438637022,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 34.63422773435109,
+      "timeout_h": 69.26845546870219
     }
   }
 }
