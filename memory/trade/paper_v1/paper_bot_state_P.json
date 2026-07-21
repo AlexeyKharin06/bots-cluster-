@@ -1,19 +1,12 @@
 {
-  "balance": 4421.541631052687,
+  "balance": 4396.151981636995,
   "reserve": 500.0,
-  "realized_pnl": -555.6583689473358,
-  "total_fees": 65.19999999999989,
-  "n_trades": 53,
+  "realized_pnl": -580.2480183630287,
+  "total_fees": 66.7999999999999,
+  "n_trades": 54,
   "n_wins": 16,
-  "n_losses": 37,
+  "n_losses": 38,
   "positions": {
-    "S": {
-      "direction": -1,
-      "entry_price": 0.02396,
-      "entry_time": "2026-07-18 19:30",
-      "position_size": 500.0,
-      "mfe_pct": 2.6711185308847973
-    },
     "STRK": {
       "direction": 1,
       "entry_price": 0.02863,
@@ -33,7 +26,21 @@
       "entry_price": 0.3251,
       "entry_time": "2026-07-20 16:50",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 2.58382036296525
+    },
+    "TAC": {
+      "direction": -1,
+      "entry_price": 0.003133,
+      "entry_time": "2026-07-20 23:40",
+      "position_size": 500.0,
+      "mfe_pct": 0.09575486753909956
+    },
+    "G": {
+      "direction": -1,
+      "entry_price": 0.003176,
+      "entry_time": "2026-07-21 00:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.12594458438287548
     }
   },
   "cooldown": {
@@ -211,6 +218,11 @@
       "exit_time": "2026-07-20 08:30",
       "outcome": "WIN",
       "reason": "TIMEOUT"
+    },
+    "S": {
+      "exit_time": "2026-07-21 00:00",
+      "outcome": "LOSS",
+      "reason": "SL"
     }
   }
 }
