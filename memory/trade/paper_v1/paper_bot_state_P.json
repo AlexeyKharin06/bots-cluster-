@@ -1,11 +1,11 @@
 {
-  "balance": 4291.834800211016,
+  "balance": 4333.410434634152,
   "reserve": 500.0,
-  "realized_pnl": -680.9651997890104,
-  "total_fees": 73.59999999999994,
-  "n_trades": 58,
-  "n_wins": 16,
-  "n_losses": 42,
+  "realized_pnl": -638.589565365875,
+  "total_fees": 76.79999999999994,
+  "n_trades": 61,
+  "n_wins": 18,
+  "n_losses": 43,
   "positions": {
     "STRK": {
       "direction": 1,
@@ -14,26 +14,12 @@
       "position_size": 500.0,
       "mfe_pct": 3.353126091512415
     },
-    "COAI": {
-      "direction": 1,
-      "entry_price": 0.3251,
-      "entry_time": "2026-07-20 16:50",
-      "position_size": 500.0,
-      "mfe_pct": 4.06028914180252
-    },
     "EUL": {
       "direction": 1,
       "entry_price": 1.0139,
       "entry_time": "2026-07-21 00:20",
       "position_size": 500.0,
       "mfe_pct": 0.01972581122398065
-    },
-    "MYX": {
-      "direction": 1,
-      "entry_price": 0.083,
-      "entry_time": "2026-07-21 01:40",
-      "position_size": 500.0,
-      "mfe_pct": 0.9759036144578292
     },
     "ENSO": {
       "direction": 1,
@@ -47,35 +33,42 @@
       "entry_price": 0.004584,
       "entry_time": "2026-07-21 02:55",
       "position_size": 500.0,
-      "mfe_pct": 3.1195462478184943
+      "mfe_pct": 4.952006980802781
     },
     "NIL": {
       "direction": 1,
       "entry_price": 0.03644,
       "entry_time": "2026-07-21 03:05",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 0.16465422612512715
     },
     "BANANAS31": {
       "direction": 1,
       "entry_price": 0.007153,
       "entry_time": "2026-07-21 03:50",
       "position_size": 500.0,
-      "mfe_pct": 2.5863274150706106
+      "mfe_pct": 3.047672305326432
     },
     "STX": {
       "direction": 1,
       "entry_price": 0.1672,
       "entry_time": "2026-07-21 04:00",
       "position_size": 500.0,
-      "mfe_pct": 0.5980861244019087
+      "mfe_pct": 0.9569377990430672
     },
-    "VVV": {
+    "FET": {
       "direction": 1,
-      "entry_price": 12.032,
-      "entry_time": "2026-07-21 04:35",
+      "entry_price": 0.1594,
+      "entry_time": "2026-07-21 07:40",
       "position_size": 500.0,
-      "mfe_pct": 5.352393617021267
+      "mfe_pct": 0.5018820577164407
+    },
+    "FIL": {
+      "direction": 1,
+      "entry_price": 0.752,
+      "entry_time": "2026-07-21 08:45",
+      "position_size": 500.0,
+      "mfe_pct": 0.917553191489362
     }
   },
   "cooldown": {
@@ -90,9 +83,9 @@
       "reason": "SL"
     },
     "MYX": {
-      "exit_time": "2026-07-16 12:55",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-07-21 08:40",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "BULLA": {
       "exit_time": "2026-07-15 14:45",
@@ -195,9 +188,9 @@
       "reason": "TIMEOUT"
     },
     "COAI": {
-      "exit_time": "2026-07-16 12:20",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-21 12:10",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "EUL": {
       "exit_time": "2026-07-16 12:50",
@@ -258,6 +251,11 @@
       "exit_time": "2026-07-21 00:00",
       "outcome": "LOSS",
       "reason": "SL"
+    },
+    "VVV": {
+      "exit_time": "2026-07-21 07:40",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     }
   }
 }
