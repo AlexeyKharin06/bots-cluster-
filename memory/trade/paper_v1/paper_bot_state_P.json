@@ -1,19 +1,12 @@
 {
-  "balance": 4333.010434634152,
+  "balance": 4339.145397959336,
   "reserve": 500.0,
-  "realized_pnl": -638.589565365875,
-  "total_fees": 77.19999999999995,
-  "n_trades": 61,
-  "n_wins": 18,
+  "realized_pnl": -632.0546020406917,
+  "total_fees": 78.39999999999995,
+  "n_trades": 62,
+  "n_wins": 19,
   "n_losses": 43,
   "positions": {
-    "STRK": {
-      "direction": 1,
-      "entry_price": 0.02863,
-      "entry_time": "2026-07-18 22:10",
-      "position_size": 500.0,
-      "mfe_pct": 3.388054488298997
-    },
     "EUL": {
       "direction": 1,
       "entry_price": 1.0139,
@@ -40,7 +33,7 @@
       "entry_price": 0.03644,
       "entry_time": "2026-07-21 03:05",
       "position_size": 500.0,
-      "mfe_pct": 0.9055982436882548
+      "mfe_pct": 1.5367727771679496
     },
     "BANANAS31": {
       "direction": 1,
@@ -68,7 +61,7 @@
       "entry_price": 0.752,
       "entry_time": "2026-07-21 08:45",
       "position_size": 500.0,
-      "mfe_pct": 0.917553191489362
+      "mfe_pct": 2.4601063829787106
     },
     "FLUX": {
       "direction": 1,
@@ -76,6 +69,13 @@
       "entry_time": "2026-07-21 12:25",
       "position_size": 500.0,
       "mfe_pct": 0.9733487833140098
+    },
+    "RESOLV": {
+      "direction": -1,
+      "entry_price": 0.01906,
+      "entry_time": "2026-07-22 07:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -190,7 +190,7 @@
       "reason": "SL"
     },
     "STRK": {
-      "exit_time": "2026-07-16 11:45",
+      "exit_time": "2026-07-22 06:40",
       "outcome": "WIN",
       "reason": "TIMEOUT"
     },
