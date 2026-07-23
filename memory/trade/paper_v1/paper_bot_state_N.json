@@ -1,10 +1,10 @@
 {
-  "balance": 3812.126017655456,
+  "balance": 3830.1200231948114,
   "reserve": 500.0,
-  "realized_pnl": -1141.9379823445793,
-  "total_fees": 130.4159999999989,
-  "n_trades": 117,
-  "n_wins": 67,
+  "realized_pnl": -1123.799976805224,
+  "total_fees": 131.5199999999989,
+  "n_trades": 120,
+  "n_wins": 70,
   "n_losses": 50,
   "positions": {
     "1000CAT/1000FLOKI": {
@@ -35,35 +35,6 @@
       "kelly_weight": 1.0,
       "last_z": -1.5894790290808838
     },
-    "RENDER/RUNE": {
-      "direction": -1,
-      "avg_spread": 0.16993431240685658,
-      "entry_spread": 0.15444092612092497,
-      "entry_z": 1.9994128980008385,
-      "entry_time": "2026-07-20 23:45",
-      "n_entries": 8,
-      "beta": -0.32404080662548607,
-      "sym_a": "RENDER",
-      "sym_b": "RUNE",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "mfe_pct": 0.19953579694503842,
-      "last_z": 2.5385989398276205
-    },
-    "LINK/SOL": {
-      "direction": -1,
-      "avg_spread": 3.937755957975394,
-      "entry_spread": 3.9496766171578033,
-      "entry_z": 2.0876056849820035,
-      "entry_time": "2026-07-21 05:05",
-      "n_entries": 6,
-      "beta": -0.40938301047270337,
-      "sym_a": "LINK",
-      "sym_b": "SOL",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "last_z": 1.5905308328082985
-    },
     "ONDO/RUNE": {
       "direction": -1,
       "avg_spread": -0.2597592735316094,
@@ -77,20 +48,7 @@
       "position_size": 500.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.8809278312776003,
-      "last_z": 2.618901222930983
-    },
-    "LINK/XRP": {
-      "direction": 1,
-      "avg_spread": 1.9530410886062808,
-      "entry_spread": 1.9530410886062808,
-      "entry_z": -2.9043179314274976,
-      "entry_time": "2026-07-21 14:50",
-      "n_entries": 1,
-      "beta": 1.4982672895211209,
-      "sym_a": "LINK",
-      "sym_b": "XRP",
-      "position_size": 200.0,
-      "kelly_weight": 0.4
+      "last_z": 1.2108625864875426
     },
     "ENA/SEI": {
       "direction": -1,
@@ -144,6 +102,47 @@
       "beta": 1.791396040865999,
       "sym_a": "ONDO",
       "sym_b": "PENGU",
+      "position_size": 500.0,
+      "kelly_weight": 1.0
+    },
+    "BNB/XRP": {
+      "direction": 1,
+      "avg_spread": 6.328388199876957,
+      "entry_spread": 6.328388199876957,
+      "entry_z": -1.0462777210652767,
+      "entry_time": "2026-07-23 15:50",
+      "n_entries": 1,
+      "beta": 0.12096503512310357,
+      "sym_a": "BNB",
+      "sym_b": "XRP",
+      "position_size": 200.0,
+      "kelly_weight": 0.4
+    },
+    "BNB/LINK": {
+      "direction": 1,
+      "avg_spread": 6.356178451145904,
+      "entry_spread": 6.356178451145904,
+      "entry_z": -0.9861808705827125,
+      "entry_time": "2026-07-23 15:50",
+      "n_entries": 1,
+      "beta": -0.006983860213451102,
+      "sym_a": "BNB",
+      "sym_b": "LINK",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "mfe_pct": 0.08286736192584243,
+      "last_z": -0.8903135988340659
+    },
+    "SAND/SUSHI": {
+      "direction": 1,
+      "avg_spread": -3.026303876792149,
+      "entry_spread": -3.026303876792149,
+      "entry_z": -3.5150686320276456,
+      "entry_time": "2026-07-23 15:55",
+      "n_entries": 1,
+      "beta": 0.025986853033669776,
+      "sym_a": "SAND",
+      "sym_b": "SUSHI",
       "position_size": 500.0,
       "kelly_weight": 1.0
     }

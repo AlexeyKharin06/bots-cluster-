@@ -1,13 +1,13 @@
 {
-  "balance": 4823.153210579659,
+  "balance": 4833.351979236914,
   "reserve": 500.0,
-  "realized_pnl": -121.89418202367759,
-  "total_fees": 212.27025601068928,
-  "n_trades": 219,
-  "n_wins": 161,
+  "realized_pnl": -111.67221316556025,
+  "total_fees": 213.45395539849332,
+  "n_trades": 220,
+  "n_wins": 162,
   "n_losses": 58,
   "n_swaps": 37,
-  "n_profit_locks": 94,
+  "n_profit_locks": 95,
   "positions": {
     "1000SHIB/1MBABYDOGE": {
       "direction": -1,
@@ -42,23 +42,6 @@
       "half_life_h": 28.04738026534912,
       "timeout_h": 56.09476053069824,
       "last_z": 1.8310313585229483
-    },
-    "ENA/OP": {
-      "direction": -1,
-      "avg_spread": -1.3778030881183003,
-      "entry_spread": -1.4719105988690415,
-      "entry_z": 1.8279303864867955,
-      "entry_time": "2026-07-21 01:06",
-      "n_entries": 7,
-      "beta": 0.4294062326788405,
-      "sym_a": "ENA",
-      "sym_b": "OP",
-      "position_size": 725.3119918391988,
-      "kelly_weight": 1.5,
-      "mfe_pct": 5.705578357014662,
-      "half_life_h": 52.439793149043005,
-      "timeout_h": 104.87958629808601,
-      "last_z": 1.9454017400065462
     },
     "VET/W": {
       "direction": -1,
@@ -260,6 +243,22 @@
       "half_life_h": 7.528001339042784,
       "timeout_h": 24.0,
       "last_z": -0.868209289206118
+    },
+    "PNUT/POPCAT": {
+      "direction": 1,
+      "avg_spread": -0.02555375266960125,
+      "entry_spread": -0.02555375266960125,
+      "entry_z": -2.4486610798779807,
+      "entry_time": "2026-07-23 15:50",
+      "n_entries": 1,
+      "beta": 1.0205330725969177,
+      "sym_a": "PNUT",
+      "sym_b": "POPCAT",
+      "position_size": 290.00251076626654,
+      "kelly_weight": 0.6,
+      "mfe_pct": 0.0,
+      "half_life_h": 5.205556608769059,
+      "timeout_h": 24.0
     }
   }
 }
