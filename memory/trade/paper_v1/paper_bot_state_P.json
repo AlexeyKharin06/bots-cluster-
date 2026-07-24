@@ -1,47 +1,12 @@
 {
-  "balance": 4225.5857694257875,
+  "balance": 4199.507487395652,
   "reserve": 500.0,
-  "realized_pnl": -745.6142305742396,
-  "total_fees": 80.79999999999994,
-  "n_trades": 65,
-  "n_wins": 19,
-  "n_losses": 46,
+  "realized_pnl": -771.6925126043744,
+  "total_fees": 84.79999999999993,
+  "n_trades": 70,
+  "n_wins": 20,
+  "n_losses": 50,
   "positions": {
-    "EUL": {
-      "direction": 1,
-      "entry_price": 1.0139,
-      "entry_time": "2026-07-21 00:20",
-      "position_size": 500.0,
-      "mfe_pct": 1.094782522931248
-    },
-    "ENSO": {
-      "direction": 1,
-      "entry_price": 0.7576,
-      "entry_time": "2026-07-21 01:50",
-      "position_size": 500.0,
-      "mfe_pct": 2.705913410770844
-    },
-    "SOPH": {
-      "direction": 1,
-      "entry_price": 0.004584,
-      "entry_time": "2026-07-21 02:55",
-      "position_size": 500.0,
-      "mfe_pct": 4.952006980802781
-    },
-    "NIL": {
-      "direction": 1,
-      "entry_price": 0.03644,
-      "entry_time": "2026-07-21 03:05",
-      "position_size": 500.0,
-      "mfe_pct": 2.5795828759604733
-    },
-    "FIL": {
-      "direction": 1,
-      "entry_price": 0.752,
-      "entry_time": "2026-07-21 08:45",
-      "position_size": 500.0,
-      "mfe_pct": 2.4601063829787106
-    },
     "FLUX": {
       "direction": 1,
       "entry_price": 0.04315,
@@ -104,9 +69,9 @@
       "reason": "TIMEOUT"
     },
     "SOPH": {
-      "exit_time": "2026-07-13 05:45",
+      "exit_time": "2026-07-24 11:00",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "DASH": {
       "exit_time": "2026-07-15 14:15",
@@ -114,9 +79,9 @@
       "reason": "SL"
     },
     "FIL": {
-      "exit_time": "2026-07-13 07:15",
+      "exit_time": "2026-07-24 09:20",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "ZEN": {
       "exit_time": "2026-07-13 10:25",
@@ -179,9 +144,9 @@
       "reason": "TRAIL"
     },
     "EUL": {
-      "exit_time": "2026-07-16 12:50",
+      "exit_time": "2026-07-24 09:00",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "BANANAS31": {
       "exit_time": "2026-07-23 16:20",
@@ -247,6 +212,16 @@
       "exit_time": "2026-07-23 15:50",
       "outcome": "LOSS",
       "reason": "SL"
+    },
+    "NIL": {
+      "exit_time": "2026-07-24 07:30",
+      "outcome": "LOSS",
+      "reason": "TIMEOUT"
+    },
+    "ENSO": {
+      "exit_time": "2026-07-24 09:20",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
     }
   }
 }
