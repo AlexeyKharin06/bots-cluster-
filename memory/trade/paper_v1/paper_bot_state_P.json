@@ -1,25 +1,32 @@
 {
-  "balance": 4199.507487395652,
+  "balance": 4170.213397013265,
   "reserve": 500.0,
-  "realized_pnl": -771.6925126043744,
-  "total_fees": 84.79999999999993,
-  "n_trades": 70,
+  "realized_pnl": -800.1866029867615,
+  "total_fees": 86.39999999999993,
+  "n_trades": 71,
   "n_wins": 20,
-  "n_losses": 50,
+  "n_losses": 51,
   "positions": {
-    "FLUX": {
-      "direction": 1,
-      "entry_price": 0.04315,
-      "entry_time": "2026-07-21 12:25",
-      "position_size": 500.0,
-      "mfe_pct": 1.4600231749710257
-    },
     "RESOLV": {
       "direction": -1,
       "entry_price": 0.01906,
       "entry_time": "2026-07-22 07:05",
       "position_size": 500.0,
       "mfe_pct": 1.9937040923399874
+    },
+    "METIS": {
+      "direction": -1,
+      "entry_price": 2.646,
+      "entry_time": "2026-07-24 14:20",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "CHZ": {
+      "direction": -1,
+      "entry_price": 0.01422,
+      "entry_time": "2026-07-24 16:45",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -222,6 +229,11 @@
       "exit_time": "2026-07-24 09:20",
       "outcome": "WIN",
       "reason": "TIMEOUT"
+    },
+    "FLUX": {
+      "exit_time": "2026-07-24 17:00",
+      "outcome": "LOSS",
+      "reason": "SL"
     }
   }
 }
