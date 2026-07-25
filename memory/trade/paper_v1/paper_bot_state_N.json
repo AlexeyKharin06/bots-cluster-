@@ -1,10 +1,10 @@
 {
-  "balance": 3739.1291593583746,
+  "balance": 3744.7242470327587,
   "reserve": 500.0,
-  "realized_pnl": -1213.4788406416603,
-  "total_fees": 140.51199999999906,
-  "n_trades": 129,
-  "n_wins": 75,
+  "realized_pnl": -1207.4517529672764,
+  "total_fees": 141.26399999999913,
+  "n_trades": 130,
+  "n_wins": 76,
   "n_losses": 54,
   "positions": {
     "1000CAT/1000FLOKI": {
@@ -62,7 +62,7 @@
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.13937321067092334,
-      "last_z": 1.041260243167888
+      "last_z": 0.6816966723307231
     },
     "SAND/WIF": {
       "direction": 1,
@@ -77,21 +77,6 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "last_z": -2.562792214293867
-    },
-    "LDO/RUNE": {
-      "direction": -1,
-      "avg_spread": 0.8930157832602993,
-      "entry_spread": 0.8930157832602993,
-      "entry_z": 0.9420262239179368,
-      "entry_time": "2026-07-25 06:30",
-      "n_entries": 1,
-      "beta": 2.1431298157626775,
-      "sym_a": "LDO",
-      "sym_b": "RUNE",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "mfe_pct": 2.6205980080352576,
-      "last_z": 0.5600119748649003
     },
     "PENGU/TIA": {
       "direction": 1,
@@ -108,42 +93,61 @@
     },
     "RUNE/TIA": {
       "direction": 1,
-      "avg_spread": -1.278384827191653,
+      "avg_spread": -1.2581298555555294,
       "entry_spread": -1.278384827191653,
       "entry_z": -1.913226883512002,
       "entry_time": "2026-07-25 08:05",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": -0.37544128042792213,
       "sym_a": "RUNE",
       "sym_b": "TIA",
       "position_size": 200.0,
-      "kelly_weight": 0.4
+      "kelly_weight": 0.4,
+      "mfe_pct": 1.2886915453460546,
+      "last_z": -1.161973284113277
     },
     "ETH/SUI": {
       "direction": -1,
-      "avg_spread": 7.810144890465743,
+      "avg_spread": 7.7873942037337365,
       "entry_spread": 7.810144890465743,
       "entry_z": 2.4670137447273257,
       "entry_time": "2026-07-25 09:40",
-      "n_entries": 1,
+      "n_entries": 3,
       "beta": 0.8118918551870009,
       "sym_a": "ETH",
       "sym_b": "SUI",
       "position_size": 500.0,
-      "kelly_weight": 1.0
+      "kelly_weight": 1.0,
+      "last_z": 2.1932708947017736
     },
     "SOL/XRP": {
       "direction": 1,
-      "avg_spread": 4.248968306307239,
+      "avg_spread": 4.247986501164128,
       "entry_spread": 4.248968306307239,
       "entry_z": -1.9022692654845264,
       "entry_time": "2026-07-25 10:10",
-      "n_entries": 1,
+      "n_entries": 3,
       "beta": 0.6380828579670025,
       "sym_a": "SOL",
       "sym_b": "XRP",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "last_z": -1.9532661620252099
+    },
+    "RENDER/RUNE": {
+      "direction": 1,
+      "avg_spread": 0.19762897167278645,
+      "entry_spread": 0.19762897167278645,
+      "entry_z": -1.6533746046029705,
+      "entry_time": "2026-07-25 14:05",
+      "n_entries": 1,
+      "beta": -0.20008189259295062,
+      "sym_a": "RENDER",
+      "sym_b": "RUNE",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "mfe_pct": 1.386859227568532,
+      "last_z": -0.7781357791736074
     }
   },
   "last_universe_scan": null,
