@@ -1,31 +1,14 @@
 {
-  "balance": 4866.543943811644,
+  "balance": 4878.122377196312,
   "reserve": 500.0,
-  "realized_pnl": -78.38291638823908,
-  "total_fees": 215.88014815686233,
-  "n_trades": 223,
-  "n_wins": 165,
-  "n_losses": 58,
+  "realized_pnl": -66.70726306900474,
+  "total_fees": 217.9009010078585,
+  "n_trades": 226,
+  "n_wins": 167,
+  "n_losses": 59,
   "n_swaps": 37,
   "n_profit_locks": 95,
   "positions": {
-    "1000SHIB/1MBABYDOGE": {
-      "direction": -1,
-      "avg_spread": -2.750026286888179,
-      "entry_spread": -2.6691510537281853,
-      "entry_z": 2.2570334499182954,
-      "entry_time": "2026-07-20 23:51",
-      "n_entries": 14,
-      "beta": 0.3444829401578849,
-      "sym_a": "1000SHIB",
-      "sym_b": "1MBABYDOGE",
-      "position_size": 718.4616019921632,
-      "kelly_weight": 1.5,
-      "mfe_pct": 0.0,
-      "half_life_h": 21.034106708977628,
-      "timeout_h": 42.068213417955256,
-      "last_z": 1.9750709142111873
-    },
     "LDO/LTC": {
       "direction": -1,
       "avg_spread": -4.261598908272375,
@@ -76,23 +59,6 @@
       "half_life_h": null,
       "timeout_h": 48,
       "last_z": 2.4932905360216737
-    },
-    "RENDER/SUSHI": {
-      "direction": -1,
-      "avg_spread": 0.047076767490398456,
-      "entry_spread": 0.04759215991519472,
-      "entry_z": 2.3392061355604143,
-      "entry_time": "2026-07-21 09:46",
-      "n_entries": 8,
-      "beta": -0.2206786977684387,
-      "sym_a": "RENDER",
-      "sym_b": "SUSHI",
-      "position_size": 242.94372348309358,
-      "kelly_weight": 0.5,
-      "mfe_pct": 0.24684122799275565,
-      "half_life_h": 10.8931850389826,
-      "timeout_h": 24.0,
-      "last_z": 2.2323224595767996
     },
     "1000FLOKI/1INCH": {
       "direction": 1,
@@ -159,7 +125,7 @@
       "mfe_pct": 0.8470352142293969,
       "half_life_h": 88.7494027903886,
       "timeout_h": 177.4988055807772,
-      "last_z": -1.267930945337016
+      "last_z": -0.8351668631806083
     },
     "WOO/XRP": {
       "direction": -1,
@@ -176,22 +142,6 @@
       "mfe_pct": 0.0,
       "half_life_h": 22.86353401991182,
       "timeout_h": 45.72706803982364
-    },
-    "WOO/XLM": {
-      "direction": 1,
-      "avg_spread": -0.05860987738491108,
-      "entry_spread": -0.05860987738491108,
-      "entry_z": -2.3025384337852577,
-      "entry_time": "2026-07-21 14:46",
-      "n_entries": 1,
-      "beta": 2.6218396412196627,
-      "sym_a": "WOO",
-      "sym_b": "XLM",
-      "position_size": 240.80274729436368,
-      "kelly_weight": 0.5,
-      "mfe_pct": 0.0,
-      "half_life_h": 8.809539409431665,
-      "timeout_h": 24.0
     },
     "PNUT/POPCAT": {
       "direction": 1,
@@ -256,6 +206,54 @@
       "mfe_pct": 0.0,
       "half_life_h": 12.598733812677233,
       "timeout_h": 25.197467625354466
+    },
+    "1000PEPE/1000SHIB": {
+      "direction": 1,
+      "avg_spread": -0.038690816017119545,
+      "entry_spread": -0.038690816017119545,
+      "entry_z": -2.5001134896546873,
+      "entry_time": "2026-07-25 04:26",
+      "n_entries": 1,
+      "beta": 1.07351198035831,
+      "sym_a": "1000PEPE",
+      "sym_b": "1000SHIB",
+      "position_size": 240.49726241386443,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 21.607694574425988,
+      "timeout_h": 43.215389148851976
+    },
+    "WOO/XLM": {
+      "direction": -1,
+      "avg_spread": -1.7212860874603253,
+      "entry_spread": -1.7212860874603253,
+      "entry_z": 1.6517726531915082,
+      "entry_time": "2026-07-25 05:55",
+      "n_entries": 1,
+      "beta": 1.5380674349218717,
+      "sym_a": "WOO",
+      "sym_b": "XLM",
+      "position_size": 243.0247823406504,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 36.94842952241505,
+      "timeout_h": 73.8968590448301
+    },
+    "EIGEN/ENA": {
+      "direction": 1,
+      "avg_spread": -0.08976736823331155,
+      "entry_spread": -0.08976736823331155,
+      "entry_z": -2.2875377683803557,
+      "entry_time": "2026-07-25 06:10",
+      "n_entries": 1,
+      "beta": 0.6177260134380599,
+      "sym_a": "EIGEN",
+      "sym_b": "ENA",
+      "position_size": 731.7271373050945,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 2420.2146187671424,
+      "timeout_h": 240.0
     }
   }
 }
