@@ -1,25 +1,18 @@
 {
-  "balance": 4169.413397013266,
+  "balance": 4178.818223875807,
   "reserve": 500.0,
-  "realized_pnl": -800.1866029867615,
-  "total_fees": 87.19999999999995,
-  "n_trades": 71,
-  "n_wins": 20,
+  "realized_pnl": -789.1817761242222,
+  "total_fees": 89.59999999999997,
+  "n_trades": 72,
+  "n_wins": 21,
   "n_losses": 51,
   "positions": {
-    "RESOLV": {
-      "direction": -1,
-      "entry_price": 0.01906,
-      "entry_time": "2026-07-22 07:05",
-      "position_size": 500.0,
-      "mfe_pct": 2.570828961175242
-    },
     "METIS": {
       "direction": -1,
       "entry_price": 2.646,
       "entry_time": "2026-07-24 14:20",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 0.3401360544217691
     },
     "CHZ": {
       "direction": -1,
@@ -33,12 +26,40 @@
       "entry_price": 12.625,
       "entry_time": "2026-07-25 04:45",
       "position_size": 500.0,
-      "mfe_pct": 0.24554455445544576
+      "mfe_pct": 3.089108910891092
     },
     "SOPH": {
       "direction": -1,
       "entry_price": 0.004402,
       "entry_time": "2026-07-25 05:40",
+      "position_size": 500.0,
+      "mfe_pct": 0.45433893684688753
+    },
+    "AIXBT": {
+      "direction": -1,
+      "entry_price": 0.01768,
+      "entry_time": "2026-07-25 08:55",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "GIGGLE": {
+      "direction": -1,
+      "entry_price": 25.06,
+      "entry_time": "2026-07-25 09:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "ENSO": {
+      "direction": 1,
+      "entry_price": 0.817,
+      "entry_time": "2026-07-25 11:30",
+      "position_size": 500.0,
+      "mfe_pct": 0.4406364749081959
+    },
+    "SOON": {
+      "direction": 1,
+      "entry_price": 0.1734,
+      "entry_time": "2026-07-25 11:40",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -150,9 +171,9 @@
       "reason": "SL"
     },
     "RESOLV": {
-      "exit_time": "2026-07-18 00:55",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-25 08:05",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
     },
     "STRK": {
       "exit_time": "2026-07-22 06:40",
