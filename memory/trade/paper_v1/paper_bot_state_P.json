@@ -1,10 +1,10 @@
 {
-  "balance": 4154.726706516441,
+  "balance": 4206.183223240778,
   "reserve": 500.0,
-  "realized_pnl": -811.67329348359,
-  "total_fees": 93.59999999999998,
-  "n_trades": 75,
-  "n_wins": 22,
+  "realized_pnl": -759.4167767592533,
+  "total_fees": 95.19999999999999,
+  "n_trades": 76,
+  "n_wins": 23,
   "n_losses": 53,
   "positions": {
     "METIS": {
@@ -35,13 +35,6 @@
       "position_size": 500.0,
       "mfe_pct": 2.5458996328029393
     },
-    "SOON": {
-      "direction": 1,
-      "entry_price": 0.1734,
-      "entry_time": "2026-07-25 11:40",
-      "position_size": 500.0,
-      "mfe_pct": 0.40369088811995635
-    },
     "JOE": {
       "direction": 1,
       "entry_price": 0.02805,
@@ -54,7 +47,7 @@
       "entry_price": 0.02997,
       "entry_time": "2026-07-25 17:05",
       "position_size": 500.0,
-      "mfe_pct": 0.4671338004671455
+      "mfe_pct": 4.437771104437771
     },
     "FET": {
       "direction": 1,
@@ -67,6 +60,20 @@
       "direction": -1,
       "entry_price": 0.05718,
       "entry_time": "2026-07-26 11:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "BLESS": {
+      "direction": 1,
+      "entry_price": 0.00899,
+      "entry_time": "2026-07-26 17:10",
+      "position_size": 500.0,
+      "mfe_pct": 0.82313681868742
+    },
+    "NIL": {
+      "direction": 1,
+      "entry_price": 0.03688,
+      "entry_time": "2026-07-26 17:55",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -163,9 +170,9 @@
       "reason": "SL"
     },
     "SOON": {
-      "exit_time": "2026-07-14 20:10",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-26 16:20",
+      "outcome": "WIN",
+      "reason": "TP"
     },
     "TNSR": {
       "exit_time": "2026-07-15 14:05",
