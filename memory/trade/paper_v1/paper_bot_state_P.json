@@ -1,11 +1,11 @@
 {
-  "balance": 4210.243966450066,
+  "balance": 4154.726706516441,
   "reserve": 500.0,
-  "realized_pnl": -756.5560335499647,
-  "total_fees": 91.59999999999998,
-  "n_trades": 73,
+  "realized_pnl": -811.67329348359,
+  "total_fees": 93.59999999999998,
+  "n_trades": 75,
   "n_wins": 22,
-  "n_losses": 51,
+  "n_losses": 53,
   "positions": {
     "METIS": {
       "direction": -1,
@@ -27,20 +27,6 @@
       "entry_time": "2026-07-25 05:40",
       "position_size": 500.0,
       "mfe_pct": 0.45433893684688753
-    },
-    "AIXBT": {
-      "direction": -1,
-      "entry_price": 0.01768,
-      "entry_time": "2026-07-25 08:55",
-      "position_size": 500.0,
-      "mfe_pct": 0.7352941176470673
-    },
-    "GIGGLE": {
-      "direction": -1,
-      "entry_price": 25.06,
-      "entry_time": "2026-07-25 09:05",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
     },
     "ENSO": {
       "direction": 1,
@@ -74,6 +60,13 @@
       "direction": 1,
       "entry_price": 0.1596,
       "entry_time": "2026-07-25 22:00",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "ARC": {
+      "direction": -1,
+      "entry_price": 0.05718,
+      "entry_time": "2026-07-26 11:05",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -180,7 +173,7 @@
       "reason": "SL"
     },
     "GIGGLE": {
-      "exit_time": "2026-07-15 14:05",
+      "exit_time": "2026-07-26 10:55",
       "outcome": "LOSS",
       "reason": "SL"
     },
@@ -281,6 +274,11 @@
     },
     "FLUX": {
       "exit_time": "2026-07-24 17:00",
+      "outcome": "LOSS",
+      "reason": "SL"
+    },
+    "AIXBT": {
+      "exit_time": "2026-07-26 09:40",
       "outcome": "LOSS",
       "reason": "SL"
     }
