@@ -1,10 +1,10 @@
 {
-  "balance": 4206.183223240778,
+  "balance": 4224.169075759964,
   "reserve": 500.0,
-  "realized_pnl": -759.4167767592533,
-  "total_fees": 95.19999999999999,
-  "n_trades": 76,
-  "n_wins": 23,
+  "realized_pnl": -741.0309242400674,
+  "total_fees": 96.39999999999999,
+  "n_trades": 77,
+  "n_wins": 24,
   "n_losses": 53,
   "positions": {
     "METIS": {
@@ -42,13 +42,6 @@
       "position_size": 500.0,
       "mfe_pct": 3.2798573975044487
     },
-    "STRK": {
-      "direction": 1,
-      "entry_price": 0.02997,
-      "entry_time": "2026-07-25 17:05",
-      "position_size": 500.0,
-      "mfe_pct": 4.437771104437771
-    },
     "FET": {
       "direction": 1,
       "entry_price": 0.1596,
@@ -61,7 +54,7 @@
       "entry_price": 0.05718,
       "entry_time": "2026-07-26 11:05",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 2.273522210563139
     },
     "BLESS": {
       "direction": 1,
@@ -74,6 +67,13 @@
       "direction": 1,
       "entry_price": 0.03688,
       "entry_time": "2026-07-26 17:55",
+      "position_size": 500.0,
+      "mfe_pct": 4.528199566160507
+    },
+    "ZEN": {
+      "direction": 1,
+      "entry_price": 4.148,
+      "entry_time": "2026-07-26 23:00",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -190,9 +190,9 @@
       "reason": "TIMEOUT"
     },
     "STRK": {
-      "exit_time": "2026-07-22 06:40",
+      "exit_time": "2026-07-26 22:50",
       "outcome": "WIN",
-      "reason": "TIMEOUT"
+      "reason": "TRAIL"
     },
     "COAI": {
       "exit_time": "2026-07-21 12:10",
