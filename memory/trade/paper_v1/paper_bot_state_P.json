@@ -1,25 +1,18 @@
 {
-  "balance": 4259.973829827921,
+  "balance": 4264.93347577824,
   "reserve": 500.0,
-  "realized_pnl": -703.6261701721115,
-  "total_fees": 102.0,
-  "n_trades": 82,
-  "n_wins": 26,
-  "n_losses": 56,
+  "realized_pnl": -698.2665242217927,
+  "total_fees": 104.0,
+  "n_trades": 84,
+  "n_wins": 27,
+  "n_losses": 57,
   "positions": {
-    "CHZ": {
-      "direction": -1,
-      "entry_price": 0.01422,
-      "entry_time": "2026-07-24 16:45",
-      "position_size": 500.0,
-      "mfe_pct": 1.828410689170179
-    },
     "SOPH": {
       "direction": -1,
       "entry_price": 0.004402,
       "entry_time": "2026-07-25 05:40",
       "position_size": 500.0,
-      "mfe_pct": 0.9086778736937529
+      "mfe_pct": 3.066787823716488
     },
     "JOE": {
       "direction": 1,
@@ -27,13 +20,6 @@
       "entry_time": "2026-07-25 15:35",
       "position_size": 500.0,
       "mfe_pct": 3.2798573975044487
-    },
-    "FET": {
-      "direction": 1,
-      "entry_price": 0.1596,
-      "entry_time": "2026-07-25 22:00",
-      "position_size": 500.0,
-      "mfe_pct": 0.375939849624074
     },
     "ARC": {
       "direction": -1,
@@ -61,7 +47,7 @@
       "entry_price": 0.07301,
       "entry_time": "2026-07-27 06:20",
       "position_size": 500.0,
-      "mfe_pct": 3.67073003698124
+      "mfe_pct": 6.273113272154496
     },
     "NIL": {
       "direction": 1,
@@ -69,6 +55,13 @@
       "entry_time": "2026-07-27 10:30",
       "position_size": 500.0,
       "mfe_pct": 0.6272982911529335
+    },
+    "HEMI": {
+      "direction": -1,
+      "entry_price": 0.004577,
+      "entry_time": "2026-07-27 22:50",
+      "position_size": 500.0,
+      "mfe_pct": 0.13109023377758655
     }
   },
   "cooldown": {
@@ -258,7 +251,7 @@
       "reason": "TRAIL"
     },
     "FET": {
-      "exit_time": "2026-07-23 15:50",
+      "exit_time": "2026-07-27 19:40",
       "outcome": "LOSS",
       "reason": "SL"
     },
@@ -281,6 +274,11 @@
       "exit_time": "2026-07-26 09:40",
       "outcome": "LOSS",
       "reason": "SL"
+    },
+    "CHZ": {
+      "exit_time": "2026-07-28 00:15",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
     }
   }
 }
