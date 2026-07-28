@@ -1,11 +1,11 @@
 {
-  "balance": 4264.93347577824,
+  "balance": 4187.700596695394,
   "reserve": 500.0,
-  "realized_pnl": -698.2665242217927,
-  "total_fees": 104.0,
-  "n_trades": 84,
+  "realized_pnl": -775.0994033046394,
+  "total_fees": 105.2,
+  "n_trades": 85,
   "n_wins": 27,
-  "n_losses": 57,
+  "n_losses": 58,
   "positions": {
     "SOPH": {
       "direction": -1,
@@ -49,19 +49,19 @@
       "position_size": 500.0,
       "mfe_pct": 6.273113272154496
     },
-    "NIL": {
-      "direction": 1,
-      "entry_price": 0.04623,
-      "entry_time": "2026-07-27 10:30",
-      "position_size": 500.0,
-      "mfe_pct": 0.6272982911529335
-    },
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004577,
       "entry_time": "2026-07-27 22:50",
       "position_size": 500.0,
-      "mfe_pct": 0.13109023377758655
+      "mfe_pct": 0.6991479134804468
+    },
+    "VVV": {
+      "direction": -1,
+      "entry_price": 12.42,
+      "entry_time": "2026-07-28 01:50",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -256,9 +256,9 @@
       "reason": "SL"
     },
     "NIL": {
-      "exit_time": "2026-07-27 01:50",
-      "outcome": "WIN",
-      "reason": "TP"
+      "exit_time": "2026-07-28 00:25",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "ENSO": {
       "exit_time": "2026-07-27 00:45",
