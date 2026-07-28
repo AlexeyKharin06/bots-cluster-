@@ -1,60 +1,39 @@
 {
-  "balance": 4187.700596695394,
+  "balance": 4126.600817255765,
   "reserve": 500.0,
-  "realized_pnl": -775.0994033046394,
-  "total_fees": 105.2,
-  "n_trades": 85,
-  "n_wins": 27,
-  "n_losses": 58,
+  "realized_pnl": -836.1991827442682,
+  "total_fees": 107.6,
+  "n_trades": 88,
+  "n_wins": 28,
+  "n_losses": 60,
   "positions": {
-    "SOPH": {
-      "direction": -1,
-      "entry_price": 0.004402,
-      "entry_time": "2026-07-25 05:40",
-      "position_size": 500.0,
-      "mfe_pct": 3.066787823716488
-    },
-    "JOE": {
-      "direction": 1,
-      "entry_price": 0.02805,
-      "entry_time": "2026-07-25 15:35",
-      "position_size": 500.0,
-      "mfe_pct": 3.2798573975044487
-    },
     "ARC": {
       "direction": -1,
       "entry_price": 0.05718,
       "entry_time": "2026-07-26 11:05",
       "position_size": 500.0,
-      "mfe_pct": 3.0605106680657634
-    },
-    "ZEN": {
-      "direction": 1,
-      "entry_price": 4.148,
-      "entry_time": "2026-07-26 23:00",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 5.806225953130473
     },
     "COAI": {
       "direction": 1,
       "entry_price": 0.3226,
       "entry_time": "2026-07-27 05:20",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 5.486670799752003
     },
     "MYX": {
       "direction": -1,
       "entry_price": 0.07301,
       "entry_time": "2026-07-27 06:20",
       "position_size": 500.0,
-      "mfe_pct": 6.273113272154496
+      "mfe_pct": 9.19052184632243
     },
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004577,
       "entry_time": "2026-07-27 22:50",
       "position_size": 500.0,
-      "mfe_pct": 0.6991479134804468
+      "mfe_pct": 2.1411404850338656
     },
     "VVV": {
       "direction": -1,
@@ -111,8 +90,8 @@
       "reason": "TIMEOUT"
     },
     "SOPH": {
-      "exit_time": "2026-07-24 11:00",
-      "outcome": "LOSS",
+      "exit_time": "2026-07-28 06:35",
+      "outcome": "WIN",
       "reason": "TIMEOUT"
     },
     "DASH": {
@@ -126,9 +105,9 @@
       "reason": "TIMEOUT"
     },
     "ZEN": {
-      "exit_time": "2026-07-13 10:25",
+      "exit_time": "2026-07-28 07:05",
       "outcome": "LOSS",
-      "reason": "TIMEOUT"
+      "reason": "SL"
     },
     "LAB": {
       "exit_time": "2026-07-20 14:55",
@@ -236,9 +215,9 @@
       "reason": "TIMEOUT"
     },
     "JOE": {
-      "exit_time": "2026-07-20 08:30",
-      "outcome": "WIN",
-      "reason": "TIMEOUT"
+      "exit_time": "2026-07-28 07:30",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "S": {
       "exit_time": "2026-07-21 00:00",
