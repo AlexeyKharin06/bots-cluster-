@@ -1,30 +1,37 @@
 {
-  "balance": 4247.730853946395,
+  "balance": 4196.671533372882,
   "reserve": 500.0,
-  "realized_pnl": -714.6691460536379,
-  "total_fees": 110.39999999999999,
-  "n_trades": 91,
+  "realized_pnl": -764.528466627152,
+  "total_fees": 113.2,
+  "n_trades": 93,
   "n_wins": 31,
-  "n_losses": 60,
+  "n_losses": 62,
   "positions": {
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004577,
       "entry_time": "2026-07-27 22:50",
       "position_size": 500.0,
-      "mfe_pct": 2.1411404850338656
+      "mfe_pct": 3.495739567402234
     },
-    "VVV": {
+    "FET": {
       "direction": -1,
-      "entry_price": 12.42,
-      "entry_time": "2026-07-28 01:50",
+      "entry_price": 0.1341,
+      "entry_time": "2026-07-29 08:05",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 0.8948545861297563
     },
-    "TNSR": {
+    "ENSO": {
+      "direction": 1,
+      "entry_price": 0.8666,
+      "entry_time": "2026-07-29 08:55",
+      "position_size": 500.0,
+      "mfe_pct": 1.0039233787214386
+    },
+    "RONIN": {
       "direction": -1,
-      "entry_price": 0.02994,
-      "entry_time": "2026-07-29 04:15",
+      "entry_price": 0.04719,
+      "entry_time": "2026-07-29 12:15",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -126,7 +133,7 @@
       "reason": "TP"
     },
     "TNSR": {
-      "exit_time": "2026-07-15 14:05",
+      "exit_time": "2026-07-29 11:35",
       "outcome": "LOSS",
       "reason": "SL"
     },
@@ -211,9 +218,9 @@
       "reason": "SL"
     },
     "VVV": {
-      "exit_time": "2026-07-25 19:25",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-07-29 10:10",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "FET": {
       "exit_time": "2026-07-27 19:40",

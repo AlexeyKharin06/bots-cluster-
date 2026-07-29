@@ -1,31 +1,14 @@
 {
-  "balance": 7163.484567323306,
+  "balance": 7269.443135041054,
   "reserve": 500.0,
-  "realized_pnl": 2225.034714550975,
-  "total_fees": 260.4239123704672,
-  "n_trades": 267,
-  "n_wins": 198,
+  "realized_pnl": 2331.1094870180095,
+  "total_fees": 261.9605134036078,
+  "n_trades": 269,
+  "n_wins": 200,
   "n_losses": 69,
   "n_swaps": 40,
   "n_profit_locks": 102,
   "positions": {
-    "WOO/XLM": {
-      "direction": -1,
-      "avg_spread": -1.7275800173813882,
-      "entry_spread": -1.7212860874603253,
-      "entry_z": 1.6517726531915082,
-      "entry_time": "2026-07-25 05:55",
-      "n_entries": 2,
-      "beta": 1.5380674349218717,
-      "sym_a": "WOO",
-      "sym_b": "XLM",
-      "position_size": 243.0247823406504,
-      "kelly_weight": 0.5,
-      "mfe_pct": 0.6284412584914856,
-      "half_life_h": 36.94842952241505,
-      "timeout_h": 73.8968590448301,
-      "last_z": 0.7272139535523493
-    },
     "CROSS/ETHW": {
       "direction": -1,
       "avg_spread": -1.2232863281755881,
@@ -72,10 +55,10 @@
       "sym_b": "DIA",
       "position_size": 621.995082030889,
       "kelly_weight": 1.0,
-      "mfe_pct": 9.393997663271158,
+      "mfe_pct": 9.669328757996286,
       "half_life_h": 170.9489017375835,
       "timeout_h": 240.0,
-      "last_z": -0.8423746530415694
+      "last_z": -0.6040838343923844
     },
     "NEIRO/PNUT": {
       "direction": 1,
@@ -123,10 +106,10 @@
       "sym_b": "ENS",
       "position_size": 319.78407989282914,
       "kelly_weight": 0.5,
-      "mfe_pct": 0.5057120457289788,
+      "mfe_pct": 1.9950209233686511,
       "half_life_h": 102.01199175662633,
       "timeout_h": 204.02398351325266,
-      "last_z": -1.2338151884573927
+      "last_z": -0.6853038339636424
     },
     "1000CAT/1000FLOKI": {
       "direction": 1,
@@ -243,22 +226,37 @@
       "half_life_h": 12.30769181416934,
       "timeout_h": 24.61538362833868
     },
-    "BTC/CAKE": {
+    "MEW/MOODENG": {
       "direction": -1,
-      "avg_spread": 5.610463191001953,
-      "entry_spread": 5.608640527695172,
-      "entry_z": 1.130339899919709,
-      "entry_time": "2026-07-29 05:30",
-      "n_entries": 2,
-      "beta": 17.02634851619345,
-      "sym_a": "BTC",
-      "sym_b": "CAKE",
-      "position_size": 644.7228950687866,
-      "kelly_weight": 0.9,
+      "avg_spread": -2.6249007514923806,
+      "entry_spread": -2.6249007514923806,
+      "entry_z": 1.5605009089659807,
+      "entry_time": "2026-07-29 10:35",
+      "n_entries": 1,
+      "beta": 1.6044392799073557,
+      "sym_a": "MEW",
+      "sym_b": "MOODENG",
+      "position_size": 1089.085755422947,
+      "kelly_weight": 1.5,
       "mfe_pct": 0.0,
-      "half_life_h": 9.346014631337349,
-      "timeout_h": 24.0,
-      "last_z": 1.1518863444217795
+      "half_life_h": 14.008638353819263,
+      "timeout_h": 28.017276707638526
+    },
+    "WOO/XLM": {
+      "direction": 1,
+      "avg_spread": -2.07849333032506,
+      "entry_spread": -2.07849333032506,
+      "entry_z": -0.8922911091108595,
+      "entry_time": "2026-07-29 11:40",
+      "n_entries": 1,
+      "beta": 1.3592955612479507,
+      "sym_a": "WOO",
+      "sym_b": "XLM",
+      "position_size": 363.47361064649533,
+      "kelly_weight": 0.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 43.157964403025865,
+      "timeout_h": 86.31592880605173
     }
   }
 }

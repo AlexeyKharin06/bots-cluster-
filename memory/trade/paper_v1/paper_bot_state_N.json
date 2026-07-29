@@ -1,8 +1,8 @@
 {
-  "balance": 4436.176857946123,
+  "balance": 4436.096857946123,
   "reserve": 500.0,
   "realized_pnl": -511.23114205391335,
-  "total_fees": 160.75199999999973,
+  "total_fees": 160.83199999999974,
   "n_trades": 149,
   "n_wins": 89,
   "n_losses": 60,
@@ -63,7 +63,7 @@
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.007683823168225246,
-      "last_z": -2.0796534449466453
+      "last_z": -2.1799334535522665
     },
     "1000SHIB/1MBABYDOGE": {
       "direction": -1,
@@ -139,16 +139,18 @@
     },
     "PENGU/SEI": {
       "direction": 1,
-      "avg_spread": -4.373091047196728,
+      "avg_spread": -4.338133394427297,
       "entry_spread": -4.373091047196728,
       "entry_z": -1.8352945614081797,
       "entry_time": "2026-07-29 06:05",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 0.24192585154593402,
       "sym_a": "PENGU",
       "sym_b": "SEI",
       "position_size": 500.0,
-      "kelly_weight": 1.0
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.5498572943883673,
+      "last_z": -1.4839551041613854
     }
   },
   "last_universe_scan": null,
