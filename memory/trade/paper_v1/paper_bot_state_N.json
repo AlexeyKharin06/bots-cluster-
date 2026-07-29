@@ -1,10 +1,10 @@
 {
-  "balance": 4353.458286529976,
+  "balance": 4436.176857946123,
   "reserve": 500.0,
-  "realized_pnl": -594.1097134700601,
-  "total_fees": 159.3119999999997,
-  "n_trades": 148,
-  "n_wins": 88,
+  "realized_pnl": -511.23114205391335,
+  "total_fees": 160.75199999999973,
+  "n_trades": 149,
+  "n_wins": 89,
   "n_losses": 60,
   "positions": {
     "1000CAT/1000FLOKI": {
@@ -33,7 +33,7 @@
       "sym_b": "LTC",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": -1.397799348488029,
+      "last_z": -0.6549821364738877,
       "mfe_pct": 0.40018015879130786
     },
     "JUP/SAND": {
@@ -50,21 +50,6 @@
       "kelly_weight": 0.4,
       "last_z": 2.6647100338815917
     },
-    "PENGU/SUSHI": {
-      "direction": -1,
-      "avg_spread": -4.325960441756167,
-      "entry_spread": -4.381582335560015,
-      "entry_z": 1.2239293264819173,
-      "entry_time": "2026-07-27 05:10",
-      "n_entries": 3,
-      "beta": 0.37442539946913933,
-      "sym_a": "PENGU",
-      "sym_b": "SUSHI",
-      "position_size": 800.0,
-      "kelly_weight": 1.6,
-      "last_z": -0.9425617512559019,
-      "mfe_pct": 10.56124595734742
-    },
     "SAND/SEI": {
       "direction": 1,
       "avg_spread": -0.2598567958716839,
@@ -78,7 +63,7 @@
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.007683823168225246,
-      "last_z": -3.010137534971142
+      "last_z": -2.0796534449466453
     },
     "1000SHIB/1MBABYDOGE": {
       "direction": -1,
@@ -126,17 +111,17 @@
     },
     "RENDER/RUNE": {
       "direction": 1,
-      "avg_spread": 0.49683475971902835,
+      "avg_spread": 0.47612750553843797,
       "entry_spread": 0.4973402961260428,
       "entry_z": -2.17502049924218,
       "entry_time": "2026-07-28 07:30",
-      "n_entries": 2,
+      "n_entries": 3,
       "beta": 0.17848655558236837,
       "sym_a": "RENDER",
       "sym_b": "RUNE",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": -2.2106108825216744
+      "last_z": -2.294511276860713
     },
     "INJ/TIA": {
       "direction": 1,
@@ -151,6 +136,19 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "last_z": -2.1448808743640897
+    },
+    "PENGU/SEI": {
+      "direction": 1,
+      "avg_spread": -4.373091047196728,
+      "entry_spread": -4.373091047196728,
+      "entry_z": -1.8352945614081797,
+      "entry_time": "2026-07-29 06:05",
+      "n_entries": 1,
+      "beta": 0.24192585154593402,
+      "sym_a": "PENGU",
+      "sym_b": "SEI",
+      "position_size": 500.0,
+      "kelly_weight": 1.0
     }
   },
   "last_universe_scan": null,

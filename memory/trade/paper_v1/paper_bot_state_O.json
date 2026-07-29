@@ -1,13 +1,13 @@
 {
-  "balance": 7153.826974385601,
+  "balance": 7163.484567323306,
   "reserve": 500.0,
-  "realized_pnl": 2215.273965950058,
-  "total_fees": 259.806060525109,
-  "n_trades": 266,
-  "n_wins": 197,
+  "realized_pnl": 2225.034714550975,
+  "total_fees": 260.4239123704672,
+  "n_trades": 267,
+  "n_wins": 198,
   "n_losses": 69,
   "n_swaps": 40,
-  "n_profit_locks": 101,
+  "n_profit_locks": 102,
   "positions": {
     "WOO/XLM": {
       "direction": -1,
@@ -145,23 +145,6 @@
       "timeout_h": 27.8240932032113,
       "last_z": 1.633947517490658
     },
-    "PENGU/SEI": {
-      "direction": -1,
-      "avg_spread": -2.7406877014684343,
-      "entry_spread": -2.7432102962450586,
-      "entry_z": 1.4778389735335595,
-      "entry_time": "2026-07-27 06:01",
-      "n_entries": 4,
-      "beta": 0.7466996195442639,
-      "sym_a": "PENGU",
-      "sym_b": "SEI",
-      "position_size": 321.6851138419657,
-      "kelly_weight": 0.5,
-      "mfe_pct": 3.928285320406255,
-      "half_life_h": 56.81583510159195,
-      "timeout_h": 113.6316702031839,
-      "last_z": -0.6786726534471597
-    },
     "APE/API3": {
       "direction": -1,
       "avg_spread": -0.6424185675212295,
@@ -259,6 +242,23 @@
       "mfe_pct": 0.0,
       "half_life_h": 12.30769181416934,
       "timeout_h": 24.61538362833868
+    },
+    "BTC/CAKE": {
+      "direction": -1,
+      "avg_spread": 5.610463191001953,
+      "entry_spread": 5.608640527695172,
+      "entry_z": 1.130339899919709,
+      "entry_time": "2026-07-29 05:30",
+      "n_entries": 2,
+      "beta": 17.02634851619345,
+      "sym_a": "BTC",
+      "sym_b": "CAKE",
+      "position_size": 644.7228950687866,
+      "kelly_weight": 0.9,
+      "mfe_pct": 0.0,
+      "half_life_h": 9.346014631337349,
+      "timeout_h": 24.0,
+      "last_z": 1.1518863444217795
     }
   }
 }

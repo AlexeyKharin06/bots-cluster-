@@ -1,33 +1,12 @@
 {
-  "balance": 4126.600817255765,
+  "balance": 4247.730853946395,
   "reserve": 500.0,
-  "realized_pnl": -836.1991827442682,
-  "total_fees": 107.6,
-  "n_trades": 88,
-  "n_wins": 28,
+  "realized_pnl": -714.6691460536379,
+  "total_fees": 110.39999999999999,
+  "n_trades": 91,
+  "n_wins": 31,
   "n_losses": 60,
   "positions": {
-    "ARC": {
-      "direction": -1,
-      "entry_price": 0.05718,
-      "entry_time": "2026-07-26 11:05",
-      "position_size": 500.0,
-      "mfe_pct": 5.806225953130473
-    },
-    "COAI": {
-      "direction": 1,
-      "entry_price": 0.3226,
-      "entry_time": "2026-07-27 05:20",
-      "position_size": 500.0,
-      "mfe_pct": 5.486670799752003
-    },
-    "MYX": {
-      "direction": -1,
-      "entry_price": 0.07301,
-      "entry_time": "2026-07-27 06:20",
-      "position_size": 500.0,
-      "mfe_pct": 9.19052184632243
-    },
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004577,
@@ -39,6 +18,13 @@
       "direction": -1,
       "entry_price": 12.42,
       "entry_time": "2026-07-28 01:50",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "TNSR": {
+      "direction": -1,
+      "entry_price": 0.02994,
+      "entry_time": "2026-07-29 04:15",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -55,9 +41,9 @@
       "reason": "SL"
     },
     "MYX": {
-      "exit_time": "2026-07-21 08:40",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-29 05:50",
+      "outcome": "WIN",
+      "reason": "TP"
     },
     "BULLA": {
       "exit_time": "2026-07-27 10:20",
@@ -160,7 +146,7 @@
       "reason": "TRAIL"
     },
     "COAI": {
-      "exit_time": "2026-07-21 12:10",
+      "exit_time": "2026-07-29 05:15",
       "outcome": "WIN",
       "reason": "TRAIL"
     },
@@ -258,6 +244,11 @@
       "exit_time": "2026-07-28 00:15",
       "outcome": "WIN",
       "reason": "TIMEOUT"
+    },
+    "ARC": {
+      "exit_time": "2026-07-29 05:55",
+      "outcome": "WIN",
+      "reason": "TP"
     }
   }
 }
