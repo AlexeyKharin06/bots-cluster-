@@ -1,60 +1,46 @@
 {
-  "balance": 4194.271533372884,
+  "balance": 4125.849005738792,
   "reserve": 500.0,
-  "realized_pnl": -764.528466627152,
-  "total_fees": 115.60000000000004,
-  "n_trades": 93,
+  "realized_pnl": -831.7509942612453,
+  "total_fees": 119.20000000000005,
+  "n_trades": 96,
   "n_wins": 31,
-  "n_losses": 62,
+  "n_losses": 65,
   "positions": {
     "HEMI": {
       "direction": -1,
       "entry_price": 0.004577,
       "entry_time": "2026-07-27 22:50",
       "position_size": 500.0,
-      "mfe_pct": 4.238584225475217
-    },
-    "FET": {
-      "direction": -1,
-      "entry_price": 0.1341,
-      "entry_time": "2026-07-29 08:05",
-      "position_size": 500.0,
-      "mfe_pct": 0.8948545861297563
+      "mfe_pct": 4.894035394363128
     },
     "ENSO": {
       "direction": 1,
       "entry_price": 0.8666,
       "entry_time": "2026-07-29 08:55",
       "position_size": 500.0,
-      "mfe_pct": 1.0039233787214386
+      "mfe_pct": 1.1654742672513319
     },
     "RONIN": {
       "direction": -1,
       "entry_price": 0.04719,
       "entry_time": "2026-07-29 12:15",
       "position_size": 500.0,
-      "mfe_pct": 0.6569188387370306
+      "mfe_pct": 0.9324009324009341
     },
     "STRK": {
       "direction": -1,
       "entry_price": 0.02708,
       "entry_time": "2026-07-29 14:25",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 6.056129985228953
     },
     "JOE": {
       "direction": -1,
       "entry_price": 0.02383,
       "entry_time": "2026-07-29 14:35",
       "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
-    "MIRA": {
-      "direction": 1,
-      "entry_price": 0.04282,
-      "entry_time": "2026-07-29 14:40",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 2.3919429290809924
     },
     "EVAA": {
       "direction": -1,
@@ -74,6 +60,20 @@
       "direction": -1,
       "entry_price": 0.1508,
       "entry_time": "2026-07-29 16:15",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "EUL": {
+      "direction": -1,
+      "entry_price": 1.4389,
+      "entry_time": "2026-07-30 04:30",
+      "position_size": 500.0,
+      "mfe_pct": 0.3752866773229613
+    },
+    "RESOLV": {
+      "direction": -1,
+      "entry_price": 0.01519,
+      "entry_time": "2026-07-30 06:15",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -110,7 +110,7 @@
       "reason": "SL"
     },
     "MIRA": {
-      "exit_time": "2026-07-21 03:50",
+      "exit_time": "2026-07-30 02:25",
       "outcome": "LOSS",
       "reason": "SL"
     },
@@ -170,9 +170,9 @@
       "reason": "SL"
     },
     "SOON": {
-      "exit_time": "2026-07-26 16:20",
-      "outcome": "WIN",
-      "reason": "TP"
+      "exit_time": "2026-07-30 05:20",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "TNSR": {
       "exit_time": "2026-07-29 11:35",
@@ -265,7 +265,7 @@
       "reason": "SL"
     },
     "FET": {
-      "exit_time": "2026-07-27 19:40",
+      "exit_time": "2026-07-30 01:45",
       "outcome": "LOSS",
       "reason": "SL"
     },
