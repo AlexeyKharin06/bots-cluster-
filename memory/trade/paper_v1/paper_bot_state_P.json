@@ -1,11 +1,11 @@
 {
-  "balance": 4125.849005738792,
+  "balance": 4101.107105676244,
   "reserve": 500.0,
-  "realized_pnl": -831.7509942612453,
-  "total_fees": 119.20000000000005,
-  "n_trades": 96,
+  "realized_pnl": -856.4928943237932,
+  "total_fees": 120.00000000000004,
+  "n_trades": 97,
   "n_wins": 31,
-  "n_losses": 65,
+  "n_losses": 66,
   "positions": {
     "HEMI": {
       "direction": -1,
@@ -33,7 +33,7 @@
       "entry_price": 0.02708,
       "entry_time": "2026-07-29 14:25",
       "position_size": 500.0,
-      "mfe_pct": 6.056129985228953
+      "mfe_pct": 6.425406203840467
     },
     "JOE": {
       "direction": -1,
@@ -61,21 +61,14 @@
       "entry_price": 0.1508,
       "entry_time": "2026-07-29 16:15",
       "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
-    "EUL": {
-      "direction": -1,
-      "entry_price": 1.4389,
-      "entry_time": "2026-07-30 04:30",
-      "position_size": 500.0,
-      "mfe_pct": 0.3752866773229613
+      "mfe_pct": 0.7294429708222694
     },
     "RESOLV": {
       "direction": -1,
       "entry_price": 0.01519,
       "entry_time": "2026-07-30 06:15",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 0.06583278472679366
     }
   },
   "cooldown": {
@@ -200,9 +193,9 @@
       "reason": "TRAIL"
     },
     "EUL": {
-      "exit_time": "2026-07-24 09:00",
+      "exit_time": "2026-07-30 09:25",
       "outcome": "LOSS",
-      "reason": "TIMEOUT"
+      "reason": "SL"
     },
     "BANANAS31": {
       "exit_time": "2026-07-23 16:20",
