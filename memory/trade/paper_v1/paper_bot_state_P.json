@@ -1,11 +1,11 @@
 {
-  "balance": 4101.107105676244,
+  "balance": 4110.164762235905,
   "reserve": 500.0,
-  "realized_pnl": -856.4928943237932,
-  "total_fees": 120.00000000000004,
-  "n_trades": 97,
-  "n_wins": 31,
-  "n_losses": 66,
+  "realized_pnl": -845.8352377641331,
+  "total_fees": 124.00000000000006,
+  "n_trades": 100,
+  "n_wins": 33,
+  "n_losses": 67,
   "positions": {
     "HEMI": {
       "direction": -1,
@@ -28,26 +28,12 @@
       "position_size": 500.0,
       "mfe_pct": 0.9324009324009341
     },
-    "STRK": {
-      "direction": -1,
-      "entry_price": 0.02708,
-      "entry_time": "2026-07-29 14:25",
-      "position_size": 500.0,
-      "mfe_pct": 6.425406203840467
-    },
     "JOE": {
       "direction": -1,
       "entry_price": 0.02383,
       "entry_time": "2026-07-29 14:35",
       "position_size": 500.0,
       "mfe_pct": 2.3919429290809924
-    },
-    "EVAA": {
-      "direction": -1,
-      "entry_price": 0.7114,
-      "entry_time": "2026-07-29 15:10",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
     },
     "S": {
       "direction": -1,
@@ -69,6 +55,27 @@
       "entry_time": "2026-07-30 06:15",
       "position_size": 500.0,
       "mfe_pct": 0.06583278472679366
+    },
+    "TAC": {
+      "direction": 1,
+      "entry_price": 0.003301,
+      "entry_time": "2026-07-30 13:50",
+      "position_size": 500.0,
+      "mfe_pct": 0.15146925174189807
+    },
+    "MYX": {
+      "direction": 1,
+      "entry_price": 0.06953,
+      "entry_time": "2026-07-30 15:25",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "NIL": {
+      "direction": -1,
+      "entry_price": 0.03303,
+      "entry_time": "2026-07-30 15:30",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -173,9 +180,9 @@
       "reason": "SL"
     },
     "GIGGLE": {
-      "exit_time": "2026-07-26 10:55",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-30 15:10",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "RESOLV": {
       "exit_time": "2026-07-25 08:05",
@@ -183,7 +190,7 @@
       "reason": "TIMEOUT"
     },
     "STRK": {
-      "exit_time": "2026-07-26 22:50",
+      "exit_time": "2026-07-30 13:45",
       "outcome": "WIN",
       "reason": "TRAIL"
     },
@@ -223,9 +230,9 @@
       "reason": "SL"
     },
     "EVAA": {
-      "exit_time": "2026-07-18 22:10",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-07-30 13:35",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "STX": {
       "exit_time": "2026-07-24 05:45",
