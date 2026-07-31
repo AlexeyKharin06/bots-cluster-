@@ -1,13 +1,13 @@
 {
-  "balance": 10041.750236228472,
+  "balance": 9942.032164021968,
   "reserve": 500.0,
-  "realized_pnl": 5118.618134249205,
-  "total_fees": 323.3536362803264,
-  "n_trades": 307,
-  "n_wins": 231,
-  "n_losses": 76,
+  "realized_pnl": 5019.140062042697,
+  "total_fees": 327.19363628032636,
+  "n_trades": 310,
+  "n_wins": 233,
+  "n_losses": 77,
   "n_swaps": 43,
-  "n_profit_locks": 122,
+  "n_profit_locks": 123,
   "positions": {
     "SSV/VANA": {
       "direction": -1,
@@ -55,27 +55,10 @@
       "sym_b": "SAND",
       "position_size": 367.60267218486456,
       "kelly_weight": 0.5,
-      "mfe_pct": 0.8243430354113217,
+      "mfe_pct": 2.803316391589948,
       "half_life_h": 27.317504606186585,
       "timeout_h": 54.63500921237317,
-      "last_z": 2.198420701826715
-    },
-    "CHR/ERA": {
-      "direction": -1,
-      "avg_spread": -1.9285885762708432,
-      "entry_spread": -1.8993764202157557,
-      "entry_z": 1.7633493811044825,
-      "entry_time": "2026-07-30 05:11",
-      "n_entries": 7,
-      "beta": 0.9046269572625577,
-      "sym_a": "CHR",
-      "sym_b": "ERA",
-      "position_size": 750.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.38214900096802396,
-      "half_life_h": 20.29834140952074,
-      "timeout_h": 40.59668281904148,
-      "last_z": 1.5828136794613636
+      "last_z": 0.5040193105783422
     },
     "ACE/ARPA": {
       "direction": 1,
@@ -92,24 +75,7 @@
       "mfe_pct": 0.17413753889075068,
       "half_life_h": 23.901907882278692,
       "timeout_h": 47.803815764557385,
-      "last_z": -1.5988764690765407
-    },
-    "H/LPT": {
-      "direction": 1,
-      "avg_spread": -1.526934033593573,
-      "entry_spread": -1.535103723125283,
-      "entry_z": -2.240352640999181,
-      "entry_time": "2026-07-30 08:41",
-      "n_entries": 11,
-      "beta": -4.6649367246577675,
-      "sym_a": "H",
-      "sym_b": "LPT",
-      "position_size": 750.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.39829103407948985,
-      "half_life_h": 41.47903817590194,
-      "timeout_h": 82.95807635180388,
-      "last_z": -2.310488410836894
+      "last_z": -1.096950742110581
     },
     "VET/W": {
       "direction": -1,
@@ -179,23 +145,6 @@
       "timeout_h": 29.892956329660915,
       "last_z": 2.3739087171393156
     },
-    "HEMI/MAGIC": {
-      "direction": 1,
-      "avg_spread": -0.04036117073588939,
-      "entry_spread": -0.03743057831567853,
-      "entry_z": -1.7315924727524643,
-      "entry_time": "2026-07-30 14:11",
-      "n_entries": 9,
-      "beta": 1.6830910115872133,
-      "sym_a": "HEMI",
-      "sym_b": "MAGIC",
-      "position_size": 750.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 2.794033154549612,
-      "half_life_h": 11.64176322174673,
-      "timeout_h": 24.0,
-      "last_z": -0.8006969172749095
-    },
     "BTC/CAKE": {
       "direction": 1,
       "avg_spread": 4.889068422574566,
@@ -228,7 +177,7 @@
       "mfe_pct": 0.0,
       "half_life_h": 27.997224710650247,
       "timeout_h": 55.994449421300494,
-      "last_z": 2.0095204126229422
+      "last_z": 1.6636895594137737
     },
     "MUBARAK/RECALL": {
       "direction": -1,
@@ -249,20 +198,68 @@
     },
     "TAKE/TREE": {
       "direction": -1,
-      "avg_spread": 0.1697775003535933,
+      "avg_spread": 0.14261750370900264,
       "entry_spread": 0.16806864771319674,
       "entry_z": 2.3259606777774846,
       "entry_time": "2026-07-30 15:21",
-      "n_entries": 2,
+      "n_entries": 3,
       "beta": 1.1528618264222081,
       "sym_a": "TAKE",
       "sym_b": "TREE",
       "position_size": 750.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
+      "mfe_pct": 1.528383207849493,
       "half_life_h": 44.388874023096456,
       "timeout_h": 88.77774804619291,
-      "last_z": 2.35609111656223
+      "last_z": 1.453361340127601
+    },
+    "H/LPT": {
+      "direction": 1,
+      "avg_spread": -1.6260562580535156,
+      "entry_spread": -1.6260562580535156,
+      "entry_z": -2.2140145942790572,
+      "entry_time": "2026-07-31 14:21",
+      "n_entries": 1,
+      "beta": -5.262655831750372,
+      "sym_a": "H",
+      "sym_b": "LPT",
+      "position_size": 750.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 71.0642966544954,
+      "timeout_h": 142.1285933089908
+    },
+    "CROSS/ETHW": {
+      "direction": -1,
+      "avg_spread": 0.06451794562207835,
+      "entry_spread": 0.06451794562207835,
+      "entry_z": 1.5751361792060001,
+      "entry_time": "2026-07-31 14:31",
+      "n_entries": 1,
+      "beta": 1.6837746606681254,
+      "sym_a": "CROSS",
+      "sym_b": "ETHW",
+      "position_size": 750.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 137.14285384257283,
+      "timeout_h": 240.0
+    },
+    "PYTH/SAPIEN": {
+      "direction": 1,
+      "avg_spread": -0.04276821013097676,
+      "entry_spread": -0.04276821013097676,
+      "entry_z": -1.5530849399326552,
+      "entry_time": "2026-07-31 17:05",
+      "n_entries": 1,
+      "beta": 1.2632716908365886,
+      "sym_a": "PYTH",
+      "sym_b": "SAPIEN",
+      "position_size": 750.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 89.66664791654834,
+      "timeout_h": 179.33329583309668
     }
   }
 }

@@ -1,26 +1,12 @@
 {
-  "balance": 3683.459247154411,
+  "balance": 3696.0139754532966,
   "reserve": 500.0,
-  "realized_pnl": -1257.1487528456303,
-  "total_fees": 180.03200000000072,
-  "n_trades": 167,
-  "n_wins": 100,
-  "n_losses": 67,
+  "realized_pnl": -1244.2580245467448,
+  "total_fees": 181.4880000000007,
+  "n_trades": 169,
+  "n_wins": 101,
+  "n_losses": 68,
   "positions": {
-    "SUSHI/WIF": {
-      "direction": 1,
-      "avg_spread": -1.3085043272270873,
-      "entry_spread": -1.3113889237755758,
-      "entry_z": -1.9943582714638513,
-      "entry_time": "2026-07-28 07:25",
-      "n_entries": 3,
-      "beta": 0.28397380411914047,
-      "sym_a": "SUSHI",
-      "sym_b": "WIF",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "last_z": -0.6480617768001999
-    },
     "ENA/OP": {
       "direction": 1,
       "avg_spread": -1.8261682597245157,
@@ -64,7 +50,7 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "mfe_pct": 0.1289935559763089,
-      "last_z": 1.582504337363954
+      "last_z": 0.7829691584522213
     },
     "1000CAT/1MBABYDOGE": {
       "direction": -1,
@@ -94,21 +80,6 @@
       "position_size": 200.0,
       "kelly_weight": 0.4,
       "last_z": 4.37414671606947
-    },
-    "ONDO/RUNE": {
-      "direction": -1,
-      "avg_spread": -0.4666067371898686,
-      "entry_spread": -0.46486987157854043,
-      "entry_z": 1.7975770177351995,
-      "entry_time": "2026-07-30 13:25",
-      "n_entries": 5,
-      "beta": 0.4913835857845176,
-      "sym_a": "ONDO",
-      "sym_b": "RUNE",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.8115864714753118,
-      "last_z": 1.6002433506604896
     },
     "BNB/LINK": {
       "direction": -1,
@@ -153,6 +124,34 @@
       "kelly_weight": 1.6,
       "mfe_pct": 0.395846441960912,
       "last_z": -2.6553865920842368
+    },
+    "RENDER/SUSHI": {
+      "direction": 1,
+      "avg_spread": 1.2837266406422576,
+      "entry_spread": 1.2828685626878724,
+      "entry_z": -2.0000906117294392,
+      "entry_time": "2026-07-31 14:20",
+      "n_entries": 2,
+      "beta": 0.5099653625648056,
+      "sym_a": "RENDER",
+      "sym_b": "SUSHI",
+      "position_size": 800.0,
+      "kelly_weight": 1.6,
+      "mfe_pct": 0.08294331065978877,
+      "last_z": -1.8753701376124103
+    },
+    "1000CAT/1000FLOKI": {
+      "direction": -1,
+      "avg_spread": -4.967137049522712,
+      "entry_spread": -4.967137049522712,
+      "entry_z": 3.0830493883001426,
+      "entry_time": "2026-07-31 14:30",
+      "n_entries": 1,
+      "beta": 0.4037571724798977,
+      "sym_a": "1000CAT",
+      "sym_b": "1000FLOKI",
+      "position_size": 800.0,
+      "kelly_weight": 1.6
     }
   },
   "last_universe_scan": null,

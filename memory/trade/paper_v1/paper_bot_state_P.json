@@ -1,25 +1,18 @@
 {
-  "balance": 4110.164762235905,
+  "balance": 4137.519934766699,
   "reserve": 500.0,
-  "realized_pnl": -845.8352377641331,
-  "total_fees": 124.00000000000006,
-  "n_trades": 100,
-  "n_wins": 33,
-  "n_losses": 67,
+  "realized_pnl": -817.6800652333397,
+  "total_fees": 127.20000000000006,
+  "n_trades": 103,
+  "n_wins": 34,
+  "n_losses": 69,
   "positions": {
-    "HEMI": {
-      "direction": -1,
-      "entry_price": 0.004577,
-      "entry_time": "2026-07-27 22:50",
-      "position_size": 500.0,
-      "mfe_pct": 4.894035394363128
-    },
     "ENSO": {
       "direction": 1,
       "entry_price": 0.8666,
       "entry_time": "2026-07-29 08:55",
       "position_size": 500.0,
-      "mfe_pct": 1.1654742672513319
+      "mfe_pct": 3.115624278790663
     },
     "RONIN": {
       "direction": -1,
@@ -40,7 +33,7 @@
       "entry_price": 0.02089,
       "entry_time": "2026-07-29 16:05",
       "position_size": 500.0,
-      "mfe_pct": 0.0
+      "mfe_pct": 0.09573958831976537
     },
     "BERA": {
       "direction": -1,
@@ -48,13 +41,6 @@
       "entry_time": "2026-07-29 16:15",
       "position_size": 500.0,
       "mfe_pct": 0.7294429708222694
-    },
-    "RESOLV": {
-      "direction": -1,
-      "entry_price": 0.01519,
-      "entry_time": "2026-07-30 06:15",
-      "position_size": 500.0,
-      "mfe_pct": 0.06583278472679366
     },
     "TAC": {
       "direction": 1,
@@ -70,10 +56,17 @@
       "position_size": 500.0,
       "mfe_pct": 0.0
     },
-    "NIL": {
+    "YB": {
+      "direction": 1,
+      "entry_price": 0.06684,
+      "entry_time": "2026-07-31 14:15",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "COAI": {
       "direction": -1,
-      "entry_price": 0.03303,
-      "entry_time": "2026-07-30 15:30",
+      "entry_price": 0.3152,
+      "entry_time": "2026-07-31 14:25",
       "position_size": 500.0,
       "mfe_pct": 0.0
     }
@@ -165,9 +158,9 @@
       "reason": "TIMEOUT"
     },
     "HEMI": {
-      "exit_time": "2026-07-19 17:50",
+      "exit_time": "2026-07-31 14:20",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "SOON": {
       "exit_time": "2026-07-30 05:20",
@@ -185,9 +178,9 @@
       "reason": "TRAIL"
     },
     "RESOLV": {
-      "exit_time": "2026-07-25 08:05",
-      "outcome": "WIN",
-      "reason": "TIMEOUT"
+      "exit_time": "2026-07-31 17:55",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "STRK": {
       "exit_time": "2026-07-30 13:45",
@@ -270,9 +263,9 @@
       "reason": "SL"
     },
     "NIL": {
-      "exit_time": "2026-07-28 00:25",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-31 14:05",
+      "outcome": "WIN",
+      "reason": "TP"
     },
     "ENSO": {
       "exit_time": "2026-07-27 00:45",
