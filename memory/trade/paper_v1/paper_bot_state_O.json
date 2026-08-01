@@ -1,11 +1,11 @@
 {
-  "balance": 9886.975226519442,
+  "balance": 9840.363607845393,
   "reserve": 500.0,
-  "realized_pnl": 4964.251124540169,
-  "total_fees": 330.12163628032636,
-  "n_trades": 312,
+  "realized_pnl": 4917.759505866119,
+  "total_fees": 331.44163628032635,
+  "n_trades": 313,
   "n_wins": 234,
-  "n_losses": 78,
+  "n_losses": 79,
   "n_swaps": 43,
   "n_profit_locks": 123,
   "positions": {
@@ -42,23 +42,6 @@
       "half_life_h": 27.317504606186585,
       "timeout_h": 54.63500921237317,
       "last_z": 0.5040193105783422
-    },
-    "ACE/ARPA": {
-      "direction": 1,
-      "avg_spread": -0.10550893459590727,
-      "entry_spread": -0.09843204330602662,
-      "entry_z": -1.623722685341037,
-      "entry_time": "2026-07-30 07:36",
-      "n_entries": 7,
-      "beta": 0.5368783269392813,
-      "sym_a": "ACE",
-      "sym_b": "ARPA",
-      "position_size": 750.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.17413753889075068,
-      "half_life_h": 23.901907882278692,
-      "timeout_h": 47.803815764557385,
-      "last_z": -0.9746488777973273
     },
     "VET/W": {
       "direction": -1,
@@ -181,19 +164,20 @@
     },
     "H/LPT": {
       "direction": 1,
-      "avg_spread": -1.6260562580535156,
+      "avg_spread": -1.4965778282960693,
       "entry_spread": -1.6260562580535156,
       "entry_z": -2.2140145942790572,
       "entry_time": "2026-07-31 14:21",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": -5.262655831750372,
       "sym_a": "H",
       "sym_b": "LPT",
       "position_size": 750.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
+      "mfe_pct": 18.480065905668262,
       "half_life_h": 71.0642966544954,
-      "timeout_h": 142.1285933089908
+      "timeout_h": 142.1285933089908,
+      "last_z": -0.9719957884926888
     },
     "CROSS/ETHW": {
       "direction": -1,
@@ -259,6 +243,22 @@
       "mfe_pct": 0.0,
       "half_life_h": 34.14053319509838,
       "timeout_h": 68.28106639019676
+    },
+    "ACE/ARPA": {
+      "direction": 1,
+      "avg_spread": 14.066313791426916,
+      "entry_spread": 14.066313791426916,
+      "entry_z": -1.7485580053675658,
+      "entry_time": "2026-08-01 13:55",
+      "n_entries": 1,
+      "beta": 3.5059867783083725,
+      "sym_a": "ACE",
+      "sym_b": "ARPA",
+      "position_size": 750.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 39.96414373699375,
+      "timeout_h": 79.9282874739875
     }
   }
 }

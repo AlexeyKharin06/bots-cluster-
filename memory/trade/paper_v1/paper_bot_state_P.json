@@ -1,11 +1,11 @@
 {
-  "balance": 4094.518949370422,
+  "balance": 4130.428983201635,
   "reserve": 500.0,
-  "realized_pnl": -859.4810506296186,
-  "total_fees": 130.8000000000001,
-  "n_trades": 106,
-  "n_wins": 35,
-  "n_losses": 71,
+  "realized_pnl": -823.5710167984051,
+  "total_fees": 132.40000000000012,
+  "n_trades": 108,
+  "n_wins": 36,
+  "n_losses": 72,
   "positions": {
     "JOE": {
       "direction": -1,
@@ -28,24 +28,10 @@
       "position_size": 500.0,
       "mfe_pct": 0.15146925174189807
     },
-    "MYX": {
-      "direction": 1,
-      "entry_price": 0.06953,
-      "entry_time": "2026-07-30 15:25",
-      "position_size": 500.0,
-      "mfe_pct": 7.047317704587952
-    },
     "YB": {
       "direction": 1,
       "entry_price": 0.06684,
       "entry_time": "2026-07-31 14:15",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
-    "COAI": {
-      "direction": -1,
-      "entry_price": 0.3152,
-      "entry_time": "2026-07-31 14:25",
       "position_size": 500.0,
       "mfe_pct": 0.0
     },
@@ -61,7 +47,7 @@
       "entry_price": 30.87,
       "entry_time": "2026-07-31 22:30",
       "position_size": 500.0,
-      "mfe_pct": 1.5873015873015817
+      "mfe_pct": 1.9436345966958202
     },
     "XPL": {
       "direction": -1,
@@ -83,7 +69,7 @@
       "reason": "SL"
     },
     "MYX": {
-      "exit_time": "2026-07-29 05:50",
+      "exit_time": "2026-08-01 13:45",
       "outcome": "WIN",
       "reason": "TP"
     },
@@ -188,9 +174,9 @@
       "reason": "TRAIL"
     },
     "COAI": {
-      "exit_time": "2026-07-29 05:15",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-08-01 13:50",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "EUL": {
       "exit_time": "2026-07-30 09:25",
