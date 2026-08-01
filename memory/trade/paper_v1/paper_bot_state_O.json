@@ -1,11 +1,11 @@
 {
-  "balance": 9942.032164021968,
+  "balance": 9886.975226519442,
   "reserve": 500.0,
-  "realized_pnl": 5019.140062042697,
-  "total_fees": 327.19363628032636,
-  "n_trades": 310,
-  "n_wins": 233,
-  "n_losses": 77,
+  "realized_pnl": 4964.251124540169,
+  "total_fees": 330.12163628032636,
+  "n_trades": 312,
+  "n_wins": 234,
+  "n_losses": 78,
   "n_swaps": 43,
   "n_profit_locks": 123,
   "positions": {
@@ -25,23 +25,6 @@
       "half_life_h": 27.728836547841627,
       "timeout_h": 55.457673095683255,
       "last_z": 2.4649769486119486
-    },
-    "JUP/PENGU": {
-      "direction": -1,
-      "avg_spread": 0.04676736954886525,
-      "entry_spread": 0.05695845907394159,
-      "entry_z": 2.592060731441243,
-      "entry_time": "2026-07-30 01:41",
-      "n_entries": 10,
-      "beta": 0.3257913527695531,
-      "sym_a": "JUP",
-      "sym_b": "PENGU",
-      "position_size": 1125.0,
-      "kelly_weight": 1.5,
-      "mfe_pct": 1.0614234324639635,
-      "half_life_h": 16.410395536771492,
-      "timeout_h": 32.820791073542985,
-      "last_z": 1.5740696042572215
     },
     "ONDO/SAND": {
       "direction": -1,
@@ -75,7 +58,7 @@
       "mfe_pct": 0.17413753889075068,
       "half_life_h": 23.901907882278692,
       "timeout_h": 47.803815764557385,
-      "last_z": -1.096950742110581
+      "last_z": -0.9746488777973273
     },
     "VET/W": {
       "direction": -1,
@@ -127,23 +110,6 @@
       "half_life_h": 24.493154030007712,
       "timeout_h": 48.986308060015425,
       "last_z": 2.061108983653878
-    },
-    "TAKE/YFI": {
-      "direction": -1,
-      "avg_spread": 0.08907190329435305,
-      "entry_spread": 0.08126529801595606,
-      "entry_z": 1.9286787534515661,
-      "entry_time": "2026-07-30 14:06",
-      "n_entries": 11,
-      "beta": -0.4994272083233476,
-      "sym_a": "TAKE",
-      "sym_b": "YFI",
-      "position_size": 600.0,
-      "kelly_weight": 0.8,
-      "mfe_pct": 0.6399680247567097,
-      "half_life_h": 14.946478164830458,
-      "timeout_h": 29.892956329660915,
-      "last_z": 2.3739087171393156
     },
     "BTC/CAKE": {
       "direction": 1,
@@ -247,19 +213,52 @@
     },
     "PYTH/SAPIEN": {
       "direction": 1,
-      "avg_spread": -0.04276821013097676,
+      "avg_spread": -0.037959488294023735,
       "entry_spread": -0.04276821013097676,
       "entry_z": -1.5530849399326552,
       "entry_time": "2026-07-31 17:05",
-      "n_entries": 1,
+      "n_entries": 2,
       "beta": 1.2632716908365886,
       "sym_a": "PYTH",
       "sym_b": "SAPIEN",
       "position_size": 750.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
+      "mfe_pct": 0.5907508289855645,
       "half_life_h": 89.66664791654834,
-      "timeout_h": 179.33329583309668
+      "timeout_h": 179.33329583309668,
+      "last_z": -1.3857093686511794
+    },
+    "TAKE/YFI": {
+      "direction": -1,
+      "avg_spread": 0.16310589885429838,
+      "entry_spread": 0.16310589885429838,
+      "entry_z": 2.682543326291772,
+      "entry_time": "2026-07-31 23:40",
+      "n_entries": 1,
+      "beta": -0.49209729053710805,
+      "sym_a": "TAKE",
+      "sym_b": "YFI",
+      "position_size": 600.0,
+      "kelly_weight": 0.8,
+      "mfe_pct": 0.0,
+      "half_life_h": 92.7542915825512,
+      "timeout_h": 185.5085831651024
+    },
+    "DYM/FLUID": {
+      "direction": -1,
+      "avg_spread": -1.836573626630499,
+      "entry_spread": -1.836573626630499,
+      "entry_z": 0.7587630209078501,
+      "entry_time": "2026-07-31 23:45",
+      "n_entries": 1,
+      "beta": -16.350354214980694,
+      "sym_a": "DYM",
+      "sym_b": "FLUID",
+      "position_size": 750.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 34.14053319509838,
+      "timeout_h": 68.28106639019676
     }
   }
 }

@@ -1,26 +1,12 @@
 {
-  "balance": 4137.519934766699,
+  "balance": 4119.971893362763,
   "reserve": 500.0,
-  "realized_pnl": -817.6800652333397,
-  "total_fees": 127.20000000000006,
-  "n_trades": 103,
-  "n_wins": 34,
-  "n_losses": 69,
+  "realized_pnl": -834.0281066372778,
+  "total_fees": 130.00000000000009,
+  "n_trades": 105,
+  "n_wins": 35,
+  "n_losses": 70,
   "positions": {
-    "ENSO": {
-      "direction": 1,
-      "entry_price": 0.8666,
-      "entry_time": "2026-07-29 08:55",
-      "position_size": 500.0,
-      "mfe_pct": 3.115624278790663
-    },
-    "RONIN": {
-      "direction": -1,
-      "entry_price": 0.04719,
-      "entry_time": "2026-07-29 12:15",
-      "position_size": 500.0,
-      "mfe_pct": 0.9324009324009341
-    },
     "JOE": {
       "direction": -1,
       "entry_price": 0.02383,
@@ -69,6 +55,27 @@
       "entry_time": "2026-07-31 14:25",
       "position_size": 500.0,
       "mfe_pct": 0.0
+    },
+    "VVV": {
+      "direction": -1,
+      "entry_price": 11.599,
+      "entry_time": "2026-07-31 21:35",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "DASH": {
+      "direction": 1,
+      "entry_price": 30.87,
+      "entry_time": "2026-07-31 22:30",
+      "position_size": 500.0,
+      "mfe_pct": 0.03239390994491664
+    },
+    "XPL": {
+      "direction": -1,
+      "entry_price": 0.07355,
+      "entry_time": "2026-07-31 22:40",
+      "position_size": 500.0,
+      "mfe_pct": 0.3535010197144972
     }
   },
   "cooldown": {
@@ -98,7 +105,7 @@
       "reason": "SL"
     },
     "RONIN": {
-      "exit_time": "2026-07-12 09:25",
+      "exit_time": "2026-07-31 20:25",
       "outcome": "LOSS",
       "reason": "SL"
     },
@@ -268,9 +275,9 @@
       "reason": "TP"
     },
     "ENSO": {
-      "exit_time": "2026-07-27 00:45",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-07-31 20:45",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "FLUX": {
       "exit_time": "2026-07-24 17:00",
