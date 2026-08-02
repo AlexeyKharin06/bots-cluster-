@@ -1,11 +1,11 @@
 {
-  "balance": 9840.363607845393,
+  "balance": 9772.578930636035,
   "reserve": 500.0,
-  "realized_pnl": 4917.759505866119,
-  "total_fees": 331.44163628032635,
-  "n_trades": 313,
+  "realized_pnl": 4850.064828656761,
+  "total_fees": 333.33163628032634,
+  "n_trades": 314,
   "n_wins": 234,
-  "n_losses": 79,
+  "n_losses": 80,
   "n_swaps": 43,
   "n_profit_locks": 123,
   "positions": {
@@ -76,23 +76,6 @@
       "half_life_h": 10.28281364847206,
       "timeout_h": 24.0,
       "last_z": 2.1337455542377515
-    },
-    "1000CAT/1000FLOKI": {
-      "direction": -1,
-      "avg_spread": -2.9743151530028835,
-      "entry_spread": -2.94434429339372,
-      "entry_z": 2.5896204782105436,
-      "entry_time": "2026-07-30 13:56",
-      "n_entries": 3,
-      "beta": 0.9436173433669638,
-      "sym_a": "1000CAT",
-      "sym_b": "1000FLOKI",
-      "position_size": 1125.0,
-      "kelly_weight": 1.5,
-      "mfe_pct": 0.149253759050616,
-      "half_life_h": 24.493154030007712,
-      "timeout_h": 48.986308060015425,
-      "last_z": 2.061108983653878
     },
     "BTC/CAKE": {
       "direction": 1,
@@ -191,9 +174,10 @@
       "sym_b": "ETHW",
       "position_size": 750.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
+      "mfe_pct": 1.239686744973989,
       "half_life_h": 137.14285384257283,
-      "timeout_h": 240.0
+      "timeout_h": 240.0,
+      "last_z": 0.6871498788592534
     },
     "PYTH/SAPIEN": {
       "direction": 1,
@@ -259,6 +243,22 @@
       "mfe_pct": 0.0,
       "half_life_h": 39.96414373699375,
       "timeout_h": 79.9282874739875
+    },
+    "1000CAT/1000FLOKI": {
+      "direction": -1,
+      "avg_spread": -3.22357702552271,
+      "entry_spread": -3.22357702552271,
+      "entry_z": 0.754560089386148,
+      "entry_time": "2026-08-02 10:40",
+      "n_entries": 1,
+      "beta": 0.8644976749015114,
+      "sym_a": "1000CAT",
+      "sym_b": "1000FLOKI",
+      "position_size": 1125.0,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 35.34714641643824,
+      "timeout_h": 70.69429283287649
     }
   }
 }

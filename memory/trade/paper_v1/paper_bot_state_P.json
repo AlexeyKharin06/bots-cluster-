@@ -1,26 +1,12 @@
 {
-  "balance": 4130.428983201635,
+  "balance": 4089.736963260562,
   "reserve": 500.0,
-  "realized_pnl": -823.5710167984051,
-  "total_fees": 132.40000000000012,
-  "n_trades": 108,
+  "realized_pnl": -863.463036739477,
+  "total_fees": 135.60000000000016,
+  "n_trades": 111,
   "n_wins": 36,
-  "n_losses": 72,
+  "n_losses": 75,
   "positions": {
-    "JOE": {
-      "direction": -1,
-      "entry_price": 0.02383,
-      "entry_time": "2026-07-29 14:35",
-      "position_size": 500.0,
-      "mfe_pct": 2.3919429290809924
-    },
-    "BERA": {
-      "direction": -1,
-      "entry_price": 0.1508,
-      "entry_time": "2026-07-29 16:15",
-      "position_size": 500.0,
-      "mfe_pct": 0.7294429708222694
-    },
     "TAC": {
       "direction": 1,
       "entry_price": 0.003301,
@@ -47,14 +33,21 @@
       "entry_price": 30.87,
       "entry_time": "2026-07-31 22:30",
       "position_size": 500.0,
-      "mfe_pct": 1.9436345966958202
+      "mfe_pct": 2.2999676060900365
     },
-    "XPL": {
-      "direction": -1,
-      "entry_price": 0.07355,
-      "entry_time": "2026-07-31 22:40",
+    "AIXBT": {
+      "direction": 1,
+      "entry_price": 0.01782,
+      "entry_time": "2026-08-02 10:05",
       "position_size": 500.0,
-      "mfe_pct": 0.4350781781101265
+      "mfe_pct": 0.0
+    },
+    "NIL": {
+      "direction": 1,
+      "entry_price": 0.03028,
+      "entry_time": "2026-08-02 11:55",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
     }
   },
   "cooldown": {
@@ -224,14 +217,14 @@
       "reason": "TIMEOUT"
     },
     "BERA": {
-      "exit_time": "2026-07-19 23:35",
+      "exit_time": "2026-08-02 07:15",
       "outcome": "LOSS",
       "reason": "TIMEOUT"
     },
     "JOE": {
-      "exit_time": "2026-07-28 07:30",
+      "exit_time": "2026-08-02 06:20",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "S": {
       "exit_time": "2026-08-01 01:20",
@@ -277,6 +270,11 @@
       "exit_time": "2026-07-29 05:55",
       "outcome": "WIN",
       "reason": "TP"
+    },
+    "XPL": {
+      "exit_time": "2026-08-02 06:55",
+      "outcome": "LOSS",
+      "reason": "SL"
     }
   }
 }
