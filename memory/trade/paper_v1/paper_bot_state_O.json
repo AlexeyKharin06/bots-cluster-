@@ -1,10 +1,10 @@
 {
-  "balance": 9772.578930636035,
+  "balance": 9874.589115890923,
   "reserve": 500.0,
-  "realized_pnl": 4850.064828656761,
-  "total_fees": 333.33163628032634,
-  "n_trades": 314,
-  "n_wins": 234,
+  "realized_pnl": 4952.165013911649,
+  "total_fees": 335.7016362803263,
+  "n_trades": 316,
+  "n_wins": 236,
   "n_losses": 80,
   "n_swaps": 43,
   "n_profit_locks": 123,
@@ -77,23 +77,6 @@
       "timeout_h": 24.0,
       "last_z": 2.1337455542377515
     },
-    "BTC/CAKE": {
-      "direction": 1,
-      "avg_spread": 4.889068422574566,
-      "entry_spread": 5.039289820009862,
-      "entry_z": -2.261703787924492,
-      "entry_time": "2026-07-30 14:21",
-      "n_entries": 15,
-      "beta": 17.357968288663866,
-      "sym_a": "BTC",
-      "sym_b": "CAKE",
-      "position_size": 675.0,
-      "kelly_weight": 0.9,
-      "mfe_pct": 0.0,
-      "half_life_h": 8.492775473605386,
-      "timeout_h": 24.0,
-      "last_z": -3.1057906754028655
-    },
     "TAKE/TNSR": {
       "direction": -1,
       "avg_spread": 0.11297513719922392,
@@ -110,23 +93,6 @@
       "half_life_h": 27.997224710650247,
       "timeout_h": 55.994449421300494,
       "last_z": 1.6636895594137737
-    },
-    "MUBARAK/RECALL": {
-      "direction": -1,
-      "avg_spread": 0.09260201018097236,
-      "entry_spread": 0.08952243586104025,
-      "entry_z": 2.5348048935774536,
-      "entry_time": "2026-07-30 15:11",
-      "n_entries": 2,
-      "beta": 1.3854924052520103,
-      "sym_a": "MUBARAK",
-      "sym_b": "RECALL",
-      "position_size": 750.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
-      "half_life_h": 24.20282323857272,
-      "timeout_h": 48.40564647714544,
-      "last_z": 2.6784933774785267
     },
     "TAKE/TREE": {
       "direction": -1,
@@ -259,6 +225,22 @@
       "mfe_pct": 0.0,
       "half_life_h": 35.34714641643824,
       "timeout_h": 70.69429283287649
+    },
+    "GMT/GRT": {
+      "direction": -1,
+      "avg_spread": 0.030446832095416987,
+      "entry_spread": 0.030446832095416987,
+      "entry_z": 1.403913620580147,
+      "entry_time": "2026-08-02 13:45",
+      "n_entries": 1,
+      "beta": 1.1871092263354432,
+      "sym_a": "GMT",
+      "sym_b": "GRT",
+      "position_size": 1125.0,
+      "kelly_weight": 1.5,
+      "mfe_pct": 0.0,
+      "half_life_h": 48.99074439083881,
+      "timeout_h": 97.98148878167763
     }
   }
 }

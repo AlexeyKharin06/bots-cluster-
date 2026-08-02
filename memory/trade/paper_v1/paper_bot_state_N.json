@@ -1,8 +1,8 @@
 {
-  "balance": 3610.2349315740107,
+  "balance": 3610.154931574011,
   "reserve": 500.0,
   "realized_pnl": -1329.6530684260306,
-  "total_fees": 183.79200000000068,
+  "total_fees": 183.8720000000007,
   "n_trades": 172,
   "n_wins": 101,
   "n_losses": 71,
@@ -83,18 +83,18 @@
     },
     "RENDER/SUSHI": {
       "direction": 1,
-      "avg_spread": 1.2837266406422576,
+      "avg_spread": 1.4910786473075104,
       "entry_spread": 1.2828685626878724,
       "entry_z": -2.0000906117294392,
       "entry_time": "2026-07-31 14:20",
-      "n_entries": 2,
+      "n_entries": 3,
       "beta": 0.5099653625648056,
       "sym_a": "RENDER",
       "sym_b": "SUSHI",
       "position_size": 800.0,
       "kelly_weight": 1.6,
       "mfe_pct": 0.08294331065978877,
-      "last_z": -1.8753701376124103
+      "last_z": -1.8629582519391161
     },
     "1000CAT/1000FLOKI": {
       "direction": -1,
@@ -148,7 +148,9 @@
       "sym_a": "ENA",
       "sym_b": "SUSHI",
       "position_size": 800.0,
-      "kelly_weight": 1.6
+      "kelly_weight": 1.6,
+      "mfe_pct": 8.179740511822864,
+      "last_z": 2.007523718949908
     }
   },
   "last_universe_scan": null,
