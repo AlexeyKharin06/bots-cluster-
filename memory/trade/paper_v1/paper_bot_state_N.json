@@ -1,11 +1,11 @@
 {
-  "balance": 3610.154931574011,
+  "balance": 3626.1793368170934,
   "reserve": 500.0,
-  "realized_pnl": -1329.6530684260306,
-  "total_fees": 183.8720000000007,
-  "n_trades": 172,
-  "n_wins": 101,
-  "n_losses": 71,
+  "realized_pnl": -1313.5646631829472,
+  "total_fees": 185.5360000000007,
+  "n_trades": 174,
+  "n_wins": 102,
+  "n_losses": 72,
   "positions": {
     "1000CAT/1MBABYDOGE": {
       "direction": -1,
@@ -51,21 +51,6 @@
       "last_z": 4.242081889625111,
       "mfe_pct": 0.027549764045886604
     },
-    "ONDO/PENGU": {
-      "direction": -1,
-      "avg_spread": -0.5544229466337713,
-      "entry_spread": -0.5162952617874819,
-      "entry_z": 2.3844345990878586,
-      "entry_time": "2026-07-30 13:50",
-      "n_entries": 5,
-      "beta": 0.06648265688794885,
-      "sym_a": "ONDO",
-      "sym_b": "PENGU",
-      "position_size": 200.0,
-      "kelly_weight": 0.4,
-      "last_z": -0.9165772779977279,
-      "mfe_pct": 4.678304218473494
-    },
     "LTC/SOL": {
       "direction": 1,
       "avg_spread": 1.3858965968458632,
@@ -109,19 +94,6 @@
       "position_size": 800.0,
       "kelly_weight": 1.6
     },
-    "SAND/SEI": {
-      "direction": -1,
-      "avg_spread": 0.6186908317921049,
-      "entry_spread": 0.6186908317921049,
-      "entry_z": 1.1066538580240706,
-      "entry_time": "2026-08-01 13:45",
-      "n_entries": 1,
-      "beta": 1.189662095679798,
-      "sym_a": "SAND",
-      "sym_b": "SEI",
-      "position_size": 800.0,
-      "kelly_weight": 1.6
-    },
     "GALA/SAND": {
       "direction": 1,
       "avg_spread": -3.182512855105026,
@@ -151,6 +123,32 @@
       "kelly_weight": 1.6,
       "mfe_pct": 8.179740511822864,
       "last_z": 2.007523718949908
+    },
+    "ETHFI/PENGU": {
+      "direction": 1,
+      "avg_spread": 5.5427774075734995,
+      "entry_spread": 5.5427774075734995,
+      "entry_z": -1.9769640202756547,
+      "entry_time": "2026-08-03 13:50",
+      "n_entries": 1,
+      "beta": 1.2722812747334689,
+      "sym_a": "ETHFI",
+      "sym_b": "PENGU",
+      "position_size": 200.0,
+      "kelly_weight": 0.4
+    },
+    "ONDO/TIA": {
+      "direction": 1,
+      "avg_spread": -0.834779431786038,
+      "entry_spread": -0.834779431786038,
+      "entry_z": -1.8706989917654275,
+      "entry_time": "2026-08-03 13:50",
+      "n_entries": 1,
+      "beta": 0.1352476537823699,
+      "sym_a": "ONDO",
+      "sym_b": "TIA",
+      "position_size": 200.0,
+      "kelly_weight": 0.4
     }
   },
   "last_universe_scan": null,
