@@ -1,11 +1,11 @@
 {
-  "balance": 9874.529115890924,
+  "balance": 9870.398842264876,
   "reserve": 500.0,
-  "realized_pnl": 4952.165013911649,
-  "total_fees": 335.7616362803263,
-  "n_trades": 316,
+  "realized_pnl": 4948.094740285601,
+  "total_fees": 337.0216362803263,
+  "n_trades": 317,
   "n_wins": 236,
-  "n_losses": 80,
+  "n_losses": 81,
   "n_swaps": 43,
   "n_profit_locks": 123,
   "positions": {
@@ -206,9 +206,10 @@
       "sym_b": "ARPA",
       "position_size": 750.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
+      "mfe_pct": 1.9488048763317778,
       "half_life_h": 39.96414373699375,
-      "timeout_h": 79.9282874739875
+      "timeout_h": 79.9282874739875,
+      "last_z": -0.6562757509636881
     },
     "1000CAT/1000FLOKI": {
       "direction": -1,
@@ -242,21 +243,21 @@
       "half_life_h": 48.99074439083881,
       "timeout_h": 97.98148878167763
     },
-    "AXL/BIO": {
+    "ACU/BB": {
       "direction": -1,
-      "avg_spread": 0.008899278748291106,
-      "entry_spread": 0.008899278748291106,
-      "entry_z": 1.2845906897968145,
-      "entry_time": "2026-08-02 21:15",
+      "avg_spread": -1.5288899038696804,
+      "entry_spread": -1.5288899038696804,
+      "entry_z": 1.0434046791518365,
+      "entry_time": "2026-08-04 13:55",
       "n_entries": 1,
-      "beta": 0.872177765279929,
-      "sym_a": "AXL",
-      "sym_b": "BIO",
+      "beta": 0.2397386431800497,
+      "sym_a": "ACU",
+      "sym_b": "BB",
       "position_size": 750.0,
       "kelly_weight": 1.0,
       "mfe_pct": 0.0,
-      "half_life_h": 9.537743683824138,
-      "timeout_h": 24.0
+      "half_life_h": 71.69473051869629,
+      "timeout_h": 143.38946103739258
     }
   }
 }
