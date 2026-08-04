@@ -1,33 +1,12 @@
 {
-  "balance": 4159.217861447213,
+  "balance": 4142.354132579648,
   "reserve": 500.0,
-  "realized_pnl": -793.9821385528261,
-  "total_fees": 137.2000000000002,
-  "n_trades": 113,
-  "n_wins": 37,
-  "n_losses": 76,
+  "realized_pnl": -810.845867420391,
+  "total_fees": 139.60000000000022,
+  "n_trades": 116,
+  "n_wins": 38,
+  "n_losses": 78,
   "positions": {
-    "YB": {
-      "direction": 1,
-      "entry_price": 0.06684,
-      "entry_time": "2026-07-31 14:15",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
-    "VVV": {
-      "direction": -1,
-      "entry_price": 11.599,
-      "entry_time": "2026-07-31 21:35",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
-    "DASH": {
-      "direction": 1,
-      "entry_price": 30.87,
-      "entry_time": "2026-07-31 22:30",
-      "position_size": 500.0,
-      "mfe_pct": 2.2999676060900365
-    },
     "AIXBT": {
       "direction": 1,
       "entry_price": 0.01782,
@@ -73,9 +52,9 @@
       "reason": "SL"
     },
     "YB": {
-      "exit_time": "2026-07-19 22:55",
+      "exit_time": "2026-08-04 09:45",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "STO": {
       "exit_time": "2026-07-19 17:55",
@@ -88,9 +67,9 @@
       "reason": "TIMEOUT"
     },
     "DASH": {
-      "exit_time": "2026-07-15 14:15",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-08-04 07:10",
+      "outcome": "WIN",
+      "reason": "TIMEOUT"
     },
     "FIL": {
       "exit_time": "2026-07-24 09:20",
@@ -218,9 +197,9 @@
       "reason": "SL"
     },
     "VVV": {
-      "exit_time": "2026-07-29 10:10",
+      "exit_time": "2026-08-04 08:45",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "FET": {
       "exit_time": "2026-07-30 01:45",
