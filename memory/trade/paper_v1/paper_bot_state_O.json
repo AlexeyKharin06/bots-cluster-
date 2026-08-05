@@ -1,10 +1,10 @@
 {
-  "balance": 9870.398842264876,
+  "balance": 9925.527940364713,
   "reserve": 500.0,
-  "realized_pnl": 4948.094740285601,
-  "total_fees": 337.0216362803263,
-  "n_trades": 317,
-  "n_wins": 236,
+  "realized_pnl": 5003.283838385436,
+  "total_fees": 338.28163628032627,
+  "n_trades": 318,
+  "n_wins": 237,
   "n_losses": 81,
   "n_swaps": 43,
   "n_profit_locks": 123,
@@ -194,23 +194,6 @@
       "half_life_h": 34.14053319509838,
       "timeout_h": 68.28106639019676
     },
-    "ACE/ARPA": {
-      "direction": 1,
-      "avg_spread": 14.066313791426916,
-      "entry_spread": 14.066313791426916,
-      "entry_z": -1.7485580053675658,
-      "entry_time": "2026-08-01 13:55",
-      "n_entries": 1,
-      "beta": 3.5059867783083725,
-      "sym_a": "ACE",
-      "sym_b": "ARPA",
-      "position_size": 750.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 1.9488048763317778,
-      "half_life_h": 39.96414373699375,
-      "timeout_h": 79.9282874739875,
-      "last_z": -0.6562757509636881
-    },
     "1000CAT/1000FLOKI": {
       "direction": -1,
       "avg_spread": -3.22357702552271,
@@ -255,9 +238,26 @@
       "sym_b": "BB",
       "position_size": 750.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 0.0,
+      "mfe_pct": 0.957459879603384,
       "half_life_h": 71.69473051869629,
-      "timeout_h": 143.38946103739258
+      "timeout_h": 143.38946103739258,
+      "last_z": 0.6189970894370608
+    },
+    "AXL/BIO": {
+      "direction": 1,
+      "avg_spread": -0.07419225641506877,
+      "entry_spread": -0.07419225641506877,
+      "entry_z": -3.1965311910759047,
+      "entry_time": "2026-08-05 14:00",
+      "n_entries": 1,
+      "beta": 0.8733783967296725,
+      "sym_a": "AXL",
+      "sym_b": "BIO",
+      "position_size": 750.0,
+      "kelly_weight": 1.0,
+      "mfe_pct": 0.0,
+      "half_life_h": 24.860283594200013,
+      "timeout_h": 49.720567188400025
     }
   }
 }
