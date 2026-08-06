@@ -1,20 +1,12 @@
 {
-  "balance": 4142.354132579648,
+  "balance": 4122.474446833296,
   "reserve": 500.0,
-  "realized_pnl": -810.845867420391,
-  "total_fees": 139.60000000000022,
-  "n_trades": 116,
+  "realized_pnl": -830.7255531667435,
+  "total_fees": 140.40000000000023,
+  "n_trades": 117,
   "n_wins": 38,
-  "n_losses": 78,
-  "positions": {
-    "AIXBT": {
-      "direction": 1,
-      "entry_price": 0.01782,
-      "entry_time": "2026-08-02 10:05",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    }
-  },
+  "n_losses": 79,
+  "positions": {},
   "cooldown": {
     "GUN": {
       "exit_time": "2026-07-15 01:55",
@@ -222,9 +214,9 @@
       "reason": "SL"
     },
     "AIXBT": {
-      "exit_time": "2026-07-26 09:40",
+      "exit_time": "2026-08-06 03:55",
       "outcome": "LOSS",
-      "reason": "SL"
+      "reason": "TIMEOUT"
     },
     "CHZ": {
       "exit_time": "2026-07-28 00:15",
