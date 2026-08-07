@@ -1,17 +1,88 @@
 {
-  "balance": 4122.474446833296,
+  "balance": 4123.6067644922,
   "reserve": 500.0,
-  "realized_pnl": -830.7255531667435,
-  "total_fees": 140.40000000000023,
-  "n_trades": 117,
-  "n_wins": 38,
-  "n_losses": 79,
-  "positions": {},
+  "realized_pnl": -824.7932355078435,
+  "total_fees": 146.80000000000032,
+  "n_trades": 119,
+  "n_wins": 39,
+  "n_losses": 80,
+  "positions": {
+    "GIGGLE": {
+      "direction": -1,
+      "entry_price": 31.31,
+      "entry_time": "2026-08-06 14:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "FET": {
+      "direction": -1,
+      "entry_price": 0.1356,
+      "entry_time": "2026-08-06 14:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.2949852507374673
+    },
+    "BULLA": {
+      "direction": 1,
+      "entry_price": 0.015009,
+      "entry_time": "2026-08-06 14:10",
+      "position_size": 500.0,
+      "mfe_pct": 0.07328935971750994
+    },
+    "EUL": {
+      "direction": -1,
+      "entry_price": 1.3108,
+      "entry_time": "2026-08-06 14:10",
+      "position_size": 500.0,
+      "mfe_pct": 1.1595971925541515
+    },
+    "RONIN": {
+      "direction": 1,
+      "entry_price": 0.05109,
+      "entry_time": "2026-08-06 14:35",
+      "position_size": 500.0,
+      "mfe_pct": 1.0569583088666956
+    },
+    "AVNT": {
+      "direction": 1,
+      "entry_price": 0.08578,
+      "entry_time": "2026-08-06 15:05",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "HEMI": {
+      "direction": 1,
+      "entry_price": 0.005186,
+      "entry_time": "2026-08-06 15:50",
+      "position_size": 500.0,
+      "mfe_pct": 4.0686463555726915
+    },
+    "ENSO": {
+      "direction": 1,
+      "entry_price": 0.9687,
+      "entry_time": "2026-08-06 16:40",
+      "position_size": 500.0,
+      "mfe_pct": 2.8388561990296157
+    },
+    "ARC": {
+      "direction": 1,
+      "entry_price": 0.05538,
+      "entry_time": "2026-08-06 18:01",
+      "position_size": 500.0,
+      "mfe_pct": 0.0
+    },
+    "S": {
+      "direction": -1,
+      "entry_price": 0.02181,
+      "entry_time": "2026-08-06 18:36",
+      "position_size": 500.0,
+      "mfe_pct": 0.04585052728106609
+    }
+  },
   "cooldown": {
     "GUN": {
-      "exit_time": "2026-07-15 01:55",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-08-06 16:15",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "METIS": {
       "exit_time": "2026-07-27 02:55",
@@ -114,7 +185,7 @@
       "reason": "TRAIL"
     },
     "RESOLV": {
-      "exit_time": "2026-07-31 17:55",
+      "exit_time": "2026-08-06 16:31",
       "outcome": "LOSS",
       "reason": "SL"
     },
