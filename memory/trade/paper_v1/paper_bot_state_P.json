@@ -1,46 +1,32 @@
 {
-  "balance": 4123.6067644922,
+  "balance": 4158.3013988846515,
   "reserve": 500.0,
-  "realized_pnl": -824.7932355078435,
-  "total_fees": 146.80000000000032,
-  "n_trades": 119,
-  "n_wins": 39,
-  "n_losses": 80,
+  "realized_pnl": -789.6986011153936,
+  "total_fees": 150.40000000000038,
+  "n_trades": 123,
+  "n_wins": 42,
+  "n_losses": 81,
   "positions": {
-    "GIGGLE": {
-      "direction": -1,
-      "entry_price": 31.31,
-      "entry_time": "2026-08-06 14:05",
-      "position_size": 500.0,
-      "mfe_pct": 0.0
-    },
     "FET": {
       "direction": -1,
       "entry_price": 0.1356,
       "entry_time": "2026-08-06 14:05",
       "position_size": 500.0,
-      "mfe_pct": 0.2949852507374673
+      "mfe_pct": 3.0973451327433676
     },
     "BULLA": {
       "direction": 1,
       "entry_price": 0.015009,
       "entry_time": "2026-08-06 14:10",
       "position_size": 500.0,
-      "mfe_pct": 0.07328935971750994
-    },
-    "EUL": {
-      "direction": -1,
-      "entry_price": 1.3108,
-      "entry_time": "2026-08-06 14:10",
-      "position_size": 500.0,
-      "mfe_pct": 1.1595971925541515
+      "mfe_pct": 2.731694316743294
     },
     "RONIN": {
       "direction": 1,
       "entry_price": 0.05109,
       "entry_time": "2026-08-06 14:35",
       "position_size": 500.0,
-      "mfe_pct": 1.0569583088666956
+      "mfe_pct": 4.188686631434724
     },
     "AVNT": {
       "direction": 1,
@@ -48,20 +34,6 @@
       "entry_time": "2026-08-06 15:05",
       "position_size": 500.0,
       "mfe_pct": 0.0
-    },
-    "HEMI": {
-      "direction": 1,
-      "entry_price": 0.005186,
-      "entry_time": "2026-08-06 15:50",
-      "position_size": 500.0,
-      "mfe_pct": 4.0686463555726915
-    },
-    "ENSO": {
-      "direction": 1,
-      "entry_price": 0.9687,
-      "entry_time": "2026-08-06 16:40",
-      "position_size": 500.0,
-      "mfe_pct": 2.8388561990296157
     },
     "ARC": {
       "direction": 1,
@@ -76,6 +48,13 @@
       "entry_time": "2026-08-06 18:36",
       "position_size": 500.0,
       "mfe_pct": 0.04585052728106609
+    },
+    "STO": {
+      "direction": 1,
+      "entry_price": 0.04001,
+      "entry_time": "2026-08-07 09:55",
+      "position_size": 500.0,
+      "mfe_pct": 2.2494376405898686
     }
   },
   "cooldown": {
@@ -165,9 +144,9 @@
       "reason": "TIMEOUT"
     },
     "HEMI": {
-      "exit_time": "2026-07-31 14:20",
-      "outcome": "LOSS",
-      "reason": "TIMEOUT"
+      "exit_time": "2026-08-07 11:20",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "SOON": {
       "exit_time": "2026-07-30 05:20",
@@ -180,9 +159,9 @@
       "reason": "SL"
     },
     "GIGGLE": {
-      "exit_time": "2026-07-30 15:10",
-      "outcome": "WIN",
-      "reason": "TRAIL"
+      "exit_time": "2026-08-07 07:36",
+      "outcome": "LOSS",
+      "reason": "SL"
     },
     "RESOLV": {
       "exit_time": "2026-08-06 16:31",
@@ -200,9 +179,9 @@
       "reason": "SL"
     },
     "EUL": {
-      "exit_time": "2026-07-30 09:25",
-      "outcome": "LOSS",
-      "reason": "SL"
+      "exit_time": "2026-08-07 11:05",
+      "outcome": "WIN",
+      "reason": "TRAIL"
     },
     "BANANAS31": {
       "exit_time": "2026-07-23 16:20",
@@ -275,7 +254,7 @@
       "reason": "TP"
     },
     "ENSO": {
-      "exit_time": "2026-07-31 20:45",
+      "exit_time": "2026-08-07 09:35",
       "outcome": "WIN",
       "reason": "TRAIL"
     },

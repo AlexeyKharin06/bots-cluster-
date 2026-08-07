@@ -1,26 +1,12 @@
 {
-  "balance": 4414.702192218915,
+  "balance": 4336.882507876881,
   "reserve": 500.0,
-  "realized_pnl": -516.2418077811316,
-  "total_fees": 208.576000000002,
-  "n_trades": 193,
-  "n_wins": 112,
-  "n_losses": 81,
+  "realized_pnl": -591.1494921231676,
+  "total_fees": 217.08800000000247,
+  "n_trades": 200,
+  "n_wins": 117,
+  "n_losses": 83,
   "positions": {
-    "ETHFI/SAND": {
-      "direction": 1,
-      "avg_spread": 2.456765769527001,
-      "entry_spread": 2.2835913397500134,
-      "entry_z": -2.6401535605466586,
-      "entry_time": "2026-08-04 13:55",
-      "n_entries": 3,
-      "beta": 1.0273454376466995,
-      "sym_a": "ETHFI",
-      "sym_b": "SAND",
-      "position_size": 800.0,
-      "kelly_weight": 1.6,
-      "last_z": -1.447801947642126
-    },
     "SUSHI/WIF": {
       "direction": -1,
       "avg_spread": -0.9491128692340979,
@@ -33,8 +19,8 @@
       "sym_b": "WIF",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "mfe_pct": 0.7038486675649214,
-      "last_z": 2.3800321177551433
+      "mfe_pct": 0.9735793653740554,
+      "last_z": 1.509321815457693
     },
     "LTC/XRP": {
       "direction": -1,
@@ -48,7 +34,7 @@
       "sym_b": "XRP",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": 3.154509803587098,
+      "last_z": 2.0870416107548815,
       "mfe_pct": 0.19708113139351724
     },
     "LINK/XRP": {
@@ -63,22 +49,7 @@
       "sym_b": "XRP",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "last_z": 3.3960657780701666
-    },
-    "LTC/SOL": {
-      "direction": -1,
-      "avg_spread": -2.5168615972104322,
-      "entry_spread": -2.5181132197706733,
-      "entry_z": 2.1971225323565027,
-      "entry_time": "2026-08-06 14:40",
-      "n_entries": 9,
-      "beta": 1.4751561051283535,
-      "sym_a": "LTC",
-      "sym_b": "SOL",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.23563602630702896,
-      "last_z": 2.9986176511367164
+      "last_z": 2.108507659081083
     },
     "1000FLOKI/1000SHIB": {
       "direction": -1,
@@ -92,23 +63,8 @@
       "sym_b": "1000SHIB",
       "position_size": 200.0,
       "kelly_weight": 0.4,
-      "mfe_pct": 4.643052294988692,
-      "last_z": 3.855521070687935
-    },
-    "1000SHIB/1MBABYDOGE": {
-      "direction": 1,
-      "avg_spread": 11.579641802798005,
-      "entry_spread": 11.711198495388285,
-      "entry_z": -2.1330711792116483,
-      "entry_time": "2026-08-06 17:32",
-      "n_entries": 5,
-      "beta": 2.116586283684479,
-      "sym_a": "1000SHIB",
-      "sym_b": "1MBABYDOGE",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "last_z": -2.019699646315414,
-      "mfe_pct": 13.642038957120661
+      "mfe_pct": 5.416401265682946,
+      "last_z": 1.924369755706644
     },
     "1000FLOKI/1000PEPE": {
       "direction": -1,
@@ -122,37 +78,83 @@
       "sym_b": "1000PEPE",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "mfe_pct": 4.334632876641775,
-      "last_z": 2.5509493465428514
+      "mfe_pct": 5.554591791200281,
+      "last_z": 1.1750553032565996
     },
-    "SAND/SUSHI": {
+    "ONDO/PENGU": {
       "direction": 1,
-      "avg_spread": -1.8555987583448577,
-      "entry_spread": -1.85463375636548,
-      "entry_z": -2.7443722636591947,
-      "entry_time": "2026-08-06 18:01",
-      "n_entries": 7,
-      "beta": 0.7443741885265603,
-      "sym_a": "SAND",
-      "sym_b": "SUSHI",
-      "position_size": 500.0,
-      "kelly_weight": 1.0,
-      "mfe_pct": 0.667023128874833,
-      "last_z": -2.70995857419176
-    },
-    "JUP/PENGU": {
-      "direction": 1,
-      "avg_spread": -3.3945307115007806,
-      "entry_spread": -3.4052176459368386,
-      "entry_z": -2.653170168236071,
-      "entry_time": "2026-08-06 18:06",
-      "n_entries": 9,
-      "beta": -0.3341396546938701,
-      "sym_a": "JUP",
+      "avg_spread": -1.6963826378343563,
+      "entry_spread": -1.702887117271569,
+      "entry_z": -2.011330931178672,
+      "entry_time": "2026-08-07 09:30",
+      "n_entries": 5,
+      "beta": -0.1276580356576277,
+      "sym_a": "ONDO",
       "sym_b": "PENGU",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "mfe_pct": 0.5716789627231655,
+      "last_z": -1.7939138432199753
+    },
+    "1000SHIB/1MBABYDOGE": {
+      "direction": 1,
+      "avg_spread": 7.345696807684026,
+      "entry_spread": 7.636240013813914,
+      "entry_z": -2.2063022461193422,
+      "entry_time": "2026-08-07 09:50",
+      "n_entries": 5,
+      "beta": 1.6144687293405253,
+      "sym_a": "1000SHIB",
+      "sym_b": "1MBABYDOGE",
+      "position_size": 800.0,
+      "kelly_weight": 1.6,
+      "last_z": -2.1805388747474366,
+      "mfe_pct": 28.781789655385825
+    },
+    "ONDO/TIA": {
+      "direction": 1,
+      "avg_spread": -1.3805067771625434,
+      "entry_spread": -1.3847832843973078,
+      "entry_z": -2.101206846843162,
+      "entry_time": "2026-08-07 10:15",
+      "n_entries": 5,
+      "beta": -0.30182902948375107,
+      "sym_a": "ONDO",
+      "sym_b": "TIA",
       "position_size": 500.0,
       "kelly_weight": 1.0,
-      "last_z": -3.024018987058318
+      "mfe_pct": 0.7696112709516534,
+      "last_z": -1.8963236469577105
+    },
+    "INJ/TIA": {
+      "direction": 1,
+      "avg_spread": 2.1548797943618982,
+      "entry_spread": 2.157842727685761,
+      "entry_z": -2.2158931266284014,
+      "entry_time": "2026-08-07 10:25",
+      "n_entries": 6,
+      "beta": 0.5869581413366681,
+      "sym_a": "INJ",
+      "sym_b": "TIA",
+      "position_size": 200.0,
+      "kelly_weight": 0.4,
+      "mfe_pct": 0.8395738616887805,
+      "last_z": -1.9654097058594262
+    },
+    "SEI/SUSHI": {
+      "direction": 1,
+      "avg_spread": -2.260109741736435,
+      "entry_spread": -2.258962056903393,
+      "entry_z": -1.990651686319594,
+      "entry_time": "2026-08-07 11:05",
+      "n_entries": 4,
+      "beta": 0.5204223151916293,
+      "sym_a": "SEI",
+      "sym_b": "SUSHI",
+      "position_size": 800.0,
+      "kelly_weight": 1.6,
+      "mfe_pct": 0.9492969030163501,
+      "last_z": -1.576379663784974
     }
   },
   "last_universe_scan": null,
